@@ -1,6 +1,6 @@
 ![Creativechain Media](https://www.creativechain.org/wp-content/uploads/2016/04/Logo-cretivechain-header-2.2.png)
 
-### CREATIVECHAIN
+## UNIVERSE
 
 #### Dev
 
@@ -29,3 +29,5 @@
         $ node build.js -p=windows -a=x64 -o='./releases'
       ```
 * Uses [electron-packager](https://github.com/electron-userland/electron-packager) to compile
+
+Authors: Vicent nos Ripolles, Manolo Edge Tejero

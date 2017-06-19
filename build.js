@@ -4,14 +4,14 @@ const args   = process.argv.slice(2);
 
 
 var optionsWindows = {
-    'arch': 'ia32',
+    'arch': 'x64',
     'platform': 'win32',
     'dir': './',
     'appCopyright': 'Creativechain 2017',
     'appVersion': '1.0.0',
     'asar': false,
-    'icon': './app.ico',
-    'name': 'Creativechain Media',
+    'icon': '1.ico',
+    'name': 'Creativechain Universe',
     'out': 'C:/releases',
     'overwrite': true,
     'prune': true,
@@ -19,9 +19,9 @@ var optionsWindows = {
     'version-string': {
         'CompanyName': 'Creativechain',
         'FileDescription': 'Creativechain media explorer and wallet', /*This is what display windows on task manager, shortcut and process*/
-        'OriginalFilename': 'Creativechain Media',
-        'ProductName': 'Creativechain Media',
-        'InternalName': 'Creativechain Media'
+        'OriginalFilename': 'Creativechain Universe',
+        'ProductName': 'Creativechain Universe',
+        'InternalName': 'Creativechain Universe'
     }
 };
 var optionsLinux = {
@@ -31,8 +31,8 @@ var optionsLinux = {
     'appCopyright': 'Creativechain 2017',
     'appVersion': '1.0.0',
     'asar': false,
-    'icon': './app.ico',
-    'name': 'Creativechain Media',
+    'icon': '1.ico',
+    'name': 'Creativechain Universe',
     'out': 'C:/releases',
     'overwrite': true,
     'prune': true,
@@ -40,9 +40,9 @@ var optionsLinux = {
     'version-string': {
         'CompanyName': 'Creativechain',
         'FileDescription': 'Creativechain media explorer and wallet', /*This is what display windows on task manager, shortcut and process*/
-        'OriginalFilename': 'Creativechain Media',
-        'ProductName': 'Creativechain Media',
-        'InternalName': 'Creativechain Media'
+        'OriginalFilename': 'Creativechain Universe',
+        'ProductName': 'Creativechain Universe',
+        'InternalName': 'Creativechain Universe'
     }
 };
 var optionsMac = {
@@ -52,8 +52,8 @@ var optionsMac = {
     'appCopyright': 'Creativechain 2017',
     'appVersion': '1.0.0',
     'asar': false,
-    'icon': './app.ico',
-    'name': 'Creativechain Media',
+    'icon': '1.ico',
+    'name': 'Creativechain Universe',
     'out': 'C:/releases',
     'overwrite': true,
     'prune': true,
@@ -61,9 +61,9 @@ var optionsMac = {
     'version-string': {
         'CompanyName': 'Creativechain',
         'FileDescription': 'Creativechain media explorer and wallet', /*This is what display windows on task manager, shortcut and process*/
-        'OriginalFilename': 'Creativechain Media',
-        'ProductName': 'Creativechain Media',
-        'InternalName': 'Creativechain Media'
+        'OriginalFilename': 'Creativechain Universe',
+        'ProductName': 'Creativechain Universe',
+        'InternalName': 'Creativechain Universe'
     }
 };
 
