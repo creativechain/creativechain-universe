@@ -1,0 +1,116 @@
+
+<div class="row mobile-social-share">
+    <div class="col-md-10 col-sm-10">
+        <div id="title" class="title-publication"></div>
+    </div>
+    <div class="col-md-2 col-sm-2 text-right socialHolder">
+        <div id="socialShare" class="btn-group share-group">
+            <a data-toggle="dropdown" class="btn btn-info">
+                <i class="fa fa-share-alt fa-inverse"></i>
+            </a>
+            <ul class="dropdown-menu" id="buttons">
+                <li>
+                    <a data-original-title="Twitter" rel="tooltip"  href="#" class="btn btn-twitter" data-placement="left">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-original-title="Facebook" rel="tooltip"  href="#" class="btn btn-facebook" data-placement="left">
+                        <i class="fa fa-facebook share-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-original-title="Google+" rel="tooltip"  href="#" class="btn btn-google" data-placement="left">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-original-title="LinkedIn" rel="tooltip"  href="#" class="btn btn-linkedin" data-placement="left">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-original-title="Pinterest" rel="tooltip"  class="btn btn-pinterest" data-placement="left">
+                        <i class="fa fa-vk"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-original-title="baidu" rel="tooltip" class="btn btn-baidu" data-placement="left">
+                        <img src="img/social-baidu.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a data-original-title="Email" rel="tooltip" class="btn btn-mail" data-placement="left">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </li>
+                <li>
+                    <input type="hidden" id="modaltxS" value="">
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+    <div class="col-md-12">
+        <div id="media" class="media"></div>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+        <div id="author"></div>
+    </div>
+    <div class="col-md-7 col-sm-12 col-xs-12">
+        <ul class="list-inline position-icon-like">
+            <li><p><a id="torrent" class="ctx" href=""><img src="img/torrent.png" alt=""></a></p></li>
+            <li><p><img id="likebutton" class="ctx" src="img/like.png" alt="" onClick="like(null)"><span id="likenumber">0</span></p></li>
+            <li><p><img id="unlikebutton" class="ctx" src="img/unlike.png" alt="" onClick="unlike(null)"><span id="unlikenumber">0</span></p></li>
+        </ul>
+    </div>
+</div>
+<div class="row feature">
+    <div class="col-md-3 col-sm-4 col-xs-4 text-center">
+        <div id="year"></div>
+    </div>
+    <div class="col-md-3 col-sm-4 col-xs-4 text-center">
+        <div id="edition"></div>
+    </div>
+    <div class="col-md-3 col-sm-4 col-xs-4 text-center">
+        <div id="format"></div>
+    </div>
+    <div class="col-md-3 col-sm-12 text-center smart-action">
+        <a data-toggle="dropdown" class="btn btn-primary ctx">
+            Smart Action
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a id="sponsor" href="">Sponsor</a>
+            </li>
+            <li>
+                <a id="partner"  onClick="partner();">Partner</a>
+            </li>
+            <li>
+                <a id="acceptoffer" onClick="aoffer();">Accept Offer</a>
+            </li>
+            <li>
+                <a id="sign" onClick="alert('cooming soon');">Sign</a>
+            </li>
+            <li>
+                <a id="spend"  onClick="spend();">Spend</a>
+            </li>
+        </ul>
+        <!--<div id="smartbutton">
+            <button id="smartaction" type="button" class="btn btn-primary ctx" onclick="smartaction();">Smart Action</button>
+        </div>-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+    </div>
+</div>
+<div id="blockdown" style="clear:both">&nbsp;</div>
+<div id="modals"></div>
