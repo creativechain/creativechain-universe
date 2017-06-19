@@ -8,8 +8,8 @@
 
 * `npm install` - You may need to remove npm_modules folder first
 * After install is done you have to recompile **sqlite3** module for your platform, so it can be used from electron
-  * `npm install —save-dev electron-builder`
-  * `npm install —save sqlite3`
+  * `npm install -save-dev electron-builder`
+  * `npm install -save sqlite3`
   * `npm run postinstall`
   * **electron-builder** doc [here](https://github.com/electron-userland/electron-builder/wiki/Multi-Platform-Build)
 
