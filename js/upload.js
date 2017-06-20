@@ -140,7 +140,6 @@ $(document).ready(function () {
       $('#torrent_id').val(torrent.infoHash)
       $('#torrent_name').val(torrent.name)
       $('#publish').prop( "disabled", false );
-
     })
   })
 })

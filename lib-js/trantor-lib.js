@@ -43,7 +43,7 @@ const rpc = new RpcClient({
 let trantor = {};
 let total_blocks = 0;
 let isExploring = false;
-
+let hasExploredOnce = false;
 setInterval(function () {
 
   if (!isExploring) {
@@ -57,11 +57,12 @@ function decode_utf8(s) {
 }
 function creaExplore() {
   isExploring = true;
-  if (typeof $ != 'undefined') {
+  if (typeof $ != 'undefined' && !hasExploredOnce) {
     $('.exploring').remove();
     $('body').append('<div class="exploring">Exploring blockchain please wait</div>')
     $('.exploring').append('<h4 class="total_blocks"></h4>').append('<h4 class="status"></h4>')
   }
+  hasExploredOnce = true;
   console.log("EXPLORING CREA BLOCKS .... SYNC ... please wait ... \n");
   let lastblock;
 
@@ -341,12 +342,16 @@ function listsinceblock(starthash, lastblock) {
                 else {
                   if (block.previousblockhash && block.previousblockhash != lastblock && block.previousblockhash != starthash) {
                     console.log("End lastblock 2");
+                    db.all('DELETE FROM lastexplored', _ => {});
                     db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+starthash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
                     listBlock(block.previousblockhash)
                   } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
                     isExploring = false;
                     console.log("End lastblock");
                     console.log("Finaly");
+                    var params = getSearchParameters();
+                		findWord('', 0);
+
                     if (typeof $ != 'undefined') {
                       $('.exploring').remove();
                     }
@@ -355,6 +360,10 @@ function listsinceblock(starthash, lastblock) {
                     insetWord.finalize(_ => {});
                     db.all('DELETE FROM lastexplored', _ => {});
                     // listBlock(block.previousblockhash)
+                    db.run('commit', function() {
+                      console.log("After commit");
+                      db.close();
+                    });
                   }
                 }
               })
@@ -364,6 +373,7 @@ function listsinceblock(starthash, lastblock) {
             else {
               if (block.previousblockhash && block.previousblockhash != lastblock && block.previousblockhash != starthash) {
                 console.log("End lastblock 4");
+                db.all('DELETE FROM lastexplored', _ => {});
                 db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+starthash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
                 listBlock(block.previousblockhash)
               } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
