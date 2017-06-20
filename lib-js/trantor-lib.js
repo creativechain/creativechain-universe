@@ -193,23 +193,25 @@ trantor.getdatafromref = getdatafromref2;
 
 let getDecTxSecurity = 0;
 function getDecodedTransaction(tx_id, cback) {
-  CREA_crea_cmd('getrawtransaction', false, tx_id, (rawtx) => {
-    CREA_crea_cmd('decoderawtransaction', false, rawtx, (decodedtx) => {
-      if (decodedtx) {
-        cback(decodedtx);
-      } else {
-        https.call('GET', '/api/getrawtransaction?txid=' + tx_id + '&decrypt=1', [],
+  setTimeout(function () {
+    CREA_crea_cmd('getrawtransaction', false, tx_id, (rawtx) => {
+      CREA_crea_cmd('decoderawtransaction', false, rawtx, (decodedtx) => {
+        if (decodedtx) {
+          cback(decodedtx);
+        } else {
+          https.call('GET', '/api/getrawtransaction?txid=' + tx_id + '&decrypt=1', [],
           ((cback, decodedtx) => {
             if (!decodedtx && getDecTxSecurity < 1000) {
-                getDecTxSecurity++;
-                setTimeout(_ => {getDecodedTransaction(tx_id, cback)}, 3000)
+              getDecTxSecurity++;
+              setTimeout(_ => {getDecodedTransaction(tx_id, cback)}, 1000)
             } else {
               cback(decodedtx || 'Theres some kind of error with tx['+tx_id+']');
             }
           }).bind(this, cback))
-      }
+        }
+      });
     });
-  });
+  }, 500)
 }
 trantor.getDecodedTransaction = getDecodedTransaction;
 
@@ -233,7 +235,7 @@ function listsinceblock(starthash, lastblock) {
               .html(`
                 <span>BLOCK: <b>${block.hash}</b></span>
                 <span>Height: [<span class="col-gray">${block.height}</span>/${total_blocks}]</span>
-                <span>Transactions: [${block.tx.length}]</span>
+                <span>Transactions: [<span class="c_tx col-gray"></span>/${block.tx.length}]</span>
                 <span>Done: ${total_blocks - block.height}</span>
                 `)
             // $('.exploring').append('<h3 class="status"></h3>')
@@ -242,6 +244,9 @@ function listsinceblock(starthash, lastblock) {
 
           function processBlockTx(i) {
             let tx_id = block.tx[i];
+            if (typeof $ != 'undefined') {
+              $('.c_tx').text(i);
+            }
             if (tx_id) {
               getDecodedTransaction(tx_id, decodedintx => {
                 if (decodedintx && decodedintx['vout']) {
