@@ -7,6 +7,7 @@
 ###### Install
 
 * `npm install` - You may need to remove npm_modules folder first
+* `npm install -g electron` - install electron globaly so you can use it from command-line
 * After install is done you have to recompile **sqlite3** module for your platform, so it can be used from electron
   * `npm install -save-dev electron-builder`
   * `npm install -save sqlite3`

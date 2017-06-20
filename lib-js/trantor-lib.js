@@ -204,7 +204,8 @@ function getDecodedTransaction(tx_id, cback) {
                 getDecTxSecurity++;
                 getDecodedTransaction(tx_id, cback);
             } else {
-              cback(decodedtx || 'Theres some kind of error with tx['+tx_id+']');}
+              cback(decodedtx || 'Theres some kind of error with tx['+tx_id+']');
+            }
           }).bind(this, cback))
       }
     });
