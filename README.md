@@ -4,6 +4,12 @@
 
 #### Dev
 
+#### important
+Needs to have creativecoind running, change **creativecoind-win64.exe** for the one for your platform
+```
+creativecoind-win64.exe -addnode=80.241.212.178:10946 -datadir="/datadir" -daemon -txindex -reindex-chainstate
+```
+
 ###### Install
 
 * `npm install` - You may need to remove npm_modules folder first
