@@ -350,7 +350,7 @@ function listsinceblock(starthash, lastblock) {
                     console.log("End lastblock");
                     console.log("Finaly");
                     var params = getSearchParameters();
-                		findWord('', 0);
+                		findWord(undefined, 0);
 
                     if (typeof $ != 'undefined') {
                       $('.exploring').remove();
