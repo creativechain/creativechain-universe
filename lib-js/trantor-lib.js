@@ -41,11 +41,14 @@ const rpc = new RpcClient({
 });
 
 let trantor = {};
-
+let total_blocks = 0;
+let isExploring = false;
 
 setInterval(function () {
 
-  trantor.creaExplore();
+  if (!isExploring) {
+    trantor.creaExplore();
+  }
 
 }, 60 * 1000)
 
@@ -53,8 +56,11 @@ function decode_utf8(s) {
   return decodeURIComponent(escape(s));
 }
 function creaExplore() {
+  isExploring = true;
   if (typeof $ != 'undefined') {
+    $('.exploring').remove();
     $('body').append('<div class="exploring">Exploring blockchain please wait</div>')
+    $('.exploring').append('<h4 class="total_blocks"></h4>').append('<h4 class="status"></h4>')
   }
   console.log("EXPLORING CREA BLOCKS .... SYNC ... please wait ... \n");
   let lastblock;
@@ -62,8 +68,11 @@ function creaExplore() {
   db.all('SELECT * FROM lastexplored ORDER BY date ASC LIMIT 0,1', (_, res) => {
     console.log("Res", _, res);
     if (res[0] && res[0].blockhash) {
-      console.log("Didnt finish last time");
-      listsinceblock(res[0].blockhash, res[0].untilblock);//add lastblock['block']
+      https.call('GET', '/api/getblockcount', null, (blockcount) => {
+        total_blocks = blockcount;
+        console.log("Didnt finish last time");
+        listsinceblock(res[0].blockhash, res[0].untilblock || null);//add lastblock['block']
+      })
     }
     else {
       db.all("SELECT * FROM addrtotx ORDER BY date DESC LIMIT 0,1",
@@ -73,6 +82,7 @@ function creaExplore() {
           console.log('Lastblock', lastblock);
           https.call('GET', '/api/getblockcount', null, (blockcount) => {
             console.log(blockcount)
+            total_blocks = blockcount;
             if (lastblock && lastblock['block']) {
               console.log("ahs block", blockcount);
               CREA_crea_cmd('getblockhash', false, blockcount, (starthash) => {
@@ -182,23 +192,20 @@ function getdatafromref2(decoraw, cb) {
 trantor.getdatafromref = getdatafromref2;
 
 let getDecTxSecurity = 0;
-function getDecodedTransaction(tx_id, cb) {
-  getDecTxSecurity++;
-  // console.log("TXID", tx_id);
+function getDecodedTransaction(tx_id, cback) {
   CREA_crea_cmd('getrawtransaction', false, tx_id, (rawtx) => {
-    // console.log("getrawtransaction", rawtx);
     CREA_crea_cmd('decoderawtransaction', false, rawtx, (decodedtx) => {
-      // console.log("decodedtx", decodedtx);
       if (decodedtx) {
-        cb(decodedtx);
+        cback(decodedtx);
       } else {
-        // console.log("Error", tx_id);
         https.call('GET', '/api/getrawtransaction?txid=' + tx_id + '&decrypt=1', [],
-          ((cb, decodedtx) => {
-            if (!decodedtx) {
-                getDecodedTransaction(tx_id, cb);
-            } else cb(decodedtx);
-          }).bind(this, cb))
+          ((cback, decodedtx) => {
+            if (!decodedtx && getDecTxSecurity < 1000) {
+                getDecTxSecurity++;
+                getDecodedTransaction(tx_id, cback);
+            } else {
+              cback(decodedtx || 'Theres some kind of error with tx['+tx_id+']');}
+          }).bind(this, cback))
       }
     });
   });
@@ -207,155 +214,185 @@ trantor.getDecodedTransaction = getDecodedTransaction;
 
 // Va muy lento - creo que es getDecodedTransaction o los inserts a base de datos
 function listsinceblock(starthash, lastblock) {
-  function listBlock(starthash) {
-    CREA_crea_cmd('getblock', 0, starthash, (b) => {
-      if (b) {
-        let block = b;
-        let blockhash = block.hash;
-        let blocktime = block.time;
-        let bheight = block.height + 0;
-        console.log((new Date()).toLocaleString() + " [" + block.height + "] [" + block.tx.length + "] - Listing tx for: ", block.hash);
+  db.serialize(function () {
 
-        function processBlockTx(i) {
-          let tx_id = block.tx[i];
-          if (tx_id) {
-            getDecodedTransaction(tx_id, decodedintx => {
-              if (decodedintx && decodedintx['vout']) {
-                let vinTxID = decodedintx.txid;
-                decodedintx.vout.forEach(vout => {
-                  if (vout['scriptPubKey'] && vout['scriptPubKey']['addresses']) {
-                    vout['scriptPubKey']['addresses'].forEach(address => {
-                      db.run("INSERT INTO addrtotx (addr, tx, amount, date, block, vin, vout, n) VALUES ('"
-                        + address + "', '" + vinTxID + "', '" + vout['value'] + "', " + blocktime + ", '" + blockhash + "', " + 0 + ", " + 1 + ", " + vout.n + ")",
-                        (error, row) => {});
-                    })
-                  }
-                })
-              }
+    function listBlock(starthash) {
+      let insetAddr = db.prepare("INSERT INTO addrtotx VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+      let insetWord = db.prepare("INSERT INTO wordToReference VALUES (?, ?, ?, ?)");
+      let insertCtx = db.prepare("INSERT INTO contracttx  VALUES (?, ?, ?, ?, ?, ?)")
+      CREA_crea_cmd('getblock', 0, starthash, (b) => {
+        if (b) {
+          let block = b;
+          let blockhash = block.hash;
+          let blocktime = block.time;
+          let bheight = block.height + 0;
 
-              /* Cojo los vouts de los vins de la transaccion */
+          if (typeof $ != 'undefined') {
+            $('.exploring .status')
+              .html(`
+                <span>BLOCK: <b>${block.hash}</b></span>
+                <span>Height: [<span class="col-gray">${block.height}</span>/${total_blocks}]</span>
+                <span>Transactions: [${block.tx.length}]</span>
+                `)
+            // $('.exploring').append('<h3 class="status"></h3>')
+          }
+          // console.log((new Date()).toLocaleString() + " [" + block.height + "] [" + block.tx.length + "] - Listing tx for: ", block.hash);
 
-              if (decodedintx && decodedintx['vin']) {
-                decodedintx.vin.forEach(vin => {
-                  let index = vin.vout;
-                  if (vin.txid) {
-                    // console.log("Vin", vin.txid);
-                    getDecodedTransaction(vin.txid, vindeco => {
-                      // console.log("vinsd", vindeco);
-                      if (vindeco && vindeco.vout) {
-                        let vinTxID = vin.txid;
-                        // console.log("vindeco", vindeco);
-                        vindeco.vout.forEach(vout => {
-                          // console.log('VOUT VIN ', vinTxID, vin.txid);
-                          if (vout.n == index && vout['scriptPubKey'] && vout['scriptPubKey']['addresses']) {
-                            // console.log("If", vout);
-                            vout['scriptPubKey']['addresses'].forEach(address => {
-                              db.run("INSERT INTO addrtotx (addr, tx, amount, date, block, vin, vout, n) VALUES ('" + address + "', '" + vinTxID + "', '" + vout['value'] + "', " + blocktime + ", '" + blockhash + "', " + 1 + ", " + 0 + ", " + vout.n + ")",
-                                (error, row) => {
-                                  // console.log('addrtotx vin', error, row);
-                                });
-                            })
-                          }
-                        })
+          function processBlockTx(i) {
+            let tx_id = block.tx[i];
+            if (tx_id) {
+              getDecodedTransaction(tx_id, decodedintx => {
+                if (decodedintx && decodedintx['vout']) {
+                  let vinTxID = decodedintx.txid;
+                  decodedintx.vout.forEach(vout => {
+                    if (vout['scriptPubKey'] && vout['scriptPubKey']['addresses']) {
+                      vout['scriptPubKey']['addresses'].forEach(address => {
+                        insetAddr.run([address, vinTxID, vout['value'], blocktime, blockhash, 0, 1, vout.n], _ => {})
+                        // db.run("INSERT INTO addrtotx (addr, tx, amount, date, block, vin, vout, n) VALUES ('"
+                        //   + address + "', '" + vinTxID + "', '" + vout['value'] + "', " + blocktime + ", '" + blockhash + "', " + 0 + ", " + 1 + ", " + vout.n + ")",
+                        //   (error, row) => {});
+                      })
+                    }
+                  })
+                }
+
+                /* Cojo los vouts de los vins de la transaccion */
+
+                if (decodedintx && decodedintx['vin']) {
+                  decodedintx.vin.forEach(vin => {
+                    let index = vin.vout;
+                    if (vin.txid) {
+                      // console.log("Vin", vin.txid);
+                      getDecodedTransaction(vin.txid, vindeco => {
+                        // console.log("vinsd", vindeco);
+                        if (vindeco && vindeco.vout) {
+                          let vinTxID = vin.txid;
+                          // console.log("vindeco", vindeco);
+                          vindeco.vout.forEach(vout => {
+                            // console.log('VOUT VIN ', vinTxID, vin.txid);
+                            if (vout.n == index && vout['scriptPubKey'] && vout['scriptPubKey']['addresses']) {
+                              // console.log("If", vout);
+                              vout['scriptPubKey']['addresses'].forEach(address => {
+                                insetAddr.run([address, vinTxID, vout['value'], blocktime, blockhash, 1, 0, vout.n], _ => {})
+                                // db.run("INSERT INTO addrtotx (addr, tx, amount, date, block, vin, vout, n) VALUES ('" + address + "', '" + vinTxID + "', '" + vout['value'] + "', " + blocktime + ", '" + blockhash + "', " + 1 + ", " + 0 + ", " + vout.n + ")",
+                                //   (error, row) => {
+                                //     // console.log('addrtotx vin', error, row);
+                                //   });
+                              })
+                            }
+                          })
+                        }
+                      })
+                    }
+                  })
+                }
+                getdatafromref2(decodedintx, function(data, ref) {
+                  // console.log("Ref", data, ref);
+                  if (data) {
+                    try {
+                      if (typeof data == 'string') {
+                        data = JSON.parse(data);
                       }
-                    })
-                  }
-                })
-              }
-              getdatafromref2(decodedintx, function(data, ref) {
-                // console.log("Ref", data, ref);
-                if (data) {
-                  try {
-                    if (typeof data == 'string') {
-                      data = JSON.parse(data);
-                    }
-                    if (data.title) {
-                      let wordsInTitle = data.title.split(' ');
-                      for (var i = 0; i < wordsInTitle.length; i++) {
-                        let word = wordsInTitle[i];
-                        console.log("WORD", word);
-                        db.run("INSERT INTO wordToReference (wordHash, 'ref', blockDate, 'order') VALUES ('" + word + "', '" + ref + "', " + blocktime + ", " + i + ")",
-                          (error, row) => {});
+                      if (data.title) {
+                        let wordsInTitle = data.title.split(' ');
+                        for (var i = 0; i < wordsInTitle.length; i++) {
+                          let word = wordsInTitle[i];
+                          console.log("WORD", word);
+                          insetWord.run([word, ref, blocktime, i], _ => {});
+                          // db.run("INSERT INTO wordToReference (wordHash, 'ref', blockDate, 'order') VALUES ('" + word + "', '" + ref + "', " + blocktime + ", " + i + ")",
+                          //   (error, row) => {});
+                        }
                       }
+                      if (data.type) {
+                        insetWord.run([data.type, ref, blocktime, i], _ => {});
+
+                        // db.run("INSERT INTO wordToReference (wordHash, 'ref', blockDate, 'order') VALUES ('" + data.type + "', '" + ref + "', " + blocktime + ", " + i + ")",
+                        //   (error, row) => {
+                        //     // console.log('sql', error, row);
+                        //   });
+                      }
+                      if (data.contract) {
+                        insertCtx.run(data.tx, ref, blocktime, data.contract, JSON.stringify(data), _ => {})
+                        // db.run("INSERT INTO contracttx (ctx, 'ntx', addr, 'date', type, data) VALUES ('" +
+                        //   data.tx + "', '" + ref + "', '', '" + blocktime + "', '" + data.contract + "', '" + JSON.stringify(data) + "')",
+                        //   (error, row) => {
+                        //     // console.log('sql', error, row);
+                        //   });
+                      }
+                    } catch (e) {
+                      console.log("Error");
+                      return;
                     }
-                    if (data.type) {
-                      db.run("INSERT INTO wordToReference (wordHash, 'ref', blockDate, 'order') VALUES ('" + data.type + "', '" + ref + "', " + blocktime + ", " + i + ")",
-                        (error, row) => {
-                          // console.log('sql', error, row);
-                        });
-                    }
-                    if (data.contract) {
-                      db.run("INSERT INTO contracttx (ctx, 'ntx', addr, 'date', type, data) VALUES ('" +
-                        data.tx + "', '" + ref + "', '', '" + blocktime + "', '" + data.contract + "', '" + JSON.stringify(data) + "')",
-                        (error, row) => {
-                          // console.log('sql', error, row);
-                        });
-                    }
-                  } catch (e) {
-                    console.log("Error");
+                  } else {
                     return;
                   }
-                } else {
-                  return;
+                })
+                // console.log("ASDASD");
+                if (i < block.tx.length - 1) {
+                  // console.log('processBlockTx', i);
+                  processBlockTx(++i);
+                }
+                else {
+                  if (block.previousblockhash && block.previousblockhash != lastblock && block.previousblockhash != starthash) {
+                    console.log("End lastblock 2");
+                    db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+starthash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
+                    listBlock(block.previousblockhash)
+                  } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
+                    isExploring = false;
+                    console.log("End lastblock");
+                    console.log("Finaly");
+                    if (typeof $ != 'undefined') {
+                      $('.exploring').remove();
+                    }
+                    insetAddr.finalize(_ => {});
+                    insertCtx.finalize(_ => {});
+                    insetWord.finalize(_ => {});
+                    db.all('DELETE FROM lastexplored', _ => {});
+                    // listBlock(block.previousblockhash)
+                  }
                 }
               })
-              // console.log("ASDASD");
-              if (i < block.tx.length - 1) {
-                // console.log('processBlockTx', i);
-                processBlockTx(++i);
-              }
-              else {
-                if (block.previousblockhash && block.previousblockhash != lastblock && block.previousblockhash != starthash) {
-                  console.log("End lastblock 2");
-                  db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+starthash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
-                  listBlock(block.previousblockhash)
-                } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
-                  console.log("End lastblock");
-                  console.log("Finaly");
-                  if (typeof $ != 'undefined') {
-                    $('.exploring').remove();
-                  }
-                  db.all('DELETE FROM lastexplored', _ => {});
-                  // listBlock(block.previousblockhash)
+            } else if (i < block.tx.length - 1) {
+              processBlockTx(++i);
+            }
+            else {
+              if (block.previousblockhash && block.previousblockhash != lastblock && block.previousblockhash != starthash) {
+                console.log("End lastblock 4");
+                db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+starthash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
+                listBlock(block.previousblockhash)
+              } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
+                console.log("End lastblock");
+                isExploring = false;
+                db.all('DELETE FROM lastexplored', _ => {});
+                insetAddr.finalize(_ => {});
+                insertCtx.finalize(_ => {});
+                insetWord.finalize(_ => {});
+                if (typeof $ != 'undefined') {
+                  $('.exploring').remove();
                 }
+                db.run('commit', function() {
+                  console.log("After commit");
+                  db.close();
+                });
               }
-            })
-          } else if (i < block.tx.length - 1) {
-            processBlockTx(++i);
-          }
-          else {
-            if (block.previousblockhash && block.previousblockhash != lastblock && block.previousblockhash != starthash) {
-              console.log("End lastblock 4");
-              db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+starthash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
-              listBlock(block.previousblockhash)
-            } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
-              console.log("End lastblock");
-              db.all('DELETE FROM lastexplored', _ => {});
-              if (typeof $ != 'undefined') {
-                $('.exploring').remove();
-              }
-              db.run('commit', function() {
-                console.log("After commit");
-                db.close();
-              });
             }
           }
-        }
-        processBlockTx(0);
+          processBlockTx(0);
 
-      } else {
-        listBlock(starthash);
-      }
-    })
-  }
-  if (starthash && starthash != lastblock) {
-    listBlock(starthash)
-  }
-  else {
-    if (typeof $ != 'undefined') {
-      $('.exploring').remove();
+        } else {
+          listBlock(starthash);
+        }
+      })
     }
-  }
+    if (starthash && starthash != lastblock) {
+      listBlock(starthash)
+    }
+    else {
+      if (typeof $ != 'undefined') {
+        $('.exploring').remove();
+      }
+    }
+  })
 }
 
 trantor.saveTransactionToDb = function(decodedintx) {

@@ -7,13 +7,27 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   color: #fff;
   z-index: 9999999999;
   font-size: 30px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.col-gray{
+  color: #ddd;
+}
+.exploring .status{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fdfdfd !important;
+}
+.status span{
+  margin-bottom: 10px
 }
 .jssocials-shares{
   display: flex;
