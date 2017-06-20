@@ -202,7 +202,7 @@ function getDecodedTransaction(tx_id, cback) {
           ((cback, decodedtx) => {
             if (!decodedtx && getDecTxSecurity < 1000) {
                 getDecTxSecurity++;
-                getDecodedTransaction(tx_id, cback);
+                setTimeout(_ => {getDecodedTransaction(tx_id, cback)}, 1500)
             } else {
               cback(decodedtx || 'Theres some kind of error with tx['+tx_id+']');
             }
@@ -234,6 +234,7 @@ function listsinceblock(starthash, lastblock) {
                 <span>BLOCK: <b>${block.hash}</b></span>
                 <span>Height: [<span class="col-gray">${block.height}</span>/${total_blocks}]</span>
                 <span>Transactions: [${block.tx.length}]</span>
+                <span>Done: ${total_blocks - block.height}</span>
                 `)
             // $('.exploring').append('<h3 class="status"></h3>')
           }
