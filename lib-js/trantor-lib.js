@@ -350,7 +350,6 @@ function listsinceblock(starthash, lastblock) {
                     console.log("End lastblock");
                     console.log("Finaly");
                     var params = getSearchParameters();
-                		findWord(undefined, 0);
 
                     if (typeof $ != 'undefined') {
                       $('.exploring').remove();
@@ -360,10 +359,11 @@ function listsinceblock(starthash, lastblock) {
                     insetWord.finalize(_ => {});
                     db.all('DELETE FROM lastexplored', _ => {});
                     // listBlock(block.previousblockhash)
-                    db.run('commit', function() {
-                      console.log("After commit");
-                      db.close();
-                    });
+                    findWord(undefined, 0);
+                    // db.run('commit', function() {
+                    //   console.log("After commit");
+                    //   db.close();
+                    // });
                   }
                 }
               })
@@ -386,10 +386,10 @@ function listsinceblock(starthash, lastblock) {
                 if (typeof $ != 'undefined') {
                   $('.exploring').remove();
                 }
-                db.run('commit', function() {
-                  console.log("After commit");
-                  db.close();
-                });
+                // db.run('commit', function() {
+                //   console.log("After commit");
+                //   db.close();
+                // });
               }
             }
           }

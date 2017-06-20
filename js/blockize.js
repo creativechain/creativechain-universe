@@ -435,7 +435,7 @@ function findWord(findword, page) {
                             })
                           })
                         console.log("ASDASDSD");
-                        $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="'+fpath+'"></a></p>')
+                        $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="file://'+fpath+'"></a></p>')
                       }
                       else if (client.get(objdata.torrentId)) {
                         torrent.files.forEach(function (file) {
@@ -762,7 +762,7 @@ function book(findword, page) {
                             })
                           })
                         console.log("ASDASDSD");
-                        $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="'+fpath+'"></a></p>')
+                        $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="file://'+fpath+'"></a></p>')
                       }
                       else if (client.get(objdata.torrentId)) {
                         torrent.files.forEach(function (file) {
@@ -1221,7 +1221,7 @@ function getData(ref) {
                   })
                 })
               console.log("ASDASDSD");
-              $("#img" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="'+fpath+'"></a></p>')
+              $("#img" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="file://'+fpath+'"></a></p>')
             }
             else if (client.get(objdata.torrentId)) {
               torrent.files.forEach(function (file) {
