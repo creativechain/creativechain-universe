@@ -193,7 +193,7 @@ trantor.getdatafromref = getdatafromref2;
 
 let getDecTxSecurity = 0;
 function getDecodedTransaction(tx_id, cback) {
-  setTimeout(function () {
+  // setTimeout(function () {
     CREA_crea_cmd('getrawtransaction', false, tx_id, (rawtx) => {
       CREA_crea_cmd('decoderawtransaction', false, rawtx, (decodedtx) => {
         if (decodedtx) {
@@ -211,7 +211,7 @@ function getDecodedTransaction(tx_id, cback) {
         }
       });
     });
-  }, 500)
+  // }, 500)
 }
 trantor.getDecodedTransaction = getDecodedTransaction;
 
