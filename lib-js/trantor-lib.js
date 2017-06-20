@@ -195,19 +195,20 @@ let getDecTxSecurity = 0;
 function getDecodedTransaction(tx_id, cback) {
   CREA_crea_cmd('getrawtransaction', false, tx_id, (rawtx) => {
     CREA_crea_cmd('decoderawtransaction', false, rawtx, (decodedtx) => {
-      if (decodedtx) {
-        cback(decodedtx);
-      } else {
-        https.call('GET', '/api/getrawtransaction?txid=' + tx_id + '&decrypt=1', [],
-          ((cback, decodedtx) => {
-            if (!decodedtx && getDecTxSecurity < 1000) {
-                getDecTxSecurity++;
-                setTimeout(_ => {getDecodedTransaction(tx_id, cback)}, 3000)
-            } else {
-              cback(decodedtx || 'Theres some kind of error with tx['+tx_id+']');
-            }
-          }).bind(this, cback))
-      }
+      cback(decodedtx);
+      // if (decodedtx) {
+      //   cback(decodedtx);
+      // } else {
+      //   https.call('GET', '/api/getrawtransaction?txid=' + tx_id + '&decrypt=1', [],
+      //     ((cback, decodedtx) => {
+      //       if (!decodedtx && getDecTxSecurity < 1000) {
+      //           getDecTxSecurity++;
+      //           setTimeout(_ => {getDecodedTransaction(tx_id, cback)}, 3000)
+      //       } else {
+      //         cback(decodedtx || 'Theres some kind of error with tx['+tx_id+']');
+      //       }
+      //     }).bind(this, cback))
+      // }
     });
   });
 }
