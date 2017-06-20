@@ -202,7 +202,7 @@ function getDecodedTransaction(tx_id, cback) {
           ((cback, decodedtx) => {
             if (!decodedtx && getDecTxSecurity < 1000) {
                 getDecTxSecurity++;
-                setTimeout(_ => {getDecodedTransaction(tx_id, cback)}, 1500)
+                setTimeout(_ => {getDecodedTransaction(tx_id, cback)}, 3000)
             } else {
               cback(decodedtx || 'Theres some kind of error with tx['+tx_id+']');
             }
