@@ -420,10 +420,10 @@ function findWord(findword, page) {
                   else if (key == 'magnetUncompressed') {
                     console.log('Has torrent', objdata, objdata.torrentId);
                       $("#media" + idunique).text('Loading...')
-                      // console.log("PATH NAME: ", path.resolve(__dirname)+'/torrents/'+objdata.torrentName);
-                      let fpath = '/torrents/'+objdata.torrentName;
+                      // console.log("PATH NAME: ", path.resolve(__dirname)+'./torrents/'+objdata.torrentName);
+                      let fpath = './torrents/'+objdata.torrentName;
                       if (fs.existsSync(fpath)) {
-                        client.add(value, { path: '/torrents' },
+                        client.add(value, { path: './torrents' },
                           function (torrent) {
                             console.log("Tore");
                             torrent.on('done', function () {
@@ -435,7 +435,7 @@ function findWord(findword, page) {
                             })
                           })
                         console.log("ASDASDSD");
-                        $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="file://'+fpath+'"></a></p>')
+                        $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="'+fpath+'"></a></p>')
                       }
                       else if (client.get(objdata.torrentId)) {
                         torrent.files.forEach(function (file) {
@@ -449,7 +449,7 @@ function findWord(findword, page) {
                         })
                       }
                       else {
-                        client.add(value, { path: '/torrents' },
+                        client.add(value, { path: './torrents' },
                           function (torrent) {
                             console.log("Torrent", torrent);
                             torrent.on('done', function () {
@@ -747,10 +747,10 @@ function book(findword, page) {
                   else if (key == 'magnetUncompressed') {
                     console.log('Has torrent', objdata, objdata.torrentId);
                       $("#media" + idunique).text('Loading...')
-                      // console.log("PATH NAME: ", path.resolve(__dirname)+'/torrents/'+objdata.torrentName);
-                      let fpath = '/torrents/'+objdata.torrentName;
+                      // console.log("PATH NAME: ", path.resolve(__dirname)+'./torrents/'+objdata.torrentName);
+                      let fpath = './torrents/'+objdata.torrentName;
                       if (fs.existsSync(fpath)) {
-                        client.add(value, { path: '/torrents' },
+                        client.add(value, { path: './torrents' },
                           function (torrent) {
                             console.log("Tore");
                             torrent.on('done', function () {
@@ -762,7 +762,7 @@ function book(findword, page) {
                             })
                           })
                         console.log("ASDASDSD");
-                        $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="file://'+fpath+'"></a></p>')
+                        $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="'+fpath+'"></a></p>')
                       }
                       else if (client.get(objdata.torrentId)) {
                         torrent.files.forEach(function (file) {
@@ -776,7 +776,7 @@ function book(findword, page) {
                         })
                       }
                       else {
-                        client.add(value, { path: '/torrents' },
+                        client.add(value, { path: './torrents' },
                           function (torrent) {
                             console.log("Torrent", torrent);
                             torrent.on('done', function () {
@@ -1206,10 +1206,10 @@ function getData(ref) {
         else if (key == 'magnetUncompressed') {
           console.log('Has torrent', objdata, objdata.torrentId);
             $("#img" + idunique).text('Loading...')
-            // console.log("PATH NAME: ", path.resolve(__dirname)+'/torrents/'+objdata.torrentName);
-            let fpath = '/torrents/'+objdata.torrentName;
+            // console.log("PATH NAME: ", path.resolve(__dirname)+'./torrents/'+objdata.torrentName);
+            let fpath = './torrents/'+objdata.torrentName;
             if (fs.existsSync(fpath)) {
-              client.add(value, { path: '/torrents' },
+              client.add(value, { path: './torrents' },
                 function (torrent) {
                   console.log("Tore");
                   torrent.on('done', function () {
@@ -1221,7 +1221,7 @@ function getData(ref) {
                   })
                 })
               console.log("ASDASDSD");
-              $("#img" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="file://'+fpath+'"></a></p>')
+              $("#img" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="'+fpath+'"></a></p>')
             }
             else if (client.get(objdata.torrentId)) {
               torrent.files.forEach(function (file) {
@@ -1235,7 +1235,7 @@ function getData(ref) {
               })
             }
             else {
-              client.add(value, { path: '/torrents' },
+              client.add(value, { path: './torrents' },
                 function (torrent) {
                   console.log("Torrent", torrent);
                   torrent.on('done', function () {
