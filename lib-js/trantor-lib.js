@@ -1,7 +1,7 @@
 /* Imports */
 //const fs = require('fs');
 // const HttpsCaller = require('./https-caller');
-
+const {app, BrowserWindow} = require('electron');
 const RpcClient = RpcCaller;
 const Crea = Creativecoin;
 const env = Environment;
@@ -50,12 +50,6 @@ function init() {
         }
 
     }, 10 * 1000);
-
-    app.on('window-all-closed', function () {
-        NODE.stop(function () {
-            Environment.setNodeCorrectlyRunning(false);
-        });
-    })
 }
 
 init();

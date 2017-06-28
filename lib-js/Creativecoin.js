@@ -121,7 +121,7 @@ class Configuration {
 
     static buildFromFile(file) {
 
-        let fileInfo = fs.statSync(file);
+
         console.log('Reading ' + file);
         let content = fs.readFileSync(file, 'utf8');
         let lines = content.split('\n');
@@ -166,11 +166,6 @@ class Creativecoin {
         this.connection = null;
     }
 
-    /**
-     * @var {Creativecoin}
-     */
-    static INSTANCE;
-
     init() {
         let that = this;
         let onStopped = function () {
@@ -190,7 +185,6 @@ class Creativecoin {
                     that.coreFolder = result.replace('\n', '');
                     console.log('Core path: ' + result);
                     that.createNodeFiles();
-                    Creativecoin.INSTANCE = that;
                 }
             });
         };
@@ -203,7 +197,7 @@ class Creativecoin {
                         onStopped();
                     })
                 } else {
-
+                    onStopped();
                 }
             });
         } else {
@@ -224,9 +218,9 @@ class Creativecoin {
                 user: that.configuration.getRpcUser(),
                 pass: that.configuration.getRpcPassword()
             });
-            if (Environment.isNodeCorrectlyRunning()) {
+            if (!Environment.isNodeCorrectlyRunning()) {
                 setTimeout(function () {
-                    that.start(function () {
+                    that.start(function (result) {
                         Environment.setNodeCorrectlyRunning(true);
                         console.log('Node started!');
                     });
@@ -250,7 +244,7 @@ class Creativecoin {
     run(command, callback) {
         exec(command, function (error, result, stderr) {
             if (callback != null) {
-                if (error != null) {
+                if (error) {
                     callback(error, stderr);
                 } else {
                     callback(result);
@@ -348,8 +342,20 @@ class Creativecoin {
         }
     };
 
-
+    static stopNode(callback) {
+        var crea = new Creativecoin();
+        crea.isCoreRunning(function (running) {
+            if (running) {
+                crea.stop(function (result) {
+                    callback(result);
+                })
+            } else {
+                callback('stopped');
+            }
+        })
+    }
 }
+
 if (module) {
     module.exports = {OS, Configuration, Creativecoin};
 }

@@ -2,6 +2,8 @@
  * Created by ander on 22/06/17.
  */
 
+const files = require('fs');
+
 class Utils {
     /**
      *
@@ -26,7 +28,7 @@ class Environment {
      * @returns {boolean}
      */
     static isFirstUse() {
-        return localStorage.getItem('first_use');
+        return FileStorage.getItem('first_use');
     }
 
     /**
@@ -34,20 +36,65 @@ class Environment {
      * @param {boolean} firstUse
      */
     static setFirstUse(firstUse) {
-        localStorage.setItem('first_use', firstUse);
+        FileStorage.setItem('first_use', firstUse);
     }
 
     static isNodeCorrectlyRunning() {
-        return localStorage.getItem('node_running');
+        return FileStorage.getItem('node_running');
     }
 
     static setNodeCorrectlyRunning(running) {
-        localStorage.setItem('node_running', running);
+        FileStorage.setItem('node_running', running);
     }
 
 }
 
+class FileStorage {
+
+    /**
+     *
+     * @returns {Object}
+     */
+    static load() {
+        try {
+            let content = files.readFileSync('./app.conf', 'utf8');
+            if (content != undefined && content != null && content != '') {
+                return JSON.parse(content);
+            }
+        } catch (err) {
+            console.log('app conf not exist', err);
+        }
+        return {};
+    }
+
+    static save(conf) {
+        console.log('Saving conf', conf);
+        files.writeFileSync('./app.conf', JSON.stringify(conf), 'utf8');
+    }
+
+    /**
+     *
+     * @param {string} key
+     * @param value
+     */
+    static setItem(key, value) {
+        var conf = FileStorage.load();
+        conf[key] = value;
+        FileStorage.save(conf);
+    }
+
+    /**
+     *
+     * @param key
+     * @returns {*}
+     */
+    static getItem(key) {
+        var conf = FileStorage.load();
+        return conf[key];
+    }
+}
+
 if (module) {
-    module.exports = {Utils, Environment};
+    module.exports = {Utils, Environment, FileStorage};
 }
 
