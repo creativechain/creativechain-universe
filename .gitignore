@@ -1,4 +1,4 @@
 node_modules
-./idea
-./app.conf
-./package-lock.json
+.idea
+app.conf
+package-lock.json
