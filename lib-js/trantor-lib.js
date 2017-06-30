@@ -1,10 +1,10 @@
 /* Imports */
 //const fs = require('fs');
 // const HttpsCaller = require('./https-caller');
-const {app, BrowserWindow} = require('electron');
+//const {app, BrowserWindow} = require('electron');
+
+
 const RpcClient = RpcCaller;
-const Crea = Creativecoin;
-const env = Environment;
 // const RpcClient = require('./rpc-client');
 var path = require('path');
 
@@ -22,7 +22,7 @@ const OP_RETURN_MAX_BYTES = 1000; // maximum bytes in an OP_RETURN (40 as of Bit
 const OP_RETURN_BTC_DUST = 0.002; // omit BTC outputs smaller than this
 const OP_RETURN_BTC_FEE = 0.004; // BTC fee to pay per transaction
 
-const NODE = new Crea();
+const NODE = new Creativecoin();
 
 let SESSION = {};
 
@@ -42,14 +42,17 @@ let hasExploredOnce = false;
 let corepath = '';
 
 function init() {
-    NODE.init();
-    setInterval(function () {
+    NODE.init(function () {
 
-        if (!isExploring) {
-            trantor.creaExplore();
-        }
-
-    }, 10 * 1000);
+        let explore = function () {
+            if (!isExploring) {
+                console.log('Start to explore');
+                trantor.creaExplore();
+            }
+        };
+        setInterval(explore(), 60 * 1000);
+        explore();
+    });
 }
 
 init();
@@ -58,12 +61,12 @@ function decode_utf8(s) {
     return decodeURIComponent(escape(s));
 }
 function creaExplore() {
-    let first_use = localStorage.getItem('first_use');
-    if (first_use) {
+    let first_use = Preferences.isFirstUseExecuted();
+    if (!first_use) {
         $('.exploring').remove();
         $('body').append('<div class="exploring">Exploring blockchain please wait</div>');
         $('.exploring').append('<h4 class="total_blocks"></h4>').append('<h4 class="status"></h4>')
-        localStorage.setItem('frist_use', true);
+        Preferences.setFirstUseExecuted(true)
     }
     isExploring = true;
     if (typeof $ != 'undefined' && !hasExploredOnce) {
@@ -90,7 +93,7 @@ function creaExplore() {
                     lastblock = row[0];
                     console.log('Lastblock', lastblock);
                     https.call('GET', '/api/getblockcount', null, (blockcount) => {
-                        console.log(blockcount)
+                        console.log(blockcount);
                         total_blocks = blockcount;
                         if (lastblock && lastblock['block']) {
                             console.log("ahs block", blockcount);

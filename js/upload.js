@@ -111,7 +111,7 @@ $(document).ready(function () {
     console.log("Dropped", files);
     $('#loading').show(200);
     let compressed = files[0].path.replace(files[0].name, 'compressed');
-    // compressFile(files[0].path, files[0].name, files[0].type, function (compressedFilePath) {
+    // compressFile(fs[0].path, fs[0].name, fs[0].type, function (compressedFilePath) {
     //   // client.seed(compressedFilePath, {}, function (torrent) {
     //   //       console.log('Client is seeding compres:', torrent)
     //   //       $('#torrent_magnet').attr('value', torrent.magnetURI);
@@ -119,7 +119,7 @@ $(document).ready(function () {
     //   //       $('#publish').prop( "disabled", false );
     //   //     })
     // })
-    // imagemin([files[0].path], compressed, {
+    // imagemin([fs[0].path], compressed, {
     // 	plugins: [
     // 		imageminJpegtran(),
     // 		imageminPngquant({quality: '65-80'})

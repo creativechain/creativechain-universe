@@ -8,6 +8,7 @@
     "bitcoin": "^3.0.1",
     "drag-drop": "^2.13.2",
     "electron": "1.4.7",
+    "electron-dl": "^1.9.0",
     "electron-rebuild": "^1.5.7",
     "execsql": "0.0.3",
     "handbrake-js": "^2.1.0",
@@ -18,6 +19,8 @@
     "jssocials": "^1.5.0",
     "lzma": "^2.3.2",
     "node-json-rpc": "0.0.1",
+    "node-localstorage": "^1.3.0",
+    "request": "^2.81.0",
     "sqlite3": "^3.1.8",
     "webtorrent": "^0.98.18"
   },

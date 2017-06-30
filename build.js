@@ -85,7 +85,7 @@ outPath = outPath ? outPath[1]: null;
 
 
 if (platform && !options[platform]) {
-  console.log("Error: platform ["+platform+"] is not valid.\n", "Please use one of the following: \n")
+  console.log("ErrorCodes: platform ["+platform+"] is not valid.\n", "Please use one of the following: \n")
   console.log("Available Platforms: [windows, linux, mac]");
   return console.log("Available Architectures: [windows: x64 ia32, linux: x86 x86_x64, mac: x64]");
 }
@@ -132,7 +132,7 @@ else {
       else {
         console.log("\nBuild for "+platform+"("+(arch || opts.arch)+ ") completed. Status ["+((appPaths != '') ? 'OK': 'FAIL')+"]");
         if((appPaths != '')) console.log("You can find builds at '"+appPaths+"'");
-        else console.log("There has been an error with build. Error should be shouwn above");
+        else console.log("There has been an error with build. ErrorCodes should be shouwn above");
       }
   });
 
