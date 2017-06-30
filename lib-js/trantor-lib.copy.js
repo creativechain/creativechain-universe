@@ -43,7 +43,7 @@ if (subcommand) {
       })
       break;
     case 'getdatafromref':
-      console.log("getdatafromref \n");
+      console.log("getDataFromReference \n");
       getdatafromref(args[1], function (result) {
         console.log(result);
       });

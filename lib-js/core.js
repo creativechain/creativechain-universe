@@ -676,6 +676,13 @@ class DB {
     addrToTx(addresses, ref, callback) {
         this.db.all("SELECT * FROM addrtotx WHERE addr IN ("+addresses+") AND tx='"+ref+"'", callback);
     }
+
+    saveTx(address, vinTxID, vout, blocktime, blockhash, vin, vout, n) {
+        this.db.run("INSERT INTO addrtotx (addr, tx, amount, date, block, vin, vout, n) VALUES ('"
+            + address + "', '" + vinTxID + "', '" + vout['value'] + "', " + blocktime + ", '" + blockhash + "', " + 0 + ", " + 1 + ", " + vout.n + ")", function () {
+
+        });
+    }
 }
 if (module) {
     module.exports = {ErrorCodes, OS, Constants, Utils, FileStorage, Preferences, Configuration, Creativecoin, DB};
