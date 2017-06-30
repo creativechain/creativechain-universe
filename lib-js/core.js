@@ -3,6 +3,7 @@
  */
 const {app, ipcMain} = require('electron');
 
+const sqlite = require('sqlite3').verbose();
 const request = require('request');
 const fs = require('fs');
 const exec = require('child_process').exec;
@@ -93,6 +94,7 @@ Constants.STORAGE_FILE = Constants.APP_FOLDER + Constants.FILE_SEPARATOR + 'app.
 Constants.CORE_PATH = Constants.BIN_FOLDER + Constants.FILE_SEPARATOR + OS.getCoreBinaryName();
 Constants.CLIENT_PATH = Constants.BIN_FOLDER + Constants.FILE_SEPARATOR + OS.getClientBinaryName();
 Constants.BINARIES_URL = 'https://binaries.creativechain.net/stable/';
+Constants.DATABASE_PATH = Constants.APP_FOLDER + Constants.FILE_SEPARATOR + 'index.db';
 
 class File {
 
@@ -623,7 +625,59 @@ class Creativecoin {
     }
 }
 
+
+class DB {
+    constructor(dbPath) {
+        this.db = new sqlite.Database(dbPath);
+    }
+
+    init() {
+        this.db.run('CREATE TABLE IF NOT EXISTS "wordToReference" ' +
+            '(`wordHash` varchar(255) NOT NULL,`ref` varchar(255) NOT NULL, `blockDate`	timestamp NOT NULL, ' +
+            '`order`	integer NOT NULL, PRIMARY KEY(`wordHash`,`ref`,`blockDate`,`order`));');
+
+        this.db.run('CREATE TABLE IF NOT EXISTS `wordPoints` (`wordHash` varchar(255) NOT NULL, `points` integer NOT NULL);');
+
+        this.db.run('CREATE TABLE IF NOT EXISTS `transactionToReference` (`ref` varchar(255) NOT NULL, `transaction` varchar(255) NOT NULL, ' +
+            '`date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);');
+
+        this.db.run('CREATE TABLE IF NOT EXISTS `phptracker_torrents` (`info_hash` binary(20) NOT NULL, `length` integer NOT NULL, ' +
+            '`pieces_length` integer NOT NULL, `name` varchar(255) NOT NULL, `pieces` mediumblob NOT NULL, `path` ' +
+            'varchar(1024) NOT NULL,  `status` text  NOT NULL DEFAULT "active");');
+
+        this.db.run('CREATE TABLE IF NOT EXISTS `phptracker_peers` (`peer_id` binary(20) NOT NULL,  `ip_address` integer  NOT NULL, ' +
+            '`port` integer NOT NULL, `info_hash` binary(20) NOT NULL, `bytes_uploaded` integer DEFAULT NULL, ' +
+            '`bytes_downloaded` integer  DEFAULT NULL, `bytes_left` integer DEFAULT NULL, `status` text NOT NULL DEFAULT ' +
+            '"incomplete", `expires` timestamp NULL DEFAULT NULL);');
+
+        this.db.run('CREATE TABLE IF NOT EXISTS "lastexplored" (`blockhash` TEXT, `untilblock` TEXT, `date` TEXT);');
+
+        this.db.run('CREATE TABLE `contracttx` (`ctx` varchar(255) NOT NULL, `ntx` varchar(255) NOT NULL,  `addr` ' +
+            'varchar(255) NOT NULL, `date` varchar(255) NOT NULL, `type` varchar(255) NOT NULL, `data` text NOT NULL);');
+
+        this.db.run('CREATE TABLE "addrtotx" (`addr` varchar(255) NOT NULL, `tx` varchar(255) NOT NULL, `amount` ' +
+            'varchar(255) NOT NULL, `date` varchar(255) NOT NULL, `block` varchar(255) NOT NULL, `vin` INTEGER NOT NULL,' +
+            ' `vout` INTEGER NOT NULL, `n` INTEGER NOT NULL, PRIMARY KEY(`addr`,`tx`,`vout`,`n`));');
+
+    }
+
+    query(sql, callback) {
+        this.db.all(sql, callback);
+    }
+
+    lastExploredBlock(callback) {
+        this.db.all('SELECT * FROM lastexplored ORDER BY date ASC LIMIT 0,1', callback);
+    }
+
+    lastAddrToTx(callback) {
+        this.db.all("SELECT * FROM addrtotx ORDER BY date DESC LIMIT 0,1", callback);
+    }
+
+    addrToTx(addresses, ref, callback) {
+        this.db.all("SELECT * FROM addrtotx WHERE addr IN ("+addresses+") AND tx='"+ref+"'", callback);
+    }
+}
 if (module) {
-    module.exports = {ErrorCodes, OS, Constants, Utils, FileStorage, Preferences, Configuration, Creativecoin};
+    module.exports = {ErrorCodes, OS, Constants, Utils, FileStorage, Preferences, Configuration, Creativecoin, DB};
 }
 

@@ -29,7 +29,7 @@ let SESSION = {};
 const args = process.argv.slice(2);
 console.log("App path", path.resolve(__dirname));
 
-const db = new sqlite3.Database(path.resolve(__dirname).replace('\\cblock\\show', '').replace('\\lib-js', '')+'/crea-test.db');
+const db = new DB(Constants.DATABASE_PATH);
 const https = new HttpsCaller({
     host: CREA_API_URL,
     port: 3001
@@ -42,6 +42,7 @@ let hasExploredOnce = false;
 let corepath = '';
 
 function init() {
+    db.init();
     NODE.init(function () {
 
         let explore = function () {
@@ -77,43 +78,40 @@ function creaExplore() {
     console.log("EXPLORING CREA BLOCKS .... SYNC ... please wait ... \n");
     let lastblock;
 
-    db.all('SELECT * FROM lastexplored ORDER BY date ASC LIMIT 0,1', (_, res) => {
-        console.log("Res", _, res);
+    db.lastExploredBlock(function (err, res) {
+        console.log("Res", err, res);
         if (res[0] && res[0].blockhash) {
             https.call('GET', '/api/getblockcount', null, (blockcount) => {
                 total_blocks = blockcount;
                 console.log("Didnt finish last time");
                 listsinceblock(res[0].blockhash, res[0].untilblock || null);//add lastblock['block']
             })
+        } else {
+            db.lastAddrToTx(function(err, row) {
+                let block, blocks;
+                lastblock = row[0];
+                console.log('Lastblock', lastblock);
+                https.call('GET', '/api/getblockcount', null, (blockcount) => {
+                    console.log(blockcount);
+                    total_blocks = blockcount;
+                    if (lastblock && lastblock['block']) {
+                        console.log("ahs block", blockcount);
+                        CREA_crea_cmd('getblockhash', false, blockcount, (starthash) => {
+                            console.log("starthash", starthash);
+                            // listsinceblock('5a738b375c524f68b28443fd494fed6cabe98e42e7b986627ee079b41e4415c9');
+                            // listsinceblock(starthash);
+                            listsinceblock(starthash, lastblock['block']);//add lastblock['block']
+                        })
+                    } else {
+                        console.log("Else");
+                        CREA_crea_cmd('getblockhash', false, blockcount, (starthash) => {
+                            console.log("starthash", starthash);
+                            listsinceblock(starthash);
+                        })
+                    }
+                })
+            });
         }
-        else {
-            db.all("SELECT * FROM addrtotx ORDER BY date DESC LIMIT 0,1",
-                (error, row) => {
-                    let block, blocks;
-                    lastblock = row[0];
-                    console.log('Lastblock', lastblock);
-                    https.call('GET', '/api/getblockcount', null, (blockcount) => {
-                        console.log(blockcount);
-                        total_blocks = blockcount;
-                        if (lastblock && lastblock['block']) {
-                            console.log("ahs block", blockcount);
-                            CREA_crea_cmd('getblockhash', false, blockcount, (starthash) => {
-                                console.log("starthash", starthash);
-                                // listsinceblock('5a738b375c524f68b28443fd494fed6cabe98e42e7b986627ee079b41e4415c9');
-                                // listsinceblock(starthash);
-                                listsinceblock(starthash, lastblock['block']);//add lastblock['block']
-                            })
-                        } else {
-                            console.log("Else");
-                            CREA_crea_cmd('getblockhash', false, blockcount, (starthash) => {
-                                console.log("starthash", starthash);
-                                listsinceblock(starthash);
-                            })
-                        }
-                    })
-                });
-        }
-
     });
 
 
@@ -977,22 +975,22 @@ trantor.findWord = function(find, page, cback, addresses) {
             getDecodedTransaction(elem.ref, function(decoref) {
                 console.log("ADSD", "SELECT * FROM addrtotx WHERE addr IN ("+addrs+") AND tx='"+elem.ref+"'");
                 if(addrs){
-                    db.all("SELECT * FROM addrtotx WHERE addr IN ("+addrs+") AND tx='"+elem.ref+"'", (error, res2) => {
+                    db.query("SELECT * FROM addrtotx WHERE addr IN ("+addrs+") AND tx='"+elem.ref+"'", (error, res2) => {
                         console.log("error", res2, addrs);
                         if ((res2 && addrs)) {
                             console.log("if");
                             getdatafromref2(decoref, function(refdata) {
                                 console.log(refdata, elem);
-                                db.all("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' AND type LIKE 'like' ORDER BY date DESC",
+                                db.query("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' AND type LIKE 'like' ORDER BY date DESC",
                                     function(error, likes) {
                                         // console.log("Likes", error, likes);
                                         data[i].like = likes ? likes.length: 0
                                     })
-                                db.all("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' AND type LIKE 'unlike' ORDER BY date DESC",
+                                db.query("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' AND type LIKE 'unlike' ORDER BY date DESC",
                                     function(error, unlikes) {
                                         data[i].unlike = unlikes ? unlikes.length: 0
                                     })
-                                db.all("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' ORDER BY date DESC",
+                                db.query("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' ORDER BY date DESC",
                                     function(error, contracts) {
                                         data[i].contracts = contracts ? contracts.length: 0
                                     })
@@ -1019,16 +1017,16 @@ trantor.findWord = function(find, page, cback, addresses) {
                 else {
                     getdatafromref2(decoref, function(refdata) {
                         // console.log(refdata, elem);
-                        db.all("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' AND type LIKE 'like' ORDER BY date DESC",
+                        db.query("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' AND type LIKE 'like' ORDER BY date DESC",
                             function(error, likes) {
                                 console.log("Likes", error, likes);
                                 data[i].like = likes ? likes.length: 0
                             })
-                        db.all("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' AND type LIKE 'unlike' ORDER BY date DESC",
+                        db.query("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' AND type LIKE 'unlike' ORDER BY date DESC",
                             function(error, unlikes) {
                                 data[i].unlike = unlikes ? unlikes.length: 0
                             })
-                        db.all("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' ORDER BY date DESC",
+                        db.query("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' ORDER BY date DESC",
                             function(error, contracts) {
                                 data[i].contracts = contracts ? contracts.length: 0
                             })
@@ -1059,7 +1057,7 @@ trantor.findWord = function(find, page, cback, addresses) {
         console.log("Not find");
         if (!page) {
             page = 0;
-            db.all("SELECT DISTINCT ref FROM wordToReference  ORDER BY blockDate DESC LIMIT " + page + ", 10", (error, result) => {
+            db.query("SELECT DISTINCT ref FROM wordToReference  ORDER BY blockDate DESC LIMIT " + page + ", 10", (error, result) => {
                 if (result && result.length) {
                     processResult(error, result)
                 }
@@ -1069,7 +1067,7 @@ trantor.findWord = function(find, page, cback, addresses) {
             })
         } else {
             page = (page - 1) * 10;
-            db.all("SELECT DISTINCT ref FROM wordToReference  ORDER BY blockDate DESC LIMIT " + page + ", 10", (error, result) => {
+            db.query("SELECT DISTINCT ref FROM wordToReference  ORDER BY blockDate DESC LIMIT " + page + ", 10", (error, result) => {
                 if (result && result.length) {
                     processResult(error, result)
                 }
@@ -1082,7 +1080,7 @@ trantor.findWord = function(find, page, cback, addresses) {
         let i = 0;
         find = find.split(' ').join('|');
         console.log("ESLE");
-        db.all("SELECT DISTINCT ref FROM wordToReference WHERE instr(wordHash, '" + find + "') > 0  ORDER BY blockDate DESC", (error, result) => {
+        db.query("SELECT DISTINCT ref FROM wordToReference WHERE instr(wordHash, '" + find + "') > 0  ORDER BY blockDate DESC", (error, result) => {
             if (!page) {
                 page = 0;
                 console.log("No page", find);
@@ -1097,7 +1095,7 @@ trantor.findWord = function(find, page, cback, addresses) {
             } else {
                 page = (page - 1) * 10;
                 // console.log('page');
-                db.all("SELECT DISTINCT ref FROM wordToReference WHRERE instr(wordHash, '" + find + "') > 0 ORDER BY blockDate DESC LIMIT " + page + ", 10", (error, result) => {
+                db.query("SELECT DISTINCT ref FROM wordToReference WHRERE instr(wordHash, '" + find + "') > 0 ORDER BY blockDate DESC LIMIT " + page + ", 10", (error, result) => {
                     if (result && result.length) {
                         processResult(error, result)
                     }
@@ -1143,7 +1141,7 @@ trantor.smartdeal = function(datos, cb) {
 }
 
 trantor.findaddr = function(find, cb) {
-    db.all("SELECT * FROM addrtotx WHERE addr='" + addr + "' ", (error, result) => {
+    db.query("SELECT * FROM addrtotx WHERE addr='" + addr + "' ", (error, result) => {
         let datos = [];
 
         function processResult(i) {
@@ -1167,7 +1165,7 @@ trantor.getcontracts = function(type, ref, cback) {
     let transactions = {};
     let dataf = {};
 
-    db.all("SELECT * FROM contracttx WHERE type LIKE '" + type + "' AND ctx LIKE '" + ref + "' ", (error, result) => {
+    db.query("SELECT * FROM contracttx WHERE type LIKE '" + type + "' AND ctx LIKE '" + ref + "' ", (error, result) => {
         function processResult(i) {
             let data = result[i];
             transactions[data['ctx']] = transactions[data['ctx']] ? transactions[data['ctx']]: {};
@@ -1255,7 +1253,7 @@ trantor.findOp = function(find, cb) {
         processResult(0);
     }
 
-    db.all("SELECT * FROM transactionToReference WHERE ref LIKE '" + find + "'", (error, result) => {
+    db.query("SELECT * FROM transactionToReference WHERE ref LIKE '" + find + "'", (error, result) => {
         if (result && result.length > 0) {
             processResults(result);
         } else {

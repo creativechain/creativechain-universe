@@ -4,3 +4,4 @@ app.conf
 package-lock.json
 bin
 *.sql
+*.db
