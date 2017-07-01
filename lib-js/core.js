@@ -652,10 +652,10 @@ class DB {
 
         this.db.run('CREATE TABLE IF NOT EXISTS "lastexplored" (`blockhash` TEXT, `untilblock` TEXT, `date` TEXT);');
 
-        this.db.run('CREATE TABLE `contracttx` (`ctx` varchar(255) NOT NULL, `ntx` varchar(255) NOT NULL,  `addr` ' +
+        this.db.run('CREATE TABLE IF NOT EXISTS `contracttx` (`ctx` varchar(255) NOT NULL, `ntx` varchar(255) NOT NULL,  `addr` ' +
             'varchar(255) NOT NULL, `date` varchar(255) NOT NULL, `type` varchar(255) NOT NULL, `data` text NOT NULL);');
 
-        this.db.run('CREATE TABLE "addrtotx" (`addr` varchar(255) NOT NULL, `tx` varchar(255) NOT NULL, `amount` ' +
+        this.db.run('CREATE TABLE IF NOT EXISTS "addrtotx" (`addr` varchar(255) NOT NULL, `tx` varchar(255) NOT NULL, `amount` ' +
             'varchar(255) NOT NULL, `date` varchar(255) NOT NULL, `block` varchar(255) NOT NULL, `vin` INTEGER NOT NULL,' +
             ' `vout` INTEGER NOT NULL, `n` INTEGER NOT NULL, PRIMARY KEY(`addr`,`tx`,`vout`,`n`));');
 
@@ -677,11 +677,35 @@ class DB {
         this.db.all("SELECT * FROM addrtotx WHERE addr IN ("+addresses+") AND tx='"+ref+"'", callback);
     }
 
-    saveTx(address, vinTxID, vout, blocktime, blockhash, vin, vout, n) {
+    saveTx(address, vinTxID, vout, blocktime, blockhash, vin, n) {
         this.db.run("INSERT INTO addrtotx (addr, tx, amount, date, block, vin, vout, n) VALUES ('"
             + address + "', '" + vinTxID + "', '" + vout['value'] + "', " + blocktime + ", '" + blockhash + "', " + 0 + ", " + 1 + ", " + vout.n + ")", function () {
 
         });
+    }
+
+    insertAddress(address, vinTxID, vout, blocktime, blockhash) {
+        let insetAddr = this.db.prepare("INSERT INTO addrtotx VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    }
+
+    all(statement, callback) {
+        this.db.all(statement,callback);
+    }
+
+    serialize(callback) {
+        this.db.serialize(callback);
+    }
+
+    run(statement, callback) {
+        this.db.run(statement, callback);
+    }
+    /**
+     *
+     * @param statement
+     * @returns {*}
+     */
+    prepare(statement) {
+        return this.db.prepare(statement);
     }
 }
 if (module) {

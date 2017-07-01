@@ -52,7 +52,7 @@ function init() {
             }
         };
         setInterval(explore(), 60 * 1000);
-        explore();
+        //explore();
     });
 }
 
@@ -194,8 +194,7 @@ function getDataFromReference2(decoraw, cb) {
             decoraw = deco;
             process_();
         })
-    }
-    else {
+    } else {
         process_()
     }
 }
@@ -1334,9 +1333,6 @@ trantor.spend = function(addr, redeem, amount, sendto, members, cback) {
 trantor.pushTx = function(rawtx, cb) {
     CREA_crea_cmd('sendrawtransaction', false, rawtx, cb)
 }
-
-
-
 
 
 let subcommand = args[0];
