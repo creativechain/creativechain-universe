@@ -16,7 +16,7 @@ const sqlite3 = require('sqlite3').verbose();
 /* CONSTANTS */
 const CREA_API_URL = 'search.creativechain.net';
 
-const CREA_USE_CMD = false; // use command-line instead of JSON-RPC?
+const CREA_USE_CMD = true; // use command-line instead of JSON-RPC?
 const OP_RETURN_MAX_BLOCKS = 10; // maximum number of blocks to try when retrieving data
 const OP_RETURN_MAX_BYTES = 1000; // maximum bytes in an OP_RETURN (40 as of Bitcoin 0.10)
 const OP_RETURN_BTC_DUST = 0.002; // omit BTC outputs smaller than this
@@ -51,7 +51,7 @@ function init() {
                 trantor.exploreBlocks();
             }
         };
-        setInterval(explore(), 60 * 1000);
+        setInterval(explore, 15 * 1000);
         //explore();
     });
 }
@@ -91,25 +91,32 @@ function exploreBlocks() {
                 let block, blocks;
                 lastblock = row[0];
                 console.log('Lastblock', lastblock);
-                https.call('GET', '/api/getblockcount', null, (blockcount) => {
-                    console.log(blockcount);
-                    total_blocks = blockcount;
-                    if (lastblock && lastblock['block']) {
-                        console.log("ahs block", blockcount);
-                        CREA_crea_cmd('getblockhash', false, blockcount, (starthash) => {
-                            console.log("starthash", starthash);
-                            // listsinceblock('5a738b375c524f68b28443fd494fed6cabe98e42e7b986627ee079b41e4415c9');
-                            // listsinceblock(starthash);
-                            listsinceblock(starthash, lastblock['block']);//add lastblock['block']
-                        })
-                    } else {
-                        console.log("Else");
-                        CREA_crea_cmd('getblockhash', false, blockcount, (starthash) => {
-                            console.log("starthash", starthash);
-                            listsinceblock(starthash);
-                        })
-                    }
-                })
+
+                if (lastblock == undefined) {
+                    console.log('Exploring since genesis');
+                    listsinceblock('1f4d98cb9ae1b5ac2da8c2c83e25245766e8db4ecc21e557e8cb28c1f193f89e');
+                } else {
+                    https.call('GET', '/api/getblockcount', null, (blockcount) => {
+                        console.log(blockcount);
+                        total_blocks = blockcount;
+                        if (lastblock && lastblock['block']) {
+                            console.log("ahs block", blockcount);
+                            CREA_crea_cmd('getblockhash', blockcount, (starthash) => {
+                                console.log("starthash", starthash);
+                                // listsinceblock('5a738b375c524f68b28443fd494fed6cabe98e42e7b986627ee079b41e4415c9');
+                                // listsinceblock(starthash);
+                                listsinceblock(starthash, lastblock['block']);//add lastblock['block']
+                            })
+                        } else {
+                            console.log("Else");
+                            CREA_crea_cmd('getblockhash', blockcount, (starthash) => {
+                                console.log("starthash", starthash);
+                                listsinceblock(starthash);
+                            })
+                        }
+                    })
+                }
+
             });
         }
     });
@@ -202,8 +209,8 @@ trantor.getDataFromReference = getDataFromReference2;
 
 let getDecTxSecurity = 0;
 function getDecodedTransaction(tx_id, cback) {
-    CREA_crea_cmd('getrawtransaction', false, tx_id, (rawtx) => {
-        CREA_crea_cmd('decoderawtransaction', false, rawtx, (decodedtx) => {
+    CREA_crea_cmd('getrawtransaction', tx_id, (rawtx) => {
+        CREA_crea_cmd('decoderawtransaction', rawtx, (decodedtx) => {
             cback(decodedtx);
             // if (decodedtx) {
             //   cback(decodedtx);
@@ -228,30 +235,29 @@ function listsinceblock(starthash, lastblock) {
     trantor.db.serialize(function () {
 
         function listBlock(starthash) {
+            console.log('Listing block:', starthash);
             let insetAddr = trantor.db.prepare("INSERT INTO addrtotx VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             let insetWord = trantor.db.prepare("INSERT INTO wordToReference VALUES (?, ?, ?, ?)");
-            let insertCtx = trantor.db.prepare("INSERT INTO contracttx  VALUES (?, ?, ?, ?, ?, ?)")
-            CREA_crea_cmd('getblock', 0, starthash, (b) => {
+            let insertCtx = trantor.db.prepare("INSERT INTO contracttx  VALUES (?, ?, ?, ?, ?, ?)");
+            CREA_crea_cmd('getblock', starthash, (b) => {
+                console.log('parsing: ', b);
                 if (b) {
                     let block = b;
                     let blockhash = block.hash;
                     let blocktime = block.time;
-                    let bheight = block.height + 0;
+                    let bheight = block.height;
+                    let nextBlock = block.nextblockhash;
+                    let txs = block.tx;
 
                     if (typeof $ != 'undefined') {
-                        $('.exploring .status')
-                            .html(`
-                <span>BLOCK: <b>${block.hash}</b></span>
-                <span>Height: [<span class="col-gray">${block.height}</span>/${total_blocks}]</span>
-                <span>Transactions: [<span class="c_tx col-gray"></span>/${block.tx.length}]</span>
-                <span>Done: ${total_blocks - block.height}</span>
-                `)
-                        // $('.exploring').append('<h3 class="status"></h3>')
+                        $('.exploring .status').html(`<span>BLOCK: <b>${blockhash}</b></span>
+                            <span>Height: [<span class="col-gray">${bheight}</span>/${total_blocks}]</span>
+                            <span>Transactions: [<span class="c_tx col-gray"></span>/${txs.length}]</span>
+                            <span>Done: ${block.height}</span>`);
                     }
-                    // console.log((new Date()).toLocaleString() + " [" + block.height + "] [" + block.tx.length + "] - Listing tx for: ", block.hash);
 
-                    function processBlockTx(i) {
-                        let tx_id = block.tx[i];
+                    function processTransaction(i) {
+                        let tx_id = txs[i];
                         if (typeof $ != 'undefined') {
                             $('.c_tx').text(i);
                         }
@@ -341,11 +347,11 @@ function listsinceblock(starthash, lastblock) {
                                     } else {
                                         return;
                                     }
-                                })
-                                // console.log("ASDASD");
+                                });
+/*                                // console.log("ASDASD");
                                 if (i < block.tx.length - 1) {
                                     // console.log('processBlockTx', i);
-                                    processBlockTx(++i);
+                                    processTransaction(++i);
                                 }
                                 else {
                                     if (block.previousblockhash && block.previousblockhash != lastblock && block.previousblockhash != starthash) {
@@ -373,38 +379,36 @@ function listsinceblock(starthash, lastblock) {
                                         //   db.close();
                                         // });
                                     }
-                                }
+                                }*/
                             })
-                        } else if (i < block.tx.length - 1) {
-                            processBlockTx(++i);
-                        }
-                        else {
-                            if (block.previousblockhash && block.previousblockhash != lastblock && block.previousblockhash != starthash) {
-                                console.log("End lastblock 4");
-                                trantor.db.all('DELETE FROM lastexplored', _ => {});
-                                trantor.db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+starthash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
-                                listBlock(block.previousblockhash)
-                            } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
-                                console.log("End lastblock");
-                                isExploring = false;
-                                trantor.db.all('DELETE FROM lastexplored', _ => {});
-                                insetAddr.finalize(_ => {});
-                                insertCtx.finalize(_ => {});
-                                insetWord.finalize(_ => {});
-                                if (typeof $ != 'undefined') {
-                                    $('.exploring').remove();
-                                }
-                                // db.run('commit', function() {
-                                //   console.log("After commit");
-                                //   db.close();
-                                // });
-                            }
                         }
                     }
-                    processBlockTx(0);
+
+                    for (let x = 0; x < txs.length; x++) {
+                        processTransaction(x);
+                    }
+
+                    if (nextBlock) {
+                        console.log("End lastblock 4");
+                        trantor.db.all('DELETE FROM lastexplored', _ => {});
+                        trantor.db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+blockhash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
+                        listBlock(nextBlock)
+                    } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
+                        console.log("End lastblock");
+                        isExploring = false;
+                        trantor.db.all('DELETE FROM lastexplored', _ => {});
+                        insetAddr.finalize(_ => {});
+                        insertCtx.finalize(_ => {});
+                        insetWord.finalize(_ => {});
+                        if (typeof $ != 'undefined') {
+                            $('.exploring').remove();
+                        }
+                    }
 
                 } else {
-                    listBlock(starthash);
+                    setTimeout(function () {
+                        listBlock(starthash);
+                    }, 1000);
                 }
             })
         }
@@ -508,7 +512,7 @@ trantor.saveTransactionToDb = function(decodedintx) {
  *  @parameter rawtx: rawtx, needs to be built before
  */
 trantor.decodeRawTransaction = function (rawtx, cback) {
-    CREA_crea_cmd('decoderawtransaction', false, rawtx, cback);
+    CREA_crea_cmd('decoderawtransaction', rawtx, cback);
 }
 
 function listunspend2(addr, cback) {
@@ -593,28 +597,26 @@ trantor.listunspent = listunspend2;
  arg[last] cback: function *(must be in last position)
  will be called with arguments (response, error)
  */
-function CREA_crea_cmd() {
-    let args = [].slice.apply(arguments);
-    let cback = args.pop();
-    let command = args[0];
-    let testnet = args[1];
-
-    let params = args.slice(2);
+function CREA_crea_cmd(command, args, cback) {
+    console.log(command, args);
 
     if (CREA_USE_CMD) {
-        let command = OP_RETURN_BITCOIN_PATH + ' ' + (testnet ? '-testnet ' : '') + escapeshellarg(command);
-        for (let arg in args) {
-            command += ' '.escapeshellarg(arg.map ? JSON.stringify(arg) : arg);
-        }
+        command = Constants.CLIENT_PATH + ' ' + command + ' ' + args;
+
         exec(command, function(error, raw_result, stderr) {
+
             if (error !== null) {
                 console.log('exec error: ' + error, stderr);
+                cback(error);
             }
-            let result = JSON.parse(raw_result); // decode JSON if possible
-            if (!result) {
+            let result = null;
+            try {
+                result = JSON.parse(raw_result); // decode JSON if possible
+            } catch (e) {
                 result = raw_result;
             }
-            console.log(result);
+
+            cback(result);
         });
     } else {
         let requestOpts = {
@@ -660,14 +662,14 @@ function OP_RETURN_store(data, testnet = false, cb) {
                 console.log('No errior', inputs_spend)
                 https.call('GET', '/api/getblockcount', null, (blockcount) => {
                     console.log('BlcokCount', blockcount);
-                    CREA_crea_cmd('getrawmempool', testnet, null, response => {
+                    CREA_crea_cmd('getrawmempool', null, response => {
                         console.log("getrawmempool", response)
 
                         let result = {};
 
                         function processResponse(data_ptr) {
 
-                            CREA_crea_cmd('getrawchangeaddress', testnet, null, change_address => {
+                            CREA_crea_cmd('getrawchangeaddress', null, change_address => {
                                 console.log('change_address', change_address);
                                 let last_txn = ((data_ptr + OP_RETURN_MAX_BYTES) >= strLength); // is this the last tx in the chain?
                                 let change_amount = input_amount - OP_RETURN_BTC_FEE;
@@ -767,7 +769,7 @@ function OP_RETURN_store(data, testnet = false, cb) {
 }
 
 function OP_RETURN_select_inputs(total_amount, testnet, cb) {
-    CREA_crea_cmd('listunspent', testnet, 0, unspent_inputs => {
+    CREA_crea_cmd('listunspent', 0, unspent_inputs => {
         console.log('listunspent');
         console.log(unspent_inputs);
 
@@ -820,7 +822,7 @@ function OP_RETURN_select_inputs(total_amount, testnet, cb) {
 }
 
 function OP_RETURN_bitcoin_check(testnet, cb) {
-    CREA_crea_cmd('getinfo', testnet, function(response) {
+    CREA_crea_cmd('getinfo', function(response) {
         cb(response);
     });
 }
@@ -887,17 +889,21 @@ function OP_RETURN_unpack_txn(binary, cb) {
 
 function getOPcrea(txid) {
     console.log("TXID: ", txid);
-    CREA_crea_cmd('gettransaction', 0, txid, rawtx => {
+    CREA_crea_cmd('gettransaction', txid, rawtx => {
         console.log("rawtx", rawtx);
     });
 }
 
 // Utils
 function escapeshellarg(arg) {
+    console.log('ecapellarg:', arg);
+    if (arg == null || arg == undefined) {
+        return '';
+    }
     var ret = '';
     ret = arg.replace(/[^\\]'/g, function(m, i, s) {
         return m.slice(0, 1) + '\\\''
-    })
+    });
     return "'" + ret + "'"
 }
 
@@ -1112,7 +1118,7 @@ trantor.creadeal = function(data, cb) {
     let pubkeys = [],
         nsigns = data.members;
     console.log(parseInt(nsigns), JSON.stringify(data.pubkeys));
-    CREA_crea_cmd('createmultisig', false, parseInt(nsigns), data.pubkeys, function(result) {
+    CREA_crea_cmd('createmultisig', parseInt(nsigns), data.pubkeys, function(result) {
         console.log("Result", result);
         cb({result: result});
     })
@@ -1237,9 +1243,9 @@ trantor.findOp = function(find, cb) {
             datos[i]['ref'] = data['ref'];
             datos[i]['transaction'] = data['transaction'];
             datos[i]['date'] = data['date'];
-            CREA_crea_cmd('getrawtransaction', 0, data['ref'], function(raw) {
+            CREA_crea_cmd('getrawtransaction', data['ref'], function(raw) {
                 datos[i]['raw'] = raw;
-                CREA_crea_cmd('decoderawtransaction', 0, raw, function(decoded) {
+                CREA_crea_cmd('decoderawtransaction', raw, function(decoded) {
                     datos[i]['decode'] = decoded;
 
                     if (i < results.length - 1) {
@@ -1331,7 +1337,7 @@ trantor.spend = function(addr, redeem, amount, sendto, members, cback) {
 
 
 trantor.pushTx = function(rawtx, cb) {
-    CREA_crea_cmd('sendrawtransaction', false, rawtx, cb)
+    CREA_crea_cmd('sendrawtransaction', rawtx, cb)
 }
 
 

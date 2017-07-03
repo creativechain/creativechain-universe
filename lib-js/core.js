@@ -302,7 +302,6 @@ class Configuration {
         this.rpcpassword = rpcpassword;
         this.rpcworkqueue = 2000;
         this.txindex = true;
-        this.reindex = true;
     }
 
     getRpcUser()  {
@@ -333,10 +332,6 @@ class Configuration {
         this.txindex = indexing;
     }
 
-    setIndexing(indexing) {
-        this.reindex = indexing;
-    }
-
     setRpcWorkQueue(queuelength){
         this.rpcworkqueue = queuelength;
     }
@@ -355,7 +350,6 @@ class Configuration {
         let lines = content.split('\n');
         let hasUser = false;
         let hasPassword = false;
-        let hasReindex = false;
         let hasTxIndex = false;
         let hasRpcWorkqueue = false;
         for (let x = 0; x < lines.length; x++) {
@@ -367,10 +361,6 @@ class Configuration {
                     break;
                 case 'rpcpassword':
                     hasPassword =true;
-                    break;
-                case 'reindex':
-                    content = content.replace(l, 'reindex=' + 1);
-                    hasReindex = true;
                     break;
                 case 'txindex':
                     content = content.replace(l, 'txindex=' + 1);
@@ -385,7 +375,6 @@ class Configuration {
 
         content = contentAdd(!hasUser, content, 'rpcuser=' + this.getRpcUser());
         content = contentAdd(!hasPassword, content, 'rpcpassword=' + this.getRpcPassword());
-        content = contentAdd(!hasReindex, content, 'reindex=1');
         content = contentAdd(!hasTxIndex, content, 'txindex=1');
         content = contentAdd(!hasRpcWorkqueue, content, 'rpcworkqueue=' + this.getRpcWorkQueue());
         console.log('Before save:');
@@ -411,9 +400,6 @@ class Configuration {
                     break;
                 case 'rpcpassword':
                     conf.setRpcPassword(vals[0]);
-                    break;
-                case 'reindex':
-                    conf.setIndexing(vals[1] == '1');
                     break;
                 case 'txindex':
                     conf.setTxIndexing(vals[1] == '1');
