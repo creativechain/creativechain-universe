@@ -93,8 +93,12 @@ function exploreBlocks() {
                 console.log('Lastblock', lastblock);
 
                 if (lastblock == undefined) {
-                    console.log('Exploring since genesis');
-                    listsinceblock('1f4d98cb9ae1b5ac2da8c2c83e25245766e8db4ecc21e557e8cb28c1f193f89e');
+                    CREA_crea_cmd('getblockcount', '', function (count) {
+                        total_blocks = parseInt(count);
+                        CREA_crea_cmd('getblockhash', count, function (blockHash) {
+                            listsinceblock(blockHash)
+                        })
+                    });
                 } else {
                     https.call('GET', '/api/getblockcount', null, (blockcount) => {
                         console.log(blockcount);
@@ -246,14 +250,14 @@ function listsinceblock(starthash, lastblock) {
                     let blockhash = block.hash;
                     let blocktime = block.time;
                     let bheight = block.height;
-                    let nextBlock = block.nextblockhash;
+                    let prevBlock = block.previousblockhash;
                     let txs = block.tx;
 
                     if (typeof $ != 'undefined') {
                         $('.exploring .status').html(`<span>BLOCK: <b>${blockhash}</b></span>
-                            <span>Height: [<span class="col-gray">${bheight}</span>/${total_blocks}]</span>
+                            <span>Height: <span class="col-gray">${bheight}</span></span>
                             <span>Transactions: [<span class="c_tx col-gray"></span>/${txs.length}]</span>
-                            <span>Done: ${block.height}</span>`);
+                            <span>Done: ${total_blocks - block.height}/${total_blocks}</span>`);
                     }
 
                     function processTransaction(i) {
@@ -388,11 +392,11 @@ function listsinceblock(starthash, lastblock) {
                         processTransaction(x);
                     }
 
-                    if (nextBlock) {
+                    if (prevBlock) {
                         console.log("End lastblock 4");
                         trantor.db.all('DELETE FROM lastexplored', _ => {});
                         trantor.db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+blockhash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
-                        listBlock(nextBlock)
+                        listBlock(prevBlock)
                     } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
                         console.log("End lastblock");
                         isExploring = false;
