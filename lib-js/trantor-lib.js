@@ -3,7 +3,7 @@
 // const HttpsCaller = require('./https-caller');
 //const {app, BrowserWindow} = require('electron');
 
-
+const bitcoin = require('bitcoinjs-lib');
 const RpcClient = RpcCaller;
 // const RpcClient = require('./rpc-client');
 var path = require('path');
@@ -214,6 +214,12 @@ trantor.getDataFromReference = getDataFromReference2;
 let getDecTxSecurity = 0;
 function getDecodedTransaction(tx_id, cback) {
     CREA_crea_cmd('getrawtransaction', tx_id, (rawtx) => {
+        rawtx = rawtx.replace('\n', '');
+
+
+        let tx = bitcoin.Transaction.fromHex(rawtx);
+        console.log(tx);
+        cback()
         CREA_crea_cmd('decoderawtransaction', rawtx, (decodedtx) => {
             cback(decodedtx);
             // if (decodedtx) {
