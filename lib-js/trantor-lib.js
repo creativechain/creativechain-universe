@@ -5,7 +5,7 @@
 
 const bitcoin = require('bitcoinjs-lib');
 const RpcClient = RpcCaller;
-// const RpcClient = require('./rpc-client');
+// const CreaClient = require('./rpc-client');
 var path = require('path');
 
 global.appRoot = path.resolve(__dirname);
@@ -16,7 +16,7 @@ const sqlite3 = require('sqlite3').verbose();
 /* CONSTANTS */
 const CREA_API_URL = 'search.creativechain.net';
 
-const CREA_USE_CMD = true; // use command-line instead of JSON-RPC?
+const CREA_USE_CMD = false; // use command-line instead of JSON-RPC?
 const OP_RETURN_MAX_BLOCKS = 10; // maximum number of blocks to try when retrieving data
 const OP_RETURN_MAX_BYTES = 1000; // maximum bytes in an OP_RETURN (40 as of Bitcoin 0.10)
 const OP_RETURN_BTC_DUST = 0.002; // omit BTC outputs smaller than this
@@ -40,6 +40,117 @@ let isExploring = false;
 let hasExploredOnce = false;
 let corepath = '';
 trantor.db = new DB(Constants.DATABASE_PATH);
+
+class Networks {}
+Networks.MAINNET = {
+    messagePrefix: '\x18Creativecoin Signed Message:\n',
+    bip32: {
+        public: 0x0488b21e,
+        private: 0x0488ade4
+    },
+    pubKeyHash: 0x1c,
+    scriptHash: 0x05,
+    wif: 0x80
+};
+
+class TxInput {
+    constructor(hash, index, script, sequence, witness) {
+        this.txHash = hash;
+        this.txIndex = index;
+        this.script = script;
+        this.sequence = sequence;
+        this.witness = witness;
+    }
+}
+
+class TxOutput {
+    constructor(script, value, index) {
+        this.script = script;
+        this.value = value;
+        this.index = index;
+    }
+
+    /**
+     *
+     * @returns {string}
+     */
+    getDecodedScript() {
+        return bitcoin.script.toASM(bitcoin.script.decompile(this.getBufferedScript()));
+    }
+
+    /**
+     * @returns {Buffer}
+     */
+    getBufferedScript() {
+        return Buffer.from(this.script, 'hex');
+    }
+
+    /**
+     *
+     * @returns {string}
+     */
+    getAddress() {
+        if (bitcoin.script.pubKeyHash.output.check(this.getBufferedScript())) {
+            return bitcoin.address.toBase58Check(bitcoin.script.compile(this.getBufferedScript()).slice(3, 23), Networks.MAINNET.pubKeyHash);
+        } else  if (bitcoin.script.scriptHash.output.check(this.getBufferedScript())) {
+            return bitcoin.address.toBase58Check(bitcoin.script.compile(this.getBufferedScript()).slice(2, 22), Networks.MAINNET.scriptHash);
+        }
+
+        return null;
+    }
+}
+
+class DecodedTransaction {
+    constructor(rawTx) {
+        this.rawTx = rawTx.replace('\n', '');
+        this.hash = '';
+        this.inputs = [];
+        this.outputs = [];
+        this.version = 0;
+        this.locktime = 0;
+    }
+
+    /**
+     *
+     * @param index
+     * @returns {TxInput}
+     */
+    getInput(index) {
+        return this.inputs[index];
+    }
+
+    /**
+     *
+     * @param index
+     * @returns {TxOutput}
+     */
+    getOutput(index) {
+        return this.outputs[index];
+    }
+    /**
+     *
+     * @param txHex
+     * @returns {DecodedTransaction}
+     */
+    static fromHex(txHex) {
+        let dtx = new DecodedTransaction(txHex);
+        let tx = bitcoin.Transaction.fromHex(txHex);
+
+        tx.ins.forEach(function (input, index, array) {
+            let txInput = new TxInput(input.hash.toString('hex'), input.index, input.script.toString('hex'), input.sequence, input.witness);
+            dtx.inputs.push(txInput);
+        });
+
+        tx.outs.forEach(function (output, index, array) {
+            let txOutput = new TxOutput(output.script.toString('hex'), output.value, index);
+            dtx.outputs.push(txOutput);
+        });
+
+        dtx.version = tx.version;
+        dtx.locktime = tx.locktime;
+        return dtx;
+    }
+}
 
 function init() {
     trantor.db.init();
@@ -67,7 +178,7 @@ function exploreBlocks() {
         $('.exploring').remove();
         $('body').append('<div class="exploring">Exploring blockchain please wait</div>');
         $('.exploring').append('<h4 class="total_blocks"></h4>').append('<h4 class="status"></h4>')
-        Preferences.setFirstUseExecuted(true)
+        Preferences.setFirstUseExecuted(false)
     }
     isExploring = true;
     if (typeof $ != 'undefined' && !hasExploredOnce) {
@@ -93,10 +204,12 @@ function exploreBlocks() {
                 console.log('Lastblock', lastblock);
 
                 if (lastblock == undefined) {
-                    CREA_crea_cmd('getblockcount', '', function (count) {
-                        total_blocks = parseInt(count);
-                        CREA_crea_cmd('getblockhash', count, function (blockHash) {
-                            listsinceblock(blockHash)
+                    NODE.connection.getBlockCount(function(err, count) {
+                        console.log('getBlockCount', err, count);
+                        total_blocks = parseInt(count.result);
+                        NODE.connection.getBlockHash(total_blocks, function (err, hash) {
+                            console.log('getBlockHash', err, hash);
+                            listsinceblock(hash.result);
                         })
                     });
                 } else {
@@ -107,8 +220,6 @@ function exploreBlocks() {
                             console.log("ahs block", blockcount);
                             CREA_crea_cmd('getblockhash', blockcount, (starthash) => {
                                 console.log("starthash", starthash);
-                                // listsinceblock('5a738b375c524f68b28443fd494fed6cabe98e42e7b986627ee079b41e4415c9');
-                                // listsinceblock(starthash);
                                 listsinceblock(starthash, lastblock['block']);//add lastblock['block']
                             })
                         } else {
@@ -124,118 +235,94 @@ function exploreBlocks() {
             });
         }
     });
-
-
-    // db.all("SELECT * FROM addrtotx ORDER BY date DESC LIMIT 0,1",
-    //   (error, row) => {
-    //     let block, blocks;
-    //     lastblock = row[0];
-    //     console.log('Lastblock', lastblock);
-    //     https.call('GET', '/api/getblockcount', null, (blockcount) => {
-    //       console.log(blockcount)
-    //       if (lastblock && lastblock['block']) {
-    //         console.log("ahs block", blockcount);
-    //         CREA_crea_cmd('getblockhash', false, blockcount, (starthash) => {
-    //           console.log("starthash", starthash);
-    //           // listsinceblock('f9d7b74ce95ab6553c041bf9727dc7cd7dd4bf96407f2f4bc4d21103b3a30a7b');
-    //           // listsinceblock(starthash);
-    //           listsinceblock(starthash, lastblock['block']);//add lastblock['block']
-    //         })
-    //       } else {
-    //         console.log("Else");
-    //         CREA_crea_cmd('getblockhash', false, blockcount, (starthash) => {
-    //           console.log("starthash", starthash);
-    //           listsinceblock(starthash);
-    //         })
-    //       }
-    //     })
-    //   });
 }
 trantor.exploreBlocks = exploreBlocks;
 
-function getDataFromReference2(decoraw, cb) {
-    function process_() {
+function getDataFromReference2(transaction, cb) {
+    let opdata = '';
+    function processData() {
         let txdata = '';
-        if (decoraw && decoraw['vout']) {
-            for (let vout of decoraw['vout']) {
-                if (vout['scriptPubKey']['hex'] && !vout['scriptPubKey']['addresses']) {
-                    txdata += vout['scriptPubKey']['hex'];
-                }
+
+        for (let out of transaction.outputs) {
+            if (out.getAddress() == null) {
+                txdata +=  out.script;
             }
         }
 
-        txdata = (new Buffer(txdata, 'hex')).toString('utf8');
+        //console.log('TXDATA:', txdata);
+        txdata = Buffer.from(txdata, 'hex').toString('utf8');
+        //console.log('BUFFERDATA:', txdata);
         txdata = txdata.split('-CREAv1-');
+
         try {
             let txids = JSON.parse(txdata[1]);
-            var opdata = '';
+            //console.log('ReferenceIds', txids);
+
             if (txids) {
                 if (txids.txids) {
-                    function iterateTxs(i) {
-                        let txid = txids.txids[i];
-                        getDecodedTransaction(txid, function(decodedTx) {
-                            if (decodedTx) {
-                                for (let v of decodedTx['vout']) {
-                                    if (v['scriptPubKey']['type'] == "nulldata") {
-                                        let opdataP = (new Buffer(v['scriptPubKey']['hex'], 'hex')).toString('utf8');
-                                        opdataP = opdataP.split('-CREA-');
+                    let length = txids.txids.length;
+
+                    for (let txid of txids.txids) {
+
+                        getDecodedTransaction(txid, function(tx) {
+
+                            for (let out of tx.outputs) {
+                                if (out.getAddress() == null) {
+                                    let opdataP = out.getBufferedScript().toString('utf8');
+                                    if (opdataP.indexOf('-CREAv1-') !== -1) {
+                                        opdataP = opdataP.split('-CREAv1-');
                                         opdata += opdataP[1];
                                     }
                                 }
                             }
-                            if (i < txids.txids.length - 1) {
-                                iterateTxs(++i);
-                            } else {
-                                cb(opdata, decodedTx.txid);
-                            }
+
+
                         })
                     }
-                    iterateTxs(0);
-                } else {
-                    if (cb) cb(txids, decoraw.txid)
+
+                    cb(opdata, txids.txids[txids.txids.length -1]);
+                    //return opdata;
+                    //cb(opdata, txid);
+
+                } else if (cb) {
+                    cb(txids, transaction.hash)
                 }
             }
         } catch (e) {
-            if (cb) cb(null)
+            if (cb) {
+                cb(null);
+            }
         }
+
     }
 
-    if (typeof decoraw == 'string') {
-        getDecodedTransaction(decoraw, function (deco) {
-            decoraw = deco;
-            process_();
+    processData();
+    //console.log('RETURN DATA: ', opdata);
+
+/*    if (typeof transaction == 'string') {
+        getDecodedTransaction(transaction, function (deco) {
+            transaction = deco;
+            processData();
         })
     } else {
-        process_()
-    }
+        processData()
+    }*/
 }
 trantor.getDataFromReference = getDataFromReference2;
 
 let getDecTxSecurity = 0;
 function getDecodedTransaction(tx_id, cback) {
-    CREA_crea_cmd('getrawtransaction', tx_id, (rawtx) => {
-        rawtx = rawtx.replace('\n', '');
+    NODE.connection.getRawTransaction(tx_id, function (err, rawtx) {
+        //console.log('getRawTransaction', err, rawtx);
+        if (!err) {
+            rawtx = rawtx.result;
 
-
-        let tx = bitcoin.Transaction.fromHex(rawtx);
-        console.log(tx);
-        cback()
-        CREA_crea_cmd('decoderawtransaction', rawtx, (decodedtx) => {
-            cback(decodedtx);
-            // if (decodedtx) {
-            //   cback(decodedtx);
-            // } else {
-            //   https.call('GET', '/api/getrawtransaction?txid=' + tx_id + '&decrypt=1', [],
-            //     ((cback, decodedtx) => {
-            //       if (!decodedtx && getDecTxSecurity < 1000) {
-            //           getDecTxSecurity++;
-            //           setTimeout(_ => {getDecodedTransaction(tx_id, cback)}, 3000)
-            //       } else {
-            //         cback(decodedtx || 'Theres some kind of error with tx['+tx_id+']');
-            //       }
-            //     }).bind(this, cback))
-            // }
-        });
+            let dTx = DecodedTransaction.fromHex(rawtx);
+            dTx.hash = tx_id;
+            cback(dTx);
+        } else {
+            cback(null);
+        }
     });
 }
 trantor.getDecodedTransaction = getDecodedTransaction;
@@ -246,13 +333,13 @@ function listsinceblock(starthash, lastblock) {
 
         function listBlock(starthash) {
             console.log('Listing block:', starthash);
-            let insetAddr = trantor.db.prepare("INSERT INTO addrtotx VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            let insetWord = trantor.db.prepare("INSERT INTO wordToReference VALUES (?, ?, ?, ?)");
+            let insertAddr = trantor.db.prepare("INSERT INTO addrtotx VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            let insertWord = trantor.db.prepare("INSERT INTO wordToReference VALUES (?, ?, ?, ?)");
             let insertCtx = trantor.db.prepare("INSERT INTO contracttx  VALUES (?, ?, ?, ?, ?, ?)");
-            CREA_crea_cmd('getblock', starthash, (b) => {
-                console.log('parsing: ', b);
-                if (b) {
-                    let block = b;
+            NODE.connection.getBlock(starthash, function (err, b) {
+                console.log('getBlock', err, b);
+                if (!err) {
+                    let block = b.result;
                     let blockhash = block.hash;
                     let blocktime = block.time;
                     let bheight = block.height;
@@ -272,53 +359,38 @@ function listsinceblock(starthash, lastblock) {
                             $('.c_tx').text(i);
                         }
                         if (tx_id) {
-                            getDecodedTransaction(tx_id, decodedintx => {
-                                if (decodedintx && decodedintx['vout']) {
-                                    let vinTxID = decodedintx.txid;
-                                    decodedintx.vout.forEach(vout => {
-                                        if (vout['scriptPubKey'] && vout['scriptPubKey']['addresses']) {
-                                            vout['scriptPubKey']['addresses'].forEach(address => {
-                                                insetAddr.run([address, vinTxID, vout['value'], blocktime, blockhash, 0, 1, vout.n], _ => {})
-                                                // db.run("INSERT INTO addrtotx (addr, tx, amount, date, block, vin, vout, n) VALUES ('"
-                                                //   + address + "', '" + vinTxID + "', '" + vout['value'] + "', " + blocktime + ", '" + blockhash + "', " + 0 + ", " + 1 + ", " + vout.n + ")",
-                                                //   (error, row) => {});
-                                            })
-                                        }
-                                    })
+
+                            getDecodedTransaction(tx_id, function (transaction) {
+
+                                for (let x = 0; x < transaction.outputs.length; x++) {
+                                    let out = transaction.getOutput(x);
+                                    if (out.getAddress() != null) {
+                                        insertAddr.run(out.getAddress(), transaction.hash, out.value, blocktime, blockhash, 0, 1, out.index);
+                                    }
                                 }
 
                                 /* Cojo los vouts de los vins de la transaccion */
 
-                                if (decodedintx && decodedintx['vin']) {
-                                    decodedintx.vin.forEach(vin => {
-                                        let index = vin.vout;
-                                        if (vin.txid) {
-                                            // console.log("Vin", vin.txid);
-                                            getDecodedTransaction(vin.txid, vindeco => {
-                                                // console.log("vinsd", vindeco);
-                                                if (vindeco && vindeco.vout) {
-                                                    let vinTxID = vin.txid;
-                                                    // console.log("vindeco", vindeco);
-                                                    vindeco.vout.forEach(vout => {
-                                                        // console.log('VOUT VIN ', vinTxID, vin.txid);
-                                                        if (vout.n == index && vout['scriptPubKey'] && vout['scriptPubKey']['addresses']) {
-                                                            // console.log("If", vout);
-                                                            vout['scriptPubKey']['addresses'].forEach(address => {
-                                                                insetAddr.run([address, vinTxID, vout['value'], blocktime, blockhash, 1, 0, vout.n], _ => {})
-                                                                // db.run("INSERT INTO addrtotx (addr, tx, amount, date, block, vin, vout, n) VALUES ('" + address + "', '" + vinTxID + "', '" + vout['value'] + "', " + blocktime + ", '" + blockhash + "', " + 1 + ", " + 0 + ", " + vout.n + ")",
-                                                                //   (error, row) => {
-                                                                //     // console.log('addrtotx vin', error, row);
-                                                                //   });
-                                                            })
-                                                        }
-                                                    })
+                                transaction.inputs.forEach(function (input, index, array) {
+                                    let onDecode = function (inputTx) {
+                                        if (inputTx) {
+                                            inputTx.outputs.forEach(function (out, index, array) {
+                                                let address = out.getAddress();
+                                                if (address != null) {
+                                                    console.log('INSERTING IN DB', out);
+                                                    insertAddr.run(address, inputTx.hash, out.value, blocktime, blockhash, 1, 0, out.index);
                                                 }
-                                            })
+                                            });
+                                        } else {
+                                            //Try to get tx again
+                                            getDecodedTransaction(input.txHash, onDecode);
                                         }
-                                    })
-                                }
-                                getDataFromReference2(decodedintx, function(data, ref) {
-                                    // console.log("Ref", data, ref);
+                                    };
+                                    getDecodedTransaction(input.txHash, onDecode)
+                                });
+
+                                getDataFromReference2(transaction, function(data, ref) {
+                                    //console.log('Ref', data, ref);
                                     if (data) {
                                         try {
                                             if (typeof data == 'string') {
@@ -326,16 +398,16 @@ function listsinceblock(starthash, lastblock) {
                                             }
                                             if (data.title) {
                                                 let wordsInTitle = data.title.split(' ');
-                                                for (var i = 0; i < wordsInTitle.length; i++) {
+                                                for (let i = 0; i < wordsInTitle.length; i++) {
                                                     let word = wordsInTitle[i];
                                                     console.log("WORD", word);
-                                                    insetWord.run([word, ref, blocktime, i], _ => {});
+                                                    insertWord.run([word, ref, blocktime, i], _ => {});
                                                     // db.run("INSERT INTO wordToReference (wordHash, 'ref', blockDate, 'order') VALUES ('" + word + "', '" + ref + "', " + blocktime + ", " + i + ")",
                                                     //   (error, row) => {});
                                                 }
                                             }
                                             if (data.type) {
-                                                insetWord.run([data.type, ref, blocktime, i], _ => {});
+                                                insertWord.run([data.type, ref, blocktime, i], _ => {});
 
                                                 // db.run("INSERT INTO wordToReference (wordHash, 'ref', blockDate, 'order') VALUES ('" + data.type + "', '" + ref + "', " + blocktime + ", " + i + ")",
                                                 //   (error, row) => {
@@ -343,7 +415,8 @@ function listsinceblock(starthash, lastblock) {
                                                 //   });
                                             }
                                             if (data.contract) {
-                                                insertCtx.run(data.tx, ref, blocktime, data.contract, JSON.stringify(data), _ => {})
+                                                insertCtx.run(ref, parseInt(data.number), data.address, data.year, data.type, JSON.stringify(data), _ => {});
+                                                //insertCtx.run(data.tx, ref, blocktime, data.contract, JSON.stringify(data), _ => {})
                                                 // db.run("INSERT INTO contracttx (ctx, 'ntx', addr, 'date', type, data) VALUES ('" +
                                                 //   data.tx + "', '" + ref + "', '', '" + blocktime + "', '" + data.contract + "', '" + JSON.stringify(data) + "')",
                                                 //   (error, row) => {
@@ -351,46 +424,11 @@ function listsinceblock(starthash, lastblock) {
                                                 //   });
                                             }
                                         } catch (e) {
-                                            console.log("Error");
-                                            return;
+                                            console.log("Error", e);
                                         }
-                                    } else {
-                                        return;
                                     }
                                 });
-/*                                // console.log("ASDASD");
-                                if (i < block.tx.length - 1) {
-                                    // console.log('processBlockTx', i);
-                                    processTransaction(++i);
-                                }
-                                else {
-                                    if (block.previousblockhash && block.previousblockhash != lastblock && block.previousblockhash != starthash) {
-                                        console.log("End lastblock 2");
-                                        trantor.db.all('DELETE FROM lastexplored', _ => {});
-                                        trantor.db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+starthash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
-                                        listBlock(block.previousblockhash)
-                                    } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
-                                        isExploring = false;
-                                        console.log("End lastblock");
-                                        console.log("Finaly");
-                                        var params = getSearchParameters();
-
-                                        if (typeof $ != 'undefined') {
-                                            $('.exploring').remove();
-                                        }
-                                        insetAddr.finalize(_ => {});
-                                        insertCtx.finalize(_ => {});
-                                        insetWord.finalize(_ => {});
-                                        trantor.db.all('DELETE FROM lastexplored', _ => {});
-                                        // listBlock(block.previousblockhash)
-                                        findWord(undefined, 0);
-                                        // db.run('commit', function() {
-                                        //   console.log("After commit");
-                                        //   db.close();
-                                        // });
-                                    }
-                                }*/
-                            })
+                            });
                         }
                     }
 
@@ -407,9 +445,9 @@ function listsinceblock(starthash, lastblock) {
                         console.log("End lastblock");
                         isExploring = false;
                         trantor.db.all('DELETE FROM lastexplored', _ => {});
-                        insetAddr.finalize(_ => {});
+                        insertAddr.finalize(_ => {});
                         insertCtx.finalize(_ => {});
-                        insetWord.finalize(_ => {});
+                        insertWord.finalize(_ => {});
                         if (typeof $ != 'undefined') {
                             $('.exploring').remove();
                         }
@@ -420,7 +458,7 @@ function listsinceblock(starthash, lastblock) {
                         listBlock(starthash);
                     }, 1000);
                 }
-            })
+            });
         }
         if (starthash && starthash != lastblock) {
             listBlock(starthash)
@@ -555,7 +593,7 @@ function listunspend2(addr, cback) {
                                     amount: tx_.amount,
                                     index: tx_.n,
                                     scriptPubKey: gtx.vout[tx_.n].scriptPubKey.hex
-                                }
+                                };
 
                                 if (j < txs.length - 1) {
                                     processEntry2(++j);
@@ -632,11 +670,14 @@ function CREA_crea_cmd(command, args, cback) {
         let requestOpts = {
             'id': getID(),
             'command': command,
-            'params': params,
+            'params': args,
             'user': NODE.configuration.getRpcUser(),
             'pass': NODE.configuration.getRpcPassword()
         };
-        NODE.connection.call(requestOpts, cback);
+        NODE.connection.call(requestOpts, function (result, err, resHeaders) {
+            console.log(result, err, resHeaders);
+            cback(result);
+        });
     }
 }
 

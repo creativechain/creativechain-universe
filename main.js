@@ -4,8 +4,6 @@ require('electron-dl')();
 const path = require('path');
 const url = require('url');
 
-//const {Preferences} = require("./lib-js/core");
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
@@ -27,7 +25,6 @@ function createWindow () {
 
     // Emitted when the window is closed.
     win.on('closed', () => {
-
         //console.log('closing window');
         //Preferences.setNodeCorrectlyRunning(false);
         // Dereference the window object, usually you would store windows
@@ -41,7 +38,6 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
-
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
     // On macOS it is common for applications and their menu bar

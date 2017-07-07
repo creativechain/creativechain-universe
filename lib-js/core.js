@@ -8,6 +8,7 @@ const request = require('request');
 const fs = require('fs');
 const exec = require('child_process').exec;
 const {download} = require('electron-dl');
+const CreaClient = require('bitcoind-rpc');
 
 class ErrorCodes {}
 ErrorCodes.INVALID_PLATFORM = 'INVALID_PLATFORM';
@@ -234,7 +235,7 @@ class FileStorage {
     }
 
     static save(conf) {
-        console.log('Saving conf', conf);
+        //console.log('Saving conf', conf);
         File.write(Constants.STORAGE_FILE, JSON.stringify(conf));
     }
 
@@ -254,8 +255,11 @@ class FileStorage {
      * @param key
      * @returns {*}
      */
-    static getItem(key) {
+    static getItem(key, defaultValue) {
         let conf = FileStorage.load();
+        if (conf[key] == undefined) {
+            return defaultValue;
+        }
         return conf[key];
     }
 }
@@ -266,7 +270,7 @@ class Preferences {
      * @returns {boolean}
      */
     static isFirstUseExecuted() {
-        return FileStorage.getItem('first_use');
+        return FileStorage.getItem('first_use', true);
     }
 
     /**
@@ -377,15 +381,13 @@ class Configuration {
         content = contentAdd(!hasPassword, content, 'rpcpassword=' + this.getRpcPassword());
         content = contentAdd(!hasTxIndex, content, 'txindex=1');
         content = contentAdd(!hasRpcWorkqueue, content, 'rpcworkqueue=' + this.getRpcWorkQueue());
-        console.log('Before save:');
-        console.log(content);
+        //console.log('Before save: ', content);
         File.write(file, content);
     }
 
     static buildFromFile(file) {
 
-
-        console.log('Reading ' + file);
+        //console.log('Reading ' + file);
         let content = File.read(file);
         let lines = content.split('\n');
         let conf = new Configuration();
@@ -399,7 +401,7 @@ class Configuration {
                     conf.setRpcUser(vals[1]);
                     break;
                 case 'rpcpassword':
-                    conf.setRpcPassword(vals[0]);
+                    conf.setRpcPassword(vals[1]);
                     break;
                 case 'txindex':
                     conf.setTxIndexing(vals[1] == '1');
@@ -437,20 +439,16 @@ class Creativecoin {
             File.chmod(Constants.CORE_PATH, 755);
             File.chmod(Constants.CLIENT_PATH, 755);
 
-            if (!Preferences.isNodeCorrectlyRunning()) {
-                Creativecoin.isCoreRunning(function (running) {
-                    if (running) {
-                        that.stop(function () {
-                            console.log('creativecoin node stopped!');
-                            onStopped();
-                        })
-                    } else {
+            Creativecoin.isCoreRunning(function (running) {
+                if (running) {
+                    that.stop(function () {
+                        console.log('creativecoin node stopped!');
                         onStopped();
-                    }
-                });
-            } else {
-                onStopped();
-            }
+                    })
+                } else {
+                    onStopped();
+                }
+            });
         }
 
         console.log('Binaries exists: ' + Constants.CORE_PATH + ': ' + File.exist(Constants.CORE_PATH) + ', ' + Constants.CLIENT_PATH + ':' + File.exist(Constants.CLIENT_PATH));
@@ -479,20 +477,23 @@ class Creativecoin {
         let onExists = function () {
             //FOLDER OF NODE EXIST
             that.configuration = Configuration.buildFromFile(that.getConfigurationPath());
-            that.connection = new RpcCaller({
-                port: 17111,
-                host: '127.0.0.1',
+
+            let conConfig = {
+                protocol: 'http',
                 user: that.configuration.getRpcUser(),
-                pass: that.configuration.getRpcPassword()
-            });
-            if (!Preferences.isNodeCorrectlyRunning()) {
-                setTimeout(function () {
-                    that.start(function (result) {
-                        Preferences.setNodeCorrectlyRunning(true);
-                        console.log('Node started!');
-                    });
-                }, 5000);
-            }
+                pass: that.configuration.getRpcPassword(),
+                host: '127.0.0.1',
+                port: '17711'
+            };
+            //console.log('RPCConfig', that.configuration, conConfig);
+            that.connection = new CreaClient(conConfig);
+
+            setTimeout(function () {
+                that.start(function (result) {
+                    Preferences.setNodeCorrectlyRunning(true);
+                    console.log('Node started!');
+                });
+            }, 3000);
         };
 
         let pathCommand = '';
@@ -544,7 +545,7 @@ class Creativecoin {
      */
     start(callback) {
         console.log('starting node...');
-        let startCommand = Constants.CORE_PATH + ' -daemon';
+        let startCommand = Constants.CORE_PATH + ' -daemon' + (Preferences.isFirstUseExecuted() ? ' -reindex-chainstate' : '');
 
         OS.run(startCommand, callback);
 
