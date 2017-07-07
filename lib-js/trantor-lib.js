@@ -174,7 +174,7 @@ function decode_utf8(s) {
 }
 function exploreBlocks() {
     let first_use = Preferences.isFirstUseExecuted();
-    if (!first_use) {
+    if (first_use) {
         $('.exploring').remove();
         $('body').append('<div class="exploring">Exploring blockchain please wait</div>');
         $('.exploring').append('<h4 class="total_blocks"></h4>').append('<h4 class="status"></h4>')

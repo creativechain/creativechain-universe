@@ -257,7 +257,7 @@ class FileStorage {
      */
     static getItem(key, defaultValue) {
         let conf = FileStorage.load();
-        if (conf[key] == undefined) {
+        if (conf[key] == undefined || conf[key] == null) {
             return defaultValue;
         }
         return conf[key];
