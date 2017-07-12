@@ -6,3 +6,4 @@ bin
 *.sql
 *.db
 releases
+index.db-journal
