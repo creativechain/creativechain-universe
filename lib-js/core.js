@@ -471,23 +471,35 @@ class Creativecoin {
 
     };
 
+    call(opts, callback) {
+        this.createConnection();
+        this.connection.call(opts, callback);
+    }
+
+    createConnection() {
+        if (!this.connection) {
+            this.configuration = Configuration.buildFromFile(this.getConfigurationPath());
+
+            let conConfig = {
+                protocol: 'http',
+                user: this.configuration.getRpcUser(),
+                pass: this.configuration.getRpcPassword(),
+                host: '127.0.0.1',
+                port: '17711'
+            };
+            //console.log('RPCConfig', that.configuration, conConfig);
+            this.connection = new CreaClient(conConfig);
+        }
+
+    }
+
     createConfigurationFile() {
         let that = this;
 
         let onExists = function () {
             //FOLDER OF NODE EXIST
-            that.configuration = Configuration.buildFromFile(that.getConfigurationPath());
 
-            let conConfig = {
-                protocol: 'http',
-                user: that.configuration.getRpcUser(),
-                pass: that.configuration.getRpcPassword(),
-                host: '127.0.0.1',
-                port: '17711'
-            };
-            //console.log('RPCConfig', that.configuration, conConfig);
-            that.connection = new CreaClient(conConfig);
-
+            that.createConnection();
             setTimeout(function () {
                 that.start(function (result) {
                     Preferences.setNodeCorrectlyRunning(true);
@@ -545,7 +557,7 @@ class Creativecoin {
      */
     start(callback) {
         console.log('starting node...');
-        let startCommand = Constants.CORE_PATH + ' -daemon' + (Preferences.isFirstUseExecuted() ? ' -reindex-chainstate' : '');
+        let startCommand = Constants.CORE_PATH + ' -daemon -txindex' + (Preferences.isFirstUseExecuted() ? ' -reindex-chainstate' : '');
 
         OS.run(startCommand, callback);
 
@@ -653,7 +665,7 @@ class DB {
     }
 
     lastExploredBlock(callback) {
-        this.db.all('SELECT * FROM lastexplored ORDER BY date ASC LIMIT 0,1', callback);
+        this.db.all('SELECT * FROM lastexplored ORDER BY date DESC LIMIT 0,1', callback);
     }
 
     lastAddrToTx(callback) {

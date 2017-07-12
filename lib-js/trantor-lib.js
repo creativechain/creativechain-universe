@@ -34,6 +34,7 @@ const https = new HttpsCaller({
     port: 3001
 });
 let trantor = {};
+trantor.onContent = null;
 
 let total_blocks = 0;
 let isExploring = false;
@@ -148,6 +149,7 @@ class DecodedTransaction {
 
         dtx.version = tx.version;
         dtx.locktime = tx.locktime;
+        dtx.hash = tx.getId();
         return dtx;
     }
 }
@@ -162,8 +164,11 @@ function init() {
                 trantor.exploreBlocks();
             }
         };
-        setInterval(explore, 15 * 1000);
-        //explore();
+        setTimeout(function () {
+            //setInterval(explore, 15 * 1000);
+            explore();
+        }, (Preferences.isFirstUseExecuted() ? 60 : 15) * 1000);
+
     });
 }
 
@@ -174,7 +179,7 @@ function decode_utf8(s) {
 }
 function exploreBlocks() {
     let first_use = Preferences.isFirstUseExecuted();
-    if (first_use) {
+    if (true) {
         $('.exploring').remove();
         $('body').append('<div class="exploring">Exploring blockchain please wait</div>');
         $('.exploring').append('<h4 class="total_blocks"></h4>').append('<h4 class="status"></h4>')
@@ -192,46 +197,39 @@ function exploreBlocks() {
     trantor.db.lastExploredBlock(function (err, res) {
         console.log("Res", err, res);
         if (res[0] && res[0].blockhash) {
-            https.call('GET', '/api/getblockcount', null, (blockcount) => {
-                total_blocks = blockcount;
-                console.log("Didnt finish last time");
-                listsinceblock(res[0].blockhash, res[0].untilblock || null);//add lastblock['block']
-            })
+            NODE.connection.getBlockCount(function (err, count) {
+                if (err) {
+                    console.log('Erro grtting num of blocks', err);
+                } else  {
+                    total_blocks = count.result;
+                    console.log("Didnt finish last time");
+                    listsinceblock(res[0].blockhash, res[0].untilblock || null);//add lastblock['block']
+                }
+
+            });
         } else {
             trantor.db.lastAddrToTx(function(err, row) {
                 let block, blocks;
                 lastblock = row[0];
                 console.log('Lastblock', lastblock);
 
-                if (lastblock == undefined) {
-                    NODE.connection.getBlockCount(function(err, count) {
-                        console.log('getBlockCount', err, count);
-                        total_blocks = parseInt(count.result);
-                        NODE.connection.getBlockHash(total_blocks, function (err, hash) {
-                            console.log('getBlockHash', err, hash);
-                            listsinceblock(hash.result);
-                        })
-                    });
-                } else {
-                    https.call('GET', '/api/getblockcount', null, (blockcount) => {
-                        console.log(blockcount);
-                        total_blocks = blockcount;
-                        if (lastblock && lastblock['block']) {
-                            console.log("ahs block", blockcount);
-                            CREA_crea_cmd('getblockhash', blockcount, (starthash) => {
-                                console.log("starthash", starthash);
-                                listsinceblock(starthash, lastblock['block']);//add lastblock['block']
-                            })
-                        } else {
-                            console.log("Else");
-                            CREA_crea_cmd('getblockhash', blockcount, (starthash) => {
-                                console.log("starthash", starthash);
-                                listsinceblock(starthash);
-                            })
-                        }
-                    })
-                }
+                NODE.connection.getBlockCount(function(err, count) {
+                    console.log('getBlockCount', err, count);
+                    total_blocks = parseInt(count.result);
 
+                    NODE.connection.getBlockHash(total_blocks, function (err, hash) {
+                        console.log('getBlockHash', err, hash);
+
+                        if (lastblock == undefined) {
+                            listsinceblock(hash.result);
+                            //listsinceblock('1cad01fe4d331803435710b049e0639d1f42cb22a13253aec62478e2c7df326d');
+                        } else {
+                            listsinceblock(hash.result, lastblock['block']);
+                            //listsinceblock('1cad01fe4d331803435710b049e0639d1f42cb22a13253aec62478e2c7df326d');
+                        }
+
+                    });
+                });
             });
         }
     });
@@ -241,6 +239,7 @@ trantor.exploreBlocks = exploreBlocks;
 function getDataFromReference2(transaction, cb) {
     let opdata = '';
     function processData() {
+
         let txdata = '';
 
         for (let out of transaction.outputs) {
@@ -275,8 +274,6 @@ function getDataFromReference2(transaction, cb) {
                                     }
                                 }
                             }
-
-
                         })
                     }
 
@@ -285,6 +282,7 @@ function getDataFromReference2(transaction, cb) {
                     //cb(opdata, txid);
 
                 } else if (cb) {
+                    console.log('TxIds no has index, is data', txids);
                     cb(txids, transaction.hash)
                 }
             }
@@ -318,10 +316,14 @@ function getDecodedTransaction(tx_id, cback) {
             rawtx = rawtx.result;
 
             let dTx = DecodedTransaction.fromHex(rawtx);
-            dTx.hash = tx_id;
+            //console.log('Comparing hashes: ', dTx, tx_id);
             cback(dTx);
         } else {
-            cback(null);
+            //console.log('Error decoding ' + tx_id, err);
+            setTimeout(function () {
+                getDecodedTransaction(tx_id, cback);
+            }, 200);
+
         }
     });
 }
@@ -337,7 +339,7 @@ function listsinceblock(starthash, lastblock) {
             let insertWord = trantor.db.prepare("INSERT INTO wordToReference VALUES (?, ?, ?, ?)");
             let insertCtx = trantor.db.prepare("INSERT INTO contracttx  VALUES (?, ?, ?, ?, ?, ?)");
             NODE.connection.getBlock(starthash, function (err, b) {
-                console.log('getBlock', err, b);
+                //console.log('getBlock', err, b);
                 if (!err) {
                     let block = b.result;
                     let blockhash = block.hash;
@@ -347,7 +349,7 @@ function listsinceblock(starthash, lastblock) {
                     let txs = block.tx;
 
                     if (typeof $ != 'undefined') {
-                        $('.exploring .status').html(`<span>BLOCK: <b>${blockhash}</b></span>
+                        $('.exploring .status').html(`<span>Block: <b>${blockhash}</b></span>
                             <span>Height: <span class="col-gray">${bheight}</span></span>
                             <span>Transactions: [<span class="c_tx col-gray"></span>/${txs.length}]</span>
                             <span>Done: ${total_blocks - block.height}/${total_blocks}</span>`);
@@ -361,7 +363,6 @@ function listsinceblock(starthash, lastblock) {
                         if (tx_id) {
 
                             getDecodedTransaction(tx_id, function (transaction) {
-
                                 for (let x = 0; x < transaction.outputs.length; x++) {
                                     let out = transaction.getOutput(x);
                                     if (out.getAddress() != null) {
@@ -377,7 +378,6 @@ function listsinceblock(starthash, lastblock) {
                                             inputTx.outputs.forEach(function (out, index, array) {
                                                 let address = out.getAddress();
                                                 if (address != null) {
-                                                    console.log('INSERTING IN DB', out);
                                                     insertAddr.run(address, inputTx.hash, out.value, blocktime, blockhash, 1, 0, out.index);
                                                 }
                                             });
@@ -414,15 +414,25 @@ function listsinceblock(starthash, lastblock) {
                                                 //     // console.log('sql', error, row);
                                                 //   });
                                             }
-                                            if (data.contract) {
-                                                insertCtx.run(ref, parseInt(data.number), data.address, data.year, data.type, JSON.stringify(data), _ => {});
-                                                //insertCtx.run(data.tx, ref, blocktime, data.contract, JSON.stringify(data), _ => {})
-                                                // db.run("INSERT INTO contracttx (ctx, 'ntx', addr, 'date', type, data) VALUES ('" +
-                                                //   data.tx + "', '" + ref + "', '', '" + blocktime + "', '" + data.contract + "', '" + JSON.stringify(data) + "')",
-                                                //   (error, row) => {
-                                                //     // console.log('sql', error, row);
-                                                //   });
-                                            }
+
+                                            let number = data.number ? parseInt(data.number) : 0;
+                                            let address = data.address ? data.address : '';
+                                            let year = data.year ? data.year : '';
+                                            console.log('INSERTING CONTENT: ', ref, number, address, year, data.type, JSON.stringify(data));
+                                            insertCtx.run(ref, number, address, year, data.type, JSON.stringify(data), _ => {});
+                                            //insertCtx.run(data.tx, ref, blocktime, data.contract, JSON.stringify(data), _ => {})
+                                            // db.run("INSERT INTO contracttx (ctx, 'ntx', addr, 'date', type, data) VALUES ('" +
+                                            //   data.tx + "', '" + ref + "', '', '" + blocktime + "', '" + data.contract + "', '" + JSON.stringify(data) + "')",
+                                            //   (error, row) => {
+                                            //     // console.log('sql', error, row);
+                                            //   });
+
+                                            setTimeout(function () {
+                                                if (trantor.onContent) {
+                                                    trantor.onContent();
+                                                }
+                                            }, 200);
+
                                         } catch (e) {
                                             console.log("Error", e);
                                         }
@@ -437,14 +447,14 @@ function listsinceblock(starthash, lastblock) {
                     }
 
                     if (prevBlock) {
-                        console.log("End lastblock 4");
-                        trantor.db.all('DELETE FROM lastexplored', _ => {});
+                        console.log('Block ' + blockhash + ' parsed');
+                        //trantor.db.all('DELETE FROM lastexplored', _ => {});
                         trantor.db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+blockhash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
                         listBlock(prevBlock)
                     } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
-                        console.log("End lastblock");
+                        console.log('EXPLORATION ENDED!');
                         isExploring = false;
-                        trantor.db.all('DELETE FROM lastexplored', _ => {});
+                        //trantor.db.all('DELETE FROM lastexplored', _ => {});
                         insertAddr.finalize(_ => {});
                         insertCtx.finalize(_ => {});
                         insertWord.finalize(_ => {});
@@ -560,7 +570,9 @@ trantor.saveTransactionToDb = function(decodedintx) {
  *  @parameter rawtx: rawtx, needs to be built before
  */
 trantor.decodeRawTransaction = function (rawtx, cback) {
-    CREA_crea_cmd('decoderawtransaction', rawtx, cback);
+
+    let dTx = DecodedTransaction.fromHex(rawtx);
+    cback(dTx);
 }
 
 function listunspend2(addr, cback) {
@@ -667,6 +679,7 @@ function CREA_crea_cmd(command, args, cback) {
             cback(result);
         });
     } else {
+        console.log('CREA_crea_cmd', command, args);
         let requestOpts = {
             'id': getID(),
             'command': command,
@@ -674,6 +687,7 @@ function CREA_crea_cmd(command, args, cback) {
             'user': NODE.configuration.getRpcUser(),
             'pass': NODE.configuration.getRpcPassword()
         };
+
         NODE.connection.call(requestOpts, function (result, err, resHeaders) {
             console.log(result, err, resHeaders);
             cback(result);
@@ -1028,7 +1042,7 @@ trantor.findWord = function(find, page, cback, addresses) {
             data[i] = {
                 ref: elem.ref,
                 count: numrows
-            }
+            };
             getDecodedTransaction(elem.ref, function(decoref) {
                 console.log("ADSD", "SELECT * FROM addrtotx WHERE addr IN ("+addrs+") AND tx='"+elem.ref+"'");
                 if(addrs){
@@ -1126,7 +1140,7 @@ trantor.findWord = function(find, page, cback, addresses) {
             page = (page - 1) * 10;
             trantor.db.query("SELECT DISTINCT ref FROM wordToReference  ORDER BY blockDate DESC LIMIT " + page + ", 10", (error, result) => {
                 if (result && result.length) {
-                    processResult(error, result)
+                    processRaesult(error, result)
                 }
                 else{
                     processResult(error, [])

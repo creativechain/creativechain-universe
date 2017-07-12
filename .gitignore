@@ -5,3 +5,4 @@ package-lock.json
 bin
 *.sql
 *.db
+releases
