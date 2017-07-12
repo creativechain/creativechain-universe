@@ -73,7 +73,7 @@ else if(!platform){
         console.log("\n");
         packager(opts, function done_callback(err, appPaths) {
             if (err) {
-                console.log("\nThere has been an error Building["+opts.platform+"]("+(opts.arch)+": ", err);
+                console.log("\nThere has been an error Building["+opts.platform+"]("+(opts.arch)+"): ", err);
             } else {
                 console.log("\nBuild for "+opts.platform+"("+(opts.arch)+ ") completed. Status [OK]");
                 console.log("You can find builds at '"+appPaths+"'");
@@ -98,7 +98,7 @@ else {
 
     packager(opts, function done_callback(err, appPaths) {
         if (err) {
-            console.log("\nThere has been an error Building["+platform+"]("+(arch || opts.arch)+": ", err);
+            console.log("\nThere has been an error Building["+platform+"]("+(arch || opts.arch)+"): ", err);
         }
         else {
             console.log("\nBuild for "+platform+"("+(arch || opts.arch)+ ") completed. Status ["+((appPaths != '') ? 'OK': 'FAIL')+"]");

@@ -33,9 +33,5 @@
   "devDependencies": {
     "electron-builder": "^17.10.0",
     "electron-packager": "^8.6.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/creativechain/creativechain-universe.git"
   }
 }
