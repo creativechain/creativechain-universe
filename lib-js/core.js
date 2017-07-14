@@ -595,9 +595,8 @@ class Creativecoin {
      * @param callback
      */
     start(callback) {
-        console.log('starting node...');
         let startCommand = Constants.CORE_PATH + ' -daemon -txindex' + (Preferences.isFirstUseExecuted() ? ' -reindex-chainstate' : '');
-
+        console.log('Starting', startCommand);
         OS.run(startCommand, callback);
 
     };
