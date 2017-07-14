@@ -1,8 +1,7 @@
 var shell = require('electron').shell;
-var WebTorrent = require('webtorrent')
-var client = new WebTorrent()
+var WebTorrent = require('webtorrent');
+var client = new WebTorrent();
 
-var path = require('path');
 global.appRoot = path.resolve(__dirname);
 
 if (typeof fs != 'undefined') {

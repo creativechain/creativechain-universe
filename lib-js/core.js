@@ -9,6 +9,7 @@ const fs = require('fs');
 const exec = require('child_process').exec;
 const {download} = require('electron-dl');
 const CreaClient = require('bitcoind-rpc');
+const btc = require('bitcoinjs-lib');
 
 class ErrorCodes {}
 ErrorCodes.INVALID_PLATFORM = 'INVALID_PLATFORM';
@@ -214,6 +215,31 @@ class Utils {
 
         return string;
     }
+
+    /**
+     *
+     * @param obj
+     * @returns {number}
+     */
+    static keySize(obj) {
+        let size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                size++;
+            }
+        }
+
+        return size;
+    }
+
+    static sleep(milliseconds) {
+        let start = new Date().getTime();
+        for (let i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > milliseconds) {
+                break;
+            }
+        }
+    }
 }
 
 class FileStorage {
@@ -253,9 +279,10 @@ class FileStorage {
     /**
      *
      * @param key
+     * @param defaultValue
      * @returns {*}
      */
-    static getItem(key, defaultValue) {
+    static getItem(key, defaultValue = null) {
         let conf = FileStorage.load();
         if (conf[key] == undefined || conf[key] == null) {
             return defaultValue;
@@ -295,6 +322,18 @@ class Preferences {
 
     static getConfigurationPath() {
         return FileStorage.getItem('conf_dir');
+    }
+
+    static getLastBlock() {
+        return FileStorage.getItem('last_block', {
+            height: -1,
+            fileBlock: 0,
+            offset: 0
+        })
+    }
+
+    static setLastBlock(lastBlock) {
+        FileStorage.setItem('last_block', lastBlock)
     }
 
 }
@@ -628,6 +667,7 @@ class Creativecoin {
 class DB {
     constructor(dbPath) {
         this.db = new sqlite.Database(dbPath);
+        this.statements = new Map();
     }
 
     init() {
@@ -657,7 +697,16 @@ class DB {
         this.db.run('CREATE TABLE IF NOT EXISTS "addrtotx" (`addr` varchar(255) NOT NULL, `tx` varchar(255) NOT NULL, `amount` ' +
             'varchar(255) NOT NULL, `date` varchar(255) NOT NULL, `block` varchar(255) NOT NULL, `vin` INTEGER NOT NULL,' +
             ' `vout` INTEGER NOT NULL, `n` INTEGER NOT NULL, PRIMARY KEY(`addr`,`tx`,`vout`,`n`));');
+    }
 
+    makeStatements() {
+        let insertAddr = this.db.prepare("INSERT INTO addrtotx VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        let insertWord = this.db.prepare("INSERT INTO wordToReference VALUES (?, ?, ?, ?)");
+        let insertCtx = this.db.prepare("INSERT INTO contracttx  VALUES (?, ?, ?, ?, ?, ?)");
+
+        this.statements.set(DB.ADDRESS_STATEMENT, insertAddr);
+        this.statements.set(DB.WORD_STATEMENT, insertWord);
+        this.statements.set(DB.CONTRACT_STATEMENT, insertCtx);
     }
 
     query(sql, callback) {
@@ -683,8 +732,35 @@ class DB {
         });
     }
 
-    insertAddress(address, vinTxID, vout, blocktime, blockhash) {
-        let insetAddr = this.db.prepare("INSERT INTO addrtotx VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    insertAddress(address, hash, amount, blocktime, blockhash, vin, vout, index) {
+        let that = this;
+        let stmnt = this.statements.get(DB.ADDRESS_STATEMENT);
+        stmnt.run(address, hash, amount, blocktime, blockhash, vin, vout, index, function (err) {
+            that.logResult('I-Address', err);
+        });
+    }
+
+    insertWord(word, reference, date, order) {
+        let that = this;
+        let stmnt = this.statements.get(DB.WORD_STATEMENT);
+        stmnt.run(word, reference, date, order, function (err) {
+            that.logResult('I-Word', err);
+        });
+    }
+
+    insertContract(reference, number, address, year, type, data) {
+        let that = this;
+        let stmnt = this.statements.get(DB.CONTRACT_STATEMENT);
+        stmnt.run(reference, number, address, year, type, data, function (err) {
+            that.logResult('I-Contract', err);
+        });
+    }
+
+    insertLastExploredBlock(blockhash, lastblock, blocktime) {
+        let that = this;
+        this.db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+blockhash+'", "'+lastblock+'", "'+blocktime+'")', function (err) {
+            that.logResult('I-LastExplored', err);
+        });
     }
 
     all(statement, callback) {
@@ -698,6 +774,15 @@ class DB {
     run(statement, callback) {
         this.db.run(statement, callback);
     }
+
+    finalizeStatements() {
+        console.log('Closing statements');
+        this.statements.forEach(function (stmnt, key, map) {
+            stmnt.finalize();
+        });
+
+        this.makeStatements();
+    }
     /**
      *
      * @param statement
@@ -706,7 +791,20 @@ class DB {
     prepare(statement) {
         return this.db.prepare(statement);
     }
+
+    logResult(tag, err) {
+        if (err) {
+            console.log(tag, err);
+        } else {
+            console.log(tag, 'Succed!');
+        }
+    }
 }
+
+DB.ADDRESS_STATEMENT = 'ADDRESS';
+DB.WORD_STATEMENT = 'WORD';
+DB.CONTRACT_STATEMENT = 'CONTRACT';
+
 if (module) {
     module.exports = {ErrorCodes, OS, Constants, Utils, FileStorage, Preferences, Configuration, Creativecoin, DB};
 }
