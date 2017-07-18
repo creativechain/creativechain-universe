@@ -607,7 +607,7 @@ function book(findword, page) {
     wallets = JSON.parse(wallets);
     let addresses = [];
     $.each(wallets, function(wif, address) {
-        var keyPairs = bitcoin.ECPair.fromWIF(wif, bitcoin.networks.creativecoin);
+        var keyPairs = bitcoin.ECPair.fromWIF(wif, Networks.MAINNET);
         var buffer = keyPairs.getPublicKeyBuffer();
         // addresses += keyPairs.getAddress()+', '
         addresses.push("'"+keyPairs.getAddress()+"'")
@@ -1554,7 +1554,7 @@ function status() {
     wallets = JSON.parse(wallets);
     $.each(wallets, function(wif, address) {
 
-        var keyPairs = bitcoin.ECPair.fromWIF(wif, bitcoin.networks.creativecoin);
+        var keyPairs = bitcoin.ECPair.fromWIF(wif, Networks.MAINNET);
         var buffer = keyPairs.getPublicKeyBuffer();
         $("#addresses").append("" +
             "<div class='row'>" +
@@ -1592,7 +1592,7 @@ function delwallets() {
 // TODO
 function newWIF() {
 
-    var creativecoin = bitcoin.networks.creativecoin;
+    var creativecoin = Networks.MAINNET;
     var keyPair = bitcoin.ECPair.makeRandom({
         network: creativecoin
     });
@@ -1682,7 +1682,7 @@ function sendTx(addr, amount, fee) {
     //GET UNSPENt TRANSACTIONS FROM WALLETS AS NEW INPUTS
     var wallets = localStorage.getItem("wallets");
     wallets = JSON.parse(wallets);
-    var network = bitcoin.networks.creativecoin;
+    var network = Networks.MAINNET;
     var tx = new bitcoin.TransactionBuilder(network);
     var i = 0;
     var sum = 0;
@@ -1703,7 +1703,7 @@ function sendTx(addr, amount, fee) {
                         console.log("Sum", sum, "amount", amount, "fee", fee, parseFloat(amount) + parseFloat(fee));
                         if (parseFloat(sum) <= (parseFloat(amount) + parseFloat(fee))) {
                             tx.addInput(key, value.index);
-                            var creativecoin = bitcoin.networks.creativecoin;
+                            var creativecoin = Networks.MAINNET;
 
                             var keyPair = bitcoin.ECPair.fromWIF(wif, creativecoin);
                             //alert(JSON.stringify(keyPair));
@@ -1760,7 +1760,7 @@ function sendTx(addr, amount, fee) {
 
 //TODO
 function sendTxOp(amount, fee, data, cback) {
-    var network = bitcoin.networks.creativecoin;
+    var network = Networks.MAINNET;
     var keyPair = bitcoin.ECPair.makeRandom({
         network: network
     });
@@ -1798,7 +1798,7 @@ function sendTxOp(amount, fee, data, cback) {
                             //alert(JSON.stringify(value)+ " pepe " + value.amount);
                             if (parseFloat(sum) <= parseFloat(amount + fee)) {
                                 tx.addInput(key, value.index);
-                                var creativecoin = bitcoin.networks.creativecoin;
+                                var creativecoin = Networks.MAINNET;
 
                                 var keyPair = bitcoin.ECPair.fromWIF(wif, creativecoin);
                                 //alert(JSON.stringify(keyPair));

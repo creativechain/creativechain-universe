@@ -41,18 +41,6 @@ let hasExploredOnce = false;
 let corepath = '';
 trantor.db = new DB(Constants.DATABASE_PATH);
 
-class Networks {}
-Networks.MAINNET = {
-    messagePrefix: '\x18Creativecoin Signed Message:\n',
-    bip32: {
-        public: 0x0488b21e,
-        private: 0x0488ade4
-    },
-    pubKeyHash: 0x1c,
-    scriptHash: 0x05,
-    wif: 0x80
-};
-
 class TxInput {
     constructor(hash, index, script, sequence, witness) {
         this.txHash = hash;
@@ -201,8 +189,15 @@ function exploreBlocks() {
                     console.log('Erro grtting num of blocks', err);
                 } else  {
                     total_blocks = count.result;
-                    console.log("Didnt finish last time");
-                    listsinceblock(res[0].blockhash, res[0].untilblock || null);//add lastblock['block']
+
+                    NODE.connection.getBlockHash(total_blocks, function (err, blockHash) {
+                        if (err) {
+                            console.log('Erro getting blockhash', err);
+                        } else {
+                            console.log("Didnt finish last time");
+                            listsinceblock(blockHash.result, res[0].blockhash);//add lastblock['block']
+                        }
+                    });
                 }
 
             });
@@ -362,16 +357,18 @@ function listsinceblock(starthash, lastblock) {
                         if (tx_id) {
 
                             getDecodedTransaction(tx_id, function (transaction) {
+/*
                                 for (let x = 0; x < transaction.outputs.length; x++) {
                                     let out = transaction.getOutput(x);
                                     if (out.getAddress() != null) {
                                         insertAddr.run(out.getAddress(), transaction.hash, out.value, blocktime, blockhash, 0, 1, out.index);
                                     }
                                 }
+*/
 
                                 /* Cojo los vouts de los vins de la transaccion */
 
-                                transaction.inputs.forEach(function (input, index, array) {
+/*                                transaction.inputs.forEach(function (input, index, array) {
                                     let onDecode = function (inputTx) {
                                         if (inputTx) {
                                             inputTx.outputs.forEach(function (out, index, array) {
@@ -386,7 +383,7 @@ function listsinceblock(starthash, lastblock) {
                                         }
                                     };
                                     getDecodedTransaction(input.txHash, onDecode)
-                                });
+                                });*/
 
                                 getDataFromReference2(transaction, function(data, ref) {
                                     //console.log('Ref', data, ref);
@@ -445,12 +442,16 @@ function listsinceblock(starthash, lastblock) {
                         processTransaction(x);
                     }
 
+                    let parseNextBlock = prevBlock != lastblock;
                     if (prevBlock) {
                         console.log('Block ' + blockhash + ' parsed');
                         //trantor.db.all('DELETE FROM lastexplored', _ => {});
                         trantor.db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+blockhash+'", "'+lastblock+'", "'+blocktime+'")', _ => {});
+                    }
+
+                    if (parseNextBlock) {
                         listBlock(prevBlock)
-                    } else if (!block.previousblockhash || block.previousblockhash == lastblock) {
+                    } else {
                         console.log('EXPLORATION ENDED!');
                         isExploring = false;
                         //trantor.db.all('DELETE FROM lastexplored', _ => {});

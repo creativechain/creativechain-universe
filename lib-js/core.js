@@ -325,14 +325,15 @@ class Preferences {
     }
 
     static getLastBlock() {
-        return FileStorage.getItem('last_block', {
-            height: -1,
-            fileBlock: 0,
-            offset: 0
-        })
+        return FileStorage.getItem('last_block')
     }
 
-    static setLastBlock(lastBlock) {
+    static setLastBlock(blockHash, blockTime) {
+        let lastBlock = {
+            blockHash: blockHash,
+            blockTime: blockTime
+        };
+
         FileStorage.setItem('last_block', lastBlock)
     }
 
@@ -804,7 +805,19 @@ DB.ADDRESS_STATEMENT = 'ADDRESS';
 DB.WORD_STATEMENT = 'WORD';
 DB.CONTRACT_STATEMENT = 'CONTRACT';
 
+class Networks {}
+Networks.MAINNET = {
+    messagePrefix: '\x18Creativecoin Signed Message:\n',
+    bip32: {
+        public: 0x0488b21e,
+        private: 0x0488ade4
+    },
+    pubKeyHash: 0x1c,
+    scriptHash: 0x05,
+    wif: 0x80
+};
+
 if (module) {
-    module.exports = {ErrorCodes, OS, Constants, Utils, FileStorage, Preferences, Configuration, Creativecoin, DB};
+    module.exports = {ErrorCodes, OS, Constants, Utils, FileStorage, Preferences, Configuration, Creativecoin, DB, Networks};
 }
 
