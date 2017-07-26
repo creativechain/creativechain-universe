@@ -7,3 +7,4 @@ bin
 *.db
 releases
 index.db-journal
+/torrents/*
