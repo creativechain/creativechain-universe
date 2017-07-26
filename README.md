@@ -4,16 +4,11 @@
 
 #### Dev
 
-#### important
-Needs to have creativecoind running, change **creativecoind-win64.exe** for the one for your platform
-```
-creativecoind-win64.exe -addnode=80.241.212.178:10946 -datadir="/datadir" -daemon -txindex -reindex-chainstate
-```
-
 ###### Install
 
+* `nvm install v4.4.5` - Use node v4.4.5 to compile.
 * `npm install` - You may need to remove npm_modules folder first
-* `sudo npm install -g electron` - install electron globaly so you can use it from command-line. If you have an issue when you
+* `sudo npm install -g electron` - Install electron globally so you can use it from command-line. If you have an issue when you
 try install electron so use `sudo npm install -g electron --unsafe-perm=true --allow-root`.
 * After install is done you have to recompile **sqlite3** module for your platform, so it can be used from electron
   * `npm install -save-dev electron-builder`
@@ -24,7 +19,7 @@ try install electron so use `sudo npm install -g electron --unsafe-perm=true --a
 
 ###### Launch app DEV
 * Launch dev app:  `<app_path>$ electron .`
-* More documentation on electron [here](https://github.com/electron/electron)
+* More documentation of electron [here](https://github.com/electron/electron)
 
 ###### Compile app
 * Compile:  `<app_path>$ node ./build.js -p=<platform> -a=<arch> -o='<outputPath>'`
@@ -38,14 +33,14 @@ try install electron so use `sudo npm install -g electron --unsafe-perm=true --a
       ```
 * Uses [electron-packager](https://github.com/electron-userland/electron-packager) to compile
 
-Authors: Vicent nos Ripolles, Manolo Edge Tejero
+Authors: Vicent Nos Ripolles, Manolo Edge Tejero
 
 ## License
 
 ```
 The MIT License
 
-Copyright 2017 Vicent nos Ripolles, Manolo Edge Tejero
+Copyright 2017 Vicent Nos Ripolles, Manolo Edge Tejero
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the 
