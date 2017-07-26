@@ -6,7 +6,7 @@
 
 ###### Install
 
-* `nvm install v4.4.5` - Use node v4.4.5 to compile.
+* `nvm install v6.9.1` - Use node v6.9.1 to compile.
 * `npm install` - You may need to remove npm_modules folder first
 * `sudo npm install -g electron` - Install electron globally so you can use it from command-line. If you have an issue when you
 try install electron so use `sudo npm install -g electron --unsafe-perm=true --allow-root`.
