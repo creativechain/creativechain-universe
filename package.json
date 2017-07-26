@@ -9,7 +9,7 @@
     "bitcoind-rpc": "^0.7.0",
     "bitcoinjs-lib": "^3.1.0",
     "drag-drop": "^2.13.2",
-    "electron": "^1.6.11",
+    "electron": "^1.4.7",
     "electron-dl": "^1.9.0",
     "electron-rebuild": "^1.5.7",
     "execsql": "0.0.3",
@@ -20,8 +20,6 @@
     "jssocials": "^1.5.0",
     "lzma": "^2.3.2",
     "node-json-rpc": "0.0.1",
-    "request": "^2.81.0",
-    "sqlite3": "^3.1.8",
     "webtorrent": "^0.98.18"
   },
   "scripts": {
@@ -30,6 +28,7 @@
   },
   "devDependencies": {
     "electron-builder": "^17.10.0",
-    "electron-packager": "^8.6.0"
+    "electron-packager": "^8.6.0",
+    "sqlite3": "^3.1.8"
   }
 }

@@ -166,11 +166,10 @@ function decode_utf8(s) {
 }
 function exploreBlocks() {
     let first_use = Preferences.isFirstUseExecuted();
-    if (true) {
+    if (!first_use) {
         $('.exploring').remove();
         $('body').append('<div class="exploring">Exploring blockchain please wait</div>');
         $('.exploring').append('<h4 class="total_blocks"></h4>').append('<h4 class="status"></h4>')
-        Preferences.setFirstUseExecuted(false)
     }
     isExploring = true;
     if (typeof $ != 'undefined' && !hasExploredOnce) {
@@ -342,7 +341,7 @@ function listsinceblock(starthash, lastblock) {
                     let prevBlock = block.previousblockhash;
                     let txs = block.tx;
 
-                    if (typeof $ != 'undefined') {
+                    if (typeof $ != 'undefined' && !Preferences.isFirstUseExecuted()) {
                         $('.exploring .status').html(`<span>Block: <b>${blockhash}</b></span>
                             <span>Height: <span class="col-gray">${bheight}</span></span>
                             <span>Transactions: [<span class="c_tx col-gray"></span>/${txs.length}]</span>
@@ -455,6 +454,7 @@ function listsinceblock(starthash, lastblock) {
                         console.log('EXPLORATION ENDED!');
                         isExploring = false;
                         //trantor.db.all('DELETE FROM lastexplored', _ => {});
+                        Preferences.setFirstUseExecuted(true);
                         insertAddr.finalize(_ => {});
                         insertCtx.finalize(_ => {});
                         insertWord.finalize(_ => {});

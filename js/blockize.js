@@ -425,21 +425,22 @@ function findWord(findword, page) {
                                     }
                                     else if (key == 'magnetUncompressed') {
                                         console.log('Has torrent', objdata, objdata.torrentId);
-                                        $("#media" + idunique).text('Loading...')
+                                        $("#media" + idunique).text('Loading...');
                                         // console.log("PATH NAME: ", path.resolve(__dirname)+'./torrents/'+objdata.torrentName);
-                                        let fpath = './torrents/'+objdata.torrentName;
-                                        if (fs.existsSync(fpath)) {
-                                            client.add(value, { path: './torrents' },
-                                                function (torrent) {
-                                                    console.log("Tore");
-                                                    torrent.on('done', function () {
-                                                        torrent.files.forEach(function (file) {
-                                                            client.seed(new Buffer(file), function () {
-                                                                console.log("seeding");
-                                                            })
+                                        let fpath = Constants.TORRENT_FOLDER + Constants.FILE_SEPARATOR + objdata.torrentName;
+                                        if (File.exist(fpath)) {
+                                            console.log('Torrent exists', value);
+                                            client.add(value, { path: Constants.TORRENT_FOLDER }, function (torrent) {
+                                                console.log("Torrent", torrent);
+                                                torrent.on('done', function () {
+                                                    torrent.files.forEach(function (file) {
+                                                        client.seed(file, function () {
+                                                            console.log("seeding");
                                                         })
                                                     })
                                                 })
+                                            });
+
                                             console.log("ASDASDSD");
                                             $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="'+fpath+'"></a></p>')
                                         }
@@ -455,7 +456,7 @@ function findWord(findword, page) {
                                             })
                                         }
                                         else {
-                                            client.add(value, { path: './torrents' },
+                                            client.add(value, { path: Constants.TORRENT_FOLDER },
                                                 function (torrent) {
                                                     console.log("Torrent", torrent);
                                                     torrent.on('done', function () {
@@ -752,21 +753,20 @@ function book(findword, page) {
                                     }
                                     else if (key == 'magnetUncompressed') {
                                         console.log('Has torrent', objdata, objdata.torrentId);
-                                        $("#media" + idunique).text('Loading...')
+                                        $("#media" + idunique).text('Loading...');
                                         // console.log("PATH NAME: ", path.resolve(__dirname)+'./torrents/'+objdata.torrentName);
-                                        let fpath = './torrents/'+objdata.torrentName;
-                                        if (fs.existsSync(fpath)) {
-                                            client.add(value, { path: './torrents' },
-                                                function (torrent) {
-                                                    console.log("Tore");
-                                                    torrent.on('done', function () {
-                                                        torrent.files.forEach(function (file) {
-                                                            client.seed(new Buffer(file), function () {
-                                                                console.log("seeding");
-                                                            })
+                                        let fpath = Constants.TORRENT_FOLDER + Constants.FILE_SEPARATOR + objdata.torrentName;
+                                        if (File.exist(fpath)) {
+                                            client.add(value, { path: Constants.TORRENT_FOLDER }, function (torrent) {
+                                                console.log("Tore");
+                                                torrent.on('done', function () {
+                                                    torrent.files.forEach(function (file) {
+                                                        client.seed(new Buffer(file), function () {
+                                                            console.log("seeding");
                                                         })
                                                     })
                                                 })
+                                            });
                                             console.log("ASDASDSD");
                                             $("#media" + idunique).html('<p class="address"><a href="" target="_blank" id="media-content'+idunique+'"><img src="'+fpath+'"></a></p>')
                                         }

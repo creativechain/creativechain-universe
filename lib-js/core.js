@@ -108,9 +108,10 @@ class File {
     static exist(path) {
         try {
             let stat = fs.statSync(path);
+            console.log('File exists', path);
             return true;
         } catch (err) {
-
+            console.log('File not exist', path);
         }
         return false;
 
@@ -297,7 +298,7 @@ class Preferences {
      * @returns {boolean}
      */
     static isFirstUseExecuted() {
-        return FileStorage.getItem('first_use', true);
+        return FileStorage.getItem('first_use_executed', false);
     }
 
     /**
@@ -305,7 +306,7 @@ class Preferences {
      * @param {boolean} firstUse
      */
     static setFirstUseExecuted(firstUse) {
-        FileStorage.setItem('first_use', firstUse);
+        FileStorage.setItem('first_use_executed', firstUse);
     }
 
     static isNodeCorrectlyRunning() {
