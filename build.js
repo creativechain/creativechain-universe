@@ -3,6 +3,7 @@ var packager = require('electron-packager');
 let appVersion = '1.0.0';
 const args   = process.argv.slice(2);
 
+let name = 'CreativechainUniverse';
 let ignoreFolders = ['.idea', 'index.db', 'index.db-journal', 'crea-test-db-sql', 'app.conf', 'bin'];
 
 function buildOptions(platform) {
@@ -13,9 +14,9 @@ function buildOptions(platform) {
         'ignore': ignoreFolders,
         'appCopyright': 'Creativechain 2017',
         'appVersion': appVersion,
-        'asar': false,
+        'asar': true,
         'icon': '1.ico',
-        'name': 'Creativechain Universe',
+        'name': name,
         'out': './releases',
         'overwrite': true,
         'prune': true,
@@ -23,9 +24,9 @@ function buildOptions(platform) {
         'version-string': {
             'CompanyName': 'Creativechain',
             'FileDescription': 'Creativechain media explorer and wallet', /*This is what display windows on task manager, shortcut and process*/
-            'OriginalFilename': 'CreativechainUniverse-' + platform + '-' + appVersion,
-            'ProductName': 'Creativechain Universe',
-            'InternalName': 'Creativechain Universe'
+            'OriginalFilename': name + '-' + platform + '-' + appVersion,
+            'ProductName': name,
+            'InternalName': name
         }
     };
 }
