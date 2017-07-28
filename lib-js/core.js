@@ -734,34 +734,46 @@ class DB {
         });
     }
 
-    insertAddress(address, hash, amount, blocktime, blockhash, vin, vout, index) {
+    insertAddress(address, hash, amount, blocktime, blockhash, vin, vout, index, callback = null) {
         let that = this;
         let stmnt = this.statements.get(DB.ADDRESS_STATEMENT);
         stmnt.run(address, hash, amount, blocktime, blockhash, vin, vout, index, function (err) {
             that.logResult('I-Address', err);
+            if (callback) {
+                callback(err);
+            }
         });
     }
 
-    insertWord(word, reference, date, order) {
+    insertWord(word, reference, date, order, callback = null) {
         let that = this;
         let stmnt = this.statements.get(DB.WORD_STATEMENT);
         stmnt.run(word, reference, date, order, function (err) {
             that.logResult('I-Word', err);
+            if (callback) {
+                callback(err);
+            }
         });
     }
 
-    insertContract(reference, number, address, year, type, data) {
+    insertContract(reference, number, address, year, type, data, callback = null) {
         let that = this;
         let stmnt = this.statements.get(DB.CONTRACT_STATEMENT);
         stmnt.run(reference, number, address, year, type, data, function (err) {
             that.logResult('I-Contract', err);
+            if (callback) {
+                callback(err);
+            }
         });
     }
 
-    insertLastExploredBlock(blockhash, lastblock, blocktime) {
+    insertLastExploredBlock(blockhash, lastblock, blocktime, callback = null) {
         let that = this;
         this.db.run('INSERT INTO lastexplored (blockhash, untilblock, date) VALUES ("'+blockhash+'", "'+lastblock+'", "'+blocktime+'")', function (err) {
             that.logResult('I-LastExplored', err);
+            if (callback) {
+                callback(err);
+            }
         });
     }
 

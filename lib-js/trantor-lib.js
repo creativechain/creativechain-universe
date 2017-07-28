@@ -181,6 +181,7 @@ function exploreBlocks() {
     console.log("EXPLORING CREA BLOCKS .... SYNC ... please wait ... \n");
     let lastblock;
 
+
     trantor.db.lastExploredBlock(function (err, res) {
         console.log("Res", err, res);
         if (res[0] && res[0].blockhash) {
@@ -323,6 +324,155 @@ function getDecodedTransaction(tx_id, cback) {
 }
 trantor.getDecodedTransaction = getDecodedTransaction;
 
+function storeOutputs(block, tx_id, transaction, callback = null) {
+    let blockhash = block.hash;
+    let blocktime = block.time;
+
+    let length = transaction.outputs.length;
+    let i = 0;
+
+    let putInDb = function () {
+        let out = transaction.getOutput(i);
+        if (out.getAddress() != null) {
+            trantor.db.insertAddress(out.getAddress(), transaction.hash, out.value, blocktime, blockhash, 0, 1, out.index, function (err) {
+                i++;
+                if (i < length) {
+                    putInDb();
+                } else if (callback) {
+                    callback();
+                }
+            });
+        }
+    };
+
+    putInDb();
+}
+
+function storeInputs(block, tx_id, transaction, callback = null) {
+    /* Cojo los vouts de los vins de la transaccion */
+
+    let blockhash = block.hash;
+    let blocktime = block.time;
+
+    let length = transaction.inputs.length;
+    let i = 0;
+
+    let putInDb = function () {
+        let onDecode = function (inputTx) {
+
+            if (inputTx) {
+                let outLength = inputTx.outputs.length;
+                let o = 0;
+
+                let putOutput = function (outCallback) {
+                    let out = inputTx.getOutput(o);
+                    if (out.getAddress() != null) {
+                        trantor.db.insertAddress(out.getAddress(), inputTx.hash, out.value, blocktime, blockhash, 1, 0, out.index, function (err) {
+                            o++;
+
+                            if (o < outLength) {
+                                putOutput();
+                            } else if (outCallback) {
+                                outCallback();
+                            }
+                        })
+                    }
+                };
+
+                putOutput(putInDb);
+            }
+
+            i++;
+        };
+
+        if (i < length) {
+            getDecodedTransaction(transaction.inputs[i], onDecode)
+        } else if (callback) {
+            callback();
+        }
+    };
+
+    putInDb();
+}
+
+function storeReferences(block, transaction, index) {
+    let blocktime = block.time;
+    
+    getDataFromReference2(transaction, function(data, ref) {
+        //console.log('Ref', data, ref);
+        if (data) {
+            
+            let insert = function (word, i, callback) {
+                trantor.db.insertWord(word, ref, blocktime, i, callback)
+            };
+            
+            try {
+                if (typeof data == 'string') {
+                    data = JSON.parse(data);
+                }
+                if (data.title) {
+                    let wordsInTitle = data.title.split(' ');
+                    let length = wordsInTitle.length;
+                    let i = 0;
+                    
+                    let insertWord = function (callback) {
+                        insert(wordsInTitle[i], i, function () {
+                            i++;
+                            if (i < length) {
+                                insertWord();
+                            } else if (callback) {
+                                callback();
+                            }
+                        })
+                    };
+                    
+                    insertWord(function () {
+                        if (data.type) {
+                            insert(data.type, index, function () {
+                                
+                            })
+                        }
+                    });
+                    for (let i = 0; i < wordsInTitle.length; i++) {
+                        let word = wordsInTitle[i];
+                        console.log("WORD", word);
+                        insertWord.run([word, ref, blocktime, i], _ => {});
+                        
+                    }
+                }
+                if (data.type) {
+                    insertWord.run([data.type, ref, blocktime, i], _ => {});
+
+                    // db.run("INSERT INTO wordToReference (wordHash, 'ref', blockDate, 'order') VALUES ('" + data.type + "', '" + ref + "', " + blocktime + ", " + i + ")",
+                    //   (error, row) => {
+                    //     // console.log('sql', error, row);
+                    //   });
+                }
+
+                let number = data.number ? parseInt(data.number) : 0;
+                let address = data.address ? data.address : '';
+                let year = data.year ? data.year : '';
+                console.log('INSERTING CONTENT: ', ref, number, address, year, data.type, JSON.stringify(data));
+                insertCtx.run(ref, number, address, year, data.type, JSON.stringify(data), _ => {});
+                //insertCtx.run(data.tx, ref, blocktime, data.contract, JSON.stringify(data), _ => {})
+                // db.run("INSERT INTO contracttx (ctx, 'ntx', addr, 'date', type, data) VALUES ('" +
+                //   data.tx + "', '" + ref + "', '', '" + blocktime + "', '" + data.contract + "', '" + JSON.stringify(data) + "')",
+                //   (error, row) => {
+                //     // console.log('sql', error, row);
+                //   });
+
+                setTimeout(function () {
+                    if (trantor.onContent) {
+                        trantor.onContent();
+                    }
+                }, 200);
+
+            } catch (e) {
+                console.log("Error", e);
+            }
+        }
+    });
+}
 // Va muy lento - creo que es getDecodedTransaction o los inserts a base de datos
 function listsinceblock(starthash, lastblock) {
     trantor.db.serialize(function () {
@@ -357,6 +507,20 @@ function listsinceblock(starthash, lastblock) {
                         if (tx_id) {
 
                             getDecodedTransaction(tx_id, function (transaction) {
+                                
+                                let saveReferences = function () {
+                                    
+                                };
+                                
+                                let saveInputs = function () {
+                                    storeInputs(block, tx_id, transaction, function () {
+                                        saveReferences();
+                                    })
+                                };
+                                
+                                storeOutputs(block, tx_id, transaction, function () {
+                                    saveInputs();
+                                });
 /*
                                 for (let x = 0; x < transaction.outputs.length; x++) {
                                     let out = transaction.getOutput(x);
