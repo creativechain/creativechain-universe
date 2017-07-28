@@ -40,6 +40,7 @@ let isExploring = false;
 let hasExploredOnce = false;
 let corepath = '';
 trantor.db = new DB(Constants.DATABASE_PATH);
+trantor.content = Content.load();
 
 class TxInput {
     constructor(hash, index, script, sequence, witness) {
@@ -778,54 +779,6 @@ function OP_RETURN_store(data, testnet = false, cb) {
                                 return cb(result);
                             }
                         }
-
-                        // for (let data_ptr = 0; data_ptr < strLength; data_ptr += OP_RETURN_MAX_BYTES) {
-                        //   CREA_crea_cmd('getrawchangeaddress', testnet, null, change_address => {
-                        //     console.log('change_address', change_address);
-                        //     let last_txn = ((data_ptr + OP_RETURN_MAX_BYTES) >= strLength); // is this the last tx in the chain?
-                        //     let change_amount = input_amount - OP_RETURN_BTC_FEE;
-                        //     let metadata = data.substring(data_ptr, OP_RETURN_MAX_BYTES - 6);
-                        //     metadata = "-CREA-" + metadata;
-                        //
-                        //     let outputs = {};
-                        //     outputs[change_address] = change_amount;
-                        //     OP_RETURN_create_txn(inputs, outputs, metadata, last_txn ? outputs.length : 0, testnet,
-                        //       raw_txn => {
-                        //         console.log("Created TX", raw_txn)
-                        //         OP_RETURN_sign_send_txn(raw_txn, testnet,
-                        //           send_result => {
-                        //             // Check for errors and collect the txid
-                        //         		if ('error' in send_result) {
-                        //         			result['error'] = send_result['error'];
-                        //               cb(result);
-                        //         			break;
-                        //         		}
-                        //
-                        //             result['txids'] = [send_result['tx_id']];
-                        //         		// $result['txids'][] = $send_result['txid'];
-                        //         		// sleep(1);
-                        //             if (data_ptr == 0) {
-                        //               result['ref'] = send_result['txid'];
-                        //             }
-                        //         		// if ($data_ptr == 0)
-                        //         		// 	$result['ref'] = $send_result['txid'];
-                        //
-                        //         		//	Prepare inputs for next iteration
-                        //             inputs = [
-                        //               {
-                        //                 txid: send_result.txid,
-                        //                 vout: 1
-                        //               }
-                        //             ]
-                        //         		// $inputs=array(array(
-                        //         		// 	'txid' => $send_result['txid'],
-                        //         		// 	'vout' => 1,
-                        //         		// ));
-                        //             input_amount = change_amount;
-                        //           });
-                        //       });
-                        //   });
-                        // }
                     })
                 })
             });
