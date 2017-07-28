@@ -97,6 +97,7 @@ Constants.CORE_PATH = Constants.BIN_FOLDER + Constants.FILE_SEPARATOR + OS.getCo
 Constants.CLIENT_PATH = Constants.BIN_FOLDER + Constants.FILE_SEPARATOR + OS.getClientBinaryName();
 Constants.BINARIES_URL = 'https://binaries.creativechain.net/stable/';
 Constants.DATABASE_PATH = Constants.APP_FOLDER + Constants.FILE_SEPARATOR + 'index.db';
+Constants.CONTENT_PATH = Constants.APP_FOLDER + Constants.FILE_SEPARATOR + 'content.json';
 
 class File {
 
@@ -805,6 +806,7 @@ class DB {
 DB.ADDRESS_STATEMENT = 'ADDRESS';
 DB.WORD_STATEMENT = 'WORD';
 DB.CONTRACT_STATEMENT = 'CONTRACT';
+
 
 class Networks {}
 Networks.MAINNET = {

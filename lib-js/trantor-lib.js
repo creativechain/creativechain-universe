@@ -1063,7 +1063,7 @@ trantor.findWord = function(find, page, cback, addresses) {
                                     })
                                 trantor.db.query("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' ORDER BY date DESC",
                                     function(error, contracts) {
-                                        data[i].contracts = contracts ? contracts.length: 0
+                                        data[i].smartActions = contracts ? contracts.length: 0
                                     })
                                 if (refdata != '') {
                                     data[i].content = refdata
@@ -1099,7 +1099,7 @@ trantor.findWord = function(find, page, cback, addresses) {
                             })
                         trantor.db.query("SELECT * FROM contracttx WHERE ctx LIKE '" + elem.ref + "' ORDER BY date DESC",
                             function(error, contracts) {
-                                data[i].contracts = contracts ? contracts.length: 0
+                                data[i].smartActions = contracts ? contracts.length: 0
                             })
                         if (refdata != '') {
                             data[i].content = refdata
