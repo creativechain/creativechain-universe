@@ -2,6 +2,34 @@ body {
     background-color: #efefef;
     font-family: 'Open Sans', sans-serif;
 }
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+}
+.table>tbody>tr>td>p {
+    margin: 0;
+
+}
+.btn-primary {
+    color: #fff;
+    background-color: #0569ef;
+    border-color: #0569ef;
+}
+.btn-secondary {
+    color: #3B3B3C;
+    background-color: #FFD952;
+    border-color: #FFD952;
+}
+.btn-therciary {
+    color: #3B3B3C;
+    background-color: transparent;
+    border-color: #3B3B3C !important;
+}
+.btn {
+    padding: 2px 30px;
+    font-size: 12px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
 /* box filter */
 .box-filter {
     background-color: #f9f9f9;
@@ -198,4 +226,164 @@ article {
     text-overflow: ellipsis;
 }
 
-
+/* MODAL ARTICLES */
+.modal-article .box-img {
+    padding: 0 0 0 15px;
+}
+.modal-article .box-img > img {
+    padding: 10px;
+    background-color: white;
+}
+.modal-article .box-comment-right {
+    padding: 0 15px 0 0;
+}
+.modal-article section {
+    border-bottom: 1px solid #dfdfdf;
+    padding: 15px 20px 15px;
+}
+.modal-content {
+    background-color: #f9f9f9;
+}
+.modal-article .titleAutor {
+    margin-bottom: 0;
+    font-size: 15px;
+}
+.modal-article h5 {
+    margin-top: 0;
+}
+.modal-article ul li p {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+.modal-article span {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+.modal-article p.titleSecundary {
+    font-size: 12px;
+    color: #333333;
+}
+.modal-article section.stats {
+    border-bottom: transparent;
+}
+.modal-article section.stats img {
+    width: 15px;
+}
+.modal-article section.stats p.titleSponsor {
+    font-weight: 600;
+    color: #0569ef;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.modal-article section.stats p.titleDonation {
+    font-weight: 600;
+    color: #0569ef;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.modal-article section.stats button {
+    width: 100%;
+}
+.modal-article .box-comment {
+    padding: 10px 30px;
+    background-color: white;
+    border: solid 1px #dfdfdf;
+    border-radius: 5px;
+    margin: 50px 0;
+}
+/* PAGE WALLET */
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+}
+.page-wallet .card {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.page-wallet .card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+.page-wallet .card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #f7f7f9;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.page-wallet .card-block {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0;
+}
+.page-wallet .card-title {
+    margin-bottom: .75rem;
+}
+.page-wallet .tableRecentTransaccions img {
+    width: 23px;
+    margin-top: 5px;
+}
+.page-wallet .tableDetails p:nth-child(1) {
+    margin-bottom: 0;
+}
+.page-wallet .tableDetails p:nth-child(2) {
+    font-size: 10px;
+    margin-bottom: 0;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.page-wallet .tableDetailsAmount p {
+    margin: 7px 0 0;
+}
+.page-wallet .card {
+    margin-bottom: 30px;
+}
+.page-wallet .title p {
+    margin-top: 35px;
+}
+.page-wallet #send .options-address {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+}
+.page-wallet #send .options-address img{
+    margin-right: 20px;
+    cursor: pointer;
+}
+.page-wallet #send .comission {
+    border-top: 1px solid #D5D6D7;
+    border-bottom: 1px solid #D5D6D7;
+    padding: 10px;
+    margin: 20px 0;
+}
+.page-wallet #send .comission p {
+    margin-top: 13px;
+}
+.page-wallet #send .comission .form-group {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.page-wallet #send .titleAmount {
+    color: #1d74ff;
+}
+.page-wallet #send .totalAmount {
+    font-size: 22px;
+    color: #333;
+}
+.page-wallet #send .decimals {
+    font-size: 13px;
+    color: #333;
+}

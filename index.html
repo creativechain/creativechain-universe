@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Dashboard Creativechain</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="page-dashboard">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -90,7 +90,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar navBar-left">
                 <li class="active-li"><a class="active-a" href="#"><img src="assets/img/explore1.png" alt="">Explorer</a></li>
-                <li><a href="#"><img src="assets/img/wallet1.png" alt="" style="">Wallet</a></li>
+                <li><a href="wallet.html"><img src="assets/img/wallet1.png" alt="" style="">Wallet</a></li>
                 <li><a href="#"><img src="assets/img/publications1.png" alt="">My publications</a></li>
                 <li><a href="#"><img src="assets/img/history1.png" alt="">History</a></li>
                 <li><a href="#"><img src="assets/img/settings.png" alt="">Settings</a></li>
@@ -102,11 +102,11 @@
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
                     <div class="single-news one-item">
                         <article>
-                            <div class="content-img">
+                            <div class="content-img" type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-article">
                                 <img src="assets/img/news1.jpg" alt="">
                             </div>
                             <div class="content boxContent">
-                                <span class="titleBox">The water factory</span>
+                                <span class="titleBox" type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-article">The water factory</span>
                                 <div class="descriptionContent">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                                 </div>
@@ -155,292 +155,6 @@
                         </article>
                     </div>
                 </div>
-
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
-                    <div class="single-news one-item">
-                        <article>
-                            <div class="content-img">
-                                <img src="assets/img/news1.jpg" alt="">
-                            </div>
-                            <div class="content boxContent">
-                                <span class="titleBox">The water factory</span>
-                                <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                                <div class="row boxOptions">
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/like0.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">1</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxComments">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/comments.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">10</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxSmartActions">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/smartaction.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">100</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLicence" style="">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/cc.png" alt="" class="img-responsive">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row boxOwner">
-                                    <div class="col-md-2 col-xs-2 icon-owner">
-                                        <img src="assets/img/user1.png" class="img-responsive avatare-owner" alt="">
-                                    </div>
-                                    <div class="col-md-8 col-xs-8 box-title-owner">
-                                        <p>Comando Suricato</p>
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 box-level-owner">
-                                        <img src="assets/img/expert.png" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
-                    <div class="single-news one-item">
-                        <article>
-                            <div class="content-img">
-                                <img src="assets/img/news1.jpg" alt="">
-                            </div>
-                            <div class="content boxContent">
-                                <span class="titleBox">The water factory</span>
-                                <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                                <div class="row boxOptions">
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/like0.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">1</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxComments">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/comments.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">10</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxSmartActions">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/smartaction.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">100</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLicence" style="">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/cc.png" alt="" class="img-responsive">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row boxOwner">
-                                    <div class="col-md-2 col-xs-2 icon-owner">
-                                        <img src="assets/img/user1.png" class="img-responsive avatare-owner" alt="">
-                                    </div>
-                                    <div class="col-md-8 col-xs-8 box-title-owner">
-                                        <p>Comando Suricato</p>
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 box-level-owner">
-                                        <img src="assets/img/expert.png" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
-                    <div class="single-news one-item">
-                        <article>
-                            <div class="content-img">
-                                <img src="assets/img/news1.jpg" alt="">
-                            </div>
-                            <div class="content boxContent">
-                                <span class="titleBox">The water factory</span>
-                                <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                                <div class="row boxOptions">
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/like0.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">1</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxComments">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/comments.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">10</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxSmartActions">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/smartaction.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">100</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLicence" style="">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/cc.png" alt="" class="img-responsive">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row boxOwner">
-                                    <div class="col-md-2 col-xs-2 icon-owner">
-                                        <img src="assets/img/user1.png" class="img-responsive avatare-owner" alt="">
-                                    </div>
-                                    <div class="col-md-8 col-xs-8 box-title-owner">
-                                        <p>Comando Suricato</p>
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 box-level-owner">
-                                        <img src="assets/img/expert.png" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
-                    <div class="single-news one-item">
-                        <article>
-                            <div class="content-img">
-                                <img src="assets/img/news1.jpg" alt="">
-                            </div>
-                            <div class="content boxContent">
-                                <span class="titleBox">The water factory</span>
-                                <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                                <div class="row boxOptions">
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/like0.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">1</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxComments">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/comments.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">10</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxSmartActions">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/smartaction.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">100</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLicence" style="">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/cc.png" alt="" class="img-responsive">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row boxOwner">
-                                    <div class="col-md-2 col-xs-2 icon-owner">
-                                        <img src="assets/img/user1.png" class="img-responsive avatare-owner" alt="">
-                                    </div>
-                                    <div class="col-md-8 col-xs-8 box-title-owner">
-                                        <p>Comando Suricato</p>
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 box-level-owner">
-                                        <img src="assets/img/expert.png" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
-                    <div class="single-news one-item">
-                        <article>
-                            <div class="content-img">
-                                <img src="assets/img/news1.jpg" alt="">
-                            </div>
-                            <div class="content boxContent">
-                                <span class="titleBox">The water factory</span>
-                                <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                                <div class="row boxOptions">
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/like0.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">1</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxComments">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/comments.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">10</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxSmartActions">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/smartaction.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">100</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLicence" style="">
-                                        <p class="p-box-options">
-                                            <img src="assets/img/cc.png" alt="" class="img-responsive">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row boxOwner">
-                                    <div class="col-md-2 col-xs-2 icon-owner">
-                                        <img src="assets/img/user1.png" class="img-responsive avatare-owner" alt="">
-                                    </div>
-                                    <div class="col-md-8 col-xs-8 box-title-owner">
-                                        <p>Comando Suricato</p>
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 box-level-owner">
-                                        <img src="assets/img/expert.png" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
 
 
 
@@ -459,105 +173,140 @@
                     <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
                 </div>
             </div>
-
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
-                    <img src="assets/img/user00.png" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-9 BoxFollowingDescription">
-                    <p class="titleFollowing">Comando C</p>
-                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
-            </div>
-
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
-                    <img src="assets/img/user00.png" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-9 BoxFollowingDescription">
-                    <p class="titleFollowing">Comando C</p>
-                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
-            </div>
-
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
-                    <img src="assets/img/user00.png" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-9 BoxFollowingDescription">
-                    <p class="titleFollowing">Comando C</p>
-                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
-            </div>
-
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
-                    <img src="assets/img/user00.png" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-9 BoxFollowingDescription">
-                    <p class="titleFollowing">Comando C</p>
-                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
-            </div>
-
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
-                    <img src="assets/img/user00.png" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-9 BoxFollowingDescription">
-                    <p class="titleFollowing">Comando C</p>
-                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
-            </div>
-
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
-                    <img src="assets/img/user00.png" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-9 BoxFollowingDescription">
-                    <p class="titleFollowing">Comando C</p>
-                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
-            </div>
-
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
-                    <img src="assets/img/user00.png" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-9 BoxFollowingDescription">
-                    <p class="titleFollowing">Comando C</p>
-                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
-            </div>
-
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
-                    <img src="assets/img/user00.png" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-9 BoxFollowingDescription">
-                    <p class="titleFollowing">Comando C</p>
-                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
-            </div>
-
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
-                    <img src="assets/img/user00.png" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-9 BoxFollowingDescription">
-                    <p class="titleFollowing">Comando C</p>
-                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
-            </div>
-
-
-
-
-
-
         </div>
     </div>
 </div>
+<div class="modal fade modal-article" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-md-9 box-img">
+                    <img src="assets/img/article1.jpg" alt="" class="img-responsive">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="box-comment">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Autor:</h4>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="assets/img/img-profile.png" alt="" class="img-responsive">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <ul class="list-unstyled list-inline">
+                                            <li><p class="titleSecundary">Robert Blue</p></li>
+                                            <li><img src="assets/img/modal/user-level.png" alt=""></li>
+                                            <li><span>3 days ago</span></li>
+                                        </ul>
+                                        <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="assets/img/img-profile.png" alt="" class="img-responsive">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <textarea name="" id="" rows="3" style="width: 100%;"></textarea>
+                                        <button type="button" class="btn btn-primary">
+                                            Follow
+                                        </button>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>2 Comments</h4>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="assets/img/img-profile.png" alt="" class="img-responsive">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <ul class="list-unstyled list-inline">
+                                            <li><p class="titleSecundary">Robert Blue</p></li>
+                                            <li><img src="assets/img/modal/user-level.png" alt=""></li>
+                                            <li><span>3 days ago</span></li>
+                                        </ul>
+                                        <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 box-comment-right" style="padding-left: 0;">
+                    <section>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="assets/img/img-profile.png" alt="" class="img-responsive">
+                            </div>
+                            <div class="col-md-8">
+                                <p class="titleAutor">Robert Blue</p>
+                                <span>venenatis.com</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled list-inline">
+                                    <li><p><img src="assets/img/icon-1.png" alt="" style="width: 14px;"> <span>Master</span></p></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled list-inline">
+                                    <li><p><img src="assets/img/icon-2.png" alt="" style="width: 14px;"> <span>345 Buzz</span></p></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-primary">
+                                    Follow
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </section>
+                    <section>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>A peich ese pedazo de hasta luego Lucas benemeritaar</h5>
+                                <p class="titleSecundary">Tags</p>
+                                <span>Digital, agency, about, loop, ilustration</span>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="stats">
+                        <ul class="list-unstyled">
+                            <li><p><img src="assets/img/modal/icon-like.png" alt=""> 55 Likes</p></li>
+                            <li><p><img src="assets/img/modal/icon-crea.png" alt=""> 3.0342344324 CREA</p></li>
+                            <li>
+                                <p><img src="assets/img/modal/icon-smart-action.png" alt=""> 60 Smart Actions</p>
+                                <p class="titleSponsor">Sponsor</p>
+                                <p class="titleDonation">Donation</p>
+                                <button type="button" class="btn btn-primary">
+                                    Follow
+                                </button>
+                            </li>
+
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
