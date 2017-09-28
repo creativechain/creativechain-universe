@@ -1,0 +1,55 @@
+{
+  "name": "creativechain-universe",
+  "version": "0.0.1",
+  "description": "Creativechain is a blockchain project for the registration, authentication and distribution of digital free culture.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "postinstall": "install-app-deps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativechain/creativechain-universe.git"
+  },
+  "keywords": [
+    "blokchain",
+    "creativecoin",
+    "creativechain",
+    "bitcoin",
+    "content",
+    "digital",
+    "free",
+    "distribution",
+    "registration"
+  ],
+  "author": "The Creativechain Developers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/creativechain/creativechain-universe/issues"
+  },
+  "homepage": "https://github.com/creativechain/creativechain-universe#readme",
+  "dependencies": {
+    "bitcoin": "^3.0.1",
+    "bitcoin-rpc": "^0.2.1",
+    "bitcoinjs-lib": "^3.2.0",
+    "drag-drop": "^2.13.2",
+    "electron": "^1.7.8",
+    "electron-dl": "^1.10.0",
+    "electron-rebuild": "^1.6.0",
+    "execsql": "0.0.3",
+    "handbrake-js": "^2.2.2",
+    "imagemin": "^5.3.1",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-pngquant": "^5.0.1",
+    "lzma": "^2.3.2",
+    "node-json-rpc": "0.0.1",
+    "sqlite3": "^3.1.12",
+    "webtorrent": "^0.98.19"
+  },
+  "devDependencies": {
+    "electron-builder": "^17.10.0",
+    "electron-packager": "^8.6.0",
+    "sqlite3": "^3.1.8"
+  }
+}
