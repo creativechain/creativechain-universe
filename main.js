@@ -3,11 +3,51 @@ require('electron-dl')();
 
 const path = require('path');
 const url = require('url');
+const request = require('request');
 
 const {File, OS, Constants} = require('./lib/utils');
+const {Network, Trantor} = require('./lib/trantor');
+const {Coin} = require('./lib/currency');
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
+
+//Load lang file
+let locale = app.getLocale();
+console.log(locale);
+let content = null;
+if (File.exist(Constants.LANG_FOLDER + locale + '.json')) {
+    content = File.read(Constants.LANG_FOLDER + locale + '.json');
+} else {
+    content = File.read(Constants.LANG_FOLDER  + 'en.json');
+}
+
+let lang = JSON.parse(content);
+global.lang = lang;
+
+global.ticker = {};
+
+function ticker() {
+    console.log('Getting ticker...');
+    request(Constants.TICKER_URL, function (error, response, body) {
+        body = JSON.parse(body);
+        body = body[0];
+        global.ticker.price_btc = Coin.parseCash(body.price_btc, 'BTC');
+        global.ticker.price_usd = Coin.parseCash(body.price_usd, 'USD');
+        global.ticker.price_eur = Coin.parseCash(body.price_eur, 'EUR');
+
+        if (global.ticker.listener) {
+            global.ticker.listener();
+        } else {
+            console.log('Listener is null');
+        }
+    })
+}
+
+setInterval(function () {
+    ticker();
+}, 10 * 60 * 1000);
 
 function createWindow () {
     // Create the browser window.
@@ -15,7 +55,6 @@ function createWindow () {
     //Uncommment for show default menu bar
     win.setMenu(null);
     win.maximize();
-
     // and load the index.html of the app.
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'index.html'),
@@ -26,23 +65,11 @@ function createWindow () {
     // Open the DevTools.
     win.webContents.openDevTools();
 
+    ticker();
     // Emitted when the window is closed.
     win.on('closed', () => {
-        let mainPid = Constants.BIN_FOLDER + 'creativecoin.pid';
-        let testnetPid = Constants.BIN_FOLDER + 'testnet3/creativecoin.pid';
-        if (File.exist(mainPid)) {
-            let content = File.read(mainPid);
-            OS.run('kill ' + content, function (result) {
-
-            })
-        }
-
-        if (File.exist(testnetPid)) {
-            let content = File.read(testnetPid);
-            OS.run('kill ' + content, function (result) {
-
-            })
-        }
+        let trantor = new Trantor(Network.TESTNET);
+        trantor.stop(OS, Constants.BIN_FOLDER);
         //console.log('closing window');
         //Preferences.setNodeCorrectlyRunning(false);
         // Dereference the window object, usually you would store windows

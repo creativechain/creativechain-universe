@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "explorer": "Explorador",
+    "wallet": "Wallet",
+    "my_publications": "Mis publicaciones",
+    "history": "Historial",
+    "settings": "Ajustes",
+    "updates": "Actualizaciones"
+  }
+
+}

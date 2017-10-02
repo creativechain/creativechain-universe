@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "explorer": "Explorer",
+    "wallet": "Wallet",
+    "my_publications": "My publications",
+    "history": "History",
+    "settings": "Settings",
+    "updates": "Updates"
+  }
+
+}

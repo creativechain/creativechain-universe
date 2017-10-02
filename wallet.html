@@ -35,12 +35,14 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
     <![endif]-->
 
     <!-- Creativechain Platform Libraries -->
     <script language="javascript" src="lib/utils.js" type="text/javascript"></script>
     <script language="javascript" src="lib/trantor.js" type="text/javascript"></script>
-    <script language="javascript" src="lib/platform.js" type="text/javascript"></script>
+    <script language="javascript" src="lib/currency.js" type="text/javascript"></script>
+    <script language="javascript" src="lib/wallet.js" type="text/javascript"></script>
 </head>
 
 <body class="page-wallet">
@@ -131,8 +133,8 @@
                                     Total balance
                                 </div>
                                 <div class="card-block text-center">
-                                    <h4 class="card-title">40 058,<span>0202078</span> CREA</h4>
-                                    <p class="card-text">= USD 124,3995</p>
+                                    <h4 class="card-title" id="total-balance">40 058,<span>0202078</span> CREA</h4>
+                                    <p class="card-text" id="total-balance-fiat">= USD 124,3995</p>
                                 </div>
                             </div>
                             <div class="card">
@@ -150,15 +152,15 @@
                                         <tbody>
                                         <tr>
                                             <td><p>Available</p></td>
-                                            <td><p>+ 527 757 713,2580 CREA</p></td>
+                                            <td><p id=available-balance>+ 527 757 713,2580 CREA</p></td>
                                         </tr>
                                         <tr>
                                             <td><p>Pending</p></td>
-                                            <td><p>+524 456,2094 CREA</p></td>
+                                            <td><p id="pending-balance">+524 456,2094 CREA</p></td>
                                         </tr>
                                         <tr>
                                             <td><p>TOTAL</p></td>
-                                            <td><p>40 058,<span>0202078 CREA</span></p></td>
+                                            <td><p id="total-balance-detail">40 058,<span>0202078 CREA</span></p></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -179,31 +181,7 @@
                                             <th>Ammount</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                        <tr>
-                                            <th><img src="assets/img/table/ok.png" alt=""></th>
-                                            <td class="tableDetails">
-                                                <p>23 Ene 18:34</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                            </td>
-                                            <td class="tableDetailsAmount"><p>13 855,4654 CREA</p></td>
-                                        </tr>
-                                        <tr>
-                                            <th><img src="assets/img/table/ko.png" alt=""></th>
-                                            <td class="tableDetails">
-                                                <p>23 Ene 18:34</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                            </td>
-                                            <td class="tableDetailsAmount"><p>13 855,4654 CREA</p></td>
-                                        </tr>
-                                        <tr>
-                                            <th><img src="assets/img/table/process.png" alt=""></th>
-                                            <td class="tableDetails">
-                                                <p>23 Ene 18:34</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                            </td>
-                                            <td class="tableDetailsAmount"><p>13 855,4654 CREA</p></td>
-                                        </tr>
+                                        <tbody id="tx-list">
                                         </tbody>
                                     </table>
                                 </div>
@@ -450,32 +428,10 @@
                                             <th>Fecha</th>
                                             <th>Tipo</th>
                                             <th>Address</th>
-                                            <th>CREA Solicitado</th>
+                                            <th>Cantidad</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                        <tr>
-                                            <th><img src="assets/img/table/ok.png" alt=""></th>
-                                            <td><p>23 Ene 18:34</p></td>
-                                            <td><p>Enviado a Dolores</p></td>
-                                            <td><p><img src="assets/img/wallet/icon-receive.png" alt=""> Cb5dgdfh4gf5h4gdf3dhddxxselit,</p></td>
-                                            <td><p>+1 300 755,2850 CREA</p></td>
-                                        </tr>
-                                        <tr>
-                                            <th><img src="assets/img/table/ko.png" alt=""></th>
-                                            <td><p>23 Ene 18:34</p></td>
-                                            <td><p>Enviado a Dolores</p></td>
-                                            <td><p><img src="assets/img/wallet/icon-send.png" alt=""> Cb5dgdfh4gf5h4gdf3dhddxxselit,</p></td>
-                                            <td><p>+1 300 755,2850 CREA</p></td>
-                                        </tr>
-                                        <tr>
-                                            <th><img src="assets/img/table/process.png" alt=""></th>
-                                            <td><p>23 Ene 18:34</p></td>
-                                            <td><p>Enviado a Dolores</p></td>
-                                            <td><p><img src="assets/img/wallet/icon-send.png" alt=""> Cb5dgdfh4gf5h4gdf3dhddxxselit,</p></td>
-                                            <td><p>+1 300 755,2850 CREA</p></td>
-                                        </tr>
-
+                                        <tbody id="tx-list-details">
                                         </tbody>
                                     </table>
                                 </div>
