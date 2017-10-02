@@ -104,7 +104,7 @@
                         <li><a href="#">Tancar sessió</a></li>
                     </ul>
                 </li>
-                <li class="amount-navbar"><p>240.01481043 <span>CREA</span></p></li>
+                <li class="amount-navbar"><p id="amount-navbar">240.01481043 <span>CREA</span></p></li>
                 <li class="logo-right-navbar">
                     <img src="assets/img/icon-crea-price.png" alt="" style="width: 32px;">
                 </li>
@@ -233,14 +233,14 @@
                 <div role="tabpanel" class="tab-pane" id="send">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
-                            <p>Enviar creativecoins a una dirección Creativecoins</p>
+                            <p>Enviar creativecoins a una dirección Creativecoin</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Pagar a</label>
-                                <input type="text" class="form-control" placeholder="Introducir una direccion Creativecoin p.e. Cb5dgdfh4gf5h4gdf3dhddxxs">
+                                <input id="send-address" type="text" class="form-control" placeholder="Introducir una direccion Creativecoin p.e. Cb5dgdfh4gf5h4gdf3dhddxxs">
                             </div>
                             <div class="options-address">
                                 <img src="assets/img/wallet/icon-address-book.png" alt="">
@@ -251,14 +251,14 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Etiqueta</label>
-                                <input type="text" class="form-control" placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
+                                <input id="address-label" type="text" class="form-control" placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Cantidad</label>
                                 <div style="display: flex;">
-                                    <input type="number" class="form-control" value="0">
+                                    <input id="send-amount" type="number" class="form-control" value="0" step="0.00000001">
 
                                     <!-- insert this line -->
                                     <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
@@ -272,12 +272,12 @@
                         <div class="col-md-4">
                             <div class="checkbox" style="margin-top: 30px;">
                                 <label>
-                                    <input type="checkbox"> Restar comisiones a la cantidad
+                                    <input id="send-subtract-fee" type="checkbox"> Restar comisiones a la cantidad
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="row comission">
+                    <div class="row comission" style="display: none">
                         <div class="col-md-5">
                             <p>Comisón de Transacción: 0.00200647 CREA/kB</p>
                         </div>
@@ -291,18 +291,12 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8">
-                            <button type="button" class="btn btn-secondary">
-                                Follow
-                            </button>
-                            <button type="button" class="btn btn-therciary">
-                                Follow
-                            </button>
-                            <button type="button" class="btn btn-therciary">
-                                Follow
+                            <button onclick="validateSendCoins()" type="button" class="btn btn-secondary">
+                                Enviar
                             </button>
                         </div>
                         <div class="col-md-4 text-right">
-                            <p class="titleAmount">SALDO: <span class="totalAmount">40 058,<span class="decimals">0202078 CREA</span></span></p>
+                            <p class="titleAmount">SALDO: <span id="available-amount-unit" class="totalAmount" >40 058,</span><span id="available-amount-cents" class="decimals">0202078 CREA</span></p>
                         </div>
                     </div>
                 </div>
