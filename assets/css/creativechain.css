@@ -51,7 +51,47 @@ a:focus, a:hover {
     color: #3b3b3c;
     text-decoration: none;
 }
-
+/* Navbar */
+.li-icon-row {
+    padding: 17px 0 0;
+    margin-left: 50px;
+}
+.form-search-navbar {
+    margin-top: 10px;
+}
+.input-search {
+    padding: 2px 30px;
+    font-size: 12px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    height: 24px;
+}
+.circle-notification {
+    background-color: #0052dd;
+    border-radius: 10px;
+    width: 20px;
+    color: white;
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+}
+.circle-notification span {
+    font-size: 10px;
+    position: relative;
+    left: 4px;
+    bottom: 1px;
+}
+.padding10 {
+    padding-top: 10px;
+}
+.amount-navbar {
+    padding: 17px 24px 0;
+    font-size: 15px;
+    color: white;
+}
+.logo-right-navbar {
+    padding: 12px;
+}
 /* Menu */
 .navBar-left  a img {
     opacity: 0.3;
