@@ -7,7 +7,12 @@ body {
 }
 .table>tbody>tr>td>p {
     margin: 0;
-
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #DFDFDF;
 }
 .btn-primary {
     color: #fff;
@@ -426,4 +431,59 @@ article {
 .page-wallet #send .decimals {
     font-size: 13px;
     color: #333;
+}
+
+.page-profile .profile .img-profile {
+    margin:20px 0;
+}
+.page-profile .profile .name {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.page-profile .profile .name-web {
+    color: #A5A5A5;
+    font-size: 12px;
+}
+.page-profile .profile .descriptionProfile {
+    font-size: 12px;
+    color: #A5A5A5;
+}
+.page-profile .stats-profile ul.list-inline {
+    margin-left: 0;
+}
+.page-profile .table-stats-profile-1 thead {
+    display: none;
+}
+.page-profile .stats-profile .table-stats-profile-1 td > img {
+    width: 20px;
+    margin-right: 5px;
+}
+.page-profile .stats-profile ul > li {
+    padding: 0;
+}
+.page-profile .stats-profile ul > li > span {
+    font-size: 12px;
+    color: #A5A5A5;
+}
+.page-profile .table-stats-profile thead {
+    display: none;
+}
+.page-profile .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid transparent;
+    color: #A5A5A5;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.page-profile .title-profile h3{
+    font-size: 12px;
+    color: #A5A5A5;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.page-profile .title-profile p {
+    font-size: 12px;
+    color: #A5A5A5;
 }
