@@ -44,7 +44,8 @@
     "imagemin-pngquant": "^5.0.1",
     "lzma": "^2.3.2",
     "node-json-rpc": "0.0.1",
-    "sqlite3": "^3.1.12",
+    "qrcode": "^0.9.0",
+    "sqlite3": "3.1.8",
     "webtorrent": "^0.98.19"
   },
   "devDependencies": {

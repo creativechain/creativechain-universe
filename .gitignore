@@ -3,8 +3,8 @@ node_modules
 app.conf
 package-lock.json
 bin
-*.sql
 *.db
 releases
 index.db-journal
 .DS_Store
+resources

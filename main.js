@@ -5,9 +5,7 @@ const path = require('path');
 const url = require('url');
 const request = require('request');
 
-const {File, OS, Constants} = require('./lib/utils');
-const {Network, Trantor} = require('./lib/trantor');
-const {Coin} = require('./lib/currency');
+const {Coin, File, OS, Constants, Network, Trantor} = require('./lib/trantor');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
