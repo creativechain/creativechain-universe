@@ -7,7 +7,12 @@ body {
 }
 .table>tbody>tr>td>p {
     margin: 0;
-
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #DFDFDF;
 }
 .btn-primary {
     color: #fff;
@@ -426,4 +431,127 @@ article {
 .page-wallet #send .decimals {
     font-size: 13px;
     color: #333;
+}
+
+.page-profile .profile .img-profile {
+    margin:20px 0;
+}
+.page-profile .profile .name {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.page-profile .profile .name-web {
+    color: #A5A5A5;
+    font-size: 12px;
+}
+.page-profile .profile .descriptionProfile {
+    font-size: 12px;
+    color: #A5A5A5;
+}
+.page-profile .stats-profile ul.list-inline {
+    margin-left: 0;
+}
+.page-profile .table-stats-profile-1 thead {
+    display: none;
+}
+.page-profile .stats-profile .table-stats-profile-1 td > img {
+    width: 20px;
+    margin-right: 5px;
+}
+.page-profile .stats-profile ul > li {
+    padding: 0;
+}
+.page-profile .stats-profile ul > li > span {
+    font-size: 12px;
+    color: #A5A5A5;
+}
+.page-profile .table-stats-profile thead {
+    display: none;
+}
+.page-profile .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid transparent;
+    color: #A5A5A5;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.page-profile .title-profile h3{
+    font-size: 12px;
+    color: #A5A5A5;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.page-profile .title-profile p {
+    font-size: 12px;
+    color: #A5A5A5;
+}
+
+.edit-profile .card {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding: 20px;
+}
+.edit-profile .card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+.edit-profile .card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #f7f7f9;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.edit-profile .card-block {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0;
+}
+.edit-profile .bootstrap-tagsinput {
+    display: block;
+    height: 34px;
+}
+.edit-profile .label-info {
+    background-color: #0073ff;
+}
+.edit-profile .label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: 100;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    font-size: 12px;
+}
+.edit-profile .change-imatge {
+    margin-top: 20px;
+}
+.edit-profile .change-imatge p.name {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.edit-profile .change-imatge p.change-text {
+    color: #A5A5A5;
+    font-size: 12px;
+}
+.edit-profile .send-edit-profile {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
