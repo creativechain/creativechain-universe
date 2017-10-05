@@ -24,7 +24,7 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <div id="drag-drop" class="upload-file">
+                                <div id="drag-drop" style="-webkit-app-region: drag" class="upload-file">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
@@ -32,7 +32,7 @@
                                         <li><span class="icon-plus">+</span></li>
                                         <li><p translate="yes">Drag your file anywhere</p></li>
                                     </ul>
-                                    <p>o</p>
+                                    <p>or</p>
                                     <button onclick="showOpenFile()" type="button" class="btn btn-primary" translate="yes" data-target=".modal-publish">
                                         Select file
                                     </button>
@@ -271,7 +271,7 @@
             <div class="row">
                 <div class="col-md-12 text-center public-project">
                     <h4 translate="yes">You are about to publish your project. Dale!</h4>
-                    <button type="button" class="btn btn-primary button-upload" translate="yes" data-toggle="modal" data-target=".modal-publish">
+                    <button onclick="publishContent()" type="button" class="btn btn-primary button-upload" translate="yes" data-toggle="modal" data-target=".modal-publish">
                         Publish
                     </button>
                 </div>

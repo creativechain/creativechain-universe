@@ -53,7 +53,7 @@ setInterval(function () {
 
 function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600});
+    win = new BrowserWindow({width: 800, height: 600, minWidth: 800, minHeight: 600, center: true, frame: true});
     //Uncommment for show default menu bar
     win.setMenu(null);
     win.maximize();
