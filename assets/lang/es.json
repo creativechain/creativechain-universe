@@ -71,5 +71,7 @@
   "Exchange": "Casas de Cambio",
   "Invitation": "Invitación",
   "Go!": "Adelante!",
-  "WalletEncrypted": "Tu billetera ya está encriptada!"
+  "WalletEncrypted": "Tu billetera ya está encriptada!",
+  "ChoosePreviewImage": "Imagen destacada",
+  "ImagesFiles": "Archivos de imágenes"
 }

@@ -71,6 +71,8 @@
   "Exchange": "Exchange",
   "Invitation": "Invitation",
   "Go!": "Go!",
-  "WalletEncrypted": "Your wallet is already encrypted!"
+  "WalletEncrypted": "Your wallet is already encrypted!",
+  "ChoosePreviewImage": "Choose preview image",
+  "ImagesFiles": "Images files"
 }
 

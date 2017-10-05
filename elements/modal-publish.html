@@ -30,10 +30,10 @@
                                     </button>
                                     <ul class="list-inline list-unstyled">
                                         <li><span class="icon-plus">+</span></li>
-                                        <li><p translate="yes">Drag your file anywhere</p></li>
+                                        <li><p translate="yes">Drag your preview image</p></li>
                                     </ul>
                                     <p>or</p>
-                                    <button onclick="showOpenFile()" type="button" class="btn btn-primary" translate="yes" data-target=".modal-publish">
+                                    <button onclick="loadFeaturedImages()" type="button" class="btn btn-primary" translate="yes" data-target=".modal-publish">
                                         Select file
                                     </button>
                                     <p class="maxim-size" translate="yes">Maximum size 100mb</p>
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-primary button-upload" translate="yes">Upload file</button>
+                                <button onclick="loadContentFile()" type="button" class="btn btn-primary button-upload" translate="yes">Choose content file</button>
                             </div>
                         </div>
                         <div class="row">

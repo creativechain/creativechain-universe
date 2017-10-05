@@ -6,8 +6,9 @@ const url = require('url');
 const request = require('request');
 const locale = require('os-locale');
 
-const {Coin, File, OS, Constants, Network, Trantor} = require('./lib/trantor');
+const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
 
+let fileStorage = FileStorage.load();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
@@ -58,8 +59,16 @@ function createWindow () {
     win.setMenu(null);
     win.maximize();
     // and load the index.html of the app.
+
+    let initPage = 'slide-1.html';
+    if (fileStorage.getKey('firstUseExecuted')) {
+        initPage = 'index.html';
+    } else {
+        fileStorage.setKey('firstUseExecuted', true);
+    }
+
     win.loadURL(url.format({
-        pathname: path.join(__dirname, 'slide-1.html'),
+        pathname: path.join(__dirname, initPage),
         protocol: 'file:',
         slashes: true
     }));
