@@ -4,6 +4,7 @@ require('electron-dl')();
 const path = require('path');
 const url = require('url');
 const request = require('request');
+const locale = require('os-locale');
 
 const {Coin, File, OS, Constants, Network, Trantor} = require('./lib/trantor');
 
@@ -11,18 +12,21 @@ const {Coin, File, OS, Constants, Network, Trantor} = require('./lib/trantor');
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 
-//Load lang file
-let locale = app.getLocale();
-console.log(locale);
-let content = null;
-if (File.exist(Constants.LANG_FOLDER + locale + '.json')) {
-    content = File.read(Constants.LANG_FOLDER + locale + '.json');
-} else {
-    content = File.read(Constants.LANG_FOLDER  + 'en.json');
-}
+locale().then(lang => {
+    console.log(lang);
 
-let lang = JSON.parse(content);
-global.lang = lang;
+    let content = null;
+    lang = lang.slice(0, 2).toLowerCase();
+    if (File.exist(Constants.LANG_FOLDER + lang + '.json')) {
+        content = File.read(Constants.LANG_FOLDER + lang + '.json');
+    } else {
+        content = File.read(Constants.LANG_FOLDER  + 'en.json');
+    }
+
+    lang = JSON.parse(content);
+    global.lang = lang;
+
+});
 
 global.ticker = {};
 

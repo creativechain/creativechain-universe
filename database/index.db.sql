@@ -72,6 +72,12 @@ CREATE TABLE IF NOT EXISTS `PaymentRequest` (
 	PRIMARY KEY(`address`,`amount`,`creation_date`)
 );
 
+CREATE TABLE IF NOT EXISTS `AddressBook` (
+	`address`	TEXT NOT NULL,
+	`label`	TEXT NOT NULL UNIQUE,
+	PRIMARY KEY(`address`)
+);
+
 CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash` );
 CREATE UNIQUE INDEX IF NOT EXISTS `media_index` ON `Media` (`address` ,`type` ,`author`, `title` );
 CREATE UNIQUE INDEX IF NOT EXISTS `like_index` ON `Like` (`author` ,`content_id` );
