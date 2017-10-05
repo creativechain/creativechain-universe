@@ -555,3 +555,102 @@ article {
     margin-top: 10px;
     margin-bottom: 5px;
 }
+
+/* MODAL PUBLISH */
+.modal-publish .row-img-profile p {
+    color: #A5A5A5;
+}
+.modal-publish .upload-file {
+    margin: 20px;
+    border: solid 1px #95989A;
+    padding: 40px 0 30px;
+    color: #95989A;
+}
+.modal-publish span.icon-plus {
+    font-size: 30px;
+    position: relative;
+    top: 5px;
+}
+.modal-publish .upload-file > ul {
+    margin-bottom: 0;
+}
+.modal-publish .upload-file p.maxim-size {
+    font-size: 10px;
+    margin-top: 10px;
+}
+.modal-publish .upload-file .close {
+    position: absolute;
+    top: 26px;
+    right: 45px;
+}
+.modal-publish .form-options {
+    padding: 20px;
+}
+.modal-publish .form-options .button-upload {
+    margin-top: 28px;
+}
+.modal-publish .form-options .title-extension {
+    position: absolute;
+    top: 32px;
+    right: 30px;
+    color: #95989A;
+}
+.modal-publish .form-options .money-crea {
+    margin-top: 30px;
+}
+.modal-publish .form-options .table-license img {
+    width: 21px;
+}
+.modal-publish .form-options .table-license thead p {
+    font-size: 7px;
+}
+.modal-publish .form-options .table-license>tbody>tr>td, .table-license>tbody>tr>th, .table-license>tfoot>tr>td, .table-license>tfoot>tr>th, .table-license>thead>tr>td, .table-license>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid transparent;
+    color: #A5A5A5;
+    text-transform: none;
+    font-size: 12px;
+}
+.modal-publish .form-options .table-license p.text-only {
+    color: #FFD952;
+}
+.modal-publish .form-options .table-license p.text-no {
+    color: #FF6C79;
+}
+.modal-publish .form-options .table-license p.text-yes {
+    color: #26EC7B;
+}
+.modal-publish .form-options .table-license p {
+    font-size: 10px;
+}
+.modal-publish .public-project > button {
+    margin-bottom: 40px;
+}
+.modal-publish .public-project>h4 {
+    margin: 40px;
+}
+.modal-publish .publish-title {
+    margin: 20px 30px;
+}
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #E8E8E8;
+    border-radius: .25rem;
+}
+/* FIN MODAL PUBLISH */
+
+.input-group {
+    margin-bottom: 15px;
+}
