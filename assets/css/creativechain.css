@@ -56,7 +56,7 @@ hr {
     webkit-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
     box-shadow: 4px 0px 8px -4px rgba(0,0,0,0.75);
-    top: 70px;
+    top: 50px;
 }
 .box-alert > .alert > ul > li:nth-child(1) img{
     width: 60px;
