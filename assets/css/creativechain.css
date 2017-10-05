@@ -30,6 +30,50 @@ hr {
     border: 0;
     border-top: 1px solid #DFDFDF;
 }
+.alert {
+    background-color: white;
+    position: absolute;
+    z-index: 10000;
+    right: 20px;
+    top:30px;
+    -webkit-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
+    box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
+}
+.rombo {
+    width: 40px;
+    height: 40px;
+    border: 3px solid white;
+    background: white;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    right: 16px;
+    position: absolute;
+    z-index: 9999;
+    webkit-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
+    box-shadow: 4px 0px 8px -4px rgba(0,0,0,0.75);
+    top: 70px;
+}
+.box-alert > .alert > ul > li:nth-child(1) img{
+    width: 60px;
+    margin-top: -28px;
+}
+.box-alert > .alert > ul > li:nth-child(2) > p:nth-child(2) {
+    font-size: 12px;
+    color: #A5A5A5;
+}
+.box-alert > .alert > ul > li:nth-child(2) {
+    display: inline-block;
+    margin-right: 40px;
+}
+.box-alert > .alert > ul > li:nth-child(3) img {
+    width: 40px;
+    margin-top: -28px;
+}
 .btn-primary {
     color: #fff;
     background-color: #0569ef;
