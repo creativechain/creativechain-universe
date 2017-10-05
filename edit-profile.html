@@ -44,71 +44,7 @@
 <body class="page-profile edit-profile">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Creativechain</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="li-icon-row"><p><a href="#"> < </a><a href="#"> > </a></p></li>
-                <li>
-                    <a href="#">
-                        <form class="navbar-form navbar-right form-search-navbar">
-                            <input type="text" class="form-control input-search" placeholder="Search...">
-                        </form>
-                    </a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="padding10">
-                    <a href="#">
-                        <button type="button" class="btn btn-primary">
-                            Publish
-                        </button>
-                    </a>
-                </li>
-                <li class="padding10">
-                    <a href="#">
-                        <img src="assets/img/icon-notification-navbar.png" alt="">
-                    </a>
-                    <div class="circle-notification">
-                        <span>12</span>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">
-                        <img src="assets/img/img-profile.png" alt="" style="width: 45px;">
-                        <span>Luther Bliset</span>
-                        <img src="assets/img/ic_expand_more.png" alt="" style="width: 30px;">
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="profile.html">Perfil</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Ajuste</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">My publications</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Ajuda</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Tancar sessió</a></li>
-                    </ul>
-                </li>
-                <li class="amount-navbar"><p>240.01481043 <span>CREA</span></p></li>
-                <li class="logo-right-navbar">
-                    <img src="assets/img/icon-crea-price.png" alt="" style="width: 32px;">
-                </li>
-            </ul>
-
-        </div>
-    </div>
+    <div w3-include-html="/elements/navbar-top.html"></div>
 </nav>
 
 <div class="box-filter">
@@ -116,9 +52,9 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-10">
                 <ul class="list-unstyled list-inline text-center">
-                    <li><a href="">Projects</a></li>
-                    <li><a href="">Followers</a></li>
-                    <li><a href="">Followings</a></li>
+                    <li><a href="" translate="yes">Projects</a></li>
+                    <li><a href="" translate="yes">Followers</a></li>
+                    <li><a href="" translate="yes">Followings</a></li>
                 </ul>
             </div>
             <div class="col-md-2 col-md-offset-1 col-xs-2">
@@ -189,22 +125,22 @@
                         <tbody>
                         <tr>
                             <td><img src="assets/img/like0.png" alt=""></td>
-                            <td>Likes</td>
+                            <td translate="yes">Likes</td>
                             <td>108</td>
                         </tr>
                         <tr>
                             <td><img src="assets/img/comments.png" alt=""></td>
-                            <td>Comments</td>
+                            <td translate="yes">Comments</td>
                             <td>16</td>
                         </tr>
                         <tr>
                             <td><img src="assets/img/smartaction.png" alt=""></td>
-                            <td>Smarts Actions</td>
+                            <td translate="yes">Smarts Actions</td>
                             <td>8</td>
                         </tr>
                         <tr>
                             <td><img src="assets/img/followers-profile.png" alt=""></td>
-                            <td>Followers</td>
+                            <td translate="yes">Followers</td>
                             <td>8</td>
                         </tr>
                         </tbody>
@@ -218,7 +154,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 title-profile">
-                    <h3>Dirección principal Crea</h3>
+                    <h3 translate="yes">Address CREA</h3>
                     <p>chssfg6f7ds5gs854d7878d5gsdf586543j367ghd69fh5</p>
                 </div>
             </div>
@@ -241,7 +177,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary" translate="yes">
                         Donate
                     </button>
                 </div>
@@ -262,34 +198,34 @@
                             </div>
                             <div class="col-md-4 change-imatge">
                                 <p class="name">MACR Museum</p>
-                                <p class="change-text">Cambiar imagen de perfil</p>
+                                <p class="change-text" translate="yes">Change profile image</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Name</label>
+                            <label translate="yes">Name</label>
                             <input type="text" class="form-control"
-                                   placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
+                                   placeholder="Name" translate="yes">
                         </div>
                         <div class="form-group">
-                            <label>Descripción</label>
+                            <label translate="yes">Description</label>
                             <input type="text" class="form-control"
-                                   placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
+                                   placeholder="Description" translate="yes">
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" placeholder="Añadir email">
+                            <label translate="yes">Email</label>
+                            <input type="email" class="form-control" placeholder="Add your Email" translate="yes">
                         </div>
                         <div class="form-group">
-                            <label>Web</label>
-                            <input type="text" class="form-control" placeholder="Añadir web">
+                            <label translate="yes">Web</label>
+                            <input type="text" class="form-control" placeholder="Add web" translate="yes">
                         </div>
                         <div class="form-group">
-                            <label>Tags</label>
+                            <label translate="yes">Tags</label>
                             <input type="text" data-role="tagsinput" id="tags" class="form-control">
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-primary send-edit-profile" style="width: 100%;">
+                                <button type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes">
                                     Send
                                 </button>
                             </div>
@@ -299,7 +235,7 @@
             </div>
         </div>
         <div class="col-sm-3 col-md-2 sidebar hidden-sm hidden-xs boxFollowing">
-            <p>Following</p>
+            <p translate="yes">Following</p>
 
 
             <div class="row followingList">
@@ -314,136 +250,9 @@
         </div>
     </div>
 </div>
-<div class="modal fade modal-article" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="row">
-                <div class="col-md-9 box-img">
-                    <img src="assets/img/article1.jpg" alt="" class="img-responsive">
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="box-comment">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4>Autor:</h4>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <img src="assets/img/img-profile.png" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <ul class="list-unstyled list-inline">
-                                            <li><p class="titleSecundary">Robert Blue</p></li>
-                                            <li><img src="assets/img/modal/user-level.png" alt=""></li>
-                                            <li><span>3 days ago</span></li>
-                                        </ul>
-                                        <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</span>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <img src="assets/img/img-profile.png" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <textarea name="" id="" rows="3" style="width: 100%;"></textarea>
-                                        <button type="button" class="btn btn-primary">
-                                            Follow
-                                        </button>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4>2 Comments</h4>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <img src="assets/img/img-profile.png" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <ul class="list-unstyled list-inline">
-                                            <li><p class="titleSecundary">Robert Blue</p></li>
-                                            <li><img src="assets/img/modal/user-level.png" alt=""></li>
-                                            <li><span>3 days ago</span></li>
-                                        </ul>
-                                        <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 box-comment-right" style="padding-left: 0;">
-                    <section>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="assets/img/img-profile.png" alt="" class="img-responsive">
-                            </div>
-                            <div class="col-md-8">
-                                <p class="titleAutor">Robert Blue</p>
-                                <span>venenatis.com</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="list-unstyled list-inline">
-                                    <li><p><img src="assets/img/icon-1.png" alt="" style="width: 14px;">
-                                        <span>Master</span></p></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-unstyled list-inline">
-                                    <li><p><img src="assets/img/icon-2.png" alt="" style="width: 14px;">
-                                        <span>345 Buzz</span></p></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button type="button" class="btn btn-primary">
-                                    Follow
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row">
 
-                        </div>
-                    </section>
-                    <section>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5>A peich ese pedazo de hasta luego Lucas benemeritaar</h5>
-                                <p class="titleSecundary">Tags</p>
-                                <span>Digital, agency, about, loop, ilustration</span>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="stats">
-                        <ul class="list-unstyled">
-                            <li><p><img src="assets/img/modal/icon-like.png" alt=""> 55 Likes</p></li>
-                            <li><p><img src="assets/img/modal/icon-crea.png" alt=""> 3.0342344324 CREA</p></li>
-                            <li>
-                                <p><img src="assets/img/modal/icon-smart-action.png" alt=""> 60 Smart Actions</p>
-                                <p class="titleSponsor">Sponsor</p>
-                                <p class="titleDonation">Donation</p>
-                                <button type="button" class="btn btn-primary">
-                                    Follow
-                                </button>
-                            </li>
 
-                        </ul>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div w3-include-html="/elements/modal-publish.html"></div>
 
 
 <!-- Bootstrap core JavaScript
@@ -457,6 +266,13 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="assets/tags/bootstrap-tagsinput.js"></script>
+
+<script src="assets/js/w3.js"></script>
+
+
+<script>
+    w3.includeHTML();
+</script>
 
 </body>
 </html>
