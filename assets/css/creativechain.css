@@ -742,3 +742,14 @@ article {
     border: 1px solid #bcbcbc;
     border-radius: 10px;
 }
+.step-4 img {
+    margin-top: 0;
+    width: 30px;
+}
+.step-4 .step-4-category > .col-md-3 p {
+    font-size: 12px;
+}
+p.step-4-address-wallet {
+    font-size: 16px;
+    color: #0569EF;
+}
