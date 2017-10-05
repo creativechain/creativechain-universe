@@ -686,6 +686,7 @@ article {
     background-image: url("../img/background-slide.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     height: 350px;
 }
 .carousel-inner img {
