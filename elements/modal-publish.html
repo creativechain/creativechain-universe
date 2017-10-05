@@ -24,7 +24,7 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <div class="upload-file">
+                                <div id="drag-drop" class="upload-file">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
@@ -33,7 +33,7 @@
                                         <li><p translate="yes">Drag your file anywhere</p></li>
                                     </ul>
                                     <p>o</p>
-                                    <button type="button" class="btn btn-primary" translate="yes" data-toggle="modal" data-target=".modal-publish">
+                                    <button onclick="showOpenFile()" type="button" class="btn btn-primary" translate="yes" data-target=".modal-publish">
                                         Select file
                                     </button>
                                     <p class="maxim-size" translate="yes">Maximum size 100mb</p>

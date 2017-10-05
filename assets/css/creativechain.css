@@ -8,6 +8,22 @@ body {
 .table>tbody>tr>td>p {
     margin: 0;
 }
+
+#dialog {
+    display:none;
+    position:absolute;
+    left:25%;
+    top:25%;
+    z-index:1000;
+    width:10%;
+    height:10%;
+    min-height:10%;
+    background:#000;
+    opacity:0.8;
+    text-align:center;
+    color:#fff;
+}
+
 hr {
     margin-top: 20px;
     margin-bottom: 20px;

@@ -58,5 +58,18 @@
   "Enter a label for this address and add it to your address book": "Introduce una etiqueta para esta dirección y añadirla a tu agenda",
   "Type a message...": "Escribe un mensaje...",
   "Request payment": "Solicitar pago",
-  "(Without message)" :"(Sin mensaje)"
+  "(Without message)" :"(Sin mensaje)",
+  "Password": "Contraseña",
+  "Repeat password": "Repite contraseña",
+  "Creativechain Platform": "Creativechain Platform",
+  "Encrypt wallet": "Cifrar wallet",
+  "Save copy": "Guardar copia",
+  "Welcome": "Bienvenid@",
+  "Passwords do not match": "Las contraseñas no coinciden",
+  "Mining": "Minería",
+  "Buy": "Comprar",
+  "Exchange": "Casas de Cambio",
+  "Invitation": "Invitación",
+  "Go!": "Adelante!",
+  "WalletEncrypted": "Tu billetera ya está encriptada!"
 }

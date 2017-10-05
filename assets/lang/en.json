@@ -58,11 +58,19 @@
   "Enter a label for this address and add it to your address book": "Enter a label for this address and add it to your address book",
   "Type a message...": "Type a message...",
   "Request payment": "Request payment",
-  "(Without message)" :"(Without message)"
-
-
-
-
-
+  "(Without message)" :"(Without message)",
+  "Password": "Password",
+  "Repeat password": "Repeat password",
+  "Creativechain Platform": "Creativechain Platform",
+  "Encrypt wallet": "Encrypt wallet",
+  "Save copy": "Save copy",
+  "Welcome": "Welcome",
+  "Passwords do not match": "Passwords do not match",
+  "Mining": "Mining",
+  "Buy": "Buy",
+  "Exchange": "Exchange",
+  "Invitation": "Invitation",
+  "Go!": "Go!",
+  "WalletEncrypted": "Your wallet is already encrypted!"
 }
 
