@@ -9,12 +9,15 @@ CREATE TABLE IF NOT EXISTS "Media" (
 	`txid`	TEXT NOT NULL,
 	`version`	INTEGER NOT NULL,
 	`creation_date`	INTEGER NOT NULL,
+	`author`	TEXT NOT NULL,
 	`address`	TEXT NOT NULL UNIQUE,
 	`type`	INTEGER NOT NULL,
 	`title`	TEXT,
 	`description`	TEXT,
-	`torrent`	TEXT,
-	`author`	TEXT NOT NULL,
+	`tags`	TEXT,
+	`price`	INTEGER,
+	`public_content`	TEXT,
+	`private_content`	TEXT,
 	PRIMARY KEY(`txid`)
 );
 CREATE TABLE IF NOT EXISTS "Like" (
@@ -36,10 +39,11 @@ CREATE TABLE IF NOT EXISTS `Following` (
 	UNIQUE(`follower_address`,`followed_address`)
 );
 CREATE TABLE IF NOT EXISTS `Donation` (
-	`author`	TEXT NOT NULL,
 	`txid`	TEXT NOT NULL,
+	`author`	TEXT NOT NULL,
+	`creation_date`	INTEGER NOT NULL,
 	`version`	INTEGER NOT NULL,
-	PRIMARY KEY(`author`,`txid`)
+	PRIMARY KEY(`txid`)
 );
 CREATE TABLE IF NOT EXISTS `Comment` (
 	`txid`	TEXT NOT NULL,
@@ -60,6 +64,7 @@ CREATE TABLE IF NOT EXISTS "Author" (
 	`web`	TEXT,
 	`description`	TEXT,
 	`avatar`	TEXT,
+	`tags`	TEXT,
 	PRIMARY KEY(`txid`,`address`)
 );
 
@@ -78,6 +83,12 @@ CREATE TABLE IF NOT EXISTS `AddressBook` (
 	PRIMARY KEY(`address`)
 );
 
+CREATE TABLE IF NOT EXISTS `Tags` (
+    `tag`   TEXT NOT NULL,
+    `data_id`   TEXT NOT NULL,
+    PRIMARY KEY(`tag`, `data_id`)
+)
+
 CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash` );
 CREATE UNIQUE INDEX IF NOT EXISTS `media_index` ON `Media` (`address` ,`type` ,`author`, `title` );
 CREATE UNIQUE INDEX IF NOT EXISTS `like_index` ON `Like` (`author` ,`content_id` );
@@ -85,4 +96,5 @@ CREATE UNIQUE INDEX IF NOT EXISTS `follow_index` ON `Following` (`follower_addre
 CREATE UNIQUE INDEX IF NOT EXISTS `donation_index` ON `Donation` (`author` ,`txid` );
 CREATE UNIQUE INDEX IF NOT EXISTS `comment_index` ON `Comment` (`author` ,`content_id` ,`txid` );
 CREATE UNIQUE INDEX IF NOT EXISTS `author_index` ON `Author` (`name` ,`address` ,`email` );
+CREATE UNIQUE INDEX IF NOT EXISTS `tags_index` ON `Tags` (`tag`);
 COMMIT;

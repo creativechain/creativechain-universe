@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="-webkit-app-region: drag">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                 aria-expanded="false" aria-controls="navbar">
@@ -32,30 +32,30 @@
                 <a href="#">
                     <img src="./assets/img/icon-notification-navbar.png" alt="">
                 </a>
-                <div class="circle-notification">
-                    <span>12</span>
+                <div id="badge-notifications" class="circle-notification" style="display: none">
+                    <span>0</span>
                 </div>
             </li>
             <li>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">
                     <img src="./assets/img/img-profile.png" alt="" style="width: 45px;">
-                    <span>Luther Bliset</span>
+                    <span translate="yes">Anonymous</span>
                     <img src="./assets/img/ic_expand_more.png" alt="" style="width: 30px;">
                 </a>
                 <ul class="dropdown-menu">
                     <li><a href="./profile.html" translate="yes">Profile</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#" translate="yes">Setting</a></li>
+                    <li><a href="#" translate="yes">Settings</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#" translate="yes">My publications</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#" translate="yes">Help</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#" translate="yes">logout</a></li>
+                    <li><a href="#" translate="yes">Log out</a></li>
                 </ul>
             </li>
-            <li class="amount-navbar"><p>240.01481043 <span>CREA</span></p></li>
+            <li class="amount-navbar"><p id="top-balance">0.00000000 CREA</p></li>
             <li class="logo-right-navbar">
                 <img src="./assets/img/icon-crea-price.png" alt="" style="width: 32px;">
             </li>

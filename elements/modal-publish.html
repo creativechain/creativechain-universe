@@ -24,7 +24,7 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <div id="drag-drop" style="-webkit-app-region: drag" class="upload-file">
+                                <div id="drag-drop" class="upload-file">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
@@ -34,9 +34,9 @@
                                     </ul>
                                     <p>or</p>
                                     <button onclick="loadFeaturedImages()" type="button" class="btn btn-primary" translate="yes" data-target=".modal-publish">
-                                        Select file
+                                        Load file
                                     </button>
-                                    <p class="maxim-size" translate="yes">Maximum size 100mb</p>
+                                    <p class="maxim-size" translate="yes">MaximumFileSize</p>
                                 </div>
                             </div>
                         </div>
@@ -53,15 +53,15 @@
                     <div class="card form-options">
                         <div class="form-group">
                             <label translate="yes">Title</label>
-                            <input type="text" class="form-control" placeholder="Enter project title" translate="yes">
+                            <input id="publish-title" type="text" class="form-control" placeholder="Enter project title" translate="yes">
                         </div>
                         <div class="form-group">
                             <label translate="yes">Description</label>
-                            <input type="text" class="form-control" placeholder="Enter a description of your project" translate="yes">
+                            <input id="publish-description" type="text" class="form-control" placeholder="Enter a description of your project" translate="yes">
                         </div>
                         <div class="form-group">
                             <label translate="yes">Tags</label>
-                            <input type="text" data-role="tagsinput" id="tags1" class="form-control">
+                            <input id="publish-tags" type="text" data-role="tagsinput" id="tags1" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label translate="yes">Price</label>
-                                    <input type="text" class="form-control">
+                                    <input id="publish-price" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -126,7 +126,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="cco" value="option1" checked>
                                     </label>
                                 </td>
                                 <td><img src="./assets/img/cc-icons/zero.svg" alt=""></td>
@@ -140,7 +140,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="by" value="option1" checked>
                                     </label>
                                 </td>
                                 <td><img src="./assets/img/cc-icons/cc.svg" alt=""><img src="./assets/img/cc-icons/by.svg" alt=""></td>
@@ -154,7 +154,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="bysa" value="option1" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -172,7 +172,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="bysa2" value="option1" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -190,7 +190,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="bysa3" value="option1" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -208,7 +208,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="byncsa" value="option1" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -228,7 +228,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="ppbyncsa" value="option1" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -247,7 +247,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="byncnd" value="option1" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -279,6 +279,3 @@
         </div>
     </div>
 </div>
-
-
-

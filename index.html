@@ -38,15 +38,17 @@
 
     <!-- Creativechain Platform Libraries -->
     <script language="javascript" src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script language="javascript" src="lib/init.js" type="text/javascript"></script>
     <script language="javascript" src="lib/translation.js" type="text/javascript"></script>
+    <script language="javascript" src="lib/publication.js" type="text/javascript"></script>
     <!--<script language="javascript" src="lib/trantor.js" type="text/javascript"></script>-->
-    <script language="javascript" src="lib/platform.js" type="text/javascript"></script>
+
     <![endif]-->
 </head>
 
 <body class="page-dashboard">
 
-<div class="box-alert">
+<div class="box-alert" style="display: none">
     <div class="alert">
         <ul class="list-inline list-unstyled">
             <li><img src="./assets/img/logo-slide.png" alt="" style=""></li>
@@ -91,65 +93,7 @@
             </div>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2">
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
-                    <div class="single-news one-item">
-                        <article>
-                            <div class="content-img" type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-article">
-                                <img src="./assets/img/news1.jpg" alt="">
-                            </div>
-                            <div class="content boxContent">
-                                <span class="titleBox" type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-article">The water factory</span>
-                                <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                                <div class="row boxOptions">
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
-                                        <p class="p-box-options">
-                                            <img src="./assets/img/like0.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">1</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxComments">
-                                        <p class="p-box-options">
-                                            <img src="./assets/img/comments.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">10</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxSmartActions">
-                                        <p class="p-box-options">
-                                            <img src="./assets/img/smartaction.png" alt="" class="img-responsive">
-                                            <span class="span-box-content">100</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 boxLicence" style="">
-                                        <p class="p-box-options">
-                                            <img src="./assets/img/cc.png" alt="" class="img-responsive">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row boxOwner">
-                                    <div class="col-md-2 col-xs-2 icon-owner">
-                                        <img src="./assets/img/user1.png" class="img-responsive avatare-owner" alt="">
-                                    </div>
-                                    <div class="col-md-8 col-xs-8 box-title-owner">
-                                        <p>Comando Suricato</p>
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 box-level-owner">
-                                        <img src="./assets/img/expert.png" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-
+            <div id="content-list" class="row placeholders">
 
             </div>
         </div>
@@ -170,6 +114,9 @@
     </div>
 </div>
 
+<div id="publication-items" style="display: none">
+
+</div>
 <div w3-include-html="./elements/modal-publish.html"></div>
 <div w3-include-html="./elements/modal-article.html"></div>
 
@@ -185,10 +132,13 @@
 <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 
 <script src="assets/js/w3.js"></script>
-
+<script language="javascript" src="lib/platform.js" type="text/javascript"></script>
 
 <script>
-    w3.includeHTML();
+    w3.includeHTML(function () {
+        translate();
+        prepareDragDrop();
+    });
 </script>
 
 </body>

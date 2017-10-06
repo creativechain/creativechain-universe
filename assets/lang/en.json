@@ -73,6 +73,18 @@
   "Go!": "Go!",
   "WalletEncrypted": "Your wallet is already encrypted!",
   "ChoosePreviewImage": "Choose preview image",
-  "ImagesFiles": "Images files"
+  "ImagesFiles": "Images files",
+  "Anonymous": "Anonymous",
+  "Load file": "Load file",
+  "MaximumFileSize": "Maximum size 100mb",
+  "Drag your preview image": "Drag your preview image",
+  "Title": "Title",
+  "Description": "Description",
+  "Download File": "Download file",
+  "Price": "Price",
+  "License": "License",
+  "You are about to publish your project. Dale!": "You are about to publish your project. Dale!",
+  "TransactionSend": "Relayed transaction",
+  "TxSendMessage": "This transaction has a commission of {1}. Do you want to broadcast it anyway?"
 }
 

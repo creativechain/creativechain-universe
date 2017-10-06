@@ -54,10 +54,10 @@ setInterval(function () {
 
 function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600, minWidth: 800, minHeight: 600, center: true, frame: true});
+    win = new BrowserWindow({width: 800, height: 600, minWidth: 800, minHeight: 600, center: true, frame: false});
     //Uncommment for show default menu bar
     win.setMenu(null);
-    win.maximize();
+    //win.maximize();
     // and load the index.html of the app.
 
     let initPage = 'slide-1.html';
