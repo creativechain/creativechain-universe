@@ -150,6 +150,30 @@ a:focus, a:hover {
     padding: 7px 0 0;
 }
 /* Menu */
+ul.notifications {
+    min-width: 400px;
+}
+ul.notifications .list-notifications {
+    display: flex;
+}
+ul.notifications .list-notifications > .notification-profile img {
+    width: 40px;margin: 0 10px;
+}
+ul.notifications .list-notifications > .description-notification {
+    width: 100%;
+}
+ul.notifications .list-notifications > .description-notification p:nth-child(1){
+    margin-bottom: 0;
+}
+ul.notifications .list-notifications > .description-notification p:nth-child(1) > span {
+    margin-bottom: 0;font-size: 10px;margin-left: 20px;color: #a5a5a5
+}
+ul.notifications .list-notifications > .description-notification p:nth-child(2){
+    color: #a5a5a5; font-size: 10px;margin-bottom: 0;
+}
+ul.notifications .list-notifications > .thumbnail-notification > img {
+    width: 60px;margin: 0 10px;
+}
 .navBar-left  a img {
     opacity: 0.3;
 }
@@ -410,6 +434,12 @@ article {
     border: solid 1px #dfdfdf;
     border-radius: 5px;
     margin: 50px 0;
+}
+.notifications .divider {
+    height: 1px;
+    margin: 0 0 9px;
+    overflow: hidden;
+    background-color: #e5e5e5;
 }
 /* PAGE WALLET */
 .table {
