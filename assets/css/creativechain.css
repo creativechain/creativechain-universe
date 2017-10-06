@@ -818,7 +818,7 @@ article {
     border: 1px solid #bcbcbc;
     border-radius: 10px;
 }
-.step-4 img {
+.step-4 .step-4-category > .col-md-3 > img {
     margin-top: 0;
     width: 30px;
 }
@@ -829,6 +829,20 @@ p.step-4-address-wallet {
     font-size: 16px;
     color: #0569EF;
 }
+/* MODAL EXPIRE */
+.modal-session-expired > .modal-dialog > .modal-content {
+    padding: 30px;
+}
+.modal-session-expired .row-title > p {
+    margin: 30px 0;color: #95989A
+}
+.modal-session-expired .row-button-modal-expire {
+    margin: 10px 70px;
+}
+
+
+
+
 @media only screen and (max-width: 1000px) {
     .amount-navbar {
         display: none !important;
