@@ -101,9 +101,17 @@ a:focus, a:hover {
     text-decoration: none;
 }
 /* Navbar */
+#navbar > ul.search > li:nth-child(1) img {
+    width: 10px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+#navbar > ul.search > li:nth-child(2) img {
+    width: 10px;
+    margin-top: 20px;
+}
 .li-icon-row {
     padding: 17px 0 0;
-    margin-left: 50px;
 }
 .form-search-navbar {
     margin-top: 10px;
@@ -139,7 +147,7 @@ a:focus, a:hover {
     color: white;
 }
 .logo-right-navbar {
-    padding: 12px;
+    padding: 7px 0 0;
 }
 /* Menu */
 .navBar-left  a img {
@@ -205,6 +213,11 @@ article {
     margin-top: 58px;
 }
 .boxContent .titleBox {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.boxContent .titleBox span{
     font-size: 12px;font-weight: bold
 }
 .boxContent .descriptionContent {
@@ -270,6 +283,9 @@ article {
     font-size: 10px;
     margin-top: 10px;
     color: #3b3b3c;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .boxOwner .box-level-owner {
     padding-left: 1px;
@@ -797,4 +813,41 @@ article {
 p.step-4-address-wallet {
     font-size: 16px;
     color: #0569EF;
+}
+@media only screen and (max-width: 1000px) {
+    .amount-navbar {
+        display: none !important;
+    }
+    .modal-dialog {
+        width: 700px;
+        margin: 30px auto;
+    }
+    .box-comment img {
+        margin: 10px 0;
+    }
+    .modal-publish .upload-file .close {
+        position: absolute;
+        top: 6px;
+        right: 45px;
+    }
+    .logo-right-navbar {
+        padding: 9px 0;
+    }
+    .box-filter {
+        background-color: #f9f9f9;
+        height: 55px;
+        padding-top: 25px;
+        border-bottom: 1px solid #d5d6d7;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+    }
+    .view-box {
+        margin-top: -5px;
+    }
+}
+@media only screen and (min-width: 1001px) {
+    .icon-total-wallet {
+        display: none !important;
+    }
 }
