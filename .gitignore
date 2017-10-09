@@ -5,7 +5,8 @@ package-lock.json
 bin
 *.db
 releases
-index.db-journal
+database/index.db-journal
+dist
 .DS_Store
 resources
 torrents

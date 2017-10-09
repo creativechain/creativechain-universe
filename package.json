@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "postinstall": "install-app-deps"
+    "postinstall": "install-app-deps",
+    "compile": "build -mwl --x64 --ia32"
   },
   "repository": {
     "type": "git",
@@ -35,9 +36,7 @@
     "bitcoinjs-lib": "^3.2.0",
     "buffer-reverse": "^1.0.1",
     "drag-drop": "^2.13.2",
-    "electron": "^1.7.8",
     "electron-dl": "^1.10.0",
-    "electron-rebuild": "^1.6.0",
     "execsql": "0.0.3",
     "handbrake-js": "^2.2.2",
     "imagemin": "^5.3.1",
@@ -52,7 +51,38 @@
     "webtorrent": "^0.98.19"
   },
   "devDependencies": {
-    "electron-builder": "^17.10.0",
-    "electron-packager": "^8.6.0"
+    "electron": "^1.7.8",
+    "electron-builder": "^17.10.0"
+  },
+  "build": {
+    "appId": "net.creativechain.universe",
+    "productName": "Creativechain Universe",
+    "directories": {
+      "app": "./"
+    },
+    "files": [
+      "**/*",
+      "!bin",
+      "!torrents",
+      "!build",
+      "!build.js",
+      "!dist",
+      "!resources",
+      "!app.conf",
+      "!database/index.db",
+      "!database/index.db-journal"
+    ],
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "icon": "mac/icon/icon.icns"
+    },
+    "win": {
+      "icon": "win/icon/icon.ico"
+    },
+    "linux": {
+      "icon": "linux/icon/",
+      "synopsis": "A blockchain project for the registration, authentication and distribution of digital free culture.",
+      "category": "Utility"
+    }
   }
 }
