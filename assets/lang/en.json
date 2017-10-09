@@ -72,12 +72,11 @@
   "Invitation": "Invitation",
   "Go!": "Go!",
   "WalletEncrypted": "Your wallet is already encrypted!",
-  "ChoosePreviewImage": "Choose preview image",
+  "Load file": "Load file",
   "ImagesFiles": "Images files",
   "Anonymous": "Anonymous",
-  "Load file": "Load file",
   "MaximumFileSize": "Maximum size 100mb",
-  "Drag your preview image": "Drag your preview image",
+  "Drag your featured image": "Drag your featured image",
   "Title": "Title",
   "Description": "Description",
   "Download File": "Download file",
@@ -85,6 +84,13 @@
   "License": "License",
   "You are about to publish your project. Dale!": "You are about to publish your project. Dale!",
   "TransactionSend": "Relayed transaction",
-  "TxSendMessage": "This transaction has a commission of {1}. Do you want to broadcast it anyway?"
+  "TxSendMessage": "This transaction has a commission of {1}. Do you want to broadcast it anyway?",
+  "EnterWalletPassphrase": "Please enter the password for your wallet",
+  "LoadFreviewImage": "Load featured image",
+  "LoadOtherImage": "Load other image",
+  "Information": "Information",
+  "TypeTitle": "Type a title",
+  "TypeDescription": "Type a description",
+  "TypeTags": "Type the project related tags (max. 5 Tags)"
 }
 

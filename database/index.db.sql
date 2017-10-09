@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `Tags` (
     `tag`   TEXT NOT NULL,
     `data_id`   TEXT NOT NULL,
     PRIMARY KEY(`tag`, `data_id`)
-)
+);
 
 CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash` );
 CREATE UNIQUE INDEX IF NOT EXISTS `media_index` ON `Media` (`address` ,`type` ,`author`, `title` );

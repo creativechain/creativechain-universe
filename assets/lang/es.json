@@ -72,12 +72,11 @@
   "Invitation": "Invitación",
   "Go!": "Adelante!",
   "WalletEncrypted": "Tu billetera ya está encriptada!",
-  "ChoosePreviewImage": "Imagen destacada",
+  "LoadFile": "Cargar archivo",
   "ImagesFiles": "Archivos de imágenes",
   "Anonymous": "Anónimo",
-  "Load file": "Cargar archivo",
   "MaximumFileSize": "Tamaño máximo 100mb",
-  "Drag your preview image": "Arrastra tu imagen destacada",
+  "Drag your featured image": "Arrastra tu imagen destacada",
   "Title": "Título",
   "Description": "Decripción",
   "Download File": "Archivo de descarga",
@@ -85,6 +84,12 @@
   "License": "Licencia",
   "You are about to publish your project. Dale!": "Estás a punto de publicar tu proyecto. Dále!",
   "TransactionSend": "Transacción retransmitida",
-  "TxSendMessage": "Esta transacción tiene una comisión de {0}. ¿Quieres transmitirla de todos modos?"
-
+  "TxSendMessage": "Esta transacción tiene una comisión de {0}. ¿Quieres transmitirla de todos modos?",
+  "EnterWalletPassphrase": "Por favor, introduce la contraseña de tu billetera",
+  "LoadFeaturedImage": "Cargar imagen destacada",
+  "LoadOtherImage": "Cargar otra imagen",
+  "Information": "Información",
+  "TypeTitle": "Escribe un título",
+  "TypeDescription": "Escribe una descripción breve",
+  "TypeTags": "Escribe las etiquetas relacionadas con el proyecto (máx. 5 Etiq.)"
 }
