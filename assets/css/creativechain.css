@@ -166,6 +166,30 @@ a:focus, a:hover {
     padding: 7px 0 0;
 }
 /* Menu */
+ul.notifications {
+    min-width: 400px;
+}
+ul.notifications .list-notifications {
+    display: flex;
+}
+ul.notifications .list-notifications > .notification-profile img {
+    width: 40px;margin: 0 10px;
+}
+ul.notifications .list-notifications > .description-notification {
+    width: 100%;
+}
+ul.notifications .list-notifications > .description-notification p:nth-child(1){
+    margin-bottom: 0;
+}
+ul.notifications .list-notifications > .description-notification p:nth-child(1) > span {
+    margin-bottom: 0;font-size: 10px;margin-left: 20px;color: #a5a5a5
+}
+ul.notifications .list-notifications > .description-notification p:nth-child(2){
+    color: #a5a5a5; font-size: 10px;margin-bottom: 0;
+}
+ul.notifications .list-notifications > .thumbnail-notification > img {
+    width: 60px;margin: 0 10px;
+}
 .navBar-left  a img {
     opacity: 0.3;
 }
@@ -192,6 +216,21 @@ a {
     padding: 5px 15px;
 }
 /* BOX */
+.state-video {
+    background-color: #FFD952;
+}
+.state-doc {
+    background-color: #D5D6D7;
+}
+.state-picture {
+    background-color: #ff5766;
+}
+.state-audio {
+    background-color: #0073ff;
+}
+.state-book {
+    background-color: #26d87d;
+}
 .single-news:hover article {
     box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.2);
     transition: all .4s ease;
@@ -411,6 +450,12 @@ article {
     border: solid 1px #dfdfdf;
     border-radius: 5px;
     margin: 50px 0;
+}
+.notifications .divider {
+    height: 1px;
+    margin: 0 0 9px;
+    overflow: hidden;
+    background-color: #e5e5e5;
 }
 /* PAGE WALLET */
 .table {
@@ -819,7 +864,7 @@ article {
     border: 1px solid #bcbcbc;
     border-radius: 10px;
 }
-.step-4 img {
+.step-4 .step-4-category > .col-md-3 > img {
     margin-top: 0;
     width: 30px;
 }
@@ -830,6 +875,20 @@ p.step-4-address-wallet {
     font-size: 16px;
     color: #0569EF;
 }
+/* MODAL EXPIRE */
+.modal-session-expired > .modal-dialog > .modal-content {
+    padding: 30px;
+}
+.modal-session-expired .row-title > p {
+    margin: 30px 0;color: #95989A
+}
+.modal-session-expired .row-button-modal-expire {
+    margin: 10px 70px;
+}
+
+
+
+
 @media only screen and (max-width: 1000px) {
     .amount-navbar {
         display: none !important;
