@@ -844,7 +844,7 @@ article {
 }
 .carousel-description p:nth-child(2) {
     color: #95989A;
-    font-size: 17px;
+    font-size: 14px;
 }
 .carousel-indicators .active {
     width: 12px;
@@ -919,6 +919,14 @@ p.step-4-address-wallet {
     }
     .view-box {
         margin-top: -5px;
+    }
+    .carousel-caption {
+        right: 10%;
+        left: 10%;
+        padding-bottom: 30px;
+    }
+    .carousel-indicators {
+        bottom: 0px;
     }
 }
 @media only screen and (min-width: 1001px) {
