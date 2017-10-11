@@ -119,6 +119,7 @@
   "TypeTags": "Type the project related tags (max. 5 Tags)",
   "Start": "Start",
   "EncryptWalletAlert": "Please enter a password to encrypt your wallet.",
-  "Backup": "Backup"
+  "Backup": "Backup",
+  "CREA Address": "CREA Address"
 }
 

@@ -40,10 +40,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script language="javascript" src="lib/init.js" type="text/javascript"></script>
-    <script language="javascript" src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script language="javascript" src="lib/translation.js" type="text/javascript"></script>
-    <script language="javascript" src="lib/publication.js" type="text/javascript"></script>
 </head>
 
 <body class="page-profile edit-profile">
@@ -76,9 +72,9 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <img src="./assets/img/img-section-profile.png" alt="" class="img-profile">
-                    <p class="name">MACR Museum</p>
-                    <p class="name-web">venenatis.com</p>
-                    <span class="descriptionProfile">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                    <p id="user-nick" translate="yes" class="name">Anonymous</p>
+                    <p id="user-web" class="name-web"></p>
+                    <span id="user-description" class="descriptionProfile"></span>
                 </div>
             </div>
             <div class="row">
@@ -98,10 +94,10 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td><img src="./assets/img/icon-1.png" alt=""><span>Master</span></td>
-                            <td><img src="./assets/img/icon-2.png" alt=""><span>385 Buzz</span></td>
+                            <td id="user-level"><img src="./assets/img/icon-1.png" alt=""><span>Master</span></td>
+                            <td id="user-buzz"><img src="./assets/img/icon-2.png" alt=""><span>0 Buzz</span></td>
                             <td>
-                                <button type="button" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary" translate="yes">
                                     Publish
                                 </button>
                             </td>
@@ -131,22 +127,22 @@
                         <tr>
                             <td><img src="./assets/img/like0.png" alt=""></td>
                             <td translate="yes">Likes</td>
-                            <td>108</td>
+                            <td id="user-likes">0</td>
                         </tr>
                         <tr>
                             <td><img src="./assets/img/comments.png" alt=""></td>
                             <td translate="yes">Comments</td>
-                            <td>16</td>
+                            <td id="user-comments">0</td>
                         </tr>
                         <tr>
                             <td><img src="./assets/img/smartaction.png" alt=""></td>
                             <td translate="yes">Smarts Actions</td>
-                            <td>8</td>
+                            <td id="user-actions">0</td>
                         </tr>
                         <tr>
                             <td><img src="./assets/img/followers-profile.png" alt=""></td>
                             <td translate="yes">Followers</td>
-                            <td>8</td>
+                            <td id="user-followers">0</td>
                         </tr>
                         </tbody>
                     </table>
@@ -159,8 +155,8 @@
             </div>
             <div class="row">
                 <div class="col-md-12 title-profile">
-                    <h3 translate="yes">Address CREA</h3>
-                    <p>chssfg6f7ds5gs854d7878d5gsdf586543j367ghd69fh5</p>
+                    <h3 translate="yes">CREA Address</h3>
+                    <p id="user-address">chssfg6f7ds5gs854d7878d5gsdf586543j367ghd69fh5</p>
                 </div>
             </div>
             <div class="row">
@@ -170,8 +166,8 @@
             </div>
             <div class="row">
                 <div class="col-md-12 title-profile">
-                    <h3>Tags</h3>
-                    <p>Digital, agency, about, loop, ilustration, design,
+                    <h3 translate="yes">Tags</h3>
+                    <p id="user-tags">Digital, agency, about, loop, ilustration, design,
                         colors, summer</p>
                 </div>
             </div>
@@ -202,27 +198,27 @@
                                 <img src="./assets/img/img-section-profile.png" alt="" class="img-profile">
                             </div>
                             <div class="col-md-4 change-imatge">
-                                <p class="name">MACR Museum</p>
+                                <p id="user-name" class="name" translate="">Anonymous</p>
                                 <p class="change-text" translate="yes">Change profile image</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label translate="yes">Name</label>
-                            <input type="text" class="form-control"
+                            <input id="input-user-name" type="text" class="form-control"
                                    placeholder="Name" translate="yes">
                         </div>
                         <div class="form-group">
                             <label translate="yes">Description</label>
-                            <input type="text" class="form-control"
+                            <input id="input-user-description" type="text" class="form-control"
                                    placeholder="Description" translate="yes">
                         </div>
                         <div class="form-group">
                             <label translate="yes">Email</label>
-                            <input type="email" class="form-control" placeholder="Add your Email" translate="yes">
+                            <input id="input-user-email" type="email" class="form-control" placeholder="Add your Email" translate="yes">
                         </div>
                         <div class="form-group">
                             <label translate="yes">Web</label>
-                            <input type="text" class="form-control" placeholder="Add web" translate="yes">
+                            <input id="input-user-web" type="text" class="form-control" placeholder="Add web" translate="yes">
                         </div>
                         <div class="form-group">
                             <label translate="yes">Tags</label>
@@ -243,14 +239,14 @@
             <p translate="yes">Following</p>
 
 
-            <div class="row followingList">
-                <div class="col-md-3 icon-following">
+            <div id="user-following-list" class="row followingList">
+<!--                <div class="col-md-3 icon-following">
                     <img src="./assets/img/user00.png" alt="" class="img-responsive">
                 </div>
-                <div class="col-md-9 BoxFollowingDescription">
+                <div  class="col-md-9 BoxFollowingDescription">
                     <p class="titleFollowing">Comando C</p>
                     <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -263,14 +259,19 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+<script language="javascript" src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="assets/js/jquery-3.2.1.min.js"><\/script>')</script>
 <script src="assets/js/bootstrap.min.js"></script>
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script src="assets/js/vendor/holder.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="assets/tags/bootstrap-tagsinput.js"></script>
+
+<script language="javascript" src="lib/init.js" type="text/javascript"></script>
+<script language="javascript" src="lib/translation.js" type="text/javascript"></script>
+<script language="javascript" src="lib/publication.js" type="text/javascript"></script>
 
 <script src="assets/js/w3.js"></script>
 

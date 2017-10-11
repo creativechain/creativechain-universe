@@ -83,10 +83,16 @@ CREATE TABLE IF NOT EXISTS `AddressBook` (
 	PRIMARY KEY(`address`)
 );
 
-CREATE TABLE IF NOT EXISTS `Tags` (
+CREATE TABLE IF NOT EXISTS `ContentTags` (
     `tag`   TEXT NOT NULL,
     `data_id`   TEXT NOT NULL,
     PRIMARY KEY(`tag`, `data_id`)
+);
+
+CREATE TABLE IF NOT EXISTS `UserTags` (
+    `tag`   TEXT NOT NULL,
+    `address`   TEXT NOT NULL,
+    PRIMARY KEY(`tag`, `address`)
 );
 
 CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash` );
@@ -96,5 +102,6 @@ CREATE UNIQUE INDEX IF NOT EXISTS `follow_index` ON `Following` (`follower_addre
 CREATE UNIQUE INDEX IF NOT EXISTS `donation_index` ON `Donation` (`author` ,`txid` );
 CREATE UNIQUE INDEX IF NOT EXISTS `comment_index` ON `Comment` (`author` ,`content_id` ,`txid` );
 CREATE UNIQUE INDEX IF NOT EXISTS `author_index` ON `Author` (`name` ,`address` ,`email` );
-CREATE UNIQUE INDEX IF NOT EXISTS `tags_index` ON `Tags` (`tag`);
+CREATE UNIQUE INDEX IF NOT EXISTS `content_tags_index` ON `Tags` (`tag`);
+CREATE UNIQUE INDEX IF NOT EXISTS `user_tags_index` ON `Tags` (`tag`);
 COMMIT;

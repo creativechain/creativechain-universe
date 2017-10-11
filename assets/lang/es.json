@@ -119,5 +119,6 @@
   "TypeTags": "Escribe las etiquetas relacionadas con el proyecto (máx. 5 Etiq.)",
   "Start": "Comenzar",
   "EncryptWalletAlert": "Por favor, escribe una contraseña para cifrar tu billetera.",
-  "Backup": "Copia de seguridad"
+  "Backup": "Copia de seguridad",
+  "CREA Address": "Dirección CREA"
 }
