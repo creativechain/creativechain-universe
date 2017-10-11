@@ -63,8 +63,6 @@ function createWindow () {
     let initPage = 'slide-1.html';
     if (fileStorage.getKey('firstUseExecuted')) {
         initPage = 'index.html';
-    } else {
-        fileStorage.setKey('firstUseExecuted', true);
     }
 
     win.loadURL(url.format({
