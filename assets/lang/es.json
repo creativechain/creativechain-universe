@@ -117,5 +117,7 @@
   "TypeTitle": "Escribe un título",
   "TypeDescription": "Escribe una descripción breve",
   "TypeTags": "Escribe las etiquetas relacionadas con el proyecto (máx. 5 Etiq.)",
-  "Start": "Comenzar"
+  "Start": "Comenzar",
+  "EncryptWalletAlert": "Por favor, escribe una contraseña para cifrar tu billetera.",
+  "Backup": "Copia de seguridad"
 }
