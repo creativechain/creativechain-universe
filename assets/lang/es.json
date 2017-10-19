@@ -103,7 +103,7 @@
   "MaximumFileSize": "Tamaño máximo 100mb",
   "Drag your featured image": "Arrastra tu imagen destacada",
   "Title": "Título",
-  "Description": "Decripción",
+  "Description": "Descripción",
   "Download File": "Archivo de descarga",
   "Price": "Precio",
   "License": "Licencia",
@@ -120,5 +120,8 @@
   "Start": "Comenzar",
   "EncryptWalletAlert": "Por favor, escribe una contraseña para cifrar tu billetera.",
   "Backup": "Copia de seguridad",
-  "CREA Address": "Dirección CREA"
+  "CREA Address": "Dirección CREA",
+  "Username": "Nombre de usuario",
+  "AddYourEmail": "Escribe tu email",
+  "AddYourWeb": "Escribe tu web"
 }

@@ -120,6 +120,9 @@
   "Start": "Start",
   "EncryptWalletAlert": "Please enter a password to encrypt your wallet.",
   "Backup": "Backup",
-  "CREA Address": "CREA Address"
+  "CREA Address": "CREA Address",
+  "Username": "Username",
+  "AddYourEmail": "Add your email",
+  "AddYourWeb": "Add your web"
 }
 
