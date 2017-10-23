@@ -9,6 +9,7 @@ const locale = require('os-locale');
 const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
 
 let fileStorage = FileStorage.load();
+let sessionStorage = FileStorage.load(Constants.SESSION_FILE);
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
@@ -30,6 +31,7 @@ locale().then(lang => {
 });
 
 global.ticker = {};
+global.globals = {};
 
 function ticker() {
     console.log('Getting ticker...');
@@ -79,6 +81,7 @@ function createWindow () {
     win.on('closed', () => {
         let trantor = new Trantor(Network.TESTNET);
         trantor.stop(OS, Constants.BIN_FOLDER);
+        sessionStorage.setKey('passwordRequested', false);
         //console.log('closing window');
         //Preferences.setNodeCorrectlyRunning(false);
         // Dereference the window object, usually you would store windows

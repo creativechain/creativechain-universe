@@ -124,5 +124,6 @@
   "Username": "Nombre de usuario",
   "AddYourEmail": "Escribe tu email",
   "AddYourWeb": "Escribe tu web",
-  "ChangeProfileImage": "Cambiar imagen de perfil"
+  "ChangeProfileImage": "Cambiar imagen de perfil",
+  "EnterPassword": "Please enter the password. Cancel to exit"
 }

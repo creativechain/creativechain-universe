@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `Following` (
 CREATE TABLE IF NOT EXISTS `Donation` (
 	`txid`	TEXT NOT NULL,
 	`author`	TEXT NOT NULL,
+	`content_id` TEXT NOT NULL,
 	`creation_date`	INTEGER NOT NULL,
 	`version`	INTEGER NOT NULL,
 	PRIMARY KEY(`txid`)
@@ -99,7 +100,7 @@ CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash` );
 CREATE UNIQUE INDEX IF NOT EXISTS `media_index` ON `Media` (`address` ,`type` ,`author`, `title` );
 CREATE UNIQUE INDEX IF NOT EXISTS `like_index` ON `Like` (`author` ,`content_id` );
 CREATE UNIQUE INDEX IF NOT EXISTS `follow_index` ON `Following` (`follower_address` ,`followed_address` ,`type` );
-CREATE UNIQUE INDEX IF NOT EXISTS `donation_index` ON `Donation` (`author` ,`txid` );
+CREATE UNIQUE INDEX IF NOT EXISTS `donation_index` ON `Donation` (`author` ,`txid`, `content_id` );
 CREATE UNIQUE INDEX IF NOT EXISTS `comment_index` ON `Comment` (`author` ,`content_id` ,`txid` );
 CREATE UNIQUE INDEX IF NOT EXISTS `author_index` ON `Author` (`name` ,`address` ,`email` );
 CREATE UNIQUE INDEX IF NOT EXISTS `content_tags_index` ON `ContentTags` (`tag`);

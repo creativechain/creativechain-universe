@@ -124,6 +124,7 @@
   "Username": "Username",
   "AddYourEmail": "Add your email",
   "AddYourWeb": "Add your web",
-  "ChangeProfileImage": "Change profile image"
+  "ChangeProfileImage": "Change profile image",
+  "EnterPassword": "Please enter the password. Cancel to exit."
 }
 
