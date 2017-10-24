@@ -111,7 +111,7 @@
   "TransactionSend": "Relayed transaction",
   "TxSendMessage": "This transaction has a commission of {1}. Do you want to broadcast it anyway?",
   "EnterWalletPassphrase": "Please enter the password for your wallet",
-  "LoadFreviewImage": "Load featured image",
+  "LoadFeaturedImage": "Load featured image",
   "LoadOtherImage": "Load other image",
   "Information": "Information",
   "TypeTitle": "Type a title",
@@ -127,7 +127,8 @@
   "ChangeProfileImage": "Change profile image",
   "EnterPassword": "Please enter the password. Cancel to exit.",
   "RegistrationCompleted": "Registration completed!",
-  "RegistrationCongrats": "Congratulations!! You have successfully completed your registration. It will take a few minutes to propagate over the network. Be patient."
+  "RegistrationCongrats": "Congratulations!! You have successfully completed your registration. It will take a few minutes to propagate over the network. Be patient.",
+  "or": "or"
 
 }
 

@@ -127,5 +127,6 @@
   "ChangeProfileImage": "Cambiar imagen de perfil",
   "EnterPassword": "Please enter the password. Cancel to exit",
   "RegistrationCompleted": "Registro completado!",
-  "RegistrationCongrats": "Enhorabuena!! Has completado tu registro correctamente. Tardará unos minutos en propagarse por la red. Se paciente."
+  "RegistrationCongrats": "Enhorabuena!! Has completado tu registro correctamente. Tardará unos minutos en propagarse por la red. Se paciente.",
+  "or": "o"
 }

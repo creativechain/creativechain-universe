@@ -23,6 +23,8 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/creativechain.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="assets/tags/bootstrap-tagsinput.css">
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet">
 
 
@@ -120,18 +122,21 @@
 <script src="assets/js/vendor/holder.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="assets/tags/bootstrap-tagsinput.js"></script>
 
-<script src="assets/js/w3.js"></script>
 <script language="javascript" src="lib/init.js" type="text/javascript"></script>
 <script language="javascript" src="lib/translation.js" type="text/javascript"></script>
 <script language="javascript" src="lib/top-menu.js" type="text/javascript"></script>
 <script language="javascript" src="lib/publication.js" type="text/javascript"></script>
 <script language="javascript" src="lib/platform.js" type="text/javascript"></script>
+<script src="assets/js/w3.js"></script>
+
 
 <script>
     w3.includeHTML(function () {
         translate();
         prepareDragDrop();
+        $('#content-tags').tagsinput();
     });
 </script>
 

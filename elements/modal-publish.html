@@ -6,17 +6,17 @@
                     <img src="./assets/img/img-profile.png" alt="">
                 </div>
                 <div class="col-md-10 col-sm-7">
-                    <h4 translate="yes">Anonymous</h4>
-                    <p>venenatis.com</p>
+                    <h4 id="modal-user-name" translate="yes">Anonymous</h4>
+                    <p id="modal-user-web">venenatis.com</p>
                     <ul class="list-unstyled list-inline">
-                        <li><p><img src="./assets/img/icon-1.png" alt="" style="width: 25px;"> <span>Master</span></p></li>
-                        <li><p><img src="./assets/img/icon-2.png" alt="" style="width: 25px;"> <span>345 Buzz</span></p></li>
+                        <li><p><img id="modal-user-level-icon" src="./assets/img/icon-1.png" alt="" class="img-circle" style="width: 25px;"> <span id="modal-user-level">Master</span></p></li>
+                        <li><p><img src="./assets/img/icon-2.png" alt="" style="width: 25px;"> <span id="modal-user-buzz">345 Buzz</span></p></li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <p class="publish-title" translate="yes">Featured image</p>
+                    <p class="publish-title" translate="yes">LoadFeaturedImage</p>
                 </div>
             </div>
             <div class="row">
@@ -32,7 +32,7 @@
                                         <li><span class="icon-plus">+</span></li>
                                         <li><p translate="yes">Drag your featured image</p></li>
                                     </ul>
-                                    <p>or</p>
+                                    <p translate="yes">or</p>
                                     <button onclick="loadFeaturedImages()" type="button" class="btn btn-primary" translate="yes" data-target=".modal-publish">
                                         Load file
                                     </button>
@@ -60,8 +60,8 @@
                             <input id="publish-description" type="text" class="form-control" placeholder="TypeDescription" translate="yes">
                         </div>
                         <div class="form-group">
-                            <label translate="yes">TypeTags</label>
-                            <input id="publish-tags" type="text" data-role="tagsinput" class="form-control">
+                            <label translate="yes" style="display: block">TypeTags</label>
+                            <input type="text" data-role="tagsinput" id="content-tags" data-options='{"maxTags": 5, "maxChars": 21}' class="form-control">
                         </div>
                     </div>
                 </div>
