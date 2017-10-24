@@ -1,7 +1,7 @@
 BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS `Torrent` (
 	`hash`	TEXT NOT NULL,
-	`magnet`	TEXT NOT NULL,
+	`magnet`	TEXT NOT NULL UNIQUE,
 	`file`	TEXT,
 	PRIMARY KEY(`hash`)
 );
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `UserTags` (
     PRIMARY KEY(`tag`, `address`)
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash` );
+CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash`, `magnet`);
 CREATE UNIQUE INDEX IF NOT EXISTS `media_index` ON `Media` (`address` ,`type` ,`author`, `title` );
 CREATE UNIQUE INDEX IF NOT EXISTS `like_index` ON `Like` (`author` ,`content_id` );
 CREATE UNIQUE INDEX IF NOT EXISTS `follow_index` ON `Following` (`follower_address` ,`followed_address` ,`type` );

@@ -125,5 +125,7 @@
   "AddYourEmail": "Escribe tu email",
   "AddYourWeb": "Escribe tu web",
   "ChangeProfileImage": "Cambiar imagen de perfil",
-  "EnterPassword": "Please enter the password. Cancel to exit"
+  "EnterPassword": "Please enter the password. Cancel to exit",
+  "RegistrationCompleted": "Registro completado!",
+  "RegistrationCongrats": "Enhorabuena!! Has completado tu registro correctamente. Tardará unos minutos en propagarse por la red. Se paciente."
 }

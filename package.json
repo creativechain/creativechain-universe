@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
+    "start": "electron . --allow-file-access-from-files",
     "postinstall": "install-app-deps",
     "compile": "build -mwl --x64 --ia32"
   },
@@ -33,7 +33,7 @@
   "dependencies": {
     "bitcoin": "^3.0.1",
     "bitcoind-rpc": "^0.7.0",
-    "bitcoinjs-lib": "^3.2.0",
+    "bitcoinjs-lib": "^3.2.1",
     "buffer-reverse": "^1.0.1",
     "dialogs": "^1.1.20",
     "drag-drop": "^2.13.2",
@@ -49,10 +49,12 @@
     "qrcode": "^0.9.0",
     "sha256": "^0.2.0",
     "sqlite3": "3.1.8",
-    "webtorrent": "^0.98.19"
+    "utf8": "^2.1.2",
+    "varint": "^5.0.0",
+    "webtorrent": "^0.98.20"
   },
   "devDependencies": {
-    "electron": "^1.7.8",
+    "electron": "^1.8.1",
     "electron-builder": "^17.10.0"
   },
   "build": {
@@ -64,7 +66,6 @@
     "files": [
       "**/*",
       "!bin",
-      "!torrents",
       "!build",
       "!build.js",
       "!dist",

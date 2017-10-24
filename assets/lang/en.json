@@ -125,6 +125,9 @@
   "AddYourEmail": "Add your email",
   "AddYourWeb": "Add your web",
   "ChangeProfileImage": "Change profile image",
-  "EnterPassword": "Please enter the password. Cancel to exit."
+  "EnterPassword": "Please enter the password. Cancel to exit.",
+  "RegistrationCompleted": "Registration completed!",
+  "RegistrationCongrats": "Congratulations!! You have successfully completed your registration. It will take a few minutes to propagate over the network. Be patient."
+
 }
 
