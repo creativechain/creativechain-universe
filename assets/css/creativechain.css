@@ -603,6 +603,9 @@ article {
 .page-profile .profile .img-profile {
     margin:20px 0;
 }
+.img-profile {
+    margin:20px 0;
+}
 .page-profile .profile .name {
     font-weight: bold;
     margin-bottom: 0;
