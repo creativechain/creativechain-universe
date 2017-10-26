@@ -3,14 +3,14 @@
         <div class="modal-content" style="    padding: 0 20px;">
             <div class="row row-img-profile" style="margin: 30px 0 0px;">
                 <div class="col-md-2 col-sm-3">
-                    <img src="./assets/img/img-profile.png" alt="">
+                    <img id="user-publish-avatar" class="img-circle" src="./assets/img/img-profile.png" alt="" style="width: 80%">
                 </div>
                 <div class="col-md-10 col-sm-7">
-                    <h4 id="modal-user-name" translate="yes">Anonymous</h4>
-                    <p id="modal-user-web">venenatis.com</p>
+                    <h4 id="user-publish-name" translate="yes">Anonymous</h4>
+                    <p id="user-publish-web">venenatis.com</p>
                     <ul class="list-unstyled list-inline">
-                        <li><p><img id="modal-user-level-icon" src="./assets/img/icon-1.png" alt="" class="img-circle" style="width: 25px;"> <span id="modal-user-level">Master</span></p></li>
-                        <li><p><img src="./assets/img/icon-2.png" alt="" style="width: 25px;"> <span id="modal-user-buzz">345 Buzz</span></p></li>
+                        <li><p><img id="user-publish-level-icon" src="./assets/img/icon-1.png" alt="" style="width: 25px;"> <span id="user-publish-level">Master</span></p></li>
+                        <li><p><img src="./assets/img/icon-2.png" alt="" style="width: 25px;"> <span id="user-publish-buzz">345 Buzz</span></p></li>
                     </ul>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             <label translate="yes" style="display: block">TypeTags</label>
-                            <input type="text" data-role="tagsinput" id="publish-tags" data-options='{"maxTags": 5, "maxChars": 21}' class="form-control">
+                            <input type="text" data-role="tagsinput" id="publish-tags" data-options='{"maxTags": 5, "maxChars": 21}' onchange="onTagsChange()" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="publish-license" id="cco" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="cco" value="0" checked>
                                     </label>
                                 </td>
                                 <td><img src="./assets/img/cc-icons/zero.svg" alt=""></td>
@@ -139,7 +139,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="publish-license" id="by" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="by" value="7" checked>
                                     </label>
                                 </td>
                                 <td><img src="./assets/img/cc-icons/cc.svg" alt=""><img src="./assets/img/cc-icons/by.svg" alt=""></td>
@@ -153,7 +153,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="publish-license" id="bysa" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="bysa" value="5" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -171,7 +171,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="publish-license" id="bysa2" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="bysa2" value="4" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -189,7 +189,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="publish-license" id="bysa3" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="bysa3" value="6" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -207,7 +207,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="publish-license" id="byncsa" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="byncsa" value="3" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -227,7 +227,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="publish-license" id="ppbyncsa" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="ppbyncsa" value="1" checked>
                                     </label>
                                 </td>
                                 <td>
@@ -246,7 +246,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="publish-license" id="byncnd" value="option1" checked>
+                                        <input type="radio" class="form-check-input" name="publish-license" id="byncnd" value="2" checked>
                                     </label>
                                 </td>
                                 <td>

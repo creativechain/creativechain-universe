@@ -44,6 +44,7 @@
     "imagemin-jpegtran": "^5.0.2",
     "imagemin-pngquant": "^5.0.1",
     "lzma": "^2.3.2",
+    "mime-types": "^2.1.17",
     "node-json-rpc": "0.0.1",
     "os-locale": "^2.1.0",
     "qrcode": "^0.9.0",

@@ -128,7 +128,18 @@
   "EnterPassword": "Please enter the password. Cancel to exit.",
   "RegistrationCompleted": "Registration completed!",
   "RegistrationCongrats": "Congratulations!! You have successfully completed your registration. It will take a few minutes to propagate over the network. Be patient.",
-  "or": "or"
+  "or": "or",
+  "TraineeLevel": "Trainee",
+  "ExpertLevel": "Expert",
+  "InfluencerLevel": "Influencer",
+  "MasterLevel": "Master",
+  "GeniusLevel": "Genius",
+  "ContentPublished": "Content Published",
+  "CommentPublished": "Comment Published",
+  "ContentPublishedSuccessfully": "Your content has been successfully posted.",
+  "CommentPublishedSuccessfully": "Your comment has been successfully posted.",
+  "Comment": "Comment",
+  "Download": "Download"
 
 }
 

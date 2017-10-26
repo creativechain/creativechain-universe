@@ -125,8 +125,18 @@
   "AddYourEmail": "Escribe tu email",
   "AddYourWeb": "Escribe tu web",
   "ChangeProfileImage": "Cambiar imagen de perfil",
-  "EnterPassword": "Please enter the password. Cancel to exit",
+  "EnterPassword": "Please enter the tepassword. Cancel to exit",
   "RegistrationCompleted": "Registro completado!",
   "RegistrationCongrats": "Enhorabuena!! Has completado tu registro correctamente. Tardará unos minutos en propagarse por la red. Se paciente.",
-  "or": "o"
+  "or": "o",
+  "TraineeLevel": "Aprendiz",
+  "ExpertLevel": "Experto",
+  "InfluencerLevel": "Influencer",
+  "MasterLevel": "Maestro",
+  "GeniusLevel": "Genio",
+  "ContentPublished": "Contenido publicado",
+  "CommentPublished": "Cometario publicado",
+  "CommentPublishedSuccessfully": "Tu comentario se ha publicado correctamente.",
+  "Comment": "Comentar",
+  "Download": "Descargar"
 }

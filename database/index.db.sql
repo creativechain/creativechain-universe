@@ -2,9 +2,11 @@ BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS `Torrent` (
 	`hash`	TEXT NOT NULL,
 	`magnet`	TEXT NOT NULL UNIQUE,
+	`path`      TEXT NOT NULL,
 	`file`	TEXT,
 	PRIMARY KEY(`hash`)
 );
+
 CREATE TABLE IF NOT EXISTS "Media" (
 	`txid`	TEXT NOT NULL,
 	`version`	INTEGER NOT NULL,
@@ -14,12 +16,14 @@ CREATE TABLE IF NOT EXISTS "Media" (
 	`type`	INTEGER NOT NULL,
 	`title`	TEXT,
 	`description`	TEXT,
+	`content_type`	TEXT,
 	`tags`	TEXT,
 	`price`	INTEGER,
 	`public_content`	TEXT,
 	`private_content`	TEXT,
 	PRIMARY KEY(`txid`)
 );
+
 CREATE TABLE IF NOT EXISTS "Like" (
 	`txid`	TEXT NOT NULL,
 	`version`	INTEGER NOT NULL,
@@ -28,6 +32,7 @@ CREATE TABLE IF NOT EXISTS "Like" (
 	PRIMARY KEY(`txid`),
 	UNIQUE(`author`,`content_id`)
 );
+
 CREATE TABLE IF NOT EXISTS `Following` (
 	`txid`	TEXT NOT NULL,
 	`version`	INTEGER NOT NULL,
@@ -38,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `Following` (
 	PRIMARY KEY(`txid`),
 	UNIQUE(`follower_address`,`followed_address`)
 );
+
 CREATE TABLE IF NOT EXISTS `Donation` (
 	`txid`	TEXT NOT NULL,
 	`author`	TEXT NOT NULL,
@@ -46,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `Donation` (
 	`version`	INTEGER NOT NULL,
 	PRIMARY KEY(`txid`)
 );
+
 CREATE TABLE IF NOT EXISTS `Comment` (
 	`txid`	TEXT NOT NULL,
 	`version`	INTEGER NOT NULL,
@@ -55,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `Comment` (
 	`creation_date`	INTEGER NOT NULL,
 	PRIMARY KEY(`txid`)
 );
+
 CREATE TABLE IF NOT EXISTS "Author" (
 	`txid`	TEXT NOT NULL,
 	`version`	INTEGER NOT NULL,
@@ -86,8 +94,8 @@ CREATE TABLE IF NOT EXISTS `AddressBook` (
 
 CREATE TABLE IF NOT EXISTS `ContentTags` (
     `tag`   TEXT NOT NULL,
-    `data_id`   TEXT NOT NULL,
-    PRIMARY KEY(`tag`, `data_id`)
+    `address`   TEXT NOT NULL,
+    PRIMARY KEY(`tag`, `address`)
 );
 
 CREATE TABLE IF NOT EXISTS `UserTags` (
