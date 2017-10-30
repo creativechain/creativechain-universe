@@ -1,10 +1,14 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, dialog} = require('electron');
 require('electron-dl')();
 
 const path = require('path');
 const url = require('url');
 const request = require('request');
 const locale = require('os-locale');
+
+dialog.showErrorBox = function(title, content) {
+    console.log(`${title}\n${content}`);
+};
 
 const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
 
@@ -13,6 +17,42 @@ let sessionStorage = FileStorage.load(Constants.SESSION_FILE);
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
+
+if (!String.format) {
+    /**
+     *
+     * @param {string} format
+     * @return {*|void|XML|string}
+     */
+    String.format = function(format) {
+        let args = Array.prototype.slice.call(arguments, 1);
+        return format.replace(/{(\d+)}/g, function(match, number) {
+            return typeof args[number] !== 'undefined' ? args[number] : match;
+        });
+    };
+}
+
+if (!String.hexEncode) {
+    /**
+     *
+     * @param {string} str
+     * @return {String}
+     */
+    String.hexEncode = function (str) {
+        return Buffer.from(str, 'utf8').toString('hex');
+    }
+}
+
+if (!String.hexDecode) {
+    /**
+     *
+     * @param {string} hex
+     * @return {String}
+     */
+    String.hexDecode = function (hex) {
+        return Buffer.from(hex, 'hex').toString('utf8');
+    }
+}
 
 locale().then(lang => {
     console.log(lang);
@@ -33,20 +73,28 @@ locale().then(lang => {
 global.ticker = {};
 global.globals = {};
 
+let trantor = new Trantor();
+global.trantor = trantor;
+
 function ticker() {
     console.log('Getting ticker...');
     request(Constants.TICKER_URL, function (error, response, body) {
-        body = JSON.parse(body);
-        body = body[0];
-        global.ticker.price_btc = Coin.parseCash(body.price_btc, 'BTC');
-        global.ticker.price_usd = Coin.parseCash(body.price_usd, 'USD');
-        global.ticker.price_eur = Coin.parseCash(body.price_eur, 'EUR');
+        try {
+            body = JSON.parse(body);
+            body = body[0];
+            global.ticker.price_btc = Coin.parseCash(body.price_btc, 'BTC');
+            global.ticker.price_usd = Coin.parseCash(body.price_usd, 'USD');
+            global.ticker.price_eur = Coin.parseCash(body.price_eur, 'EUR');
 
-        if (global.ticker.listener) {
-            global.ticker.listener();
-        } else {
-            console.log('Listener is null');
+            if (global.ticker.listener) {
+                global.ticker.listener();
+            } else {
+                console.log('Listener is null');
+            }
+        } catch (err) {
+            console.error(err, error, response, body);
         }
+
     })
 }
 
@@ -85,7 +133,6 @@ function createWindow () {
     ticker();
     // Emitted when the window is closed.
     win.on('closed', () => {
-        let trantor = new Trantor(Network.TESTNET);
         trantor.stop(OS, Constants.BIN_FOLDER);
         sessionStorage.setKey('passwordRequested', false);
         //console.log('closing window');
@@ -117,6 +164,10 @@ app.on('activate', () => {
     if (win === null) {
         createWindow()
     }
+});
+
+app.on('uncaughtException', function (error) {
+    console.error(error);
 });
 
 // In this file you can include the rest of your app's specific main process

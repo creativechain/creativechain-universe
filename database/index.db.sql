@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS "Media" (
 	`title`	TEXT,
 	`description`	TEXT,
 	`content_type`	TEXT,
+	`license`	INTEGER,
 	`tags`	TEXT,
 	`price`	INTEGER,
 	`public_content`	TEXT,
@@ -92,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `AddressBook` (
 	PRIMARY KEY(`address`)
 );
 
-CREATE TABLE IF NOT EXISTS `ContentTags` (
+CREATE TABLE IF NOT EXISTS `MediaTags` (
     `tag`   TEXT NOT NULL,
     `address`   TEXT NOT NULL,
     PRIMARY KEY(`tag`, `address`)
@@ -111,6 +112,6 @@ CREATE UNIQUE INDEX IF NOT EXISTS `follow_index` ON `Following` (`follower_addre
 CREATE UNIQUE INDEX IF NOT EXISTS `donation_index` ON `Donation` (`author` ,`txid`, `content_id` );
 CREATE UNIQUE INDEX IF NOT EXISTS `comment_index` ON `Comment` (`author` ,`content_id` ,`txid` );
 CREATE UNIQUE INDEX IF NOT EXISTS `author_index` ON `Author` (`name` ,`address` ,`email` );
-CREATE UNIQUE INDEX IF NOT EXISTS `content_tags_index` ON `ContentTags` (`tag`);
+CREATE UNIQUE INDEX IF NOT EXISTS `media_tags_index` ON `MediaTags` (`tag`);
 CREATE UNIQUE INDEX IF NOT EXISTS `user_tags_index` ON `UserTags` (`tag`);
 COMMIT;
