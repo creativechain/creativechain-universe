@@ -139,7 +139,18 @@
   "ContentPublishedSuccessfully": "Your content has been successfully posted.",
   "CommentPublishedSuccessfully": "Your comment has been successfully posted.",
   "Comment": "Comment",
-  "Download": "Download"
+  "Download": "Download",
+  "Language": "Language",
+  "ExchangeCoin": "Exchange coin",
+  "SessionExpireTime": "Session expire time",
+  "TenMinutes": "10 minutes",
+  "TwentyMinutes": "20 minutes",
+  "ThirtyMinutes": "30 minutes",
+  "OneHour": "1 hour",
+  "TwoHours": "2 hours",
+  "ThreeHours": "3 hours",
+  "ActionAmount": "Amount sent by action (for each Like, at the moment)",
+  "Save": "Save"
 
 }
 

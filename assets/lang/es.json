@@ -138,5 +138,16 @@
   "CommentPublished": "Cometario publicado",
   "CommentPublishedSuccessfully": "Tu comentario se ha publicado correctamente.",
   "Comment": "Comentar",
-  "Download": "Descargar"
+  "Download": "Descargar",
+  "Language": "Idioma",
+  "ExchangeCoin": "Moneda de intercambio",
+  "SessionExpireTime": "Tiempo de sesión",
+  "TenMinutes": "10 minutos",
+  "TwentyMinutes": "20 minutos",
+  "ThirtyMinutes": "30 minutos",
+  "OneHour": "1 hora",
+  "TwoHours": "2 horas",
+  "ThreeHours": "3 horas",
+  "ActionAmount": "Cantidad enviada por acción (por cada Me gusta, de momento)",
+  "Save": "Guardar"
 }
