@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron . --allow-file-access-from-files",
     "postinstall": "install-app-deps",
-    "compile": "build -mwl --x64 --ia32"
+    "compile": "build -wl --x64"
   },
   "repository": {
     "type": "git",
@@ -72,20 +72,25 @@
       "!dist",
       "!resources",
       "!app.conf",
+      "!session.crea",
+      "!trantor.dat",
       "!database/index.db",
       "!database/index.db-journal"
     ],
     "mac": {
       "category": "public.app-category.entertainment",
-      "icon": "mac/icon/icon.icns"
+      "icon": "build/mac/icon/icon.icns",
+      "type": "distribution"
     },
     "win": {
-      "icon": "win/icon/icon.ico"
+      "icon": "build/win/icon/icon.ico",
+      "target": "portable"
     },
     "linux": {
-      "icon": "linux/icon/",
+      "icon": "build/linux/icon/",
       "synopsis": "A blockchain project for the registration, authentication and distribution of digital free culture.",
-      "category": "Utility"
+      "category": "Utility",
+      "executableName": "creativechain-universe"
     }
   }
 }
