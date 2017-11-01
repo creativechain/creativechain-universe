@@ -38,6 +38,7 @@
     "dialogs": "^1.1.20",
     "drag-drop": "^2.13.2",
     "electron-dl": "^1.10.0",
+    "electron-is-dev": "^0.3.0",
     "execsql": "0.0.3",
     "handbrake-js": "^2.2.2",
     "imagemin": "^5.3.1",
