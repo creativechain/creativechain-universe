@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron . --allow-file-access-from-files",
     "postinstall": "install-app-deps",
-    "compile": "build -wl --x64"
+    "build-linux": "build -l --x64",
+    "build-win": "build -w --x64",
+    "build-mac": "build -m --x64"
   },
   "repository": {
     "type": "git",
