@@ -133,7 +133,7 @@ function createWindow () {
     ticker();
     // Emitted when the window is closed.
     win.on('closed', () => {
-        trantor.stop(OS, Constants.BIN_FOLDER);
+        trantor.stop();
         sessionStorage.setKey('passwordRequested', false);
         //console.log('closing window');
         //Preferences.setNodeCorrectlyRunning(false);

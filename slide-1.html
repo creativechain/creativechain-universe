@@ -39,16 +39,20 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Creativechain Platform Libraries -->
-    <script language="javascript" src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script language="javascript" src="lib/init.js" type="text/javascript"></script>
-    <script language="javascript" src="lib/translation.js" type="text/javascript"></script>
-    <script language="javascript" src="lib/splash.js" type="text/javascript"></script>
+
 </head>
 
 <body class="page-slide">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div style="-webkit-app-region: drag">
+        <ul class="list-unstyled list-inline action-windows">
+            <li><div onclick="closeApp()" class="navbar-close" style="-webkit-app-region: no-drag"></div></li>
+            <li><div onclick="minimize()" class="navbar-miminizar" style="-webkit-app-region: no-drag"></div></li>
+            <li><div onclick="maximize()" class="navbar-maximizar" style="-webkit-app-region: no-drag"></div></li>
+        </ul>
+        <div></div>
+    </div>
 </nav>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -244,14 +248,19 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script language="javascript" src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="assets/js/jquery-3.2.1.min.js"><\/script>')</script>
 <script src="assets/js/bootstrap.min.js"></script>
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script src="assets/js/vendor/holder.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 
+<!-- Creativechain Platform Libraries -->
+<script language="javascript" src="lib/init.js" type="text/javascript"></script>
+<script language="javascript" src="lib/translation.js" type="text/javascript"></script>
+<script language="javascript" src="lib/splash.js" type="text/javascript"></script>
+<script language="javascript" src="lib/common.js" type="text/javascript"></script>
 <script src="assets/js/w3.js"></script>
 
 
