@@ -828,6 +828,10 @@ article {
 
 
 /* SLIDE */
+.action-windows.slide {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
 
 .slide-background-1 {
     z-index: 10;
