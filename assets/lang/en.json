@@ -150,7 +150,8 @@
   "TwoHours": "2 hours",
   "ThreeHours": "3 hours",
   "ActionAmount": "Amount sent by action (for each Like, at the moment)",
-  "Save": "Save"
+  "Save": "Save",
+  "PerformingTasks": "Performing task {1} / {2}"
 
 }
 

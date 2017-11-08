@@ -149,5 +149,6 @@
   "TwoHours": "2 horas",
   "ThreeHours": "3 horas",
   "ActionAmount": "Cantidad enviada por acción (por cada Me gusta, de momento)",
-  "Save": "Guardar"
+  "Save": "Guardar",
+  "PerformingTasks": "Realizando tarea {1} / {2}"
 }
