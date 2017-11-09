@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Dashboard Creativechain</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/dashboard.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/creativechain.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/tags/bootstrap-tagsinput.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet">
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+
+<body id="body" class="page-profile edit-profile">
+
+<div class="box-alert" style="display: none">
+    <div class="alert">
+        <ul class="list-inline list-unstyled">
+            <li><img src="./assets/img/logo-slide.png" alt="" style=""></li>
+            <li>
+                <p translate="yes">Wallet Crea</p>
+                <p translate="yes">Received 0,053 CREA at your wallet</p>
+            </li>
+            <li><img src="./assets/img/wallet-alert.png" alt=""></li>
+        </ul>
+    </div>
+    <div class="rombo"></div>
+</div>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div w3-include-html="./elements/navbar-top.html"></div>
+</nav>
+
+<div class="box-filter">
+    <div id="ui-main-filter" class="container-fluid" style="display: none">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-10">
+                <ul class="list-unstyled list-inline text-center">
+                    <li><a href="" translate="yes">Recent</a></li>
+                    <li><a href="" translate="yes">Popular</a></li>
+                    <li><a href="" translate="yes">Following</a></li>
+                    <li><a href="" translate="yes">All members</a></li>
+                    <li><a href="" translate="yes">Format</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-md-offset-1 col-xs-2">
+                <img src="./assets/img/box.png" alt="" class="img-responsive view-box">
+            </div>
+        </div>
+    </div  >
+    <div id="ui-wallet-filter" class="container-fluid" style="display: none">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 col-xs-10">
+                <ul class="list-unstyled list-inline text-center">
+                    <li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab" translate="yes">Overview</a></li>
+                    <li role="presentation"><a href="#send" aria-controls="send" role="tab" data-toggle="tab" translate="yes">Send</a></li>
+                    <li role="presentation"><a href="#receive" aria-controls="receive" role="tab" data-toggle="tab" translate="yes">Receive</a></li>
+                    <li role="presentation"><a href="#transaccions" aria-controls="transaccions" role="tab" data-toggle="tab" translate="yes">Transactions</a></li>
+                    <li role="presentation"><a href="#addressBook" aria-controls="addressBook" role="tab" data-toggle="tab" translate="yes">Address Book</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-md-offset-1 col-xs-2">
+                <img src="./assets/img/box.png" alt="" class="img-responsive view-box">
+            </div>
+        </div>
+    </div>
+    <div id="ui-profile-filter" class="container-fluid" style="display: none">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-10">
+                <ul class="list-unstyled list-inline text-center">
+                    <li><a href="" translate="yes">Projects</a></li>
+                    <li><a href="" translate="yes">Followers</a></li>
+                    <li><a href="" translate="yes">Followings</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-md-offset-1 col-xs-2">
+                <img src="./assets/img/box.png" alt="" class="img-responsive">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="ui-body" class="container-fluid content-primary" style="display: none">
+
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <div w3-include-html="./elements/navbar-left.html">
+
+            </div>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2">
+            <div id="ui-posts" class="row placeholders" style="display: none"></div>
+            <div id="ui-wallet" class="tab-content" style="display: none">
+                <div role="tabpanel" class="tab-pane active" id="overview">
+                    <div class="row placeholders">
+                        <div class="col-xs-12 col-sm-12 col-md-5 placeholder">
+                            <div class="card">
+                                <div class="card-header" translate="yes">
+                                    Total balance
+                                </div>
+                                <div class="card-block text-center">
+                                    <h4 class="card-title" id="total-balance">0.00000000 CREA</h4>
+                                    <p class="card-text" id="total-balance-fiat">0.00 USD</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" translate="yes">
+                                    Balance
+                                </div>
+                                <div class="card-block">
+                                    <table class="table table-responsive tableRecentTransaccions">
+                                        <thead class="thead-inverse">
+                                        <tr class="hidden">
+                                            <th translate="yes">Status</th>
+                                            <th translate="yes">Date</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><p translate="yes">Available</p></td>
+                                            <td><p id=available-balance>0.00000000 CREA</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p translate="yes">Pending</p></td>
+                                            <td><p id="pending-balance">0.00000000 CREA</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p translate="yes">TOTAL</p></td>
+                                            <td><p id="total-balance-detail">0.00000000 CREA</p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 placeholder">
+                            <div class="card">
+                                <div class="card-header" translate="yes">
+                                    Recent transactions
+                                </div>
+                                <div class="card-block">
+                                    <table class="table table-responsive tableRecentTransaccions">
+                                        <thead class="thead-inverse">
+                                        <tr class="hidden">
+                                            <th translate="yes">Status</th>
+                                            <th translate="yes">Date</th>
+                                            <th translate="yes">Ammount</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tx-list">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="send">
+                    <div class="row placeholder">
+                        <div class="col-md-12 title">
+                            <p translate="yes">Send Creativecoins</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label translate="yes">Pagar a</label>
+                                <input id="send-address" type="text" class="form-control" placeholder="Introducir una direccion Creativecoin p.e. Cb5dgdfh4gf5h4gdf3dhddxxs">
+                            </div>
+                            <div class="options-address">
+                                <img src="./assets/img/wallet/icon-address-book.png" alt="">
+                                <img src="./assets/img/wallet/icon-copy.png" alt="">
+                                <img src="./assets/img/wallet/icon-cancel.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label translate="yes">Label</label>
+                                <input id="address-label" type="text" class="form-control" placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label translate="yes">Amount</label>
+                                <div style="display: flex;">
+                                    <input id="send-amount" type="number" class="form-control" value="0" step="0.00000001">
+
+                                    <!-- insert this line -->
+                                    <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+
+                                    <select id="searchbygenerals_currency" name="searchbygenerals[currency]" class="form-control">
+                                        <option value="1">CREA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="checkbox" style="margin-top: 30px;">
+                                <label>
+                                    <input id="send-subtract-fee" type="checkbox"> <span translate="yes">Subtract fee from amount<span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row comission" style="display: none">
+                        <div class="col-md-5">
+                            <p>Comisón de Transacción: 0.00200647 CREA/kB</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select id="disabledSelect" class="form-control">
+                                    <option translate="yes">Choose fee</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <button onclick="validateSendCoins()" type="button" class="btn btn-secondary" translate="yes">
+                                Send
+                            </button>
+                            <button onclick="clearSendFields()" type="button" class="btn btn-therciary" translate="yes">
+                                Clear all
+                            </button>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            <p class="titleAmount">SALDO: <span id="available-amount-unit" class="totalAmount" >0,</span><span id="available-amount-cents" class="decimals">00000000 CREA</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="receive">
+                    <div class="row placeholder">
+                        <div class="col-md-12 title">
+                            <p translate="yes">Use this to request payments. All fields are optional.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label translate="yes">Label</label>
+                                <input id="request-payment-label" type="text" class="form-control" translate="yes" placeholder="Enter a label for this address and add it to your address book">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label translate="yes">Amount</label>
+                                <div style="display: flex;">
+                                    <input id="request-payment-amount" type="number" class="form-control" value="0" step="0.00000001">
+                                    <!-- insert this line -->
+                                    <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+                                    <select id="searchbygenerals_currency" name="searchbygenerals[currency]" class="form-control">
+                                        <option value="1">CREA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label translate="yes">Message</label>
+                                <input id="request-payment-message" type="text" class="form-control" translate="yes" placeholder="Type a message...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <button onclick="requestPayment()" type="button" class="btn btn-secondary" translate="yes">
+                                Request payment
+                            </button>
+                            <button onclick="clearPaymentFields()" type="button" class="btn btn-therciary" translate="yes">
+                                Clear all
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row placeholder">
+                        <div class="col-md-6 title">
+                            <p translate="yes">Payment history requested</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="card">
+                                <div class="card-block">
+                                    <table class="table table-responsive tableRecentTransaccions">
+                                        <thead class="thead-inverse">
+                                        <tr>
+                                            <th translate="yes">Date</th>
+                                            <th translate="yes">Address</th>
+                                            <th translate="yes">Label</th>
+                                            <th translate="yes">Message</th>
+                                            <th translate="yes">Requested CREA</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="request-payment-list">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane" id="transaccions">
+                    <div class="row placeholder">
+                        <div class="col-md-12 title">
+                            <p translate="yes">Transactions history</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" translate="yes" placeholder="Input a address or label">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control" translate="yes" placeholder="Minimum amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="card">
+                                <div class="card-block">
+                                    <table class="table table-responsive tableRecentTransaccions">
+                                        <thead class="thead-inverse">
+                                        <tr>
+                                            <th translate="yes">Status</th>
+                                            <th translate="yes">Date</th>
+                                            <th translate="yes">Type</th>
+                                            <th translate="yes">Address</th>
+                                            <th translate="yes">Amount</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tx-list-details">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button type="button" class="btn btn-therciary" translate="yes">
+                                Export
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="addressBook">...</div>
+            </div>
+            <div id="ui-settings" class="row placeholders" style="display: none">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <img id="settings-user-avatar" src="./assets/img/img-section-profile.png" alt="" class="img-profile img-circle">
+                            </div>
+                            <div class="col-sm-4 change-imatge">
+                                <p id="settings-user-name" class="name"></p>
+                                <p id="settings-user-description" class="change-text" translate="yes"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label translate="yes">Language</label>
+                                    <select id="settings-language" class="form-control">
+                                        <option value="en" translate="yes">English</option>
+                                        <option value="es" translate="yes">Español</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label translate="yes">ExchangeCoin</label>
+                                    <select id="settings-exchange-coin" class="form-control">
+                                        <option value="usd">USD</option>
+                                        <option value="eur">EUR</option>
+                                        <option value="mxn">MXN</option>
+                                        <option value="btc">BTC</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label translate="yes">SessionExpireTime</label>
+                                    <select id="settings-expire-time" class="form-control">
+                                        <option value="0" translate="yes">-</option>
+                                        <option value="600" translate="yes">TenMinutes</option>
+                                        <option value="1200" translate="yes">TwentyMinutes</option>
+                                        <option value="1800" translate="yes">ThirtyMinutes</option>
+                                        <option value="3600" translate="yes">OneHour</option>
+                                        <option value="7200" translate="yes">TwoHours</option>
+                                        <option value="10800" translate="yes">ThreeHours</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label translate="yes">ActionAmount</label>
+                                    <input id="settings-action-amount" type="number" class="form-control" placeholder="" translate="yes" step="0.00010000" min="0.0001">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes" onclick="save()">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3 col-md-2 sidebar hidden-sm hidden-xs boxFollowing">
+            <p translate="yes">Following</p>
+
+
+            <div id="following-list" class="row followingList">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ui-body-profile" class="container-fluid content-primary profile" style="display: none">
+
+    <div class="row">
+        <div class="col-sm-4 col-md-4 sidebar">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button type="button" class="btn btn-therciary" onclick="return showProfileEditView()" translate="yes">
+                        Edit profile
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img id="user-avatar" src="./assets/img/img-section-profile.png" alt="" class="img-profile img-circle">
+                    <p id="user-nick" translate="yes" class="name">Anonymous</p>
+                    <p id="user-web" class="name-web"></p>
+                    <span id="user-description" class="descriptionProfile"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="row stats-profile">
+                <div class="col-md-12">
+                    <table class="table table-stats-profile-1">
+                        <thead>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><img id="user-buzz-level-icon" src="./assets/img/icon-1.png" alt=""><span id="user-buzz-level"></span></td>
+                            <td><img src="./assets/img/icon-2.png" alt=""><span id="user-buzz"></span></td>
+                            <td>
+                                <button type="button" class="btn btn-primary" translate="yes">
+                                    Publish
+                                </button>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-stats-profile">
+                        <thead>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><img src="./assets/img/like0.png" alt=""></td>
+                            <td translate="yes">Likes</td>
+                            <td id="user-likes">0</td>
+                        </tr>
+                        <tr>
+                            <td><img src="./assets/img/comments.png" alt=""></td>
+                            <td translate="yes">Comments</td>
+                            <td id="user-comments">0</td>
+                        </tr>
+                        <tr>
+                            <td><img src="./assets/img/smartaction.png" alt=""></td>
+                            <td translate="yes">Smarts Actions</td>
+                            <td id="user-actions">0</td>
+                        </tr>
+                        <tr>
+                            <td><img src="./assets/img/followers-profile.png" alt=""></td>
+                            <td translate="yes">Followers</td>
+                            <td id="user-followers">0</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 title-profile">
+                    <h3 translate="yes">CREA Address</h3>
+                    <p id="user-address"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 title-profile">
+                    <h3 translate="yes">Tags</h3>
+                    <p id="user-tags"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-primary" translate="yes">
+                        Donate
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div id="ui-profile-posts" class="col-sm-8 col-sm-offset-4 col-md-6 col-md-offset-4" style="display: none">
+            <div id="user-posts" class="row placeholders">
+            </div>
+        </div>
+        <div id="ui-profile-edit" class="col-sm-8 col-sm-offset-4 col-md-6 col-md-offset-4" style="display: none">
+            <div class="row placeholders">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="row">
+                            <div id="profile-crop" class="col-md-2">
+                                <img id="input-profile-image" src="./assets/img/img-section-profile.png" alt="" class="img-profile img-responsive img-circle" onclick="loadProfileImage()">
+                            </div>
+                            <div class="col-md-4 change-imatge">
+                                <p id="user-name" class="name" translate="yes">Anonymous</p>
+                                <p class="change-text" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="yes">Username</label>
+                            <input id="input-user-name" type="text" class="form-control" maxlength="21"
+                                   placeholder="Username" translate="yes">
+                        </div>
+                        <div class="form-group">
+                            <label translate="yes">Description</label>
+                            <input id="input-user-description" type="text" class="form-control" maxlength="144"
+                                   placeholder="Description" translate="yes">
+                        </div>
+                        <div class="form-group">
+                            <label translate="yes">Email</label>
+                            <input id="input-user-email" type="email" class="form-control" maxlength="55" placeholder="AddYourEmail" translate="yes">
+                        </div>
+                        <div class="form-group">
+                            <label translate="yes">Web</label>
+                            <input id="input-user-web" type="text" class="form-control" maxlength="55" placeholder="AddYourWeb" translate="yes">
+                        </div>
+                        <div class="form-group">
+                            <label translate="yes">Tags</label>
+                            <input type="text" data-role="tagsinput" id="tags" data-options='{"maxTags": 8, "maxChars": 21}' onchange="onTagsChange()" class="form-control">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button onclick="register()" type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-2 sidebar hidden-sm hidden-xs boxFollowing">
+            <p translate="yes">Following</p>
+
+            <div id="user-following-list" class="row followingList">
+                <!--                <div class="col-md-3 icon-following">
+                                    <img src="./assets/img/user00.png" alt="" class="img-responsive">
+                                </div>
+                                <div  class="col-md-9 BoxFollowingDescription">
+                                    <p class="titleFollowing">Comando C</p>
+                                    <p class="descriptionFollowing">Ese hombree jarl está la cosa</p>
+                                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="publication-items" style="display: none"></div>
+<div id="follows-items" style="display: none"></div>
+<div id="comment-items" style="display: none"></div>
+<div w3-include-html="./elements/modal-publish.html"></div>
+<div w3-include-html="./elements/modal-article.html"></div>
+<div w3-include-html="./elements/modal-session-expire.html"></div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script language="javascript" src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="assets/js/jquery-3.2.1.min.js"><\/script>')</script>
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="assets/js/vendor/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="assets/tags/bootstrap-tagsinput.js"></script>
+
+<script language="javascript" src="lib/init.js" type="text/javascript"></script>
+<script language="javascript" src="lib/translation.js" type="text/javascript"></script>
+<script language="javascript" src="lib/top-menu.js" type="text/javascript"></script>
+<script language="javascript" src="lib/publication.js" type="text/javascript"></script>
+<script language="javascript" src="lib/platform.js" type="text/javascript"></script>
+<script language="javascript" src="lib/wallet.js" type="text/javascript"></script>
+<script language="javascript" src="lib/profile.js" type="text/javascript"></script>
+<script language="javascript" src="lib/settings.js" type="text/javascript"></script>
+<script language="javascript" src="lib/navigation.js" type="text/javascript"></script>
+<script language="javascript" src="lib/common.js" type="text/javascript"></script>
+<script src="assets/js/w3.js"></script>
+
+
+<script>
+    w3.includeHTML(function () {
+        translate();
+        prepareDragDrop();
+        $('#publish-tags').tagsinput();
+        setUserData();
+    });
+</script>
+
+</body>
+</html>

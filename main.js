@@ -118,7 +118,7 @@ function createWindow () {
 
     let initPage = 'slide-1.html';
     if (fileStorage.getKey('firstUseExecuted')) {
-        initPage = 'index.html';
+        initPage = 'platform.html';
     }
 
     win.loadURL(url.format({
@@ -141,7 +141,7 @@ function createWindow () {
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
         win = null
-    })
+    });
 }
 
 // This method will be called when Electron has finished
