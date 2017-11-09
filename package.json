@@ -26,12 +26,15 @@
     "distribution",
     "registration"
   ],
-  "author": "The Creativechain Developers",
+  "author": {
+    "name": "The Creativechain Developers",
+    "email": "info@creativechain.org"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/creativechain/creativechain-universe/issues"
   },
-  "homepage": "https://github.com/creativechain/creativechain-universe#readme",
+  "homepage": "https://www.creativechain.org",
   "dependencies": {
     "bitcoin": "^3.0.1",
     "bitcoind-rpc": "^0.7.0",
@@ -83,7 +86,8 @@
     "mac": {
       "category": "public.app-category.entertainment",
       "icon": "build/mac/icon/icon.icns",
-      "type": "distribution"
+      "type": "distribution",
+      "taqrget": "dmg"
     },
     "win": {
       "icon": "build/win/icon/icon.ico",
@@ -93,7 +97,8 @@
       "icon": "build/linux/icon/",
       "synopsis": "A blockchain project for the registration, authentication and distribution of digital free culture.",
       "category": "Utility",
-      "executableName": "creativechain-universe"
+      "executableName": "creativechain-universe",
+      "target": "deb"
     }
   }
 }
