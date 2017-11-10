@@ -99,21 +99,29 @@ global.trantor = trantor;
 function ticker() {
     console.log('Getting ticker...');
     request(Constants.TICKER_URL, function (error, response, body) {
-        try {
-            body = JSON.parse(body);
-            body = body[0];
-            global.ticker.price_btc = Coin.parseCash(body.price_btc, 'BTC');
-            global.ticker.price_usd = Coin.parseCash(body.price_usd, 'USD');
-            global.ticker.price_eur = Coin.parseCash(body.price_eur, 'EUR');
+        if (error) {
+            console.error(error);
+            global.ticker.price_btc = Coin.parseCash(0, 'BTC');
+            global.ticker.price_usd = Coin.parseCash(0, 'USD');
+            global.ticker.price_eur = Coin.parseCash(0, 'EUR');
+        } else {
+            try {
+                body = JSON.parse(body);
+                body = body[0];
+                global.ticker.price_btc = Coin.parseCash(body.price_btc, 'BTC');
+                global.ticker.price_usd = Coin.parseCash(body.price_usd, 'USD');
+                global.ticker.price_eur = Coin.parseCash(body.price_eur, 'EUR');
 
-            if (global.ticker.listener) {
-                global.ticker.listener();
-            } else {
-                console.log('Listener is null');
+                if (global.ticker.listener) {
+                    global.ticker.listener();
+                } else {
+                    console.log('Listener is null');
+                }
+            } catch (err) {
+                console.error(err, error, response, body);
             }
-        } catch (err) {
-            console.error(err, error, response, body);
         }
+
 
     })
 }
