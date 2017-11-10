@@ -10,6 +10,8 @@ dialog.showErrorBox = function(title, content) {
     console.log(`${title}\n${content}`);
 };
 
+global.appPath = app.getAppPath();
+
 const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
 
 let fileStorage = FileStorage.load();
@@ -71,7 +73,6 @@ locale().then(lang => {
 });
 
 global.ticker = {};
-global.globals = {};
 
 let trantor = new Trantor();
 global.trantor = trantor;
