@@ -109,7 +109,7 @@
   "License": "License",
   "You are about to publish your project. Dale!": "You are about to publish your project. Dale!",
   "TransactionSend": "Relayed transaction",
-  "TxSendMessage": "This transaction has a commission of {1}. Do you want to broadcast it anyway?",
+  "TxSendMessage": "This transaction has a commission of %s. Do you want to broadcast it anyway?",
   "EnterWalletPassphrase": "Please enter the password for your wallet",
   "LoadFeaturedImage": "Load featured image",
   "LoadOtherImage": "Load other image",
@@ -151,7 +151,7 @@
   "ThreeHours": "3 hours",
   "ActionAmount": "Amount sent by action (for each Like, at the moment)",
   "Save": "Save",
-  "PerformingTasks": "Performing task {1} / {2}"
+  "PerformingTasks": "Performing task %s / %s"
 
 }
 
