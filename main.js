@@ -15,7 +15,7 @@ global.appPath = app.getAppPath();
 const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
 
 let fileStorage = FileStorage.load();
-let sessionStorage = FileStorage.load(Constants.SESSION_FILE);
+let applicationStorage = FileStorage.load();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
@@ -135,7 +135,7 @@ function createWindow () {
     // Emitted when the window is closed.
     win.on('closed', () => {
         trantor.stop();
-        sessionStorage.setKey('passwordRequested', false);
+        applicationStorage.setKey('passwordRequested', false);
         //console.log('closing window');
         //Preferences.setNodeCorrectlyRunning(false);
         // Dereference the window object, usually you would store windows
