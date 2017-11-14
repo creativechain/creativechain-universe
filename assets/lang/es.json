@@ -1,18 +1,14 @@
 {
   "locale": "es",
   "AppName": "Creativechain Universe",
-  "JoiningToANewDimension": "Estás a punto de unirte a una nueva dimensión descentralizada.",
-  "PayAttention": "Por favor, presta atención y sigue los consejos.",
+  "WelcomeDescription": "Estás a punto de unirte a una nueva dimensión descentralizada. <br>Por favor, presta atención y sigue los consejos.",
   "ContentDistribution": "Distribución de contenidos sin intermediarios.",
   "ContentDistributionDescription": "Gracias al ecosistema peer-to-peer de la plataforma descentralizada Creativechain, dejarán atrás los modelos opacos y centralizados de distribución de contenidos cuyos intermediarios fijan altas tarifas que hacen que sus creaciones sean más caras.",
   "CreateACertificate": "Crea un certificado indeleble para tus creaciones.",
-  "CreateACertificateTitle": "Creaciones certificadas",
   "CreateACertificateDescription": "Creativechain desafía el poder centralizado de los sistemas tradicionales de administración de derechos de autor. Ofrece una alternativa pública y transparente de registro de propiedad intelectual utilizando la revolucionaria tecnología distribuida de blockchain. Crea un certificado indeleble para tus creaciones.",
   "TransparentNetwork": "Una red social transparente, sin control ni censura.",
-  "TransparentNetworkTitle": "Red transparente",
   "TransparentNetworkDescription": "Comparte tus trabajos o porfolios creativos en una red social transversal controlada por el consenso de su comunidad. Eres dueño de tu identidad y de tu contenido y nadie podrá vender tus datos a terceros.",
   "AlternativeSystem": "Una alternativa al sistema económico tradicional.",
-  "AlternativeSystemTitle": "Sistema económico",
   "AlternativeSystemDescription": "El dinero siempre es un asunto político. Es por ello que hemos diseñado una criptoconversión alternativa con el objetivo de fomentar el empoderamiento económico de las personas creativas frente al sistema bancario tradicional.",
   "YouAreBank": "Ahora tu eres tu propio banco",
   "YouAreBankDescription": "En un sistema descentralizado, nadie más que tu puede administrar el Creativecoin (CREA) que obtienes debido a tu actividad, venta o distribución de tus obras. No olvides tu contraseña, nadie puede ayudarte a recuperarla.",
@@ -109,7 +105,7 @@
   "License": "Licencia",
   "You are about to publish your project. Dale!": "Estás a punto de publicar tu proyecto. Dále!",
   "TransactionSend": "Transacción retransmitida",
-  "TxSendMessage": "Esta transacción tiene una comisión de {0}. ¿Quieres transmitirla de todos modos?",
+  "TxSendMessage": "Esta transacción tiene una comisión de %s. ¿Quieres transmitirla de todos modos?",
   "EnterWalletPassphrase": "Por favor, introduce la contraseña de tu billetera",
   "LoadFeaturedImage": "Cargar imagen destacada",
   "LoadOtherImage": "Cargar otra imagen",
@@ -150,5 +146,6 @@
   "ThreeHours": "3 horas",
   "ActionAmount": "Cantidad enviada por acción (por cada Me gusta, de momento)",
   "Save": "Guardar",
-  "PerformingTasks": "Realizando tarea {1} / {2}"
+  "PerformingTasks": "Realizando tarea %s / %s",
+  "WalletAlreadyEncrypted": "Tu wallet ya está encriptado."
 }
