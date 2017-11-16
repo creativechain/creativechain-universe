@@ -148,7 +148,8 @@
   "ActionAmount": "Amount sent by action (for each Like, at the moment)",
   "Save": "Save",
   "PerformingTasks": "Performing task %s / %s",
-  "WalletAlreadyEncrypted": "Your wallet is already encrypted."
-
+  "WalletAlreadyEncrypted": "Your wallet is already encrypted.",
+  "Discover": "Discover",
+  "Activity": "Activities"
 }
 

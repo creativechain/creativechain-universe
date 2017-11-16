@@ -147,5 +147,7 @@
   "ActionAmount": "Cantidad enviada por acción (por cada Me gusta, de momento)",
   "Save": "Guardar",
   "PerformingTasks": "Realizando tarea %s / %s",
-  "WalletAlreadyEncrypted": "Tu wallet ya está encriptado."
+  "WalletAlreadyEncrypted": "Tu wallet ya está encriptado.",
+  "Discover": "Descubre",
+  "Activity": "Actividad"
 }
