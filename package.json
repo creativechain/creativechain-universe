@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron . --allow-file-access-from-files",
     "postinstall": "install-app-deps",
+    "postinstall-win": "cd node_modules/sqlite3 && npm install nan && npm run prepublish && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x64 && node-gyp rebuild --target=1.4.13 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x64",
     "build-linux": "build -l --x64",
     "build-win": "build -w --x64",
     "build-mac": "build -m --x64"
