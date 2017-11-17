@@ -162,5 +162,6 @@
   "FileCopied": "El archivo %s se ha copiado correctamente!",
   "Downloading": "Descargando...",
   "DownloadFileStart": "La descarga ha comenzado. Se paciente por favor.",
-  "DownloadPending": "Esta descarga todavía no está completa. Por favor se paciente."
+  "DownloadPending": "Esta descarga todavía no está completa. Por favor se paciente.",
+  "FreeDownload": "Descarga libre"
 }

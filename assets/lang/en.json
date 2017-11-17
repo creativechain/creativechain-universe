@@ -163,7 +163,8 @@
   "FileCopied": "The %s file has been successfully copied!",
   "Downloading": "Downloading...",
   "DownloadFileStart": "The download has begun. Be patient please.",
-  "DownloadPending": "This download is not yet complete. Please, be pacient."
+  "DownloadPending": "This download is not yet complete. Please, be pacient.",
+  "FreeDownload": "Free download"
 
 }
 
