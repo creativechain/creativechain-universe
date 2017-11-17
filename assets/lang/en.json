@@ -150,6 +150,11 @@
   "PerformingTasks": "Performing task %s / %s",
   "WalletAlreadyEncrypted": "Your wallet is already encrypted.",
   "Discover": "Discover",
-  "Activity": "Activities"
+  "Activity": "Activities",
+  "DownloadFinished": "Download finished!",
+  "DownloadFinishedBody": "The torrent %s has finished!",
+  "Payment": "Payment for download",
+  "PaymentBody": "You have to pay %s for this download, plus %s commission. A total %s will come out of your wallet. Do you agree?",
+  "PaymentSent": "Your payment has been sent correctly. The download will start shortly. You will receive a notification when it is complete."
 }
 
