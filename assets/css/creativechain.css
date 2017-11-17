@@ -812,6 +812,18 @@ article {
 
 
 /* SLIDE */
+
+.rowProgress {
+    margin-top: 10px;
+}
+.carousel-control {
+    top: 0;
+    width: 60%;
+    color: #0073ff;
+    opacity: 1;
+    font-size: 40px;
+
+}
 .action-windows.slide {
     margin-top: 15px;
     margin-bottom: 0;
@@ -894,6 +906,8 @@ article {
 }
 .page-slide {
     padding-bottom: 0;
+    background-color: #FAFAFA;
+
 }
 .carousel-caption {
     top: 370px;
@@ -1061,5 +1075,10 @@ p.step-4-address-wallet {
 @media only screen and (min-width: 1001px) {
     .icon-total-wallet {
         display: none !important;
+    }
+}
+@media screen and (min-width: 768px) {
+    .carousel-indicators {
+        bottom: 0;
     }
 }
