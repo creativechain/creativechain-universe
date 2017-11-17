@@ -959,10 +959,65 @@ p.step-4-address-wallet {
 .modal-session-expired .row-button-modal-expire {
     margin: 10px 70px;
 }
-
-
-
-
+/* Tooltips publication list */
+.tooltipStats th {
+    text-transform: none !important;
+    padding: 8px 8px 0 !important;
+    border-bottom: 0 solid !important;
+}
+.tooltipStats td {
+    font-size: 10px;
+    border-top: 1px solid transparent !important;
+}
+.romboTooltip {
+    width: 15px;
+    height: 15px;
+    border: 3px solid white;
+    background: white;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    right: 16px;
+    position: absolute;
+    z-index: 9999;
+    webkit-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
+    box-shadow: 1px -1px 0px 0px rgb(208, 208, 208);
+    top: -7px;
+    left: 19px;
+}
+.rowAutor {
+    margin-bottom: 0;
+}
+.widthAutor {
+    width: 100%;
+}
+.widthAutor > .dropdown-toggle > .row {
+    margin-bottom: -5px;
+}
+.widthAutor > .dropdown-menu {
+    min-width: 240px;
+}
+.widthAutor > .dropdown-menu > li{
+    width: 100%;
+}
+.tooltipButton {
+    width: 100%;padding: 0 20px;font-size: 10px;
+}
+.widthAutor > .dropdown-menu img {
+    margin: 0 auto;
+}
+.titleTooltipUser {
+    margin-bottom: 0;
+}
+.webTooltipUser {
+    font-size: 10px;color: #A5A5A5;
+}
+.descriptionTooltipUser {
+    font-size: 10px;color: #A5A5A5;
+}
 @media only screen and (max-width: 1000px) {
     .amount-navbar {
         display: none !important;

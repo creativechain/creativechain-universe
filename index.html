@@ -86,21 +86,24 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2">
             <div class="row placeholders">
-                <button type="button" class="btn btn-primary" translate="yes" data-toggle="modal" data-target=".modal-session-expired">
+                <button type="button" class="btn btn-primary" translate="yes" data-toggle="modal"
+                        data-target=".modal-session-expired">
                     Modal sesión caducada
                 </button>
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
                     <div class="single-news one-item">
                         <article>
-                            <div class="content-img state-video" type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-article">
+                            <div class="content-img state-video" type="button" class="btn btn-primary"
+                                 data-toggle="modal" data-target=".modal-article">
                                 <img src="./assets/img/news-video.png" alt="">
                             </div>
                             <div class="content boxContent">
                                 <div class="titleBox">
-                                    <span  data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
+                                    <span data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
                                 </div>
                                 <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                                 </div>
                                 <div class="row boxOptions">
                                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
@@ -132,15 +135,85 @@
                                         <hr>
                                     </div>
                                 </div>
+
+                                <!--INICIO TOOLTIP-->
+
                                 <div class="row boxOwner">
-                                    <div class="col-md-2 col-xs-2 icon-owner">
-                                        <img src="./assets/img/user1.png" class="img-responsive avatare-owner" alt="">
-                                    </div>
-                                    <div class="col-md-8 col-xs-8 box-title-owner">
-                                        <p>Comando Suricato</p>
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 box-level-owner">
-                                        <img src="./assets/img/expert.png" alt="" class="img-responsive">
+                                    <div class="col-md-12 tooltipAutor">
+                                        <ul class="list-inline list-unstyled rowAutor">
+                                            <li class="widthAutor">
+                                                <div class="dropdown-toggle" data-toggle="dropdown">
+                                                    <div class="row">
+                                                        <div class="col-md-2 col-xs-2 icon-owner">
+                                                            <img src="./assets/img/user1.png"
+                                                                 class="img-responsive avatare-owner" alt="">
+                                                        </div>
+                                                        <div class="col-md-8 col-xs-8 box-title-owner">
+                                                            <p>Comando Suricato</p>
+                                                        </div>
+                                                        <div class="col-md-2 col-xs-2 box-level-owner">
+                                                            <img src="./assets/img/expert.png" alt=""
+                                                                 class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <ul class="dropdown-menu notifications list-inline list-unstyled">
+                                                    <li>
+                                                        <div class="romboTooltip"></div>
+                                                        <div class="row">
+                                                            <div class="col-xs-5 col-xs-offset-7">
+                                                                <button type="button" class="btn btn-primary tooltipButton"
+                                                                        translate="yes"
+                                                                        style="">
+                                                                    Follow
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <img src="./assets/img/user11.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 text-center">
+                                                                <p class="titleTooltipUser"><strong>Camic Lab</strong></p>
+                                                                <p class="webTooltipUser">
+                                                                    casmiclab.com
+                                                                </p>
+                                                                <p class="descriptionTooltipUser">
+                                                                    Casmic Lab is a Valencia based design studio founded
+                                                                    in 2006 by Amadeo Castroviejo and Roser Miquel. We
+                                                                    love old science fiction
+                                                                    <br/><br/>
+                                                                    casmic@lab.com
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <table class="table tooltipStats">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Likes</th>
+                                                                            <th>Followers</th>
+                                                                            <th>Following</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>267</td>
+                                                                            <td>432</td>
+                                                                            <td>57</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -150,15 +223,17 @@
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
                     <div class="single-news one-item">
                         <article>
-                            <div class="content-img state-doc" type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-article">
+                            <div class="content-img state-doc" type="button" class="btn btn-primary" data-toggle="modal"
+                                 data-target=".modal-article">
                                 <img src="./assets/img/news-letter.png" alt="">
                             </div>
                             <div class="content boxContent">
                                 <div class="titleBox">
-                                    <span  data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
+                                    <span data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
                                 </div>
                                 <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                                 </div>
                                 <div class="row boxOptions">
                                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
@@ -208,15 +283,17 @@
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
                     <div class="single-news one-item">
                         <article>
-                            <div class="content-img state-picture" type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-article">
+                            <div class="content-img state-picture" type="button" class="btn btn-primary"
+                                 data-toggle="modal" data-target=".modal-article">
                                 <img src="./assets/img/news-picture.png" alt="">
                             </div>
                             <div class="content boxContent">
                                 <div class="titleBox">
-                                    <span  data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
+                                    <span data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
                                 </div>
                                 <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                                 </div>
                                 <div class="row boxOptions">
                                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
@@ -266,15 +343,17 @@
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
                     <div class="single-news one-item">
                         <article>
-                            <div class="content-img state-audio" type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-article">
+                            <div class="content-img state-audio" type="button" class="btn btn-primary"
+                                 data-toggle="modal" data-target=".modal-article">
                                 <img src="./assets/img/news-audio.png" alt="">
                             </div>
                             <div class="content boxContent">
                                 <div class="titleBox">
-                                    <span  data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
+                                    <span data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
                                 </div>
                                 <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                                 </div>
                                 <div class="row boxOptions">
                                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
@@ -324,15 +403,17 @@
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
                     <div class="single-news one-item">
                         <article>
-                            <div class="content-img state-book" type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-article">
+                            <div class="content-img state-book" type="button" class="btn btn-primary"
+                                 data-toggle="modal" data-target=".modal-article">
                                 <img src="./assets/img/news-book.png" alt="">
                             </div>
                             <div class="content boxContent">
                                 <div class="titleBox">
-                                    <span  data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
+                                    <span data-toggle="modal" data-target=".modal-article">The water factory The water factory</span>
                                 </div>
                                 <div class="descriptionContent">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                                 </div>
                                 <div class="row boxOptions">
                                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
@@ -379,7 +460,6 @@
                         </article>
                     </div>
                 </div>
-
 
 
             </div>
@@ -404,9 +484,6 @@
 <div w3-include-html="./elements/modal-publish.html"></div>
 <div w3-include-html="./elements/modal-article.html"></div>
 <div w3-include-html="./elements/modal-session-expire.html"></div>
-
-
-
 
 
 <!-- Bootstrap core JavaScript
