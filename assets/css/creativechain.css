@@ -442,6 +442,7 @@ article {
 }
 .modal-article .box-comment-right {
     padding: 0 15px 0 0;
+    border-left: solid 1px #dfdfdf;
 }
 .modal-article section {
     border-bottom: 1px solid #dfdfdf;
@@ -471,6 +472,7 @@ article {
 }
 .modal-article section.stats {
     border-bottom: transparent;
+    padding: 0;
 }
 .modal-article section.stats img {
     width: 15px;
@@ -485,10 +487,13 @@ article {
     font-weight: 600;
     color: #0569ef;
     margin-left: 20px;
-    margin-bottom: 20px;
 }
 .modal-article section.stats button {
     width: 100%;
+}
+.modal-article section.stats li {
+    border-bottom: solid 1px #dfdfdf;
+    padding: 10px 10px 17px;
 }
 .modal-article .box-comment {
     padding: 10px 30px;
@@ -502,6 +507,12 @@ article {
     margin: 0 0 9px;
     overflow: hidden;
     background-color: #e5e5e5;
+}
+.modal-article .downloadArticleModal p{
+    margin-top: 20px;
+}
+.modal-article .downloadArticleModal button {
+    width: 100%;
 }
 /* PAGE WALLET */
 .table {
@@ -828,6 +839,18 @@ article {
 
 
 /* SLIDE */
+
+.rowProgress {
+    margin-top: 10px;
+}
+.carousel-control {
+    top: 0;
+    width: 60%;
+    color: #0073ff;
+    opacity: 1;
+    font-size: 40px;
+
+}
 .action-windows.slide {
     margin-top: 15px;
     margin-bottom: 0;
@@ -910,6 +933,8 @@ article {
 }
 .page-slide {
     padding-bottom: 0;
+    background-color: #FAFAFA;
+
 }
 .carousel-caption {
     top: 370px;
@@ -976,9 +1001,74 @@ p.step-4-address-wallet {
     margin: 10px 70px;
 }
 
-
-
-
+/* MODAL ARTICLE */
+.modal-article h5 {
+    font-size: 12px;
+    font-weight: bold;
+}
+.modal-article .descriptionModal {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+/* Tooltips publication list */
+.tooltipStats th {
+    text-transform: none !important;
+    padding: 8px 8px 0 !important;
+    border-bottom: 0 solid !important;
+}
+.tooltipStats td {
+    font-size: 10px;
+    border-top: 1px solid transparent !important;
+}
+.romboTooltip {
+    width: 15px;
+    height: 15px;
+    border: 3px solid white;
+    background: white;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    right: 16px;
+    position: absolute;
+    z-index: 9999;
+    webkit-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 9px 18px -10px rgba(0,0,0,0.75);
+    box-shadow: 1px -1px 0px 0px rgb(208, 208, 208);
+    top: -7px;
+    left: 19px;
+}
+.rowAutor {
+    margin-bottom: 0;
+}
+.widthAutor {
+    width: 100%;
+}
+.widthAutor > .dropdown-toggle > .row {
+    margin-bottom: -5px;
+}
+.widthAutor > .dropdown-menu {
+    min-width: 240px;
+}
+.widthAutor > .dropdown-menu > li{
+    width: 100%;
+}
+.tooltipButton {
+    width: 100%;padding: 0 20px;font-size: 10px;
+}
+.widthAutor > .dropdown-menu img {
+    margin: 0 auto;
+}
+.titleTooltipUser {
+    margin-bottom: 0;
+}
+.webTooltipUser {
+    font-size: 10px;color: #A5A5A5;
+}
+.descriptionTooltipUser {
+    font-size: 10px;color: #A5A5A5;
+}
 @media only screen and (max-width: 1000px) {
     .amount-navbar {
         display: none !important;
@@ -1022,5 +1112,10 @@ p.step-4-address-wallet {
 @media only screen and (min-width: 1001px) {
     .icon-total-wallet {
         display: none !important;
+    }
+}
+@media screen and (min-width: 768px) {
+    .carousel-indicators {
+        bottom: 0;
     }
 }
