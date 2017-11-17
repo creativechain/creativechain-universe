@@ -154,5 +154,13 @@
   "DownloadFinishedBody": "El torrent %s ha finalizado.",
   "Payment": "Pago por descarga",
   "PaymentBody": "Tienes que pagar % por esta descarga, más % de comisión. Un total % saldrán de tu billetera. ¿Estás de acuerdo?",
-  "PaymentSent": "Tu pago se ha enviado correctamente. La descarga comenzará en breve. Recibirás una notificacion cuando esté completa."
+  "PaymentSent": "Tu pago se ha enviado correctamente. La descarga comenzará en breve. Recibirás una notificacion cuando esté completa.",
+  "ContentAlreadyPaid": "Ya habías realizado un pago previo sobre este contenido. La descarga ha comenzado.",
+  "Files": "Archivos",
+  "SaveFile": "Guardar %s",
+  "CopyingFile": "Copiando archivo...",
+  "FileCopied": "El archivo %s se ha copiado correctamente!",
+  "Downloading": "Descargando...",
+  "DownloadFileStart": "La descarga ha comenzado. Se paciente por favor.",
+  "DownloadPending": "Esta descarga todavía no está completa. Por favor se paciente."
 }

@@ -155,6 +155,15 @@
   "DownloadFinishedBody": "The torrent %s has finished!",
   "Payment": "Payment for download",
   "PaymentBody": "You have to pay %s for this download, plus %s commission. A total %s will come out of your wallet. Do you agree?",
-  "PaymentSent": "Your payment has been sent correctly. The download will start shortly. You will receive a notification when it is complete."
+  "PaymentSent": "Your payment has been sent correctly. The download will start shortly. You will receive a notification when it is complete.",
+  "ContentAlreadyPaid": "You have already made a prior payment on this content. The download has begun.",
+  "Files": "Files",
+  "SaveFile": "Save %s",
+  "CopyingFile": "Copying file...",
+  "FileCopied": "The %s file has been successfully copied!",
+  "Downloading": "Downloading...",
+  "DownloadFileStart": "The download has begun. Be patient please.",
+  "DownloadPending": "This download is not yet complete. Please, be pacient."
+
 }
 
