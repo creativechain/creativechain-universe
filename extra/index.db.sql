@@ -34,6 +34,25 @@ CREATE TABLE IF NOT EXISTS "Like" (
 	UNIQUE(`author`,`content_id`)
 );
 
+CREATE TABLE IF NOT EXISTS "Unlike" (
+	`txid`	TEXT NOT NULL,
+	`version`	INTEGER NOT NULL,
+	`author`	TEXT NOT NULL,
+	`content_id`	TEXT NOT NULL,
+	PRIMARY KEY(`txid`),
+	UNIQUE(`author`,`content_id`)
+);
+
+CREATE TABLE IF NOT EXISTS "Payment" (
+	`txid`	TEXT NOT NULL,
+	`version`	INTEGER NOT NULL,
+	`author`	TEXT NOT NULL,
+	`content_id`	TEXT NOT NULL,
+	`amount`	INTEGER NOT NULL,
+	PRIMARY KEY(`txid`),
+	UNIQUE(`author`,`content_id`)
+);
+
 CREATE TABLE IF NOT EXISTS `Following` (
 	`txid`	TEXT NOT NULL,
 	`version`	INTEGER NOT NULL,
