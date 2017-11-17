@@ -153,7 +153,7 @@
   "DownloadFinished": "Descarga finalizada!",
   "DownloadFinishedBody": "El torrent %s ha finalizado.",
   "Payment": "Pago por descarga",
-  "PaymentBody": "Tienes que pagar % por esta descarga, más % de comisión. Un total % saldrán de tu billetera. ¿Estás de acuerdo?",
+  "PaymentBody": "Tienes que pagar %s por esta descarga, más %s de comisión. Un total %s saldrán de tu billetera. ¿Estás de acuerdo?",
   "PaymentSent": "Tu pago se ha enviado correctamente. La descarga comenzará en breve. Recibirás una notificacion cuando esté completa.",
   "ContentAlreadyPaid": "Ya habías realizado un pago previo sobre este contenido. La descarga ha comenzado.",
   "Files": "Archivos",
