@@ -156,8 +156,9 @@ function createWindow () {
     }));
 
     // Open the DevTools.
-    if (Constants.DE)
-    win.webContents.openDevTools();
+    if (Constants.DEBUG) {
+        win.webContents.openDevTools();
+    }
 
     ticker();
     // Emitted when the window is closed.
