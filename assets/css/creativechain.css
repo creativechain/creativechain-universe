@@ -426,6 +426,7 @@ article {
 }
 .modal-article .box-comment-right {
     padding: 0 15px 0 0;
+    border-left: solid 1px #dfdfdf;
 }
 .modal-article section {
     border-bottom: 1px solid #dfdfdf;
@@ -455,6 +456,7 @@ article {
 }
 .modal-article section.stats {
     border-bottom: transparent;
+    padding: 0;
 }
 .modal-article section.stats img {
     width: 15px;
@@ -469,10 +471,13 @@ article {
     font-weight: 600;
     color: #0569ef;
     margin-left: 20px;
-    margin-bottom: 20px;
 }
 .modal-article section.stats button {
     width: 100%;
+}
+.modal-article section.stats li {
+    border-bottom: solid 1px #dfdfdf;
+    padding: 10px 10px 17px;
 }
 .modal-article .box-comment {
     padding: 10px 30px;
@@ -486,6 +491,12 @@ article {
     margin: 0 0 9px;
     overflow: hidden;
     background-color: #e5e5e5;
+}
+.modal-article .downloadArticleModal p{
+    margin-top: 20px;
+}
+.modal-article .downloadArticleModal button {
+    width: 100%;
 }
 /* PAGE WALLET */
 .table {
@@ -972,6 +983,16 @@ p.step-4-address-wallet {
 }
 .modal-session-expired .row-button-modal-expire {
     margin: 10px 70px;
+}
+
+/* MODAL ARTICLE */
+.modal-article h5 {
+    font-size: 12px;
+    font-weight: bold;
+}
+.modal-article .descriptionModal {
+    font-size: 12px;
+    color: #a5a5a5;
 }
 /* Tooltips publication list */
 .tooltipStats th {
