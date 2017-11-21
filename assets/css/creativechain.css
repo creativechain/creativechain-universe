@@ -460,6 +460,7 @@ article {
 }
 .modal-article section.stats img {
     width: 15px;
+    margin-right: 10px;
 }
 .modal-article section.stats p.titleSponsor {
     font-weight: 600;
@@ -491,6 +492,9 @@ article {
     margin: 0 0 9px;
     overflow: hidden;
     background-color: #e5e5e5;
+}
+.modal-article .downloadTitle {
+    margin: 0;
 }
 .modal-article .downloadArticleModal p{
     margin-top: 20px;
@@ -823,7 +827,10 @@ article {
 
 
 /* SLIDE */
-
+.navbar-slide {
+    min-height: 20px;
+    margin-bottom: 0;
+}
 .rowProgress {
     margin-top: 10px;
 }
@@ -836,7 +843,7 @@ article {
 
 }
 .action-windows.slide {
-    margin-top: 15px;
+    margin-top: 3px;
     margin-bottom: 0;
 }
 
@@ -880,6 +887,13 @@ article {
 .slide-9 {
     background-image: url("../img/background-slide-9.png");
 }
+.carousel-control {
+    color: #d5d6d7;
+    text-shadow: 0 1px 2px rgba(0,0,0,0);
+}
+.carousel-control:focus, .carousel-control:hover {
+    color: #0073ff !important;
+}
 .carousel-inner img {
     margin-top: 30px;
 }
@@ -896,6 +910,8 @@ article {
 .carousel {
     height: 650px;
     margin-bottom: 0;
+    top: -28px;
+    width: 100%;
 }
 .carousel-control.left {
     background-image: -webkit-linear-gradient(left,rgba(0,0,0,.9) 0,rgba(0,0,0,0) 100%);
@@ -955,7 +971,8 @@ article {
 }
 .step-4 .step-4-category > .col-md-3 > img {
     margin-top: 0;
-    width: 30px;
+    width: 50px;
+    margin-bottom: 10px;
 }
 .step-4 .step-4-category > .col-md-3 p {
     color: #95989A;
