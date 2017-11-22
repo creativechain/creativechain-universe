@@ -166,5 +166,6 @@
   "FreeDownload": "Descarga libre",
   "DownloadingResources": "Descargando recursos...",
   "Synchronizing": "Sincronizando...",
-  "EncryptingWallet": "Encriptando wallet......"
+  "EncryptingWallet": "Encriptando wallet...",
+  "LoadingResources": "Cargando recursos..."
 }

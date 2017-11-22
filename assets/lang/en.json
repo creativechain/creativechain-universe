@@ -167,7 +167,8 @@
   "FreeDownload": "Free download",
   "DownloadingResources": "Downloading resources...",
   "Synchronizing": "Synchronizing...",
-  "EncryptingWallet": "Encrypting wallet..."
+  "EncryptingWallet": "Encrypting wallet...",
+  "LoadingResources": "Loading resources..."
 
 }
 
