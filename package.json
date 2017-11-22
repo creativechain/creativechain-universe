@@ -67,7 +67,7 @@
   },
   "build": {
     "appId": "net.creativechain.universe",
-    "productName": "Creativechain Universe",
+    "productName": "Creativechain",
     "directories": {
       "app": "./"
     },
@@ -98,7 +98,7 @@
       "icon": "build/linux/icon/",
       "synopsis": "A blockchain project for the registration, authentication and distribution of digital free culture.",
       "category": "Utility",
-      "executableName": "creativechain-universe",
+      "executableName": "creativechain",
       "target": "deb"
     }
   }
