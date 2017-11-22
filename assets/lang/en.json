@@ -169,7 +169,8 @@
   "Synchronizing": "Synchronizing...",
   "EncryptingWallet": "Encrypting wallet...",
   "LoadingResources": "Loading resources...",
-  "Completed": "Completed!"
+  "Completed": "Completed!",
+  "Cancel": "Cancel"
 
 }
 

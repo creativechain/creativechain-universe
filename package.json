@@ -39,9 +39,8 @@
   "dependencies": {
     "bitcoin": "^3.0.1",
     "bitcoind-rpc": "^0.7.0",
-    "bitcoinjs-lib": "^3.2.1",
+    "bitcoinjs-lib": "^3.3.0",
     "buffer-reverse": "^1.0.1",
-    "dialogs": "^1.1.20",
     "drag-drop": "^2.13.2",
     "electron-dl": "^1.10.0",
     "electron-is-dev": "^0.3.0",
