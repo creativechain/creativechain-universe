@@ -168,7 +168,8 @@
   "DownloadingResources": "Downloading resources...",
   "Synchronizing": "Synchronizing...",
   "EncryptingWallet": "Encrypting wallet...",
-  "LoadingResources": "Loading resources..."
+  "LoadingResources": "Loading resources...",
+  "Completed": "Completed!"
 
 }
 

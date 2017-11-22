@@ -1109,6 +1109,11 @@ p.step-4-address-wallet {
         bottom: 0px;
     }
 }
+
+progress::-webkit-progress-value {
+    background-color: #0073ff;
+}
+
 @media only screen and (min-width: 1001px) {
     .icon-total-wallet {
         display: none !important;

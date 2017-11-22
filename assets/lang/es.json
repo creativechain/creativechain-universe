@@ -167,5 +167,6 @@
   "DownloadingResources": "Descargando recursos...",
   "Synchronizing": "Sincronizando...",
   "EncryptingWallet": "Encriptando wallet...",
-  "LoadingResources": "Cargando recursos..."
+  "LoadingResources": "Cargando recursos...",
+  "Completed": "¡Completado!"
 }
