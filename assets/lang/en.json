@@ -164,7 +164,10 @@
   "Downloading": "Downloading...",
   "DownloadFileStart": "The download has begun. Be patient please.",
   "DownloadPending": "This download is not yet complete. Please, be pacient.",
-  "FreeDownload": "Free download"
+  "FreeDownload": "Free download",
+  "DownloadingResources": "Downloading resources...",
+  "Synchronizing": "Synchronizing...",
+  "EncryptingWallet": "Encrypting wallet..."
 
 }
 

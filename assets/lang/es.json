@@ -163,5 +163,8 @@
   "Downloading": "Descargando...",
   "DownloadFileStart": "La descarga ha comenzado. Se paciente por favor.",
   "DownloadPending": "Esta descarga todavía no está completa. Por favor se paciente.",
-  "FreeDownload": "Descarga libre"
+  "FreeDownload": "Descarga libre",
+  "DownloadingResources": "Descargando recursos...",
+  "Synchronizing": "Sincronizando...",
+  "EncryptingWallet": "Encriptando wallet......"
 }
