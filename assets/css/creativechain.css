@@ -845,6 +845,20 @@ label {
 }
 /* FIN MODAL PUBLISH */
 
+/* NOTIFICATIONS */
+
+.border-notifications {
+    border-bottom: 1px solid #d5d6d7;
+}
+.autor-notifications {
+    margin-top: 4px;
+    margin-bottom: -4px;
+}
+.button-autor-notifications {
+    width: 100%;
+    margin-top: 13px;
+    margin-bottom: 5px;
+}
 .input-group {
     margin-bottom: 15px;
 }

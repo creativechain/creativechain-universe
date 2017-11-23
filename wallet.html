@@ -52,7 +52,7 @@
                     <li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab" translate="yes">Overview</a></li>
                     <li role="presentation"><a href="#send" aria-controls="send" role="tab" data-toggle="tab" translate="yes">Send</a></li>
                     <li role="presentation"><a href="#receive" aria-controls="receive" role="tab" data-toggle="tab" translate="yes">Receive</a></li>
-                    <li role="presentation"><a href="#transaccions" aria-controls="transaccions" role="tab" data-toggle="tab" translate="yes">Transaccions</a></li>
+                    <li role="presentation"><a href="#transaccions" aria-controls="transaccions" role="tab" data-toggle="tab" translate="yes">Transactions</a></li>
                     <li role="presentation"><a href="#addressBook" aria-controls="addressBook" role="tab" data-toggle="tab" translate="yes">Address Book</a></li>
                 </ul>
             </div>
@@ -75,7 +75,7 @@
                     <div class="row placeholders">
                         <div class="col-xs-12 col-sm-12 col-md-5 placeholder">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header" translate="yes">
                                     Total balance
                                 </div>
                                 <div class="card-block text-center">
@@ -91,21 +91,21 @@
                                     <table class="table table-responsive tableRecentTransaccions">
                                         <thead class="thead-inverse">
                                         <tr class="hidden">
-                                            <th>Status</th>
-                                            <th>Date</th>
+                                            <th translate="yes">Status</th>
+                                            <th translate="yes">Date</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td><p>Available</p></td>
+                                            <td><p translate="yes">Available</p></td>
                                             <td><p>+ 527 757 713,2580 CREA</p></td>
                                         </tr>
                                         <tr>
-                                            <td><p>Pending</p></td>
+                                            <td><p translate="yes">Pending</p></td>
                                             <td><p>+524 456,2094 CREA</p></td>
                                         </tr>
                                         <tr>
-                                            <td><p>TOTAL</p></td>
+                                            <td><p translate="yes">TOTAL</p></td>
                                             <td><p>40 058,<span>0202078 CREA</span></p></td>
                                         </tr>
                                         </tbody>
@@ -115,16 +115,16 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-7 placeholder">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header" translate="yes">
                                     Recent transaccions
                                 </div>
                                 <div class="card-block">
                                     <table class="table table-responsive tableRecentTransaccions">
                                         <thead class="thead-inverse">
                                         <tr class="hidden">
-                                            <th>Status</th>
-                                            <th>Date</th>
-                                            <th>Ammount</th>
+                                            <th translate="yes">Status</th>
+                                            <th translate="yes">Date</th>
+                                            <th translate="yes">Ammount</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -162,14 +162,14 @@
                 <div role="tabpanel" class="tab-pane" id="send">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
-                            <p>Enviar creativecoins a una dirección Creativecoins</p>
+                            <p  translate="yes">Send CREA to a Creativecoin Address.</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Pagar a</label>
-                                <input type="text" class="form-control" placeholder="Introducir una direccion Creativecoin p.e. Cb5dgdfh4gf5h4gdf3dhddxxs">
+                                <label translate="yes">Pay to</label>
+                                <input translate="yes" type="text" class="form-control" placeholder="Insert a Creativecoin address i.e. Cb5dgdfh4gf5h4gdf3dhddxxs">
                             </div>
                             <div class="options-address">
                                 <img src="./assets/img/wallet/icon-address-book.png" alt="">
@@ -179,13 +179,13 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Etiqueta</label>
-                                <input type="text" class="form-control" placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
+                                <label translate="yes">Description</label>
+                                <input translate="yes" type="text" class="form-control" placeholder="Choose a tag for this address and add it into your address book.">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Cantidad</label>
+                                <label translate="yes">Amount</label>
                                 <div style="display: flex;">
                                     <input type="number" class="form-control" value="0">
 
@@ -201,19 +201,19 @@
                         <div class="col-md-4">
                             <div class="checkbox" style="margin-top: 30px;">
                                 <label>
-                                    <input type="checkbox"> Restar comisiones a la cantidad
+                                    <input type="checkbox" translate="yes"> Include fees in this amount.
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="row comission">
                         <div class="col-md-5">
-                            <p>Comisón de Transacción: 0.00200647 CREA/kB</p>
+                            <p>Fee: 0.00200647 CREA/kB</p>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <select id="disabledSelect" class="form-control">
-                                    <option>Elija</option>
+                                    <option translate="yes">Choose</option>
                                 </select>
                             </div>
                         </div>
@@ -231,26 +231,26 @@
                             </button>
                         </div>
                         <div class="col-md-4 text-right">
-                            <p class="titleAmount">SALDO: <span class="totalAmount">40 058,<span class="decimals">0202078 CREA</span></span></p>
+                            <p class="titleAmount" translate="yes">BALANCE: <span class="totalAmount">40 058,<span class="decimals">0202078 CREA</span></span></p>
                         </div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="receive">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
-                            <p>Utilice este formulario para solicitar pagos. Todos los campos son opccionales.</p>
+                            <p translate="yes">Use this form to request payments. All the fields are optional.</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Etiqueta</label>
+                                <label translate="yes">Description</label>
                                 <input type="text" class="form-control" placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Cantidad</label>
+                                <label translate="yes">Amount</label>
                                 <div style="display: flex;">
                                     <input type="number" class="form-control" value="0">
                                     <!-- insert this line -->
@@ -261,20 +261,27 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="checkbox" style="margin-top: 30px;">
+                                <label>
+                                    <input type="checkbox" translate="yes"> Reuse an existing address to receive funds. (not recommended).
+                                </label>
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Mensaje</label>
-                                <input type="text" class="form-control" placeholder="Escribe mensaje...">
+                                <label translate="yes">Message</label>
+                                <input translate="yes" type="text" class="form-control" placeholder="Write a message...">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-8">
-                            <button type="button" class="btn btn-secondary">
+                            <button type="button" class="btn btn-secondary" translate="yes">
                                 Send
                             </button>
-                            <button type="button" class="btn btn-therciary">
-                                Vaciar todo
+                            <button type="button" class="btn btn-therciary" translate="yes">
+                                Clear
                             </button>
                         </div>
                     </div>
@@ -283,7 +290,7 @@
 
                     <div class="row placeholder">
                         <div class="col-md-6 title">
-                            <p>Historial de pagos solicitados</p>
+                            <p>Request payments history</p>
                         </div>
                     </div>
 
@@ -294,10 +301,10 @@
                                     <table class="table table-responsive tableRecentTransaccions">
                                         <thead class="thead-inverse">
                                         <tr>
-                                            <th>Fecha</th>
-                                            <th>Etiqueta</th>
-                                            <th>Mensaje</th>
-                                            <th>CREA solicitado</th>
+                                            <th translate="yes">Date</th>
+                                            <th translate="yes">Description</th>
+                                            <th translate="yes">Message</th>
+                                            <th translate="yes">Requested CREA</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -350,7 +357,7 @@
                 <div role="tabpanel" class="tab-pane" id="transaccions">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
-                            <p>Enviar creativecoins a una dirección Creativecoins</p>
+                            <p translate="yes">Check the transactions history.</p>
                         </div>
                     </div>
                     <div class="row">
@@ -378,12 +385,12 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control"  placeholder="Introduzca una dirección o etiqueta que buscar dxxselit,">
+                                <input translate="yes" type="text" class="form-control"  placeholder="Enter an address or a tag to search">
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Cantidad mínima">
+                                <input translate="yes" type="text" class="form-control" placeholder="Num. of transactions">
                             </div>
                         </div>
                     </div>
@@ -394,11 +401,11 @@
                                     <table class="table table-responsive tableRecentTransaccions">
                                         <thead class="thead-inverse">
                                         <tr>
-                                            <th>Status</th>
-                                            <th>Fecha</th>
-                                            <th>Tipo</th>
-                                            <th>Address</th>
-                                            <th>CREA Solicitado</th>
+                                            <th translate="yes">Status</th>
+                                            <th translate="yes">Date</th>
+                                            <th translate="yes">Type</th>
+                                            <th translate="yes">Address</th>
+                                            <th translate="yes">Requested CREA</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -432,13 +439,61 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-right">
-                            <button type="button" class="btn btn-therciary">
-                                Exportar
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Export
                             </button>
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="addressBook">...</div>
+                <div role="tabpanel" class="tab-pane" id="addressBook">
+                    <div class="row placeholder">
+                        <div class="col-md-12 title">
+                            <p translate="yes">These are your contact addresses to send and receive payments. You should always check the amount and address of the recipient before transferring coins.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="card">
+                                <div class="card-block">
+                                    <table class="table table-responsive tableRecentTransaccions">
+                                        <thead class="thead-inverse">
+                                        <tr>
+                                            <th translate="yes">Description</th>
+                                            <th translate="yes">Address</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><p>Lorem ipsum dolor sit amet, consectetur</p></td>
+                                            <td><p>Cb5dgdfh4gf5h4gdf3dhddxxselit,</p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button translate="yes" type="button" class="btn btn-secondary">
+                                New
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Copy
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Delete
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Export
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
