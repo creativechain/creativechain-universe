@@ -170,7 +170,8 @@
   "EncryptingWallet": "Encrypting wallet...",
   "LoadingResources": "Loading resources...",
   "Completed": "Completed!",
-  "Cancel": "Cancel"
+  "Cancel": "Cancel",
+  "InsertYourPassword": "Insert your password"
 
 }
 

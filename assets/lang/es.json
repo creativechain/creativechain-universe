@@ -169,5 +169,6 @@
   "EncryptingWallet": "Encriptando wallet...",
   "LoadingResources": "Cargando recursos...",
   "Completed": "¡Completado!",
-  "Cancel": "Cancelar"
+  "Cancel": "Cancelar",
+  "InsertYourPassword": "Escribe tu contraseña"
 }
