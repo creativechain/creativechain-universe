@@ -147,8 +147,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label translate="yes">Pagar a</label>
-                                <input id="send-address" type="text" class="form-control" placeholder="Introducir una direccion Creativecoin p.e. Cb5dgdfh4gf5h4gdf3dhddxxs">
+                                <label translate="yes">Pay to</label>
+                                <input translate="yes" type="text" class="form-control" placeholder="Insert a Creativecoin address i.e. Cb5dgdfh4gf5h4gdf3dhddxxs">
                             </div>
                             <div class="options-address">
                                 <img src="./assets/img/wallet/icon-address-book.png" alt="">
@@ -158,8 +158,8 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label translate="yes">Label</label>
-                                <input id="address-label" type="text" class="form-control" placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
+                                <label translate="yes">Description</label>
+                                <input translate="yes" type="text" class="form-control" placeholder="Choose a tag for this address and add it into your address book.">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -180,19 +180,19 @@
                         <div class="col-md-4">
                             <div class="checkbox" style="margin-top: 30px;">
                                 <label>
-                                    <input id="send-subtract-fee" type="checkbox"> <span translate="yes">Subtract fee from amount<span>
+                                    <input type="checkbox" translate="yes"> Include fees in this amount.
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="row comission" style="display: none">
                         <div class="col-md-5">
-                            <p>Comisón de Transacción: 0.00200647 CREA/kB</p>
+                            <p>Fee: 0.00200647 CREA/kB</p>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <select id="disabledSelect" class="form-control">
-                                    <option translate="yes">Choose fee</option>
+                                    <option translate="yes">Choose</option>
                                 </select>
                             </div>
                         </div>
@@ -207,21 +207,21 @@
                             </button>
                         </div>
                         <div class="col-md-4 text-right">
-                            <p class="titleAmount">SALDO: <span id="available-amount-unit" class="totalAmount" >0,</span><span id="available-amount-cents" class="decimals">00000000 CREA</span></p>
+                            <p class="titleAmount" translate="yes">BALANCE: <span class="totalAmount">40 058,<span class="decimals">0202078 CREA</span></span></p>
                         </div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="receive">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
-                            <p translate="yes">Use this to request payments. All fields are optional.</p>
+                            <p translate="yes">Use this form to request payments. All the fields are optional.</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label translate="yes">Label</label>
-                                <input id="request-payment-label" type="text" class="form-control" translate="yes" placeholder="Enter a label for this address and add it to your address book">
+                                <label translate="yes">Description</label>
+                                <input type="text" class="form-control" placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -237,10 +237,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="checkbox" style="margin-top: 30px;">
+                                <label>
+                                    <input type="checkbox" translate="yes"> Reuse an existing address to receive funds. (not recommended).
+                                </label>
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label translate="yes">Message</label>
-                                <input id="request-payment-message" type="text" class="form-control" translate="yes" placeholder="Type a message...">
+                                <input translate="yes" type="text" class="form-control" placeholder="Write a message...">
                             </div>
                         </div>
                     </div>
@@ -271,8 +278,7 @@
                                         <thead class="thead-inverse">
                                         <tr>
                                             <th translate="yes">Date</th>
-                                            <th translate="yes">Address</th>
-                                            <th translate="yes">Label</th>
+                                            <th translate="yes">Description</th>
                                             <th translate="yes">Message</th>
                                             <th translate="yes">Requested CREA</th>
                                         </tr>
@@ -290,7 +296,7 @@
                 <div role="tabpanel" class="tab-pane" id="transaccions">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
-                            <p translate="yes">Transactions history</p>
+                            <p translate="yes">Check the transactions history.</p>
                         </div>
                     </div>
                     <div class="row">
@@ -318,12 +324,12 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" translate="yes" placeholder="Input a address or label">
+                                <input translate="yes" type="text" class="form-control"  placeholder="Enter an address or a tag to search">
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <input type="text" class="form-control" translate="yes" placeholder="Minimum amount">
+                                <input translate="yes" type="text" class="form-control" placeholder="Num. of transactions">
                             </div>
                         </div>
                     </div>
@@ -338,7 +344,7 @@
                                             <th translate="yes">Date</th>
                                             <th translate="yes">Type</th>
                                             <th translate="yes">Address</th>
-                                            <th translate="yes">Amount</th>
+                                            <th translate="yes">Requested CREA</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tx-list-details">
@@ -350,13 +356,61 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-right">
-                            <button type="button" class="btn btn-therciary" translate="yes">
+                            <button translate="yes" type="button" class="btn btn-therciary">
                                 Export
                             </button>
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="addressBook">...</div>
+                <div role="tabpanel" class="tab-pane" id="addressBook">
+                    <div class="row placeholder">
+                        <div class="col-md-12 title">
+                            <p translate="yes">These are your contact addresses to send and receive payments. You should always check the amount and address of the recipient before transferring coins.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="card">
+                                <div class="card-block">
+                                    <table class="table table-responsive tableRecentTransaccions">
+                                        <thead class="thead-inverse">
+                                        <tr>
+                                            <th translate="yes">Description</th>
+                                            <th translate="yes">Address</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><p>Lorem ipsum dolor sit amet, consectetur</p></td>
+                                            <td><p>Cb5dgdfh4gf5h4gdf3dhddxxselit,</p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button translate="yes" type="button" class="btn btn-secondary">
+                                New
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Copy
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Delete
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Export
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

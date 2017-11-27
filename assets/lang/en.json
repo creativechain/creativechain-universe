@@ -5,7 +5,7 @@
   "ContentDistribution": "Content distribution without intermediaries.",
   "ContentDistributionDescription": "Thanks to the peer-to-peer ecosystem of Creativechain decentralized platform, you will leave behind the opaque and centralized models of content distribution whose intermediaries set high fees that make your creations more expensive.",
   "CreateACertificate": "Create an indelible certificate for your creations.",
-  "CreateACertificateDescription": "Creativechain challenges the centralized power of traditional copyright management entities systems.  It offers a public and transparent alternative of intellectual property registration by using the revolutionary distributed technology of blockchain. Create an indelible certificate for your creations.",
+  "CreateACertificateDescription": "Creativechain challenges the centralized power of traditional copyright management entities systems. It offers a public and transparent alternative of intellectual property registration by using the revolutionary distributed technology of blockchain.",
   "TransparentNetwork": "A transparent social network, without control or censorship.",
   "TransparentNetworkDescription": "Share your works or creative portfolios in a transverse social network controlled by the consensus of its community. You own your identity and your content’s and no one will be able to sell your data to third parties.",
   "AlternativeSystem": "An alternative to the traditional economic system.",
@@ -171,7 +171,7 @@
   "LoadingResources": "Loading resources...",
   "Completed": "Completed!",
   "Cancel": "Cancel",
-  "InsertYourPassword": "Insert your password"
+  "InsertYourPassword": "Insert your password",
 
 }
 

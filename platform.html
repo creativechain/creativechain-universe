@@ -194,8 +194,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label translate="yes">Pagar a</label>
-                                <input id="send-address" type="text" class="form-control" placeholder="Introducir una direccion Creativecoin p.e. Cb5dgdfh4gf5h4gdf3dhddxxs">
+                                <label translate="yes">PayTo</label>
+                                <input id="send-address" type="text" class="form-control" placeholder="InputCreaAddressExample">
                             </div>
                             <div class="options-address">
                                 <img src="./assets/img/wallet/icon-address-book.png" alt="">
@@ -206,7 +206,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label translate="yes">Label</label>
-                                <input id="address-label" type="text" class="form-control" placeholder="Introduzca una etiqueta para esta dirección y añadirla a su agenda">
+                                <input id="address-label" type="text" class="form-control" placeholder="InputLabelToAddContact">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -227,19 +227,19 @@
                         <div class="col-md-4">
                             <div class="checkbox" style="margin-top: 30px;">
                                 <label>
-                                    <input id="send-subtract-fee" type="checkbox"> <span translate="yes">Subtract fee from amount</span>
+                                    <input id="send-subtract-fee" type="checkbox"> <span translate="yes">IncludeFeeInAmount</span>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="row comission" style="display: none">
                         <div class="col-md-5">
-                            <p>Comisón de Transacción: 0.00200647 CREA/kB</p>
+                            <p><span translate="yes">TransactionFee</span><span id="wallet-transaction-fee">0.00200647 CREA/kB</span></p>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <select id="disabledSelect" class="form-control">
-                                    <option translate="yes">Choose fee</option>
+                                    <option translate="yes">ChooseFee</option>
                                 </select>
                             </div>
                         </div>
@@ -254,21 +254,21 @@
                             </button>
                         </div>
                         <div class="col-md-4 text-right">
-                            <p class="titleAmount">SALDO: <span id="available-amount-unit" class="totalAmount" >0,</span><span id="available-amount-cents" class="decimals">00000000 CREA</span></p>
+                            <p class="titleAmount">BALANCE: <span id="available-amount-unit" class="totalAmount" >0,</span><span id="available-amount-cents" class="decimals">00000000 CREA</span></p>
                         </div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="receive">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
-                            <p translate="yes">Use this to request payments. All fields are optional.</p>
+                            <p translate="yes">UseRequestPaymentForm</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label translate="yes">Label</label>
-                                <input id="request-payment-label" type="text" class="form-control" translate="yes" placeholder="Enter a label for this address and add it to your address book">
+                                <input id="request-payment-label" type="text" class="form-control" translate="yes" placeholder="InputLabel">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -282,6 +282,13 @@
                                         <option value="1">CREA</option>
                                     </select>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="checkbox" style="margin-top: 30px;">
+                                <label>
+                                    <input type="checkbox"><span>ReuseAddress</span>
+                                </label>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -365,12 +372,12 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" translate="yes" placeholder="Input a address or label">
+                                <input type="text" class="form-control" translate="yes" placeholder="InputAddressOrLabel">
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <input type="text" class="form-control" translate="yes" placeholder="Minimum amount">
+                                <input type="text" class="form-control" translate="yes" placeholder="MinimumAmount">
                             </div>
                         </div>
                     </div>
@@ -403,7 +410,55 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="addressBook">...</div>
+                <div role="tabpanel" class="tab-pane" id="addressBook">
+                    <div class="row placeholder">
+                        <div class="col-md-12 title">
+                            <p translate="yes">AddressBookExplain</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="card">
+                                <div class="card-block">
+                                    <table class="table table-responsive tableRecentTransaccions">
+                                        <thead class="thead-inverse">
+                                        <tr>
+                                            <th translate="yes">Label</th>
+                                            <th translate="yes">Address</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><p>Lorem ipsum dolor sit amet, consectetur</p></td>
+                                            <td><p>Cb5dgdfh4gf5h4gdf3dhddxxselit,</p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button translate="yes" type="button" class="btn btn-secondary">
+                                New
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Copy
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Delete
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Export
+                            </button>
+                            <button translate="yes" type="button" class="btn btn-therciary">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="ui-settings" class="row placeholders" style="display: none">
                 <div class="col-md-12">
@@ -627,19 +682,19 @@
                                 <img id="input-profile-image" src="./assets/img/img-section-profile.png" alt="" class="img-profile img-responsive img-circle" onclick="loadProfileImage()">
                             </div>
                             <div class="col-md-4 change-imatge">
-                                <p id="user-name" class="name" translate="yes">Anonymous</p>
+                                <p id="user-name" class="name" translate="">Anonymous</p>
                                 <p class="change-text" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label translate="yes">Username</label>
                             <input id="input-user-name" type="text" class="form-control" maxlength="21"
-                                   placeholder="Username" translate="yes">
+                                   placeholder="WriteYourNickName" translate="yes">
                         </div>
                         <div class="form-group">
                             <label translate="yes">Description</label>
                             <input id="input-user-description" type="text" class="form-control" maxlength="144"
-                                   placeholder="Description" translate="yes">
+                                   placeholder="WriteUserDescription" translate="yes">
                         </div>
                         <div class="form-group">
                             <label translate="yes">Email</label>
@@ -651,7 +706,7 @@
                         </div>
                         <div class="form-group">
                             <label translate="yes">Tags</label>
-                            <input type="text" data-role="tagsinput" id="tags" data-options='{"maxTags": 8, "maxChars": 21}' onchange="onTagsChange()" class="form-control">
+                            <input type="text" translate="yes" placeholder="InsertTags" data-role="tagsinput" id="tags" data-options='{"maxTags": 8, "maxChars": 21}' onchange="onTagsChange()" class="form-control">
                         </div>
                         <div class="row">
                             <div class="col-md-3">
