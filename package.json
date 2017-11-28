@@ -38,7 +38,7 @@
   "homepage": "https://www.creativechain.org",
   "dependencies": {
     "bitcoin": "^3.0.1",
-    "bitcoind-rpc": "^0.7.0",
+    "bitcoin-core": "^2.0.0",
     "bitcoinjs-lib": "^3.3.0",
     "buffer-reverse": "^1.0.1",
     "drag-drop": "^2.13.2",
