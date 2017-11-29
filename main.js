@@ -32,7 +32,7 @@ if (!String.format) {
         for (let x in parts) {
             let r = args[x];
             if (!r) {
-                if (x == (parts.length - 1)) {
+                if (x === (parts.length - 1)) {
                     r = '';
                 } else {
                     r = '%s';
@@ -92,9 +92,6 @@ locale().then(lang => {
 });
 
 global.ticker = {};
-
-let trantor = new Trantor();
-global.trantor = trantor;
 
 function ticker() {
     console.log('Getting ticker...');
@@ -163,7 +160,6 @@ function createWindow () {
     ticker();
     // Emitted when the window is closed.
     win.on('closed', () => {
-        trantor.stop();
         //console.log('closing window');
         //Preferences.setNodeCorrectlyRunning(false);
         // Dereference the window object, usually you would store windows
