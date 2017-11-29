@@ -45,6 +45,7 @@
     "electron-dl": "^1.10.0",
     "electron-is-dev": "^0.3.0",
     "execsql": "0.0.3",
+    "file-size": "^1.0.0",
     "handbrake-js": "^2.2.2",
     "imagemin": "^5.3.1",
     "imagemin-jpegtran": "^5.0.2",
