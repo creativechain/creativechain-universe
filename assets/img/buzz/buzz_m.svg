@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="767.651 -146 14.037 16.209">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #959595;
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+    </style>
+    <clipPath id="clip-path">
+      <path id="Path_1095" data-name="Path 1095" class="cls-1" d="M0-66.8H14.037v16.209H0Z" transform="translate(0 66.803)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1591" data-name="Group 1591" transform="translate(767.651 -146)">
+    <g id="Group_1588" data-name="Group 1588" transform="translate(0 0)">
+      <path id="Path_1093" data-name="Path 1093" class="cls-2" d="M-21.908,0l-7.019,4.052v8.1l7.019,4.052,7.019-4.052v-8.1Zm-5.541,11.3v-6.4l5.541-3.2,5.541,3.2v6.4l-5.541,3.2Z" transform="translate(28.927)"/>
+    </g>
+    <g id="Group_1590" data-name="Group 1590" class="cls-3" transform="translate(0 0)">
+      <g id="Group_1589" data-name="Group 1589" transform="translate(3.968 5.111)">
+        <path id="Path_1094" data-name="Path 1094" class="cls-2" d="M-9.271-13.5l-1.338-4.324h-1.632v5.654h1.071V-14.8q0-.453-.074-1.806h.035l1.361,4.436h1.1l1.458-4.428h.035q-.046,1.067-.052,1.315t-.006.437v2.676H-6.2v-5.654H-7.828L-9.248-13.5Z" transform="translate(12.241 17.821)"/>
+      </g>
+    </g>
+  </g>
+</svg>
