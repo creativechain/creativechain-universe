@@ -8,24 +8,7 @@ body {
 .table>tbody>tr>td>p {
     margin: 0;
 }
-<<<<<<< HEAD
 
-#dialog {
-    display:none;
-    position:absolute;
-    left:25%;
-    top:25%;
-    z-index:1000;
-    width:10%;
-    height:10%;
-    min-height:10%;
-    background:#000;
-    opacity:0.8;
-    text-align:center;
-    color:#fff;
-}
-
-=======
 .dropdown-menu {
     z-index: 1001;
 }
@@ -38,7 +21,7 @@ body {
     z-index: 9999;
     background: url(../img/loading.gif) center no-repeat rgba(255, 255, 255, 0.75);
 }
->>>>>>> maquetacion
+
 hr {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -1204,13 +1187,11 @@ p.step-4-address-wallet {
         bottom: 0px;
     }
 }
-<<<<<<< HEAD
 
 progress::-webkit-progress-value {
     background-color: #0073ff;
 }
 
-=======
 @media (min-width: 800px) and (max-width: 991px) {
     .box-level-owner > img {
         border-radius: 0 0 0 0 !important;
@@ -1219,7 +1200,7 @@ progress::-webkit-progress-value {
         margin-left: 8px;
     }
 }
->>>>>>> maquetacion
+
 @media only screen and (min-width: 1001px) {
     .icon-total-wallet {
         display: none !important;
