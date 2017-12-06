@@ -132,8 +132,8 @@ function createWindow () {
     win = new BrowserWindow({
         width: 1400,
         height: 1200,
-        minWidth: 800,
-        minHeight: 600,
+        'minWidth': 800,
+        'minHeight': 600,
         frame: false
     });
     //Uncommment for show default menu bar
