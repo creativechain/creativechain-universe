@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS "Author" (
 	`description`	TEXT,
 	`avatar`	TEXT,
 	`tags`	TEXT,
-	PRIMARY KEY(`txid`,`address`)
+	PRIMARY KEY(`address`)
 );
 
 CREATE TABLE IF NOT EXISTS `PaymentRequest` (
@@ -122,6 +122,11 @@ CREATE TABLE IF NOT EXISTS `UserTags` (
     `tag`   TEXT NOT NULL,
     `address`   TEXT NOT NULL,
     PRIMARY KEY(`tag`, `address`)
+);
+
+CREATE TABLE IF NOT EXISTS `Platform` (
+    `version`   TEXT,
+    `lastExploredBlock` INTEGER
 );
 
 CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash`, `magnet`);
