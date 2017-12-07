@@ -8,6 +8,9 @@ body {
 .table>tbody>tr>td>p {
     margin: 0;
 }
+.cursor {
+    cursor: pointer;
+}
 .dropdown-menu {
     z-index: 1001;
 }
@@ -114,12 +117,12 @@ a:focus, a:hover {
     text-decoration: none;
 }
 /* Navbar */
-#navbar > ul.search > li:nth-child(1) img {
+#navbar > ul.search > li:nth-child(2) img {
     width: 10px;
     margin-top: 8px;
     margin-right: 10px;
 }
-#navbar > ul.search > li:nth-child(2) img {
+#navbar > ul.search > li:nth-child(3) img {
     width: 10px;
     margin-top: 8px;
 }
@@ -158,9 +161,20 @@ a:focus, a:hover {
     padding-top: 10px;
 }
 .amount-navbar {
-    padding: 5px 24px 0;
+    padding: 8px 0 0;
     font-size: 14px;
     color: white;
+}
+.button-help-navbar {
+    padding: 8px 0 0;
+    font-size: 14px;
+    color: white;
+}
+.separator-view-all {
+    margin: 0 0 3px !important;
+}
+.view-all-notification > p {
+    margin: 0;
 }
 
 /* Menu */
@@ -296,7 +310,6 @@ a {
     text-align: center;
 }
 .content-img > img {
-    max-height: 135px;
     margin: 0 auto;
 }
 .state-video {
@@ -410,6 +423,9 @@ article {
     padding-left: 0;
     padding-right: 0;
 }
+.boxOwner .icon-owner img {
+    border-radius: 50%;
+}
 .boxOwner .avatare-owner {
     margin-top: 2px;
 }
@@ -480,6 +496,9 @@ article {
 .modal-article .box-img > img {
     padding: 10px;
     background-color: white;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 .modal-article .box-comment-right {
     padding: 0 15px 0 0;
@@ -586,7 +605,7 @@ article {
 .page-wallet .card-header {
     padding: .75rem 1.25rem;
     margin-bottom: 0;
-    background-color: #f7f7f9;
+    background-color: #ffffff;
     border-bottom: 1px solid rgba(0,0,0,.125);
 }
 .page-wallet .card-block {
@@ -602,6 +621,7 @@ article {
 .page-wallet .tableRecentTransaccions img {
     width: 23px;
     margin-top: 5px;
+    margin-right: 5px;
 }
 .page-wallet .tableDetails p:nth-child(1) {
     margin-bottom: 0;
@@ -1117,6 +1137,7 @@ p.step-4-address-wallet {
 }
 .rowAutor {
     margin-bottom: 0;
+    cursor: pointer;
 }
 .widthAutor {
     width: 100%;
@@ -1189,13 +1210,20 @@ p.step-4-address-wallet {
     .box-level-owner > img {
         border-radius: 0 0 0 0 !important;
         margin-top: -5px;
-        width: 23px;
+        width: 21px;
         margin-left: 8px;
     }
+    .modal-publish .form-options .button-upload {
+        margin-top: 0;
+    }
+
 }
 @media only screen and (min-width: 1001px) {
     .icon-total-wallet {
         display: none !important;
+    }
+    .box-level-owner > img {
+        width: 21px;
     }
 }
 @media screen and (min-width: 768px) {
