@@ -8,3 +8,4 @@ bin
 releases
 index.db-journal
 .DS_Store
+extra/credentials.json
