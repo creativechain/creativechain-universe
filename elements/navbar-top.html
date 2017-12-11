@@ -1,11 +1,4 @@
-<div class="container-fluid">
-    <div>
-        <ul class="list-unstyled list-inline action-windows">
-            <li><div class="navbar-close"></div></li>
-            <li><div class="navbar-miminizar"></div></li>
-            <li><div class="navbar-maximizar"></div></li>
-        </ul>
-    </div>
+<div class="container-fluid" style="padding-top: 9px;">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                 aria-expanded="false" aria-controls="navbar">
@@ -16,10 +9,12 @@
         </button>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
+
         <ul class="nav navbar-nav search">
-            <li class="logo-right-navbar">
-                <a href="./index.html"><img src="./assets/img/icon-crea-price.png" alt="" style="width: 32px;"></a>
-            </li>
+            <li><div class="action-windows navbar-close"></div></li>
+            <li><div class="action-windows navbar-miminizar"></div></li>
+            <li><div class="action-windows navbar-maximizar"></div></li>
+
             <li><img src="./assets/img/icon-left.png" alt=""></li>
             <li><img src="./assets/img/icon-right.png" alt=""></li>
             <li>
@@ -28,6 +23,9 @@
                         <input type="text" class="form-control input-search" placeholder="Search..." translate="yes">
                     </form>
                 </a>
+            </li>
+            <li class="logo-right-navbar">
+                <a href="./index.html"><img src="./assets/img/icon-crea-price.png" alt="" style="width: 32px;"></a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -38,7 +36,7 @@
                     </button>
                 </a>
             </li>
-            <li class="">
+            <li style="    height: 40px;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">
                     <img src="./assets/img/icon-notification-navbar.png" alt="">
@@ -77,7 +75,7 @@
                         </div>
                     </li>
                     <li role="separator" class="divider separator-view-all"></li>
-                    <li>
+                    <li class="view-all">
                         <div class="view-all-notification text-center">
                             <p><a href="" translate="yes">View all</a></p>
                         </div>
@@ -86,21 +84,10 @@
                 </ul>
             </li>
             <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">
+                <a href="./profile.html" role="button" aria-haspopup="true" aria-expanded="false">
                     <img src="./assets/img/img-profile.png" alt="" style="width: 32px;">
                     <span class="nameUser">Luther Bliset</span>
-                    <i class="glyphicon glyphicon-menu-down"></i>
                 </a>
-                <ul class="dropdown-menu">
-                    <li><a href="./profile.html" translate="yes">Profile</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#" translate="yes">Setting</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#" translate="yes">My publications</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#" translate="yes">logout</a></li>
-                </ul>
             </li>
             <li class="amount-navbar"><a href="./wallet.html"><p>240.01481043 <span>CREA</span></p></a></li>
             <li class="icon-total-wallet">
@@ -108,7 +95,29 @@
                     <img src="./assets/img/wallet-alert.png" alt="" style="margin-top: 7px;">
                 </a>
             </li>
-            <li class="button-help-navbar"><a href="#" translate="yes">Help</a></li>
+
+
+
+
+            <li style="    height: 40px;">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    <i class="glyphicon glyphicon-option-vertical button-menu" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu menu-options">
+                    <li><a href="#" translate="yes">About</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" translate="yes">Setting</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" translate="yes">Help</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" translate="yes">CREA Updates</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" translate="yes">Wallet Backupt</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" translate="yes">logout</a></li>
+                </ul>
+            </li>
         </ul>
 
     </div>
