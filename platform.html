@@ -43,7 +43,7 @@
 
 <body id="body" class="page-profile edit-profile">
 
-<div class="box-alert" style="display: none">
+<!--<div class="box-alert" style="display: none">
     <div class="alert">
         <ul class="list-inline list-unstyled">
             <li><img src="./assets/img/logo-slide.png" alt="" style=""></li>
@@ -55,7 +55,7 @@
         </ul>
     </div>
     <div class="rombo"></div>
-</div>
+</div>-->
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div w3-include-html="./elements/navbar-top.html"></div>
@@ -103,17 +103,17 @@
 <div id="ui-body" class="container-fluid content-primary">
 
     <div class="row">
-        <div id="main-sidebar" class="col-sm-3 col-md-2 sidebar">
+<!--        <div id="main-sidebar" class="col-sm-3 col-md-2 sidebar">
             <div w3-include-html="./elements/navbar-left.html">
 
             </div>
-        </div>
-        <div id="main-content" class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2">
+        </div>-->
+        <div id="main-content" class="col-sm-12 col-md-9 col-lg-10">
             <div id="ui-posts" class="row placeholders" style="display: none"></div>
             <div id="ui-wallet" class="tab-content" style="display: none">
                 <div role="tabpanel" class="tab-pane active" id="overview">
                     <div class="row placeholders">
-                        <div class="col-xs-12 col-sm-12 col-md-5 placeholder">
+                        <div class="col-xs-12 col-sm-12 col-md-6 placeholder">
                             <div class="card">
                                 <div class="card-header" translate="yes">
                                     Total balance
@@ -153,7 +153,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-7 placeholder">
+                        <div class="col-xs-12 col-sm-12 col-md-6 placeholder">
                             <div class="card">
                                 <div class="card-header" translate="yes">
                                     Recent transactions
@@ -439,16 +439,10 @@
                                     New
                                 </button>
                                 <button translate="yes" type="button" class="btn btn-therciary">
-                                    Copy
-                                </button>
-                                <button translate="yes" type="button" class="btn btn-therciary">
                                     Delete
                                 </button>
                                 <button translate="yes" type="button" class="btn btn-therciary">
                                     Export
-                                </button>
-                                <button translate="yes" type="button" class="btn btn-therciary">
-                                    Close
                                 </button>
                             </div>
                         </div>
@@ -526,189 +520,195 @@
 
         </div>
 
-        <div id="profile-sidebar" class="col-sm-4 col-md-4 sidebar" style="display: none">
+        <div id="profile-sidebar" class="col-sm-4 col-md-3 sidebar" style="display: none">
             <div class="row">
-                <div class="col-md-12 text-right">
-                    <button type="button" id="user-edit-button" class="btn btn-therciary" onclick="return showProfileEditView()" translate="yes">
-                        Edit profile
-                    </button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <img id="user-avatar" src="./assets/img/img-section-profile.png" alt="" class="img-profile img-circle">
-                    <p id="user-nick" translate="yes" class="name">Anonymous</p>
-                    <p id="user-web" class="name-web"></p>
-                    <span id="user-description" class="descriptionProfile"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="row stats-profile">
-                <div class="col-md-12">
-                    <table class="table table-stats-profile-1">
-                        <thead>
-                        <tr>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><img id="user-buzz-level-icon" src="./assets/img/icon-1.png" alt=""><span id="user-buzz-level"></span></td>
-                            <td><img src="./assets/img/icon-2.png" alt=""><span id="user-buzz"></span></td>
-<!--                            <td>
-                                <button type="button" class="btn btn-primary" translate="yes">
-                                    Publish
-                                </button>
-                            </td>-->
-                        </tr>
+                <div class="col-sm-4 col-md-3 sidebar">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button type="button" id="user-edit-button" class="btn btn-therciary" onclick="return showProfileEditView()" translate="yes">
+                                Edit profile
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <img id="user-avatar" src="./assets/img/img-section-profile.png" alt="" class="img-profile img-circle" style="width: 76px;">
+                            <p id="user-nick" translate="yes" class="name">Anonymous</p>
+                            <p id="user-web" class="name-web"></p>
+                            <span id="user-description" class="descriptionProfile"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row stats-profile">
+                        <div class="col-md-12">
+                            <table class="table table-stats-profile-1">
+                                <thead>
+                                <tr>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><img id="user-buzz-level-icon" src="./assets/img/icon-1.png" alt=""><span id="user-buzz-level"></span></td>
+                                    <td><img src="./assets/img/icon-2.png" alt=""><span id="user-buzz"></span></td>
+                                    <!--                            <td>
+                                                                    <button type="button" class="btn btn-primary" translate="yes">
+                                                                        Publish
+                                                                    </button>
+                                                                </td>-->
+                                </tr>
 
-                        </tbody>
-                    </table>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-stats-profile">
+                                <thead>
+                                <tr>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><img src="./assets/img/like0.png" alt=""></td>
+                                    <td translate="yes">Likes</td>
+                                    <td id="user-likes">0</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="./assets/img/comments.png" alt=""></td>
+                                    <td translate="yes">Comments</td>
+                                    <td id="user-comments">0</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="./assets/img/smartaction.png" alt=""></td>
+                                    <td translate="yes">Smarts Actions</td>
+                                    <td id="user-actions">0</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="./assets/img/followers-profile.png" alt=""></td>
+                                    <td translate="yes">Followers</td>
+                                    <td id="user-followers">0</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 title-profile">
+                            <h3 translate="yes">CREA Address</h3>
+                            <p id="user-address"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 title-profile">
+                            <h3 translate="yes">Tags</h3>
+                            <p id="user-tags"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button id="user-donate-button" type="button" class="btn btn-primary" translate="yes">
+                                Donate
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <hr>
+                <div id="ui-profile-posts" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3" style="display: none">
+                    <div id="user-posts" class="row placeholders">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-stats-profile">
-                        <thead>
-                        <tr>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><img src="./assets/img/like0.png" alt=""></td>
-                            <td translate="yes">Likes</td>
-                            <td id="user-likes">0</td>
-                        </tr>
-                        <tr>
-                            <td><img src="./assets/img/comments.png" alt=""></td>
-                            <td translate="yes">Comments</td>
-                            <td id="user-comments">0</td>
-                        </tr>
-                        <tr>
-                            <td><img src="./assets/img/smartaction.png" alt=""></td>
-                            <td translate="yes">Smarts Actions</td>
-                            <td id="user-actions">0</td>
-                        </tr>
-                        <tr>
-                            <td><img src="./assets/img/followers-profile.png" alt=""></td>
-                            <td translate="yes">Followers</td>
-                            <td id="user-followers">0</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 title-profile">
-                    <h3 translate="yes">CREA Address</h3>
-                    <p id="user-address"></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 title-profile">
-                    <h3 translate="yes">Tags</h3>
-                    <p id="user-tags"></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <button id="user-donate-button" type="button" class="btn btn-primary" translate="yes">
-                        Donate
-                    </button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <hr>
-                </div>
-            </div>
-        </div>
-        <div id="ui-profile-posts" class="col-sm-8 col-sm-offset-4 col-md-6 col-md-offset-4" style="display: none">
-            <div id="user-posts" class="row placeholders">
-            </div>
-        </div>
-        <div id="ui-profile-edit" class="col-sm-8 col-sm-offset-4 col-md-6 col-md-offset-4" style="display: none">
-            <div class="row placeholders">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="row">
-                            <div id="profile-crop" class="col-md-2">
-                                <img id="input-profile-image" src="./assets/img/img-section-profile.png" alt="" class="img-profile img-responsive img-circle" onclick="loadProfileImage()">
-                            </div>
-                            <div class="col-md-4 change-imatge">
-                                <p id="user-name" class="name" translate="yes">Anonymous</p>
-                                <p class="change-text" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label translate="yes">Username</label>
-                            <input id="input-user-name" type="text" class="form-control" maxlength="21"
-                                   placeholder="WriteYourNickName" translate="yes">
-                        </div>
-                        <div class="form-group">
-                            <label translate="yes">Description</label>
-                            <input id="input-user-description" type="text" class="form-control" maxlength="144"
-                                   placeholder="WriteUserDescription" translate="yes">
-                        </div>
-                        <div class="form-group">
-                            <label translate="yes">Email</label>
-                            <input id="input-user-email" type="email" class="form-control" maxlength="55" placeholder="AddYourEmail" translate="yes">
-                        </div>
-                        <div class="form-group">
-                            <label translate="yes">Web</label>
-                            <input id="input-user-web" type="text" class="form-control" maxlength="55" placeholder="AddYourWeb" translate="yes">
-                        </div>
-                        <div class="form-group">
-                            <label translate="yes">Tags</label>
-                            <input type="text" translate="yes" placeholder="InsertTags" data-role="tagsinput" id="tags" data-options='{"maxTags": 8, "maxChars": 21}' onchange="onTagsChange()" class="form-control">
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <button onclick="register()" type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes">
-                                    Send
-                                </button>
+                <div id="ui-profile-edit" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3" style="display: none">
+                    <div class="row placeholders">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="row">
+                                    <div id="profile-crop" class="col-md-2">
+                                        <img id="input-profile-image" src="./assets/img/img-section-profile.png" alt="" class="img-profile img-circle" style="width: 76px;" onclick="loadProfileImage()">
+                                    </div>
+                                    <div class="col-md-4 change-imatge">
+                                        <p id="user-name" class="name" translate="yes">Anonymous</p>
+                                        <p class="change-text" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label translate="yes">Username</label>
+                                    <input id="input-user-name" type="text" class="form-control" maxlength="21"
+                                           placeholder="WriteYourNickName" translate="yes">
+                                </div>
+                                <div class="form-group">
+                                    <label translate="yes">Description</label>
+                                    <input id="input-user-description" type="text" class="form-control" maxlength="144"
+                                           placeholder="WriteUserDescription" translate="yes">
+                                </div>
+                                <div class="form-group">
+                                    <label translate="yes">Email</label>
+                                    <input id="input-user-email" type="email" class="form-control" maxlength="55" placeholder="AddYourEmail" translate="yes">
+                                </div>
+                                <div class="form-group">
+                                    <label translate="yes">Web</label>
+                                    <input id="input-user-web" type="text" class="form-control" maxlength="55" placeholder="AddYourWeb" translate="yes">
+                                </div>
+                                <div class="form-group">
+                                    <label translate="yes">Tags</label>
+                                    <input type="text" translate="yes" placeholder="InsertTags" data-role="tagsinput" id="tags" data-options='{"maxTags": 8, "maxChars": 21}' onchange="onTagsChange()" class="form-control">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button onclick="register()" type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes">
+                                            Send
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
-        <div class="col-sm-3 col-md-2 sidebar hidden-sm hidden-xs boxFollowing">
+        <div class="col-sm-3 col-md-3 sidebar hidden-sm hidden-xs boxFollowing">
             <p translate="yes">Following</p>
 
 
-            <div id="following-list" class="row followingList">
+            <div id="following-list">
 
             </div>
         </div>

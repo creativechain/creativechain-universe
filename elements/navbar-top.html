@@ -1,12 +1,4 @@
-<div class="container-fluid">
-    <div style="-webkit-app-region: drag; -webkit-user-select: none;">
-        <ul class="list-unstyled list-inline action-windows">
-            <li><div onclick="closeApp()" class="navbar-close" style="-webkit-app-region: no-drag"></div></li>
-            <li><div onclick="minimize()" class="navbar-miminizar" style="-webkit-app-region: no-drag"></div></li>
-            <li><div onclick="maximize()" class="navbar-maximizar" style="-webkit-app-region: no-drag"></div></li>
-        </ul>
-        <div></div>
-    </div>
+<div class="container-fluid" style="padding-top: 9px;">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                 aria-expanded="false" aria-controls="navbar">
@@ -16,27 +8,35 @@
             <span class="icon-bar"></span>
         </button>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
+    <div id="navbar" class="navbar-collapse collapse draggable">
+
         <ul class="nav navbar-nav search">
-            <li><img style="cursor: pointer" src="./assets/img/icon-left.png" alt="" onclick="backSearch()"></li>
-            <li><img style="cursor: pointer" src="./assets/img/icon-right.png" alt="" onclick="nextSearch()"></li>
+            <li><div onclick="closeApp()" class="action-windows navbar-close undraggable"></div></li>
+            <li><div onclick="minimize()" class="action-windows navbar-miminizar undraggable"></div></li>
+            <li><div onclick="maximize()" class="action-windows navbar-maximizar undraggable"></div></li>
+
+            <li><img onclick="backSearch()" class="undraggable" src="./assets/img/icon-left.png" alt=""></li>
+            <li><img onclick="nextSearch()" class="undraggable" src="./assets/img/icon-right.png" alt=""></li>
             <li>
                 <a href="#">
-                    <div id="content-search-form" class="navbar-form navbar-right form-search-navbar" action="./index.html">
-                        <input id="content-search" name="search" type="text" onkeyup="return onSearchKey(event)" class="form-control input-search" style="-webkit-app-region: no-drag" placeholder="Search..." translate="yes">
+                    <div id="content-search-form" class="navbar-form navbar-right form-search-navbar">
+                        <input id="content-search" name="search" type="text" onkeyup="return onSearchKey(event)" class="form-control input-search  undraggable" style="-webkit-app-region: no-drag" placeholder="Search..." translate="yes">
                     </div>
                 </a>
+            </li>
+            <li class="logo-right-navbar undraggable">
+                <a href="" onclick="return showExploreView()"><img src="./assets/img/icon-crea-price.png" alt="" style="width: 32px;"></a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="" style="margin-top: 3px;">
                 <a href="#">
-                    <button type="button" class="btn btn-primary btn-publish" style="-webkit-app-region: no-drag" translate="yes" data-toggle="modal" data-target=".modal-publish">
+                    <button type="button" class="btn btn-primary btn-publish undraggable" style="-webkit-app-region: no-drag" translate="yes" data-toggle="modal" data-target=".modal-publish">
                         Publish
                     </button>
                 </a>
             </li>
-            <li class="" style="-webkit-app-region: no-drag">
+            <li class="undraggable" style="height: 40px;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">
                     <img src="./assets/img/icon-notification-navbar.png" alt="">
@@ -74,37 +74,46 @@
                             </div>
                         </div>
                     </li>
+                    <li role="separator" class="divider separator-view-all"></li>
+                    <li class="view-all">
+                        <div class="view-all-notification text-center">
+                            <p><a href="" translate="yes">View all</a></p>
+                        </div>
+                    </li>
 
                 </ul>
             </li>
             <li>
+                <a class="undraggable" onclick="return showProfile()" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img id="user-top-avatar" src="./assets/img/img-profile.png" alt="" style="width: 32px;">
+                    <span id="user-top-name" class="nameUser">Luther Bliset</span>
+                </a>
+            </li>
+            <li class="amount-navbar undraggable"><a href="" onclick="return showWalletView()"><p id="top-balance">240.01481043 CREA</p></a></li>
+            <li class="icon-total-wallet undraggable">
+                <a onclick="return showWalletView()" id="top-balance-tooltip" data-toggle="tooltip" title="0.00000000 CREA">
+                    <img src="./assets/img/wallet-alert.png" alt="" style="margin-top: 7px;">
+                </a>
+            </li>
+
+            <li class="undraggable" style="height: 40px;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">
-                    <img id="user-top-avatar" src="./assets/img/img-profile.png" alt="" class="img-circle" style="width: 32px;">
-                    <span id="user-top-name" translate="yes">Anonymous</span>
-                    <i class="glyphicon glyphicon-menu-down"></i>
+                    <i class="glyphicon glyphicon-option-vertical button-menu" aria-hidden="true"></i>
                 </a>
-                <ul class="dropdown-menu">
-                    <li><a onclick="return showProfile()" href="#" translate="yes">Profile</a></li>
+                <ul class="dropdown-menu menu-options">
+                    <li><a href="#" translate="yes">About</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a onclick="return showSettings()" href="" translate="yes">Settings</a></li>
+                    <li><a href="#" translate="yes">Setting</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#" translate="yes">Help</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#" translate="yes">Log out</a></li>
+                    <li><a href="#" translate="yes">CREA Updates</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" translate="yes">Wallet Backup</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" translate="yes">logout</a></li>
                 </ul>
-            </li>
-            <li class="amount-navbar"><p id="top-balance">0.00000000 CREA</p></li>
-            <li class="icon-total-wallet">
-                <a href="" onclick="return showWalletView()" id="top-balance-tooltip" data-toggle="tooltip" title="0.00000000 CREA">
-                    <img src="./assets/img/wallet-alert.png" alt="" style="margin-top: 7px;">
-
-                </a>
-            </li>
-            <li class="logo-right-navbar">
-                <a href="" onclick="return showExploreView()">
-                    <img src="./assets/img/icon-crea-price.png" alt="" style="width: 32px;">
-                </a>
             </li>
         </ul>
 
