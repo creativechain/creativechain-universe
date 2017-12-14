@@ -171,5 +171,6 @@
   "Completed": "¡Completado!",
   "Cancel": "Cancelar",
   "InsertYourPassword": "Escribe tu contraseña",
-  "AddProjectPrice": "Agrega un precio por descarga. Déjalo vacío para descarga gratuita."
+  "AddProjectPrice": "Agrega un precio por descarga. Déjalo vacío para descarga gratuita.",
+  "InternetError": "Es posible que no estés conectado a Internet. Por favor, revisa tu conexión."
 }
