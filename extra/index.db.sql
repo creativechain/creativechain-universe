@@ -129,6 +129,13 @@ CREATE TABLE IF NOT EXISTS `Platform` (
     `lastExploredBlock` INTEGER
 );
 
+CREATE TABLE IF NOT EXISTS `Notifications` (
+    `author`    TEXT NOT NULL,
+    `type`      INTEGER NOT NULL,
+    `resource`  TEXT NOT NULL,
+    `viewed`    INTEGER
+);
+
 CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash`, `magnet`);
 CREATE UNIQUE INDEX IF NOT EXISTS `media_index` ON `Media` (`address` ,`type` ,`author`, `title` );
 CREATE UNIQUE INDEX IF NOT EXISTS `like_index` ON `Like` (`author` ,`content_id` );
