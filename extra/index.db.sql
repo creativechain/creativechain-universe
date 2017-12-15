@@ -129,11 +129,12 @@ CREATE TABLE IF NOT EXISTS `Platform` (
     `lastExploredBlock` INTEGER
 );
 
-CREATE TABLE IF NOT EXISTS `Notifications` (
+CREATE TABLE IF NOT EXISTS `Notification` (
     `author`    TEXT NOT NULL,
     `type`      INTEGER NOT NULL,
     `resource`  TEXT NOT NULL,
-    `viewed`    INTEGER
+    `on_date`   INTEGER NOT NULL,
+    `viewed`    INTEGER DEFAULT 0
 );
 
 CREATE UNIQUE INDEX IF NOT EXISTS `torrent_index` ON `Torrent` (`hash`, `magnet`);
