@@ -172,5 +172,9 @@
   "Cancel": "Cancelar",
   "InsertYourPassword": "Escribe tu contraseña",
   "AddProjectPrice": "Agrega un precio por descarga. Déjalo vacío para descarga gratuita.",
-  "InternetError": "Es posible que no estés conectado a Internet. Por favor, revisa tu conexión."
+  "InternetError": "Es posible que no estés conectado a Internet. Por favor, revisa tu conexión.",
+  "NotifNewContent": "Ha publicado un nuevo contenido",
+  "NotifFollowYou": "Ha empezado a seguirte",
+  "NotifLike": "Le gusta una de tus publicaciones",
+  "NotifComment": "Ha comentado en una de tus publicaciones."
 }

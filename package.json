@@ -47,6 +47,7 @@
     "file-size": "^1.0.0",
     "lzma": "^2.3.2",
     "mime-types": "^2.1.17",
+    "moment": "^2.19.4",
     "node-json-rpc": "0.0.1",
     "os-locale": "^2.1.0",
     "parse-torrent": "^5.8.3",
