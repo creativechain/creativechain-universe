@@ -12,4 +12,5 @@ resources
 torrents
 session.crea
 trantor.dat
+index.db-journal
 extra/credentials.json
