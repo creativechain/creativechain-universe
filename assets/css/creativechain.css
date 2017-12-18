@@ -2,6 +2,10 @@ body {
     background-color: #efefef;
     font-family: 'Open Sans', sans-serif;
 }
+.submenu a.active {
+    outline: 0;
+    color: #222222 !important;
+}
 .container-fluid {
     padding-right: 30px;
     padding-left: 35px;
