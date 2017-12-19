@@ -177,5 +177,6 @@
   "NotifNewContent": "Ha publicado un nuevo contenido",
   "NotifFollowYou": "Ha empezado a seguirte",
   "NotifLike": "Le gusta una de tus publicaciones",
-  "NotifComment": "Ha comentado en una de tus publicaciones."
+  "NotifComment": "Ha comentado en una de tus publicaciones.",
+  "Timestamp": "Marca de tiempo"
 }

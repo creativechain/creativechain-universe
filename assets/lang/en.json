@@ -178,7 +178,8 @@
   "NotifNewContent": "Has published a new content.",
   "NotifFollowYou": "Has started to follow you.",
   "NotifLike": "Likes one of your publications.",
-  "NotifComment": "Has commented on one of your publications."
+  "NotifComment": "Has commented on one of your publications.",
+  "Timestamp": "Time stamp"
 
 }
 
