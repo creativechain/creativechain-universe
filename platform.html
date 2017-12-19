@@ -75,12 +75,12 @@
     <div id="ui-wallet-filter" class="container-fluid" style="display: none">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 col-xs-10">
-                <ul class="list-unstyled list-inline text-center">
-                    <li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab" translate="yes">Overview</a></li>
-                    <li role="presentation"><a href="#send" aria-controls="send" role="tab" data-toggle="tab" translate="yes">Send</a></li>
-                    <li role="presentation"><a href="#receive" aria-controls="receive" role="tab" data-toggle="tab" translate="yes">Receive</a></li>
-                    <li role="presentation"><a href="#transaccions" aria-controls="transaccions" role="tab" data-toggle="tab" translate="yes">Transactions</a></li>
-                    <li role="presentation"><a href="#addressBook" aria-controls="addressBook" role="tab" data-toggle="tab" translate="yes">Address Book</a></li>
+                <ul class="list-unstyled list-inline text-center submenu">
+                    <li><a id="ui-wallet-filter-overview" href="" onclick="return showWalletView('#ui-wallet-filter-overview')" class="active" translate="yes">Overview</a></li>
+                    <li><a id="ui-wallet-filter-send" href="" onclick="return showWalletView('#ui-wallet-filter-send', 'send')" translate="yes">Send</a></li>
+                    <li><a id="ui-wallet-filter-receive" href="" onclick="return showWalletView('#ui-wallet-filter-receive', 'receive')" translate="yes">Receive</a></li>
+                    <li><a id="ui-wallet-filter-transactions" href="" onclick="return showWalletView('#ui-wallet-filter-transactions', 'transactions')" translate="yes">Transactions</a></li>
+                    <li><a id="ui-wallet-filter-addressbook" href="" onclick="return showWalletView('#ui-wallet-filter-addressbook', 'addressbook')" translate="yes">Address Book</a></li>
                 </ul>
             </div>
         </div>
@@ -88,7 +88,7 @@
     <div id="ui-profile-filter" class="container-fluid" style="display: none">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-10">
-                <ul class="list-unstyled list-inline text-center">
+                <ul class="list-unstyled list-inline text-center submenu">
                     <li><a href="" translate="yes">Projects</a></li>
                     <li><a href="" translate="yes">Followers</a></li>
                     <li><a href="" translate="yes">Followings</a></li>
@@ -111,7 +111,7 @@
             <div id="ui-posts" class="row placeholders" style="display: none">
             </div>
             <div id="ui-wallet" class="tab-content" style="display: none">
-                <div role="tabpanel" class="tab-pane active" id="overview">
+                <div class="hidden" id="overview">
                     <div class="row placeholders">
                         <div class="col-xs-12 col-sm-12 col-md-6 placeholder">
                             <div class="card">
@@ -176,7 +176,7 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="send">
+                <div class="hidden" id="send">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
                             <p translate="yes">Send Creativecoins</p>
@@ -252,7 +252,7 @@
                     </div>
 
                 </div>
-                <div role="tabpanel" class="tab-pane" id="receive">
+                <div class="hidden" id="receive">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
                             <p translate="yes">UseRequestPaymentForm</p>
@@ -332,7 +332,7 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="transaccions">
+                <div class="hidden" id="transactions">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
                             <p translate="yes">Transactions history</p>
@@ -403,7 +403,7 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="addressBook">
+                <div class="hidden" id="addressbook">
                     <div class="row placeholder">
                         <div class="col-md-12 title">
                             <p translate="yes">AddressBookExplain</p>
