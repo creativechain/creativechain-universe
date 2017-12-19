@@ -86,8 +86,9 @@ locale().then(lang => {
         content = File.read(Constants.LANG_FOLDER  + 'en.json');
     }
 
-    lang = JSON.parse(content);
-    global.lang = lang;
+    let translation = JSON.parse(content);
+    global.lang = translation;
+    global.locale = lang;
 
 });
 
