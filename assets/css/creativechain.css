@@ -756,7 +756,7 @@ article {
 }
 .page-profile .profile .name {
     font-weight: bold;
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 .page-profile .profile .name-web {
     color: #A5A5A5;
@@ -974,7 +974,26 @@ label {
 /* FIN MODAL PUBLISH */
 
 /* NOTIFICATIONS */
-
+.btn-following {
+    width: 100%;
+    margin-top: 13px;
+    margin-bottom: 5px;
+}
+.btn-follow {
+    width: 100%;
+    margin-top: 13px;
+    margin-bottom: 5px;
+}
+.border-notifications img {
+    width: 46px;
+    height: 46px;
+}
+.dateNotifications {
+    color: #959595;
+    font-weight: 100;
+    font-size: 12px;
+    margin-left: 10px;
+}
 .border-notifications {
     border-bottom: 1px solid #d5d6d7;
 }
@@ -1318,10 +1337,14 @@ progress::-webkit-progress-value {
     .nav>li>a {
         position: relative;
         display: block;
-        padding: 0 12px;
+        padding: 0 9px;
     }
     .circle-notification {
         right: 0;
+    }
+    .logo-navbar-responsive {
+        margin-left: 8px;
+        margin-right: 0px;
     }
 }
 
