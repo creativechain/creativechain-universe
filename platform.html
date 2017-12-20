@@ -43,7 +43,7 @@
 
 <body id="body" class="page-profile edit-profile">
 
-<!--<div class="box-alert" style="display: none">
+<!--<div class="box-alert" >
     <div class="alert">
         <ul class="list-inline list-unstyled">
             <li><img src="./assets/img/logo-slide.png" alt="" style=""></li>
@@ -62,7 +62,7 @@
 </nav>
 
 <div class="box-filter">
-    <div id="ui-main-filter" class="container-fluid" style="display: none">
+    <div id="ui-main-filter" class="container-fluid hidden">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-10">
                 <ul class="list-unstyled list-inline text-center submenu">
@@ -72,7 +72,7 @@
             </div>
         </div>
     </div  >
-    <div id="ui-wallet-filter" class="container-fluid" style="display: none">
+    <div id="ui-wallet-filter" class="container-fluid hidden">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 col-xs-10">
                 <ul class="list-unstyled list-inline text-center submenu">
@@ -85,13 +85,13 @@
             </div>
         </div>
     </div>
-    <div id="ui-profile-filter" class="container-fluid" style="display: none">
+    <div id="ui-profile-filter" class="container-fluid hidden">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-10">
                 <ul class="list-unstyled list-inline text-center submenu">
-                    <li><a href="" translate="yes">Projects</a></li>
-                    <li><a href="" translate="yes">Followers</a></li>
-                    <li><a href="" translate="yes">Followings</a></li>
+                    <li><a href="" onclick="return showProfileView()" translate="yes">Projects</a></li>
+                    <li><a href="" onclick="return showProfileView()" translate="yes">Followers</a></li>
+                    <li><a href="" onclick="return showProfileView()" translate="yes">Followings</a></li>
                 </ul>
             </div>
         </div>
@@ -108,9 +108,9 @@
             </div>
         </div>-->
         <div id="main-content" class="col-sm-12 col-md-9 col-lg-10">
-            <div id="ui-posts" class="row placeholders" style="display: none">
+            <div id="ui-posts" class="row placeholders hidden" >
             </div>
-            <div id="ui-wallet" class="tab-content" style="display: none">
+            <div id="ui-wallet" class="tab-content hidden" >
                 <div class="hidden" id="overview">
                     <div class="row placeholders">
                         <div class="col-xs-12 col-sm-12 col-md-6 placeholder">
@@ -450,7 +450,7 @@
 
                 </div>
             </div>
-            <div id="ui-settings" class="row placeholders" style="display: none">
+            <div id="ui-settings" class="row placeholders hidden">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="row">
@@ -520,7 +520,7 @@
 
         </div>
 
-        <div id="profile-sidebar" class="col-sm-4 col-md-3 sidebar" style="display: none">
+        <div id="profile-sidebar" class="col-sm-4 col-md-3 sidebar hidden" >
             <div class="row">
                 <div class="col-sm-4 col-md-3 sidebar">
                     <div class="row">
@@ -650,11 +650,19 @@
                     </div>
                 </div>
 
-                <div id="ui-profile-posts" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3" style="display: none">
+                <div id="ui-profile-posts" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3 hidden" >
                     <div id="user-posts" class="row placeholders">
                     </div>
                 </div>
-                <div id="ui-profile-edit" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3" style="display: none">
+                <div id="ui-profile-followers" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3 hidden">
+                    <div id="profile-followers" class="row placeholders">
+                    </div>
+                </div>
+                <div id="ui-profile-following" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3 hidden">
+                    <div id="profile-following" class="row placeholders">
+                    </div>
+                </div>
+                <div id="ui-profile-edit" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3 hidden" >
                     <div class="row placeholders">
                         <div class="col-md-12">
                             <div class="card">
@@ -715,9 +723,9 @@
     </div>
 </div>
 
-<div id="publication-items" style="display: none"></div>
-<div id="follows-items" style="display: none"></div>
-<div id="comment-items" style="display: none"></div>
+<div id="publication-items" class="hidden" ></div>
+<div id="follows-items" class="hidden"></div>
+<div id="comment-items" class="hidden"></div>
 <div w3-include-html="./elements/modal-publish.html"></div>
 <div w3-include-html="./elements/modal-article.html"></div>
 <div w3-include-html="./elements/dialog.html"></div>
