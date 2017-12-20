@@ -50,15 +50,15 @@
 <div class="box-filter">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-md-12 loading-blockchain">
+                <p><img src="./assets/img/crea-loading-blocks.gif" alt="">Loading Blockchain...</p>
+            </div>
             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-10">
-                <ul class="list-unstyled list-inline text-center">
+                <ul class="list-unstyled list-inline text-center submenu">
                     <li><a href="" translate="yes">Projects</a></li>
                     <li><a href="" translate="yes">Followers</a></li>
                     <li><a href="" translate="yes">Followings</a></li>
                 </ul>
-            </div>
-            <div class="col-md-2 col-md-offset-1 col-xs-2">
-                <img src="./assets/img/box.png" alt="" class="img-responsive">
             </div>
         </div>
     </div>
@@ -66,27 +66,24 @@
 <div class="container-fluid content-primary profile">
 
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <div w3-include-html="./elements/navbar-left.html">
-            </div>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2">
+
+        <div class="col-sm-12 col-md-9 col-lg-10">
             <div class="row placeholders">
                 <div class="col-md-12">
                     <p translate="yes">Followers</p>
                 </div>
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card" style="padding: 10px 20px 20px 20px;">
                         <div class="row border-notifications">
                             <div class="col-md-1">
-                                <img src="./assets/img/user00.png" alt="" class="">
+                                <img src="./assets/img/profile1.jpg" alt="" class="img-responsive img-circle">
                             </div>
                             <div class="col-md-8">
-                                <p class="name">MACR Museum</p>
+                                <p class="name">MACR Museum <span class="dateNotifications">4 days ago</span></p>
                                 <p class="change-text" translate="yes">Change profile image</p>
                             </div>
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-therciary send-edit-profile" style="width: 100%;" translate="yes">
+                                <button type="button" class="btn btn-therciary btn-following" style="width: 100%;" translate="yes">
                                     Send
                                 </button>
                             </div>
@@ -100,7 +97,7 @@
                                 <p class="change-text" translate="yes">Change profile image</p>
                             </div>
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-primary button-autor-notifications" style="width: 100%;" translate="yes">
+                                <button type="button" class="btn btn-primary btn-follow" style="width: 100%;" translate="yes">
                                     Follow
                                 </button>
                             </div>
