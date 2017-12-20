@@ -1331,10 +1331,14 @@ p.step-4-address-wallet {
     .nav>li>a {
         position: relative;
         display: block;
-        padding: 0 12px;
+        padding: 0 9px;
     }
     .circle-notification {
         right: 0;
+    }
+    .logo-navbar-responsive {
+        margin-left: 8px;
+        margin-right: 0px;
     }
 }
 @media only screen and (min-width: 1001px) {
