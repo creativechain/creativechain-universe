@@ -57,7 +57,8 @@
     "sqlite3": "^3.1.8",
     "utf8": "^2.1.2",
     "varint": "^5.0.0",
-    "webtorrent": "^0.98.20"
+    "webtorrent": "^0.98.20",
+    "workerjs": "^0.1.1"
   },
   "devDependencies": {
     "electron": "1.7.9",

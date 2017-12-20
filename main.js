@@ -135,7 +135,10 @@ function createWindow () {
         height: 1200,
         'minWidth': 800,
         'minHeight': 600,
-        frame: false
+        frame: false,
+        webPreferences: {
+            nodeIntegrationInWorker: true
+        }
     });
     //Uncommment for show default menu bar
     win.setMenu(null);
