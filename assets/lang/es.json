@@ -106,7 +106,7 @@
   "License": "Licencia",
   "You are about to publish your project. Dale!": "Estás a punto de publicar tu proyecto. Dále!",
   "TransactionSend": "Transacción retransmitida",
-  "TxSendMessage": "Esta transacción tiene una comisión de %s. ¿Quieres transmitirla de todos modos?",
+  "TxSendMessage": "Vas a enviar %s.\nSe añadirán %s como comisión de la transaccion.\nTotal %s euros.\nDeseas enviar esta transacción?",
   "EnterWalletPassphrase": "Por favor, introduce la contraseña de tu billetera",
   "LoadFeaturedImage": "Cargar imagen destacada",
   "LoadOtherImage": "Cargar otra imagen",
@@ -178,5 +178,8 @@
   "NotifFollowYou": "Ha empezado a seguirte",
   "NotifLike": "Le gusta una de tus publicaciones",
   "NotifComment": "Ha comentado en una de tus publicaciones.",
-  "Timestamp": "Marca de tiempo"
+  "Timestamp": "Marca de tiempo",
+  "TransactionNotCreated": "No se ha podido crear la transacción.",
+  "TransactionNotSigned": "La transacción no ha podido ser firmada.",
+  "RegistrationNotMade": "No se ha podido realizar el registro."
 }

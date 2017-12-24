@@ -106,7 +106,7 @@
   "License": "License",
   "You are about to publish your project. Dale!": "You are about to publish your project. Dale!",
   "TransactionSend": "Relayed transaction",
-  "TxSendMessage": "This transaction has a commission of %s. Do you want to broadcast it anyway?",
+  "TxSendMessage": "You are going to send %s.\n%s wiil be added as fee of transaction.\nTotal %s.\nDo you want to send this transaction?",
   "EnterWalletPassphrase": "Please enter the password for your wallet",
   "LoadFeaturedImage": "Load featured image",
   "LoadOtherImage": "Load other image",
@@ -179,7 +179,10 @@
   "NotifFollowYou": "Has started to follow you.",
   "NotifLike": "Likes one of your publications.",
   "NotifComment": "Has commented on one of your publications.",
-  "Timestamp": "Time stamp"
+  "Timestamp": "Time stamp",
+  "TransactionNotCreated" : "The transaction could not be created.",
+  "TransactionNotSigned" : "The transaction could not be signed.",
+  "RegistrationNotMade": "The registration could not be made."
 
 }
 
