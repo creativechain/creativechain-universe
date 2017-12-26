@@ -193,5 +193,8 @@
   "ViewAll": "View all",
   "UseRequestPaymentForm": "Use this form to request payments. All the fields are optional."
   "PayTo": "Pay to",
-  "CreativecoinAddress": "Creativecoin address"
+  "CreativecoinAddress": "Creativecoin address",
+  "WriteYourNickName": "Type a nickname",
+  "WriteUserDescription": "Describe what you do",
+  "InsertUserTags": "Write labels related to you and your work"
 }

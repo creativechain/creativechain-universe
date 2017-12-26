@@ -190,5 +190,8 @@
   "ViewAll": "Ver todo",
   "UseRequestPaymentForm": "Usa este formulario para solicitar pagos. Todos los campos son opcionales.",
   "PayTo": "Pagar a",
-  "CreativecoinAddress": "Dirección creativecoin"
+  "CreativecoinAddress": "Dirección creativecoin",
+  "WriteYourNickName": "Escribe un nombre de usuario",
+  "WriteUserDescription": "Describe lo que haces",
+  "InsertUserTags": "Escribe etiquetas relacionadas contigo y tu trabajo"
 }
