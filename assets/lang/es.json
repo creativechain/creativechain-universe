@@ -62,11 +62,9 @@
   "Recent transactions": "Transacciones recientes",
   "Amount": "Cantidad",
   "Send Creativecoins": "Enviar Creativecoins",
-  "Pay to": "Pagar a",
   "Label": "Etiqueta",
   "Subtract fee from amount": "Restar comisión a la cantidad",
   "Choose fee": "Elija la comisión",
-  "Use this to request payments. All fields are optional.": "Usa esto para solicitar pagos. Todos los campos son opcionales.",
   "Message": "Mensaje",
   "Clear all": "Vaciar todo",
   "PaymentHistoryRequested": "Historial de pagos solictados",
@@ -76,7 +74,6 @@
   "Type": "Tipo",
   "Address": "Dirección",
   "Export": "Exportar",
-  "Enter a label for this address and add it to your address book": "Introduce una etiqueta para esta dirección y añadirla a tu agenda",
   "Type a message...": "Escribe un mensaje...",
   "Request payment": "Solicitar pago",
   "(Without message)" :"(Sin mensaje)",
@@ -190,5 +187,7 @@
   "InputCreaAddressExample": "Introduce una dirección Creativecoin (p. ej. cNSenayWkAEPmcphiwaW3as8saD8m5mcu4)",
   "InputLabelToAddContact": "Introduce una etiqueta para añadir esta direccion a tu agenda de direcciones.",
   "InputLabel": "Introduce una etiqueta para identificar tu dirección",
-  "ViewAll": "Ver todo"
+  "ViewAll": "Ver todo",
+  "UseRequestPaymentForm": "Usa este formulario para solicitar pagos. Todos los campos son opcionales.",
+  "PayTo": "Pagar a"
 }

@@ -62,7 +62,6 @@
   "Recent transactions": "Recent transactions",
   "Amount": "Amount",
   "Send Creativecoins": "Send Creativecoins",
-  "Pay to": "Pay to",
   "Label": "Label",
   "Subtract fee from amount": "Subtract fee from amount",
   "Choose fee": "Choose fee",
@@ -191,5 +190,7 @@
   "InputCreaAddressExample": "Enter a Creativecoin address (eg cNSenayWkAEPmcphiwaW3as8saD8m5mcu4)",
   "InputLabelToAddContact": "Enter a label to add this address to your address book",
   "InputLabel": "Enter a label to identify your address",
-  "ViewAll": "View all"
+  "ViewAll": "View all",
+  "UseRequestPaymentForm": "Use this form to request payments. All the fields are optional."
+  "PayTo": "Pay to"
 }
