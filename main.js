@@ -76,18 +76,19 @@ if (!String.hexDecode) {
 }
 
 locale().then(lang => {
-    console.log(lang);
-
+    let settings = FileStorage.load();
     let content = null;
-    lang = lang.slice(0, 2).toLowerCase();
-    if (File.exist(Constants.LANG_FOLDER + lang + '.json')) {
-        content = File.read(Constants.LANG_FOLDER + lang + '.json');
+    lang = settings.getKey('language') || lang.slice(0, 2).toLowerCase();
+    let langFile = Constants.LANG_FOLDER + lang + '.json';
+    console.log(lang, langFile);
+    if (File.exist(langFile)) {
+        content = File.read(langFile);
     } else {
         content = File.read(Constants.LANG_FOLDER  + 'en.json');
     }
 
-    let translation = JSON.parse(content);
-    global.lang = translation;
+    //console.log(content)
+    global.lang = JSON.parse(content);
     global.locale = lang;
 
 });
@@ -96,31 +97,28 @@ global.ticker = {};
 
 function ticker() {
     console.log('Getting ticker...');
-    request(Constants.TICKER_URL, function (error, response, body) {
+    let settings = FileStorage.load();
+    let fiat = (settings.getKey('exchange-coin') || 'usd').toUpperCase();
+    let url = Constants.TICKER_URL + fiat;
+    let responseVar = 'price_' + fiat.toLowerCase();
+    request(url, function (error, response, body) {
         if (error) {
             console.error(error);
             global.ticker.price_btc = Coin.parseCash(0, 'BTC');
             global.ticker.price_usd = Coin.parseCash(0, 'USD');
-            global.ticker.price_eur = Coin.parseCash(0, 'EUR');
+            global.ticker[responseVar] = Coin.parseCash(0, fiat);
         } else {
             try {
                 body = JSON.parse(body);
                 body = body[0];
                 global.ticker.price_btc = Coin.parseCash(body.price_btc, 'BTC');
                 global.ticker.price_usd = Coin.parseCash(body.price_usd, 'USD');
-                global.ticker.price_eur = Coin.parseCash(body.price_eur, 'EUR');
+                global.ticker[responseVar] = Coin.parseCash(body[responseVar], fiat);
 
-                if (global.ticker.listener) {
-                    global.ticker.listener();
-                } else {
-                    console.log('Listener is null');
-                }
             } catch (err) {
                 console.error(err, error, response, body);
             }
         }
-
-
     })
 }
 

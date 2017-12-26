@@ -193,5 +193,6 @@
   "CreativecoinAddress": "Dirección creativecoin",
   "WriteYourNickName": "Escribe un nombre de usuario",
   "WriteUserDescription": "Describe lo que haces",
-  "InsertUserTags": "Escribe etiquetas relacionadas contigo y tu trabajo"
+  "InsertUserTags": "Escribe etiquetas relacionadas contigo y tu trabajo",
+  "AppliedChangedSettings": "Los ajustes cambiados se aplicará la próxima vez que se inicie la plataforma."
 }
