@@ -188,5 +188,6 @@
   "CreateBackup": "Crear copia",
   "AddressBookExplain": "Estas son tus direcciones de contacto para enviar pagos. Siempre debes verificar el monto y la dirección del destinatario antes de transferir las monedas.",
   "InputCreaAddressExample": "Introduce una dirección Creativecoin (p. ej. cNSenayWkAEPmcphiwaW3as8saD8m5mcu4)",
-  "InputLabelToAddContact": "Introduce una etiqueta para añadir esta direccion a tu agenda de direcciones."
+  "InputLabelToAddContact": "Introduce una etiqueta para añadir esta direccion a tu agenda de direcciones.",
+  "ViewAll": "Ver todo"
 }
