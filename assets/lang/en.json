@@ -182,7 +182,10 @@
   "Timestamp": "Time stamp",
   "TransactionNotCreated" : "The transaction could not be created.",
   "TransactionNotSigned" : "The transaction could not be signed.",
-  "RegistrationNotMade": "The registration could not be made."
+  "RegistrationNotMade": "The registration could not be made.",
+  "MakeWalletBackupTitle": "Create a backup",
+  "MakeWalletBackupDescription": "Make a backup of your wallet. Thanks to this backup you can recover your user and all your coins in any device compatible with the platform. Keep the wallet.dat file in a safe place.",
+  "CreateBackup": "Create backup"
 
 }
 

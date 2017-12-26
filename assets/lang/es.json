@@ -181,5 +181,8 @@
   "Timestamp": "Marca de tiempo",
   "TransactionNotCreated": "No se ha podido crear la transacción.",
   "TransactionNotSigned": "La transacción no ha podido ser firmada.",
-  "RegistrationNotMade": "No se ha podido realizar el registro."
+  "RegistrationNotMade": "No se ha podido realizar el registro.",
+  "MakeWalletBackupTitle": "Crear una copia de seguridad",
+  "MakeWalletBackupDescription": "Haz una copia de seguridad de tu billetera. Gracias a esta copia de seguridad podrás recuperar tu usuario y todos tus creativecoins en cualquier dispositivo compatible con la plataforma. Mantén tu copia de seguridad en un lugar seguro.",
+  "CreateBackup": "Crear copia"
 }
