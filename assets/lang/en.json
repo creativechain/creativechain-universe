@@ -80,6 +80,7 @@
   "Type a message...": "Type a message...",
   "Request payment": "Request payment",
   "(Without message)" :"(Without message)",
+  "WithoutLabel" :"(Without label)",
   "Password": "Password",
   "Repeat password": "Repeat password",
   "Creativechain Platform": "Creativechain Platform",

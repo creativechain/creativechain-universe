@@ -190,9 +190,9 @@
                                     <input id="send-address" type="text" class="form-control" placeholder="InputCreaAddressExample">
                                 </div>
                                 <div class="options-address">
-                                    <img src="./assets/img/wallet/icon-address-book.png" alt="">
-                                    <img src="./assets/img/wallet/icon-copy.png" alt="">
-                                    <img src="./assets/img/wallet/icon-cancel.png" alt="">
+                                    <img onclick="return showWalletView('#ui-wallet-filter-overview', 'addressbook')" src="./assets/img/wallet/icon-address-book.png" alt="">
+                                    <img onclick="return setClipboardTextAsAddress()" src="./assets/img/wallet/icon-copy.png" alt="">
+                                    <img onclick="return clearSendFields()" src="./assets/img/wallet/icon-cancel.png" alt="">
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -422,11 +422,8 @@
                                                 <th translate="yes">Address</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td><p>Lorem ipsum dolor sit amet, consectetur</p></td>
-                                                <td><p>Cb5dgdfh4gf5h4gdf3dhddxxselit,</p></td>
-                                            </tr>
+                                            <tbody id="address-book-list">
+
                                             </tbody>
                                         </table>
                                     </div>
