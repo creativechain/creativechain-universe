@@ -69,7 +69,7 @@
   "Use this to request payments. All fields are optional.": "Usa esto para solicitar pagos. Todos los campos son opcionales.",
   "Message": "Mensaje",
   "Clear all": "Vaciar todo",
-  "Payment history requested": "Historial de pagos solictados",
+  "PaymentHistoryRequested": "Historial de pagos solictados",
   "Requested CREA": "CREA Solicitados",
   "Input a address or label": "Introduce una dirección o una etiqueta",
   "Minimum amount": "Cantidad mínima",
@@ -189,5 +189,6 @@
   "AddressBookExplain": "Estas son tus direcciones de contacto para enviar pagos. Siempre debes verificar el monto y la dirección del destinatario antes de transferir las monedas.",
   "InputCreaAddressExample": "Introduce una dirección Creativecoin (p. ej. cNSenayWkAEPmcphiwaW3as8saD8m5mcu4)",
   "InputLabelToAddContact": "Introduce una etiqueta para añadir esta direccion a tu agenda de direcciones.",
+  "InputLabel": "Introduce una etiqueta para identificar tu dirección",
   "ViewAll": "Ver todo"
 }

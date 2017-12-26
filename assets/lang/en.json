@@ -69,7 +69,7 @@
   "Use this to request payments. All fields are optional.": "Use this to request payments. All fields are optional.",
   "Message": "Message",
   "Clear all": "Clear all",
-  "Payment history requested": "Payment history requested",
+  "PaymentHistoryRequested": "Payment history requested",
   "Requested CREA": "Requested CREA",
   "Input a address or label": "Input a address or label",
   "Minimum amount": "Minimum amount",
@@ -190,7 +190,6 @@
   "AddressBookExplain": "These are your contact addresses to send and receive payments. You should always check the amount and address of the recipient before transferring coins."
   "InputCreaAddressExample": "Enter a Creativecoin address (eg cNSenayWkAEPmcphiwaW3as8saD8m5mcu4)",
   "InputLabelToAddContact": "Enter a label to add this address to your address book",
+  "InputLabel": "Enter a label to identify your address",
   "ViewAll": "View all"
-
 }
-
