@@ -186,7 +186,10 @@
   "RegistrationNotMade": "The registration could not be made.",
   "MakeWalletBackupTitle": "Create a backup",
   "MakeWalletBackupDescription": "Make a backup of your wallet. Thanks to this backup you can recover your user and all your coins in any device compatible with the platform. Keep the wallet.dat file in a safe place.",
-  "CreateBackup": "Create backup"
+  "CreateBackup": "Create backup",
+  "AddressBookExplain": "These are your contact addresses to send and receive payments. You should always check the amount and address of the recipient before transferring coins."
+  "InputCreaAddressExample": "Enter a Creativecoin address (eg cNSenayWkAEPmcphiwaW3as8saD8m5mcu4)",
+  "InputLabelToAddContact": "Enter a label to add this address to your address book"
 
 }
 

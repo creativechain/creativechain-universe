@@ -185,5 +185,8 @@
   "RegistrationNotMade": "No se ha podido realizar el registro.",
   "MakeWalletBackupTitle": "Crear una copia de seguridad",
   "MakeWalletBackupDescription": "Haz una copia de seguridad de tu billetera. Gracias a esta copia de seguridad podrás recuperar tu usuario y todos tus creativecoins en cualquier dispositivo compatible con la plataforma. Mantén tu copia de seguridad en un lugar seguro.",
-  "CreateBackup": "Crear copia"
+  "CreateBackup": "Crear copia",
+  "AddressBookExplain": "Estas son tus direcciones de contacto para enviar pagos. Siempre debes verificar el monto y la dirección del destinatario antes de transferir las monedas.",
+  "InputCreaAddressExample": "Introduce una dirección Creativecoin (p. ej. cNSenayWkAEPmcphiwaW3as8saD8m5mcu4)",
+  "InputLabelToAddContact": "Introduce una etiqueta para añadir esta direccion a tu agenda de direcciones."
 }
