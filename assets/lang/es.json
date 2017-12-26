@@ -189,5 +189,6 @@
   "InputLabel": "Introduce una etiqueta para identificar tu dirección",
   "ViewAll": "Ver todo",
   "UseRequestPaymentForm": "Usa este formulario para solicitar pagos. Todos los campos son opcionales.",
-  "PayTo": "Pagar a"
+  "PayTo": "Pagar a",
+  "CreativecoinAddress": "Dirección creativecoin"
 }

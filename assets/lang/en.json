@@ -192,5 +192,6 @@
   "InputLabel": "Enter a label to identify your address",
   "ViewAll": "View all",
   "UseRequestPaymentForm": "Use this form to request payments. All the fields are optional."
-  "PayTo": "Pay to"
+  "PayTo": "Pay to",
+  "CreativecoinAddress": "Creativecoin address"
 }
