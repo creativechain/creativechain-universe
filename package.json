@@ -66,7 +66,7 @@
     "electron-builder": "^17.10.0"
   },
   "build": {
-    "appId": "net.creativechain.universe",
+    "appId": "net.creativechain.platform",
     "productName": "Creativechain",
     "directories": {
       "app": "./"

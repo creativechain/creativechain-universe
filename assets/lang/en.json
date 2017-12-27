@@ -1,6 +1,7 @@
 {
   "locale": "en",
   "AppName": "Creativechain",
+  "VersionName": "Big Bang",
   "WelcomeDescription": "You are about to join a new decentralized dimension. <br>Please, pay attention and follow the advices.",
   "ContentDistribution": "Content distribution without intermediaries.",
   "ContentDistributionDescription": "Thanks to the peer-to-peer ecosystem of Creativechain decentralized platform, you will leave behind the opaque and centralized models of content distribution whose intermediaries set high fees that make your creations more expensive.",
@@ -197,5 +198,7 @@
   "WriteYourNickName": "Type a nickname",
   "WriteUserDescription": "Describe what you do",
   "InsertUserTags": "Write labels related to you and your work",
-  "AppliedChangedSettings": "The changed settings will be applied the next time the platform starts."
+  "AppliedChangedSettings": "The changed settings will be applied the next time the platform starts.",
+  "AboutMessage": "<p><b>Project %s</b></p><p><b>Version:</b> %s</p><p>%s</p><br/><p><b>Web:</b><a href=\"https://www.creativechain.org\"></p><p><b>Github:</b><a href=\"https://github.com/creativechain\"></p>",
+  "AboutTitle": "About this version"
 }
