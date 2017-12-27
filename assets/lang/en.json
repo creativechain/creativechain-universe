@@ -200,5 +200,6 @@
   "InsertUserTags": "Write labels related to you and your work",
   "AppliedChangedSettings": "The changed settings will be applied the next time the platform starts.",
   "OperatingSystem": "Operating System",
-  "Version": "Version"
+  "Version": "Version",
+  "FileExceedMaxSize": "Your file exceeds the maximum size allowed: %s - Max: %s"
 }

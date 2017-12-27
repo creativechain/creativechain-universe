@@ -197,5 +197,6 @@
   "InsertUserTags": "Escribe etiquetas relacionadas contigo y tu trabajo",
   "AppliedChangedSettings": "Los ajustes cambiados se aplicará la próxima vez que se inicie la plataforma.",
   "OperatingSystem": "Sistema Operativo",
-  "Version": "Versión"
+  "Version": "Versión",
+  "FileExceedMaxSize": "Tu arcihvo supera el tamaño máximo permitido: %s - Máx: %s"
 }
