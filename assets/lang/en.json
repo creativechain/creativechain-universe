@@ -199,6 +199,6 @@
   "WriteUserDescription": "Describe what you do",
   "InsertUserTags": "Write labels related to you and your work",
   "AppliedChangedSettings": "The changed settings will be applied the next time the platform starts.",
-  "AboutMessage": "<p><b>Project %s</b></p><p><b>Version:</b> %s</p><p>%s</p><br/><p><b>Web:</b><a href=\"https://www.creativechain.org\"></p><p><b>Github:</b><a href=\"https://github.com/creativechain\"></p>",
-  "AboutTitle": "About this version"
+  "OperatingSystem": "Operating System",
+  "Version": "Version"
 }
