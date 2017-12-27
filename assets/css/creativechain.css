@@ -1188,6 +1188,44 @@ p.step-4-address-wallet {
     margin: 10px 70px;
 }
 
+/* MODAL ABOUT */
+.modal-about > .modal-dialog > .modal-content {
+    padding: 30px;
+}
+.modal-about .row-title > p {
+    margin: 30px 0;color: #95989A
+}
+.modal-about .row-button-modal-about {
+    margin: 30px 0 0;
+}
+.modal-about .header-about > h3 {
+    color: #3b3b3c;margin-bottom: 0;
+}
+.modal-about .header-about > p {
+    color: #d5d6d7;font-size: 13px;
+}
+.modal-about .content-about > p {
+    margin-bottom: 0;
+    color: #3b3b3c;
+    font-weight: 600;
+    font-size: 13px;
+}
+.modal-about .content-about p span{
+    margin-bottom: 0;
+    color: #d5d6d7;
+    font-size: 13px;
+}
+.modal-about .content-about p a {
+    color: #0073ff;
+}
+@media (min-width: 768px){
+    .modal-about > .modal-dialog {
+        width: 630px;
+        margin: 30px auto;
+    }
+}
+
+
 /* MODAL ARTICLE */
 .modal-article h5 {
     font-size: 12px;
