@@ -1214,6 +1214,9 @@ p.step-4-address-wallet {
     color: #d5d6d7;
     font-size: 13px;
 }
+.modal-about .content-about p a {
+    color: #0073ff;
+}
 @media (min-width: 768px){
     .modal-about > .modal-dialog {
         width: 630px;
