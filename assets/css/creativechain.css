@@ -108,6 +108,11 @@ hr {
     background-color: transparent;
     border-color: #3B3B3C !important;
 }
+.btn-primary-inverse {
+    color: #fff;
+    background-color: #ff5766;
+    border-color: #ff5766;
+}
 .btn {
     padding: 2px 30px;
     font-size: 12px;
