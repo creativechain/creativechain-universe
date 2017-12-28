@@ -510,6 +510,7 @@ article {
     padding-right: 2px;
     padding-top: 4px;
     border-bottom: 1px solid #d5d6d7;
+    min-height: 52px;
 }
 .boxFollowing .followingList .titleFollowing {
     font-size: 14px;
