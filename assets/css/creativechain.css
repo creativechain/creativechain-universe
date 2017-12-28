@@ -365,6 +365,7 @@ a {
 .single-news {
     border: solid 1px #e6e6e6;
     border-radius: 4px;
+    height: 310px;
 }
 .single-news article {
     background-color: white;
