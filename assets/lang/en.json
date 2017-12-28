@@ -201,5 +201,7 @@
   "AppliedChangedSettings": "The changed settings will be applied the next time the platform starts.",
   "OperatingSystem": "Operating System",
   "Version": "Version",
-  "FileExceedMaxSize": "Your file exceeds the maximum size allowed: %s - Max: %s"
+  "FileExceedMaxSize": "Your file exceeds the maximum size allowed: %s - Max: %s",
+  "Followers": "Followers",
+  "Projects": "Projects"
 }

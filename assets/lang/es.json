@@ -198,5 +198,7 @@
   "AppliedChangedSettings": "Los ajustes cambiados se aplicará la próxima vez que se inicie la plataforma.",
   "OperatingSystem": "Sistema Operativo",
   "Version": "Versión",
-  "FileExceedMaxSize": "Tu arcihvo supera el tamaño máximo permitido: %s - Máx: %s"
+  "FileExceedMaxSize": "Tu arcihvo supera el tamaño máximo permitido: %s - Máx: %s",
+  "Followers": "Seguidores",
+  "Projects": "Proyectos"
 }
