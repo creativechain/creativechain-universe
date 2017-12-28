@@ -202,5 +202,6 @@
   "Followers": "Seguidores",
   "Projects": "Proyectos",
   "SubtractFeeFromAmount": "Restar comisión a la cantidad",
-  "Publishing": "Publicando..."
+  "Publishing": "Publicando...",
+  "IncorrectPassword": "Oops! Contraseña incorrecta. Inténtalo de nuevo."
 }

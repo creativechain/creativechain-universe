@@ -205,5 +205,6 @@
   "Followers": "Followers",
   "Projects": "Projects",
   "SubtractFeeFromAmount": "Subtract fee from to the amount",
-  "Publishing": "Publishing..."
+  "Publishing": "Publishing...",
+  "IncorrectPassword": "Oops! Incorrect password. Please try again."
 }
