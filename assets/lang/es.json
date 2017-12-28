@@ -201,5 +201,6 @@
   "FileExceedMaxSize": "Tu arcihvo supera el tamaño máximo permitido: %s - Máx: %s",
   "Followers": "Seguidores",
   "Projects": "Proyectos",
-  "SubtractFeeFromAmount": "Restar comisión a la cantidad"
+  "SubtractFeeFromAmount": "Restar comisión a la cantidad",
+  "Publishing": "Publicando..."
 }
