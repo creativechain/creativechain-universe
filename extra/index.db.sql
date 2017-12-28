@@ -146,4 +146,6 @@ CREATE UNIQUE INDEX IF NOT EXISTS `comment_index` ON `Comment` (`author` ,`conte
 CREATE UNIQUE INDEX IF NOT EXISTS `author_index` ON `Author` (`name` ,`address` ,`email` );
 CREATE UNIQUE INDEX IF NOT EXISTS `media_tags_index` ON `MediaTags` (`tag`);
 CREATE UNIQUE INDEX IF NOT EXISTS `user_tags_index` ON `UserTags` (`tag`);
+
+PRAGMA user_version = 1;
 COMMIT;
