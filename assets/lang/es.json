@@ -205,5 +205,7 @@
   "Publishing": "Publicando...",
   "IncorrectPassword": "Oops! Contraseña incorrecta. Inténtalo de nuevo.",
   "NoFollowAnyone": "Todavía no sigues a nadie. Descubre proyectos y sus seguidores",
-  "NoFollowers": "No hay seguidores. Comparte tus proyectos."
+  "NoFollowers": "No hay seguidores. Comparte tus proyectos.",
+  "ContentBlocking": "Bloqueo de contenido",
+  "ContentBlockingMessage": "Vas a realizar un bloqueo. Todo lo relacionado con el contenido será bloqueado y no se volverá a mostrar."
 }
