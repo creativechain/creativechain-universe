@@ -200,5 +200,6 @@
   "Version": "Versión",
   "FileExceedMaxSize": "Tu arcihvo supera el tamaño máximo permitido: %s - Máx: %s",
   "Followers": "Seguidores",
-  "Projects": "Proyectos"
+  "Projects": "Proyectos",
+  "SubtractFeeFromAmount": "Restar comisión a la cantidad"
 }

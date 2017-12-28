@@ -203,5 +203,6 @@
   "Version": "Version",
   "FileExceedMaxSize": "Your file exceeds the maximum size allowed: %s - Max: %s",
   "Followers": "Followers",
-  "Projects": "Projects"
+  "Projects": "Projects",
+  "SubtractFeeFromAmount": "Subtract fee from to the amount"
 }
