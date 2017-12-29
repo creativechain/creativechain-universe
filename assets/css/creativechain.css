@@ -994,8 +994,7 @@ label {
 .border-notifications img {
     width: 46px;
     height: 46px;
-    margin: 0 auto;
-
+    margin: 4px auto;
 }
 .dateNotifications {
     color: #959595;
