@@ -109,7 +109,7 @@ hr {
     border-color: #3B3B3C !important;
 }
 .btn-primary-inverse {
-    color: #fff;
+    color: #fff !important;
     background-color: #ff5766;
     border-color: #ff5766;
 }
