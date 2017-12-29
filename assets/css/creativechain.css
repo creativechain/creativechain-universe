@@ -504,6 +504,10 @@ article {
     max-width: 42px;
     max-height: 42px;
 }
+.boxFollowing .followingList > .icon-following-if-home img {
+    max-width: 42px;
+    max-height: 42px;
+}
 .boxFollowing .icon-following {
     padding-left: 2px;padding-right: 2px;
 }
