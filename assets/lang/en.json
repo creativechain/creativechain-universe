@@ -212,5 +212,6 @@
   "NoFollowers": "There are no followers. Share your projects.",
   "ContentBlocking": "Content blocking",
   "ContentBlockingMessage": "You are going to make a block. Everything related to the content will be blocked and will not be shown again.",
-  "Size": "Size"
+  "Size": "Size",
+  "WalletPendingEntries": "No entries found in the wallet to send the data. You may have all your wallet entries pending confirmation. Please, be patient and try it later."
 }
