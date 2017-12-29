@@ -183,8 +183,7 @@ a:focus, a:hover {
 .circle-notification span {
     font-size: 10px;
     position: relative;
-    left: 4px;
-    bottom: 1px;
+    top: -2px;
 }
 .padding10 {
     padding-top: 10px;
