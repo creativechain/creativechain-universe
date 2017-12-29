@@ -135,7 +135,8 @@ function createWindow () {
         'minHeight': 600,
         frame: false,
         webPreferences: {
-            nodeIntegrationInWorker: true
+            nodeIntegrationInWorker: true,
+            webSecurity: false
         }
     });
     //Uncommment for show default menu bar
