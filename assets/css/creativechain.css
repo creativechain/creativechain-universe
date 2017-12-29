@@ -500,6 +500,10 @@ article {
     margin-left: 0;
     margin-right: 0;
 }
+.boxFollowing .followingList > .icon-following-if-menu-left img {
+    max-width: 42px;
+    max-height: 42px;
+}
 .boxFollowing .icon-following {
     padding-left: 2px;padding-right: 2px;
 }
