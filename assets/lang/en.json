@@ -206,6 +206,7 @@
   "Projects": "Projects",
   "SubtractFeeFromAmount": "Subtract fee from to the amount",
   "Publishing": "Publishing...",
+  "LoadingBlockchain": "Loading blockchain...",
   "IncorrectPassword": "Oops! Incorrect password. Please try again.",
   "NoFollowAnyone": "You still do not follow anyone. Discover projects and their followers.",
   "NoFollowers": "There are no followers. Share your projects.",
