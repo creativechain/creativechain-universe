@@ -371,6 +371,7 @@ a {
 .single-news {
     border: solid 1px #e6e6e6;
     border-radius: 4px;
+    height: 310px;
 }
 .single-news article {
     background-color: white;
@@ -516,6 +517,7 @@ article {
     padding-right: 2px;
     padding-top: 4px;
     border-bottom: 1px solid #d5d6d7;
+    min-height: 52px;
 }
 .boxFollowing .followingList .titleFollowing {
     font-size: 14px;
@@ -982,6 +984,9 @@ label {
 /* FIN MODAL PUBLISH */
 
 /* NOTIFICATIONS */
+.img-list-followers {
+    margin-top: 4px;
+}
 .btn-following {
     width: 100%;
     margin-top: 13px;
