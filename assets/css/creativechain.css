@@ -503,9 +503,9 @@ article {
 .boxFollowing .icon-following {
     padding-left: 2px;padding-right: 2px;
 }
-.boxFollowing .icon-following img {
+/*.boxFollowing .icon-following img {
     width: 45px;height: 45px;
-}
+}*/
 .boxFollowing .followingList .BoxFollowingDescription {
     padding-left: 2px;
     padding-right: 2px;
