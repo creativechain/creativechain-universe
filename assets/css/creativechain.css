@@ -1292,7 +1292,9 @@ p.step-4-address-wallet {
     width: 100%;padding: 0 20px;font-size: 10px;
 }
 .widthAutor > .dropdown-menu img {
-    margin: 0 auto;
+    margin: 10px auto 10px;
+    width: 45px;
+    height: 45px;
 }
 .titleTooltipUser {
     margin-bottom: 0;
