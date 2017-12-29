@@ -978,6 +978,9 @@ label {
 /* FIN MODAL PUBLISH */
 
 /* NOTIFICATIONS */
+.img-list-followers {
+    margin-top: 4px;
+}
 .btn-following {
     width: 100%;
     margin-top: 13px;
