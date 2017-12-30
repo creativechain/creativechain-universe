@@ -50,6 +50,7 @@
     "mime-types": "^2.1.17",
     "moment": "^2.19.4",
     "node-json-rpc": "0.0.1",
+    "node-torrent": "^0.2.1",
     "os-locale": "^2.1.0",
     "parse-torrent": "^5.8.3",
     "path": "^0.12.7",

@@ -1,10 +1,15 @@
-const {app, BrowserWindow, dialog} = require('electron');
-require('electron-dl')();
+const electron = require('electron');
+const {dialog, ipcMain} = require('electron');
 
+require('electron-dl')();
 const path = require('path');
 const url = require('url');
 const request = require('request');
 const locale = require('os-locale');
+
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
+
 
 dialog.showErrorBox = function(title, content) {
     console.log(`${title}\n${content}`);
@@ -13,11 +18,25 @@ dialog.showErrorBox = function(title, content) {
 global.appPath = app.getAppPath();
 
 const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
+//let torrentClient = require('./lib/torrent');
 
 let fileStorage = FileStorage.load();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win;
+let platformWindow;
+let torrentWindow;
+
+ipcMain.on('platform-message', function (event, arg) {
+    //worker.send(arg);
+    //console.log('Received from platform', arg);
+    torrentWindow.webContents.send('main-message', arg);
+});
+
+ipcMain.on('torrent-message', function (event, arg) {
+    //worker.send(arg);
+    console.log('Received from torrent', arg)
+    platformWindow.webContents.send('main-message', arg);
+});
 
 if (!String.format) {
     /**
@@ -128,19 +147,26 @@ setInterval(function () {
 
 function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({
+    platformWindow = new BrowserWindow({
         width: 1400,
         height: 1200,
         'minWidth': 800,
         'minHeight': 600,
         frame: false,
-        webPreferences: {
-            nodeIntegrationInWorker: true,
-            webSecurity: false
-        }
     });
+
+    torrentWindow = new BrowserWindow({
+        width: 600,
+        height: 400,
+        'minWidth': 1,
+        'minHeight': 1,
+        show: false,
+        parent: platformWindow
+    });
+
     //Uncommment for show default menu bar
-    win.setMenu(null);
+    platformWindow.setMenu(null);
+    torrentWindow.setMenu(null);
     //win.maximize();
     // and load the index.html of the app.
 
@@ -149,27 +175,40 @@ function createWindow () {
         initPage = 'platform.html';
     }
 
-    win.loadURL(url.format({
+    platformWindow.loadURL(url.format({
         pathname: path.join(__dirname, initPage),
+        protocol: 'file:',
+        slashes: true
+    }));
+
+    torrentWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'torrent.html'),
         protocol: 'file:',
         slashes: true
     }));
 
     // Open the DevTools.
     if (Constants.DEBUG) {
-        win.webContents.openDevTools();
+        platformWindow.webContents.openDevTools();
     }
 
     ticker();
     // Emitted when the window is closed.
-    win.on('closed', () => {
+    platformWindow.on('closed', () => {
+        //worker.kill();
         //console.log('closing window');
         //Preferences.setNodeCorrectlyRunning(false);
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
-        win = null
+        platformWindow = null
     });
+
+    torrentWindow.on('closed', () => {
+        torrentWindow = null;
+    })
+
+
 }
 
 // This method will be called when Electron has finished
@@ -189,7 +228,7 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (win === null) {
+    if (platformWindow === null) {
         createWindow()
     }
 });
