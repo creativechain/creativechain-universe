@@ -16,7 +16,7 @@ dialog.showErrorBox = function(title, content) {
     console.log(`${title}\n${content}`);
 };
 
-global.appPath = app.getAppPath();
+global.appPath = __dirname;
 
 const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
 //let torrentClient = require('./lib/torrent');
