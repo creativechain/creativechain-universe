@@ -151,7 +151,7 @@
   "Discover": "Descubre",
   "Activity": "Actividad",
   "DownloadFinished": "Descarga finalizada!",
-  "DownloadFinishedBody": "El torrent %s ha finalizado.",
+  "DownloadFinishedBody": "La descargada de %s ha finalizado.",
   "Payment": "Pago por descarga",
   "PaymentBody": "Tienes que pagar %s por esta descarga, más %s de comisión. Un total %s saldrán de tu billetera. ¿Estás de acuerdo?",
   "PaymentSent": "Tu pago se ha enviado correctamente. La descarga comenzará en breve. Recibirás una notificacion cuando esté completa.",
