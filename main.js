@@ -6,6 +6,7 @@ const path = require('path');
 const url = require('url');
 const request = require('request');
 const locale = require('os-locale');
+//const IPFS = require('ipfs');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -29,7 +30,7 @@ let torrentWindow;
 ipcMain.on('platform-message', function (event, arg) {
     //worker.send(arg);
     //console.log('Received from platform', arg);
-    torrentWindow.webContents.send('main-message', arg);
+    //torrentWindow.webContents.send('main-message', arg);
 });
 
 ipcMain.on('torrent-message', function (event, arg) {
@@ -155,18 +156,18 @@ function createWindow () {
         frame: false,
     });
 
-    torrentWindow = new BrowserWindow({
+/*    torrentWindow = new BrowserWindow({
         width: 600,
         height: 400,
         'minWidth': 1,
         'minHeight': 1,
-        show: false,
+        show: true,
         parent: platformWindow
-    });
+    });*/
 
     //Uncommment for show default menu bar
     platformWindow.setMenu(null);
-    torrentWindow.setMenu(null);
+    //torrentWindow.setMenu(null);
     //win.maximize();
     // and load the index.html of the app.
 
@@ -181,11 +182,11 @@ function createWindow () {
         slashes: true
     }));
 
-    torrentWindow.loadURL(url.format({
+/*    torrentWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'torrent.html'),
         protocol: 'file:',
         slashes: true
-    }));
+    }));*/
 
     // Open the DevTools.
     if (Constants.DEBUG) {
@@ -204,9 +205,9 @@ function createWindow () {
         platformWindow = null
     });
 
-    torrentWindow.on('closed', () => {
+/*    torrentWindow.on('closed', () => {
         torrentWindow = null;
-    })
+    })*/
 
 
 }
@@ -214,7 +215,12 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', function () {
+    createWindow();
+
+
+
+});
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
     // On macOS it is common for applications and their menu bar
