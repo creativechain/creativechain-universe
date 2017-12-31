@@ -85,7 +85,9 @@
       "!trantor.dat",
       "!database/index.db",
       "!database/index.db-journal",
-      "extra/*"
+      "extra/dbmigrations/",
+      "extra/credentials.json",
+      "extra/index.db.sql"
     ],
     "mac": {
       "category": "public.app-category.entertainment",
