@@ -84,7 +84,8 @@
       "!session.crea",
       "!trantor.dat",
       "!database/index.db",
-      "!database/index.db-journal"
+      "!database/index.db-journal",
+      "extra/*"
     ],
     "mac": {
       "category": "public.app-category.entertainment",
