@@ -6,94 +6,18 @@ const path = require('path');
 const url = require('url');
 const request = require('request');
 const locale = require('os-locale');
-//const IPFS = require('ipfs');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
-
-dialog.showErrorBox = function(title, content) {
-    console.log(`${title}\n${content}`);
-};
-
 global.appPath = __dirname;
 
 const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
-//let torrentClient = require('./lib/torrent');
 
 let fileStorage = FileStorage.load();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let platformWindow;
-let torrentWindow;
-
-ipcMain.on('platform-message', function (event, arg) {
-    //worker.send(arg);
-    //console.log('Received from platform', arg);
-    //torrentWindow.webContents.send('main-message', arg);
-});
-
-ipcMain.on('torrent-message', function (event, arg) {
-    //worker.send(arg);
-    console.log('Received from torrent', arg)
-    platformWindow.webContents.send('main-message', arg);
-});
-
-if (!String.format) {
-    /**
-     *
-     * @param {string} format
-     * @return {*|void|XML|string}
-     */
-    String.format = function(format) {
-        let parts = format.split('%s');
-        let newFormat = '';
-
-        for (let x in parts) {
-            let r = args[x];
-            if (!r) {
-                if (x === (parts.length - 1)) {
-                    r = '';
-                } else {
-                    r = '%s';
-                }
-
-            }
-
-            newFormat += parts[x];
-            newFormat += r;
-        }
-
-        return newFormat;
-
-/*        let args = Array.prototype.slice.call(arguments, 1);
-        return format.replace(/{(\d+)}/g, function(match, number) {
-            return typeof args[number] !== 'undefined' ? args[number] : match;
-        });*/
-    };
-}
-
-if (!String.hexEncode) {
-    /**
-     *
-     * @param {string} str
-     * @return {String}
-     */
-    String.hexEncode = function (str) {
-        return Buffer.from(str, 'utf8').toString('hex');
-    }
-}
-
-if (!String.hexDecode) {
-    /**
-     *
-     * @param {string} hex
-     * @return {String}
-     */
-    String.hexDecode = function (hex) {
-        return Buffer.from(hex, 'hex').toString('utf8');
-    }
-}
 
 locale().then(lang => {
     let settings = FileStorage.load();
@@ -156,18 +80,8 @@ function createWindow () {
         frame: false,
     });
 
-/*    torrentWindow = new BrowserWindow({
-        width: 600,
-        height: 400,
-        'minWidth': 1,
-        'minHeight': 1,
-        show: true,
-        parent: platformWindow
-    });*/
-
     //Uncommment for show default menu bar
     platformWindow.setMenu(null);
-    //torrentWindow.setMenu(null);
     //win.maximize();
     // and load the index.html of the app.
 
@@ -182,12 +96,6 @@ function createWindow () {
         slashes: true
     }));
 
-/*    torrentWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'torrent.html'),
-        protocol: 'file:',
-        slashes: true
-    }));*/
-
     // Open the DevTools.
     if (Constants.DEBUG) {
 
@@ -197,20 +105,11 @@ function createWindow () {
     ticker();
     // Emitted when the window is closed.
     platformWindow.on('closed', () => {
-        //worker.kill();
-        //console.log('closing window');
-        //Preferences.setNodeCorrectlyRunning(false);
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
         platformWindow = null
     });
-
-/*    torrentWindow.on('closed', () => {
-        torrentWindow = null;
-    })*/
-
-
 }
 
 // This method will be called when Electron has finished
@@ -218,8 +117,6 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', function () {
     createWindow();
-
-
 
 });
 // Quit when all windows are closed.
