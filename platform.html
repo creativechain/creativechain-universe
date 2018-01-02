@@ -116,47 +116,53 @@
             <div id="ui-wallet" class="tab-content hidden" >
                 <div class="hidden" id="overview">
                     <div class="row placeholders">
-                        <div class="col-xs-12 col-sm-12 col-md-6 placeholder">
-                            <div class="card">
-                                <div class="card-header" translate="yes">
-                                    Total balance
+                        <div class="col-xs-12 col-sm-12 col-md-12 placeholder">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="card" style="min-height: 150px;">
+                                        <div class="card-header" translate="yes">
+                                            Total balance
+                                        </div>
+                                        <div class="card-block text-center">
+                                            <h4 class="card-title" id="total-balance">0.00000000 CREA</h4>
+                                            <p class="card-text" id="total-balance-fiat">0.00 USD</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-block text-center">
-                                    <h4 class="card-title" id="total-balance">0.00000000 CREA</h4>
-                                    <p class="card-text" id="total-balance-fiat">0.00 USD</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" translate="yes">
-                                    Balance
-                                </div>
-                                <div class="card-block">
-                                    <table class="table table-responsive tableRecentTransaccions">
-                                        <thead class="thead-inverse">
-                                        <tr class="hidden">
-                                            <th translate="yes">Status</th>
-                                            <th translate="yes">Date</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td><p translate="yes">Available</p></td>
-                                            <td><p id=available-balance>0.00000000 CREA</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p translate="yes">Pending</p></td>
-                                            <td><p id="pending-balance">0.00000000 CREA</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p translate="yes">TOTAL</p></td>
-                                            <td><p id="total-balance-detail">0.00000000 CREA</p></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="card" style="min-height: 150px;">
+                                        <div class="card-header">
+                                            Balance
+                                        </div>
+                                        <div class="card-block">
+                                            <table class="table table-responsive tableRecentTransaccions">
+                                                <thead class="thead-inverse">
+                                                <tr class="hidden">
+                                                    <th translate="yes">Status</th>
+                                                    <th translate="yes">Date</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td><p translate="yes">Available</p></td>
+                                                    <td><p id=available-balance>0.00000000 CREA</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><p translate="yes">Pending</p></td>
+                                                    <td><p id="pending-balance">0.00000000 CREA</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><p translate="yes">TOTAL</p></td>
+                                                    <td><p id="total-balance-detail">0.00000000 CREA</p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 placeholder">
+                        <div class="col-xs-12 col-sm-12 col-md-12 placeholder">
                             <div class="card">
                                 <div class="card-header" translate="yes">
                                     Recent transactions
