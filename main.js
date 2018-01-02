@@ -6,7 +6,7 @@ const path = require('path');
 const url = require('url');
 const request = require('request');
 const locale = require('os-locale');
-
+const isDev = require('electron-is-dev');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
@@ -97,10 +97,9 @@ function createWindow () {
     }));
 
     // Open the DevTools.
-    if (Constants.DEBUG) {
-
+    if (isDev) {
+        platformWindow.webContents.openDevTools();
     }
-    platformWindow.webContents.openDevTools();
 
     ticker();
     // Emitted when the window is closed.
