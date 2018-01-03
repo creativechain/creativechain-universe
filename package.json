@@ -45,7 +45,7 @@
     "electron-dl": "^1.10.0",
     "electron-is-dev": "^0.3.0",
     "file-size": "^1.0.0",
-    "ipfs": "^0.27.5",
+    "ipfs": "creativechain/js-ipfs",
     "lzma": "^2.3.2",
     "mime-types": "^2.1.17",
     "moment": "^2.19.4",
