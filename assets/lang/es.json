@@ -212,5 +212,7 @@
   "Size": "Tamaño",
   "WalletPendingEntries": "No se han encontrado entradas en la billetera para poder enviar los datos. Es posible que tengas todas las entradas de tu billetera pendientes de confirmar. Por favor, sé paciente e inténtalo más tarde.",
   "InsufficientAmount": "No tienes suficiente dinero para realizar esta operación.",
-  "Notifications": "Notificaciones"
+  "Notifications": "Notificaciones",
+  "Copy": "Copiar",
+  "Paste": "Pegar"
 }

@@ -215,5 +215,7 @@
   "Size": "Size",
   "WalletPendingEntries": "No entries found in the wallet to send the data. You may have all your wallet entries pending confirmation. Please, be patient and try it later.",
   "InsufficientAmount": "You do not have enough amount to perform this operation.",
-  "Notifications": "Notifications"
+  "Notifications": "Notifications",
+  "Copy": "Copy",
+  "Paste": "Paste"
 }

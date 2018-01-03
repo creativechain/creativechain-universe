@@ -1,5 +1,5 @@
 const electron = require('electron');
-const {dialog, ipcMain} = require('electron');
+const {dialog, ipcMain, remote} = require('electron');
 
 require('electron-dl')();
 const path = require('path');
@@ -25,7 +25,7 @@ locale().then(lang => {
     lang = settings.getKey('language') || lang.slice(0, 2).toLowerCase();
     let langFile = Constants.LANG_FOLDER + lang + '.json';
     console.log(lang, langFile);
-    if (File.exist(langFile)) {
+    if (File.exist(langFile)) {0
         content = File.read(langFile);
     } else {
         content = File.read(Constants.LANG_FOLDER  + 'en.json');
