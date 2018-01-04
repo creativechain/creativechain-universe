@@ -1,6 +1,6 @@
 {
   "name": "creativechain-platform",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Creativechain is a blockchain project for the registration, authentication and distribution of digital free culture.",
   "main": "main.js",
   "scripts": {
@@ -65,7 +65,7 @@
   },
   "build": {
     "appId": "net.creativechain.platform",
-    "productName": "Creativechain",
+    "productName": "CreativechainPlatform",
     "directories": {
       "app": "./"
     },
