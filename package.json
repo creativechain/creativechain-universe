@@ -65,7 +65,7 @@
   },
   "build": {
     "appId": "net.creativechain.platform",
-    "productName": "CreativechainPlatform",
+    "productName": "Creativechain",
     "directories": {
       "app": "./"
     },
