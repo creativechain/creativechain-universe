@@ -1,6 +1,6 @@
 {
   "name": "creativechain-platform",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Creativechain is a blockchain project for the registration, authentication and distribution of digital free culture.",
   "main": "main.js",
   "scripts": {
@@ -93,7 +93,7 @@
     },
     "win": {
       "icon": "build/win/icon/icon.ico",
-      "target": "portable"
+      "target": "nsis"
     },
     "linux": {
       "icon": "build/linux/icon/",
