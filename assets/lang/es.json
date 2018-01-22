@@ -100,7 +100,8 @@
   "Drag your featured image": "Arrastra tu imagen destacada",
   "Title": "Título",
   "Description": "Descripción",
-  "Download File": "Archivo de descarga",
+  "DownloadFile": "Archivo de descarga",
+  "SelectFile": "Seleccionar archivo",
   "Price": "Precio",
   "License": "Licencia",
   "You are about to publish your project. Dale!": "Estás a punto de publicar tu proyecto. Dále!",
@@ -217,5 +218,10 @@
   "InsufficientAmount": "No tienes suficiente dinero para realizar esta operación.",
   "Notifications": "Notificaciones",
   "Copy": "Copiar",
-  "Paste": "Pegar"
+  "Paste": "Pegar",
+  "Edit": "Editar",
+  "WalletPasswordChanged": "La contraseña ha sido cambiada correctamente.",
+  "ChangingPassword": "Cambiando contraseña...",
+  "OldPassword": "Contraseña actual",
+  "NewPassword": "Nueva contraseña"
 }
