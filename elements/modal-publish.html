@@ -1,12 +1,12 @@
-<div class="modal fade modal-publish" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div id="modal-publish" class="modal fade modal-publish" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" style="    padding: 0 20px;">
             <div class="row row-img-profile" style="margin: 30px 0 0px;">
-                <div class="col-md-2 col-sm-3">
+                <div class="col-md-2 col-sm-3 cursor">
                     <img id="user-publish-avatar" class="img-circle" src="./assets/img/avatar/avatar1.png" alt="" style="width: 80%">
                 </div>
                 <div class="col-md-10 col-sm-7">
-                    <h4 id="user-publish-name" translate="yes">Anonymous</h4>
+                    <h4 id="user-publish-name" class="cursor" translate="yes">Anonymous</h4>
                     <p id="user-publish-web"></p>
                     <ul class="list-unstyled list-inline">
                         <li><p><img id="user-publish-level-icon" src="./assets/img/icon-1.png" alt="" style="width: 25px;"> <span id="user-publish-level">Master</span></p></li>
@@ -34,7 +34,7 @@
                                     </ul>
                                     <p translate="yes">or</p>
                                     <button onclick="loadFeaturedImages()" type="button" class="btn btn-primary" translate="yes" data-target=".modal-publish">
-                                        Load file
+                                        LoadFile
                                     </button>
                                     <p class="maxim-size" translate="yes">MaximumFileSize</p>
                                 </div>
@@ -77,12 +77,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label translate="yes">Download File</label>
+                                    <label translate="yes">DownloadFile</label>
                                     <input id="publish-content-file" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <button onclick="loadContentFile()" type="button" class="btn btn-primary button-upload" translate="yes">Choose content file</button>
+                                <button onclick="loadContentFile()" type="button" class="btn btn-primary button-upload" translate="yes">SelectFile</button>
                             </div>
                         </div>
                         <div class="row">

@@ -97,7 +97,7 @@ function createWindow () {
     }));
 
     // Open the DevTools.
-    //platformWindow.webContents.openDevTools();
+    platformWindow.webContents.openDevTools();
 
     ticker();
     // Emitted when the window is closed.
