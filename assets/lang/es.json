@@ -223,5 +223,6 @@
   "WalletPasswordChanged": "La contraseña ha sido cambiada correctamente.",
   "ChangingPassword": "Cambiando contraseña...",
   "OldPassword": "Contraseña actual",
-  "NewPassword": "Nueva contraseña"
+  "NewPassword": "Nueva contraseña",
+  "PublicationIncomplete": "Tu publicación está incompleta. Asegúrate de que tenga título, descripcion y/o un archivo."
 }

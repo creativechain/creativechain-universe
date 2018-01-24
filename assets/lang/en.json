@@ -226,5 +226,6 @@
   "WalletPasswordChanged": "The password was changed correctly.",
   "ChangingPassword": "Changing password...",
   "OldPassword": "Old password",
-  "NewPassword": "New password"
+  "NewPassword": "New password",
+  "PublicationIncomplete": "Your publication is incomplete. Make sure it has a title, description and / or file."
 }
