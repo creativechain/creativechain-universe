@@ -1462,7 +1462,10 @@ progress::-webkit-progress-value {
         width: 50%;
     }
 }
->>>>>>> maquetacion
+
+.img-circle-important {
+    border-radius: 50% !important;
+}
 @media only screen and (min-width: 1001px) {
     .icon-total-wallet {
         display: none !important;
