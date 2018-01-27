@@ -184,6 +184,7 @@
   "NotifFollowYou": "Has started to follow you.",
   "NotifLike": "Likes one of your publications.",
   "NotifComment": "Has commented on one of your publications.",
+  "NotifPayment": "Has paid for one of your publications.",
   "Timestamp": "Time stamp",
   "TransactionNotCreated" : "The transaction could not be created.",
   "TransactionNotSigned" : "The transaction could not be signed.",
