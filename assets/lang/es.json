@@ -181,6 +181,7 @@
   "NotifFollowYou": "Ha empezado a seguirte",
   "NotifLike": "Le gusta una de tus publicaciones",
   "NotifComment": "Ha comentado en una de tus publicaciones.",
+  "NotifPayment": "Ha pagado por una de tus publicaciones.",
   "Timestamp": "Marca de tiempo",
   "TransactionNotCreated": "No se ha podido crear la transacción.",
   "TransactionNotSigned": "La transacción no ha podido ser firmada.",
