@@ -1,0 +1,44 @@
+<div class="row placeholders">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div id="profile-crop" class="col-md-2">
+                    <img id="input-profile-image" src="./assets/img/avatar/avatar1.png" alt="" class="img-profile img-circle cursor" style="width: 76px;" onclick="loadProfileImage()">
+                </div>
+                <div class="col-md-4 change-imatge">
+                    <p id="user-name" class="name cursor" translate="yes">Anonymous</p>
+                    <p class="change-text cursor" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label translate="yes">Username</label>
+                <input id="input-user-name" type="text" class="form-control" maxlength="21"
+                       placeholder="WriteYourNickName" translate="yes">
+            </div>
+            <div class="form-group">
+                <label translate="yes">Description</label>
+                <input id="input-user-description" type="text" class="form-control" maxlength="144"
+                       placeholder="WriteUserDescription" translate="yes">
+            </div>
+            <div class="form-group">
+                <label translate="yes">Email</label>
+                <input id="input-user-email" type="email" class="form-control" maxlength="55" placeholder="AddYourEmail" translate="yes">
+            </div>
+            <div class="form-group">
+                <label translate="yes">Web</label>
+                <input id="input-user-web" type="text" class="form-control" maxlength="55" placeholder="AddYourWeb" translate="yes">
+            </div>
+            <div class="form-group">
+                <label translate="yes">Tags</label>
+                <input type="text" translate="yes" placeholder="InsertUserTags" data-role="tagsinput" id="input-user-tags" data-options='{"maxTags": 8, "maxChars": 21}' onchange="onTagsChange()" class="form-control">
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button onclick="register()" type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes">
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
