@@ -1,0 +1,80 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="row">
+            <div class="col-sm-2">
+                <img id="settings-user-avatar" src="./assets/img/img-section-profile.png" alt="" class="img-profile img-circle" style="width: 80px">
+            </div>
+            <div class="col-sm-4 change-imatge">
+                <p id="settings-user-name" class="name"></p>
+                <p id="settings-user-description" class="change-text" translate="yes"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">Language</label>
+                    <select id="settings-language" class="form-control">
+                        <option value="en" translate="yes">English</option>
+                        <option value="es" translate="yes">Español</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">ExchangeCoin</label>
+                    <select id="settings-exchange-coin" class="form-control">
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="mxn">MXN</option>
+                        <option value="btc">BTC</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">SessionExpireTime</label>
+                    <select id="settings-expire-time" class="form-control">
+                        <option value="600" translate="yes">-</option>
+                        <option value="600" translate="yes">TenMinutes</option>
+                        <option value="1200" translate="yes">TwentyMinutes</option>
+                        <option value="1800" translate="yes">ThirtyMinutes</option>
+                        <option value="3600" translate="yes">OneHour</option>
+                        <option value="7200" translate="yes">TwoHours</option>
+                        <option value="10800" translate="yes">ThreeHours</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label translate="yes">ActionAmount</label>
+                    <input id="settings-action-amount" type="number" class="form-control" placeholder="" translate="yes" step="0.00010000" min="0.0001">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">Password</label>
+                    <input id="settings-old-password" type="password" class="form-control" placeholder="OldPassword" translate="yes">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">NewPassword</label>
+                    <input id="settings-new-password" type="password" class="form-control" placeholder="NewPassword" translate="yes">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes" onclick="save()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

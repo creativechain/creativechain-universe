@@ -1,0 +1,341 @@
+<div class="hidden" id="overview">
+    <div class="row placeholders">
+        <div class="col-xs-12 col-sm-12 col-md-12 placeholder">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="card" style="min-height: 150px;">
+                        <div class="card-header" translate="yes">
+                            Total balance
+                        </div>
+                        <div class="card-block text-center">
+                            <h4 class="card-title" id="total-balance">0.00000000 CREA</h4>
+                            <p class="card-text" id="total-balance-fiat">0.00 USD</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="card" style="min-height: 150px;">
+                        <div class="card-header">
+                            Balance
+                        </div>
+                        <div class="card-block">
+                            <table class="table table-responsive tableRecentTransaccions">
+                                <thead class="thead-inverse">
+                                <tr class="hidden">
+                                    <th translate="yes">Status</th>
+                                    <th translate="yes">Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><p translate="yes">Available</p></td>
+                                    <td><p id=available-balance>0.00000000 CREA</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p translate="yes">Pending</p></td>
+                                    <td><p id="pending-balance">0.00000000 CREA</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p translate="yes">TOTAL</p></td>
+                                    <td><p id="total-balance-detail">0.00000000 CREA</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 placeholder">
+            <div class="card">
+                <div class="card-header" translate="yes">
+                    Recent transactions
+                </div>
+                <div class="card-block">
+                    <table class="table table-responsive tableRecentTransaccions">
+                        <thead class="thead-inverse">
+                        <tr class="hidden">
+                            <th translate="yes">Status</th>
+                            <th translate="yes">Date</th>
+                            <th translate="yes">Ammount</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tx-list">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hidden" id="send">
+    <div class="row placeholder">
+        <div class="col-md-12 title">
+            <p translate="yes">Send Creativecoins</p>
+        </div>
+    </div>
+    <div class="card" style="padding: 20px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label translate="yes">PayTo</label>
+                    <input id="send-address" type="text" class="form-control" placeholder="InputCreaAddressExample" translate="yes">
+                </div>
+                <div class="options-address">
+                    <img onclick="return showWalletView('#ui-wallet-filter-overview', 'addressbook')" src="./assets/img/wallet/icon-address-book.png" alt="">
+                    <img onclick="return setClipboardTextAsAddress()" src="./assets/img/wallet/icon-copy.png" alt="">
+                    <img onclick="return clearSendFields()" src="./assets/img/wallet/icon-cancel.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label translate="yes">Label</label>
+                    <input id="address-label" type="text" class="form-control" placeholder="InputLabelToAddContact" translate="yes">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label translate="yes">Amount</label>
+                    <div style="display: flex;">
+                        <input id="send-amount" type="number" class="form-control" value="0" step="0.00000001">
+
+                        <!-- insert this line -->
+                        <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+
+                        <select id="searchbygenerals_currency" name="searchbygenerals[currency]" class="form-control">
+                            <option value="1">CREA</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="checkbox" style="margin-top: 30px;">
+                    <label>
+                        <input id="send-subtract-fee" type="checkbox"> <span translate="yes">SubtractFeeFromAmount</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row comission" style="display: none">
+            <div class="col-md-5">
+                <p><span translate="yes">TransactionFee</span><span id="wallet-transaction-fee">0.00200647 CREA/kB</span></p>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select id="disabledSelect" class="form-control">
+                        <option translate="yes">ChooseFee</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <button onclick="validateSendCoins()" type="button" class="btn btn-secondary" translate="yes">
+                    Send
+                </button>
+                <button onclick="clearSendFields()" type="button" class="btn btn-therciary" translate="yes">
+                    Clear all
+                </button>
+            </div>
+            <div class="col-md-4 text-right">
+                <p class="titleAmount">BALANCE: <span id="available-amount-unit" class="totalAmount" >0,</span><span id="available-amount-cents" class="decimals">00000000 CREA</span></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="hidden" id="receive">
+    <div class="row placeholder">
+        <div class="col-md-12 title">
+            <p translate="yes">UseRequestPaymentForm</p>
+        </div>
+    </div>
+    <div class="card" style="padding: 20px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label translate="yes">Label</label>
+                    <input id="request-payment-label" type="text" class="form-control" translate="yes" placeholder="InputLabel">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label translate="yes">Amount</label>
+                    <div style="display: flex;">
+                        <input id="request-payment-amount" type="number" class="form-control" value="0" step="0.00000001">
+                        <!-- insert this line -->
+                        <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+                        <select id="request_coin" name="request[coin]" class="form-control">
+                            <option value="1">CREA</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="checkbox hidden" style="margin-top: 30px;">
+                    <label>
+                        <input type="checkbox"><span>ReuseAddress</span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label translate="yes">Message</label>
+                    <input id="request-payment-message" type="text" class="form-control" translate="yes" placeholder="Type a message...">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <button onclick="requestPayment()" type="button" class="btn btn-secondary" translate="yes">
+                    Request payment
+                </button>
+                <button onclick="clearPaymentFields()" type="button" class="btn btn-therciary" translate="yes">
+                    Clear all
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row placeholder">
+        <div class="col-md-6 title">
+            <p translate="yes">PaymentHistoryRequested</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="card">
+                <div class="card-block">
+                    <table class="table table-responsive tableRecentTransaccions">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th translate="yes">Date</th>
+                            <th translate="yes">Address</th>
+                            <th translate="yes">Label</th>
+                            <th translate="yes">Message</th>
+                            <th translate="yes">Requested CREA</th>
+                        </tr>
+                        </thead>
+                        <tbody id="request-payment-list">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hidden" id="transactions">
+    <div class="row placeholder">
+        <div class="col-md-12 title">
+            <p translate="yes">Transactions history</p>
+        </div>
+    </div>
+    <div class="card" style="padding: 20px;">
+        <div class="row hidden">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" translate="yes" placeholder="InputAddressOrLabel">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control" translate="yes" placeholder="MinimumAmount">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div class="card">
+                    <div class="card-block">
+                        <table class="table table-responsive tableRecentTransaccions">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th translate="yes">Status</th>
+                                <th translate="yes">Date</th>
+                                <th translate="yes">Type</th>
+                                <th translate="yes">Address</th>
+                                <th translate="yes">Amount</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tx-list-details">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button type="button" class="btn btn-therciary" translate="yes">
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hidden" id="addressbook">
+    <div class="row placeholder">
+        <div class="col-md-12 title">
+            <p translate="yes">AddressBookExplain</p>
+        </div>
+    </div>
+
+    <div class="card" style="padding: 20px;">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div class="card">
+                    <div class="card-block">
+                        <table class="table table-responsive tableRecentTransaccions">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th translate="yes">Label</th>
+                                <th translate="yes">Address</th>
+                            </tr>
+                            </thead>
+                            <tbody id="address-book-list">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button translate="yes" type="button" class="btn btn-secondary">
+                    New
+                </button>
+                <button translate="yes" type="button" class="btn btn-therciary">
+                    Delete
+                </button>
+                <button translate="yes" type="button" class="btn btn-therciary">
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
