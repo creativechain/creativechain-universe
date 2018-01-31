@@ -24,6 +24,10 @@ body {
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     vertical-align: middle;
     color: #d5d6d7;
+}
+.table.tooltipStats>tbody>tr>td, .table.tooltipStats>tbody>tr>th, .table.tooltipStats>tfoot>tr>td, .table.tooltipStats>tfoot>tr>th, .table.tooltipStats>thead>tr>td, .table.tooltipStats>thead>tr>th {
+    vertical-align: middle;
+    color: #d5d6d7;
     text-align: center;
 }
 .table>tbody>tr>td>p {
