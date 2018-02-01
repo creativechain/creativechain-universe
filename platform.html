@@ -58,7 +58,7 @@
 </div>-->
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div w3-include-html="./elements/navbar-top.html"></div>
+    <div w3-include-html="./elements/views/navbar-top.html"></div>
 </nav>
 
 <div class="box-filter">
@@ -112,18 +112,18 @@
                 <!-- Home publications -->
             </div>
 
-            <div id="ui-wallet" w3-include-html="./elements/ui-wallet.html" class="tab-content hidden" >
+            <div id="ui-wallet" w3-include-html="./elements/views/ui-wallet.html" class="tab-content hidden" >
                 <!-- Wallet View -->
             </div>
 
-            <div id="ui-settings" w3-include-html="./elements/ui-settings.html" class="row placeholders hidden">
+            <div id="ui-settings" w3-include-html="./elements/views/ui-settings.html" class="row placeholders hidden">
                 <!-- Settings View -->
             </div>
 
         </div>
 
         <div id="profile-sidebar" class="hidden" >
-            <div id="ui-profile" w3-include-html="./elements/ui-profile.html" class="col-sm-4 col-md-3 sidebar">
+            <div id="ui-profile" w3-include-html="./elements/views/ui-profile.html" class="col-sm-4 col-md-3 sidebar">
 
             </div>
 
@@ -173,7 +173,7 @@
                 </div>
             </div>
 
-            <div id="ui-profile-edit" w3-include-html="./elements/ui-profile-edit.html" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3 hidden" >
+            <div id="ui-profile-edit" w3-include-html="./elements/views/ui-profile-edit.html" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3 hidden" >
 
             </div>
 
@@ -196,10 +196,10 @@
 <div id="profile-followers" class="hidden"></div>
 <div id="profile-followings" class="hidden"></div>
 <div id="notification-items" class="hidden"></div>
-<div w3-include-html="./elements/modal-publish.html"></div>
-<div w3-include-html="./elements/modal-article.html"></div>
-<div w3-include-html="./elements/dialog.html"></div>
-<div w3-include-html="./elements/modal-about.html"></div>
+<div w3-include-html="./elements/modals/modal-publish.html"></div>
+<div w3-include-html="./elements/modals/modal-article.html"></div>
+<div w3-include-html="./elements/modals/dialog.html"></div>
+<div w3-include-html="./elements/modals/modal-about.html"></div>
 <div id="loading" class="hidden">
     <div class="loading"></div>
     <p id="loading-text" class="hidden"></p>
@@ -218,6 +218,7 @@
 <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="assets/tags/bootstrap-tagsinput.js"></script>
 
+<script language="javascript" src="lib/resources.js" type="text/javascript"></script>
 <script language="javascript" src="lib/init.js" type="text/javascript"></script>
 <script language="javascript" src="lib/translation.js" type="text/javascript"></script>
 <script language="javascript" src="lib/top-menu.js" type="text/javascript"></script>
