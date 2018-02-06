@@ -425,6 +425,7 @@ article {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #D5D6D7;
 }
 .boxContent .descriptionContent p{
     color: #d5d6d7;
@@ -637,7 +638,27 @@ table.table-following-right .descriptionFollowing {
 .modal-article .titleAutor {
     margin-bottom: 0;
     font-size: 15px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 }
+.modal-article-author {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.article-author-web {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    color: #D5D6D7;
+}
+/*#article-author-buzz {
+    color: #D5D6D7;
+}
+#article-author-level {
+    color: #D5D6D7;
+}*/
 .modal-article h5 {
     margin-top: 0;
 }
@@ -889,6 +910,9 @@ table.table-following-right .descriptionFollowing {
     flex: 1 1 auto;
     padding: 0;
 }
+.bootstrap-tagsinput > .label-info {
+    background-color: #0073ff;
+}
 .edit-profile .bootstrap-tagsinput {
     display: block;
     height: 34px;
@@ -1025,6 +1049,11 @@ label {
 /* FIN MODAL PUBLISH */
 
 /* NOTIFICATIONS */
+.change-text {
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
 .img-list-followers {
     margin-top: 4px;
 }
@@ -1336,7 +1365,7 @@ p.step-4-address-wallet {
     width: 100%;
 }
 .tooltipButton {
-    width: 100%;padding: 0 20px;font-size: 10px;
+    width: 100%;padding: 0 20px;font-size: 10px;margin-top: 0;
 }
 .widthAutor > .dropdown-menu img {
     margin: 10px auto 10px;
@@ -1458,7 +1487,7 @@ progress::-webkit-progress-value {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        width: 40%;
+        width: 35%;
     }
     table.table-following-right .titleFollowing {
         font-size: 14px;
@@ -1496,7 +1525,7 @@ progress::-webkit-progress-value {
         overflow:hidden;
         white-space:nowrap;
         text-overflow: ellipsis;
-        width: 50%;
+        width: 35%;
     }
     table.table-following-right .titleFollowing {
         font-size: 14px;
