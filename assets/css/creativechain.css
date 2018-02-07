@@ -1067,6 +1067,40 @@ label {
 /* FIN MODAL PUBLISH */
 
 /* NOTIFICATIONS */
+.row-list-notification {
+    min-height: 100px;
+    margin: 0;
+    padding: 0;
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    border-bottom: 1px solid #ddd;
+}
+.row-list-notification > .row-list-notification-avatare {
+    margin: 4px;
+    padding: 5px;
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 20%;
+    -webkit-order: 1;
+    order: 1;
+}
+.row-list-notification > .row-list-notification-autor {
+    margin: 4px;
+    padding: 5px;
+    -webkit-flex: 3 1 60%;
+    flex: 3 1 60%;
+    -webkit-order: 2;
+    order: 2;
+}
+.row-list-notification > .row-list-notification-options {
+    margin: 4px;
+    padding: 5px;
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 20%;
+    -webkit-order: 3;
+    order: 3;
+}
 .change-text {
     overflow: hidden;
     white-space:nowrap;
