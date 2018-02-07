@@ -1,7 +1,10 @@
 <div class="row">
-    <div class="col-md-12 text-right">
-        <button type="button" id="user-edit-button" class="btn btn-therciary" onclick="return showProfileEditView()" translate="yes">
+    <div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 text-right">
+        <button type="button" id="user-edit-button" class="btn btn-therciary edit-button-profile" onclick="return showProfileEditView()" translate="yes">
             Edit profile
+        </button>
+        <button type="button" class="btn btn-primary follow-button-profile" translate="yes">
+            Follow
         </button>
     </div>
 </div>
@@ -10,7 +13,8 @@
         <img id="user-avatar" src="./assets/img/avatar/avatar1.png" alt="" class="img-profile img-circle" style="width: 76px;">
         <p id="user-nick" translate="yes" class="name">Anonymous</p>
         <p id="user-web" class="name-web"></p>
-        <span id="user-description" class="descriptionProfile"></span>
+        <p id="user-description" class="descriptionProfile"></p>
+        <p id="user-email" class="descriptionProfile">demo@demos.es</p>
     </div>
 </div><!--
                 <div class="row">
@@ -32,23 +36,12 @@
             <tr>
                 <td><img id="user-buzz-level-icon" src="./assets/img/icon-1.png" alt=""><span id="user-buzz-level"></span></td>
                 <td><img src="./assets/img/icon-2.png" alt=""><span id="user-buzz"></span></td>
-                <!--                            <td>
-                                                <button type="button" class="btn btn-primary" translate="yes">
-                                                    Publish
-                                                </button>
-                                            </td>-->
             </tr>
 
             </tbody>
         </table>
     </div>
-
 </div>
-<!--                <div class="row">
-                    <div class="col-md-12">
-                        <hr>
-                    </div>
-                </div>-->
 <div class="row">
     <div class="col-md-12">
         <table class="table table-stats-profile">

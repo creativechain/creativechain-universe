@@ -1,6 +1,7 @@
 body {
     background-color: #efefef;
     font-family: 'Open Sans', sans-serif;
+    color: #3B3B3C;
 }
 .submenu a.active {
     outline: 0;
@@ -16,18 +17,18 @@ body {
     position: absolute;
     top: 8px;
     font-size: 12px;
-    color: #a5a5a5;
+    color: #808080;
 }
 .grey-text {
-    color: #a5a5a5;
+    color: #808080;
 }
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     vertical-align: middle;
-    color: #d5d6d7;
+    color: #808080;
 }
 .table.tooltipStats>tbody>tr>td, .table.tooltipStats>tbody>tr>th, .table.tooltipStats>tfoot>tr>td, .table.tooltipStats>tfoot>tr>th, .table.tooltipStats>thead>tr>td, .table.tooltipStats>thead>tr>th {
     vertical-align: middle;
-    color: #d5d6d7;
+    color: #808080;
     text-align: center;
 }
 .table>tbody>tr>td>p {
@@ -89,7 +90,7 @@ hr {
 }
 .box-alert > .alert > ul > li:nth-child(2) > p:nth-child(2) {
     font-size: 12px;
-    color: #A5A5A5;
+    color: #808080;
 }
 .box-alert > .alert > ul > li:nth-child(2) {
     display: inline-block;
@@ -130,7 +131,7 @@ hr {
     background-color: #f9f9f9;
     height: 55px;
     padding-top: 17px;
-    border-bottom: 1px solid #d5d6d7;
+    border-bottom: 1px solid #dfdfdf;
     position: fixed;
     width: 100%;
     z-index: 100;
@@ -239,10 +240,10 @@ ul.notifications .list-notifications > .description-notification p:nth-child(1){
     margin-bottom: 0;
 }
 ul.notifications .list-notifications > .description-notification p:nth-child(1) > span {
-    margin-bottom: 0;font-size: 10px;margin-left: 20px;color: #a5a5a5
+    margin-bottom: 0;font-size: 10px;margin-left: 20px;color: #808080
 }
 ul.notifications .list-notifications > .description-notification p:nth-child(2){
-    color: #a5a5a5; font-size: 10px;margin-bottom: 0;
+    color: #808080; font-size: 10px;margin-bottom: 0;
 }
 ul.notifications .list-notifications > .thumbnail-notification > img {
     width: 60px;margin: 0 10px;
@@ -252,10 +253,10 @@ ul.notifications .list-notifications > .thumbnail-notification > img {
 }
 .navBar-left li.active-li {
     border-left: solid 5px #0052dd;
-    border-bottom: solid 1px #D5D6D7;
+    border-bottom: solid 1px #808080;
 }
 .navBar-left li {
-    border-bottom: solid 1px #D5D6D7;
+    border-bottom: solid 1px #808080;
 }
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
     outline: none;
@@ -267,11 +268,11 @@ ul.notifications .list-notifications > .thumbnail-notification > img {
     color: white;
 }
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
-    color: #d5d6d7;
+    color: #808080;
     background-color: transparent;
 }
 .navBar-left .active-a {
-    color: #3b3b3b;
+    color: #3B3B3C;
 }
 .btn-publish {
     font-size: 14px;
@@ -358,7 +359,7 @@ a {
     background-color: #FFD952;
 }
 .state-doc {
-    background-color: #D5D6D7;
+    background-color: #808080;
 }
 .state-picture {
     background-color: #ff5766;
@@ -425,10 +426,10 @@ article {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #D5D6D7;
+    color: #808080;
 }
 .boxContent .descriptionContent p{
-    color: #d5d6d7;
+    color: #808080;
 }
 .boxOptions .boxLike {
     padding-left: 6px;padding-right: 2px;
@@ -441,7 +442,7 @@ article {
     font-size: 10px;
     margin-top: 7px;
     margin-left: -3px;
-    color: #d5d6d7;
+    color: #808080;
 }
 .boxOptions .boxComments {
     padding-left: 6px;padding-right: 2px;
@@ -484,7 +485,7 @@ article {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color: #d5d6d7;
+    color: #808080;
 }
 .boxOwner .box-level-owner {
     padding-left: 1px;
@@ -531,7 +532,7 @@ article {
     padding-left: 2px;
     padding-right: 2px;
     padding-top: 4px;
-    border-bottom: 1px solid #d5d6d7;
+    border-bottom: 1px solid #dfdfdf;
     min-height: 52px;
 }
 table.table-following-right .titleFollowing {
@@ -539,7 +540,7 @@ table.table-following-right .titleFollowing {
     margin-bottom: 0;
 }
 table.table-following-right tr:nth-child(even) {
-    border-bottom: 1px solid #d5d6d7;
+    border-bottom: 1px solid #dfdfdf;
 }
 table.table-following-right tr:nth-child(odd) > td:nth-child(2) {
     line-height: 30px;
@@ -588,7 +589,7 @@ table.table-following-right .descriptionFollowing {
 .box-alert-post p {
     margin-left: 10px;
     font-size: 12px;
-    color: #a5a5a5;
+    color: #808080;
     margin-top: 0 !important;
 }
 .user-comment {
@@ -612,7 +613,7 @@ table.table-following-right .descriptionFollowing {
     font-size: 12px;
 }
 .certificate span {
-    color: #a5a5a5 !important;
+    color: #808080 !important;
 }
 .modal-article .box-img {
     padding: 0 0 0 15px;
@@ -651,14 +652,14 @@ table.table-following-right .descriptionFollowing {
     overflow:hidden;
     white-space:nowrap;
     text-overflow: ellipsis;
-    color: #D5D6D7;
+    color: #808080;
 }
-/*#article-author-buzz {
-    color: #D5D6D7;
+#article-author-buzz {
+    color: #808080;
 }
 #article-author-level {
-    color: #D5D6D7;
-}*/
+    color: #808080;
+}
 .modal-article h5 {
     margin-top: 0;
 }
@@ -668,7 +669,7 @@ table.table-following-right .descriptionFollowing {
 }
 .modal-article span {
     font-size: 12px;
-    color: #3b3b3c;
+    color: #808080;
 }
 .modal-article p.titleSecundary {
     font-size: 12px;
@@ -796,8 +797,8 @@ table.table-following-right .descriptionFollowing {
     cursor: pointer;
 }
 .page-wallet #send .comission {
-    border-top: 1px solid #D5D6D7;
-    border-bottom: 1px solid #D5D6D7;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #808080;
     padding: 10px;
     margin: 20px 0;
 }
@@ -831,12 +832,12 @@ table.table-following-right .descriptionFollowing {
     margin-bottom: 5px;
 }
 .page-profile .profile .name-web {
-    color: #A5A5A5;
+    color: #808080;
     font-size: 12px;
 }
 .page-profile .profile .descriptionProfile {
     font-size: 12px;
-    color: #A5A5A5;
+    color: #808080;
 }
 .page-profile .stats-profile ul.list-inline {
     margin-left: 0;
@@ -846,36 +847,46 @@ table.table-following-right .descriptionFollowing {
 }
 .page-profile .stats-profile .table-stats-profile-1 td > img {
     width: 20px;
-    margin-right: 5px;
+    margin: 7px 6px;
 }
 .page-profile .stats-profile ul > li {
     padding: 0;
 }
 .page-profile .stats-profile ul > li > span {
     font-size: 12px;
-    color: #A5A5A5;
+    color: #808080;
 }
 .page-profile .table-stats-profile thead {
     display: none;
+}
+.page-profile .table-stats-profile-1>tbody>tr>td, .table-stats-profile-1>tbody>tr>th, .table-stats-profile-1>tfoot>tr>td, .table-stats-profile-1>tfoot>tr>th, .table-stats-profile-1>thead>tr>td, .table-stats-profile-1>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #ddd !important;
+    border-bottom: 1px solid #ddd !important;
+    color: #808080;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 .page-profile .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: middle;
-    border-top: 1px solid #ddd;
-    color: #A5A5A5;
+    border-top: 1px solid transparent;
+    color: #808080;
     text-transform: uppercase;
     font-size: 12px;
 }
 .page-profile .title-profile h3{
     font-size: 12px;
-    color: #A5A5A5;
+    color: #808080;
     font-weight: bold;
     text-transform: uppercase;
 }
 .page-profile .title-profile p {
     font-size: 12px;
-    color: #A5A5A5;
+    color: #808080;
 }
 
 .edit-profile .card {
@@ -894,6 +905,13 @@ table.table-following-right .descriptionFollowing {
     border-radius: .25rem;
     padding: 20px;
 }
+#user-edit-button {
+    width: 100%;
+}
+.follow-button-profile {
+    width: 100%;
+}
+
 .edit-profile .card-header:first-child {
     border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
 }
@@ -940,7 +958,7 @@ table.table-following-right .descriptionFollowing {
     margin-bottom: 0;
 }
 .edit-profile .change-imatge p.change-text {
-    color: #A5A5A5;
+    color: #808080;
     font-size: 12px;
 }
 .edit-profile .send-edit-profile {
@@ -955,7 +973,7 @@ label {
     font-weight: normal;
 }
 .modal-publish .row-img-profile p {
-    color: #A5A5A5;
+    color: #808080;
 }
 .modal-publish .upload-file {
     margin: 20px;
@@ -1006,7 +1024,7 @@ label {
     line-height: 1.42857143;
     vertical-align: middle;
     border-top: 1px solid transparent;
-    color: #A5A5A5;
+    color: #808080;
     text-transform: none;
     font-size: 12px;
 }
@@ -1079,7 +1097,7 @@ label {
     margin-left: 10px;
 }
 .border-notifications {
-    border-bottom: 1px solid #d5d6d7;
+    border-bottom: 1px solid #dfdfdf;
 }
 .autor-notifications {
     margin-top: 4px;
@@ -1158,7 +1176,7 @@ label {
     background-image: url("../img/background-slide-9.png");
 }
 .carousel-control {
-    color: #d5d6d7;
+    color: #808080;
     text-shadow: 0 1px 2px rgba(0,0,0,0);
 }
 .carousel-control:focus, .carousel-control:hover {
@@ -1286,7 +1304,7 @@ p.step-4-address-wallet {
     color: #3b3b3c;margin-bottom: 0;
 }
 .modal-about .header-about > p {
-    color: #d5d6d7;font-size: 13px;
+    color: #808080;font-size: 13px;
 }
 .modal-about .content-about > p {
     margin-bottom: 0;
@@ -1296,7 +1314,7 @@ p.step-4-address-wallet {
 }
 .modal-about .content-about p span{
     margin-bottom: 0;
-    color: #d5d6d7;
+    color: #808080;
     font-size: 13px;
 }
 .modal-about .content-about p a {
@@ -1317,7 +1335,7 @@ p.step-4-address-wallet {
 }
 .modal-article .descriptionModal {
     font-size: 12px;
-    color: #a5a5a5;
+    color: #808080;
 }
 /* Tooltips publication list */
 .tooltipStats th {
@@ -1376,10 +1394,10 @@ p.step-4-address-wallet {
     margin-bottom: 0;
 }
 .webTooltipUser {
-    font-size: 10px;color: #A5A5A5;
+    font-size: 10px;color: #808080;
 }
 .descriptionTooltipUser {
-    font-size: 10px;color: #A5A5A5;
+    font-size: 10px;color: #808080;
 }
 @media only screen and (max-width: 1000px) {
     .amount-navbar {
@@ -1404,7 +1422,7 @@ p.step-4-address-wallet {
         background-color: #f9f9f9;
         height: 55px;
         padding-top: 25px;
-        border-bottom: 1px solid #d5d6d7;
+        border-bottom: 1px solid #808080;
         position: fixed;
         width: 100%;
         z-index: 100;
