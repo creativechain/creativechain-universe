@@ -1067,8 +1067,11 @@ label {
 /* FIN MODAL PUBLISH */
 
 /* NOTIFICATIONS */
+.img-center {
+    margin: 0 auto;
+}
 .row-list-notification {
-    min-height: 100px;
+    min-height: 0;
     margin: 0;
     padding: 0;
     display: -webkit-flex;
@@ -1080,24 +1083,24 @@ label {
 .row-list-notification > .row-list-notification-avatare {
     margin: 4px;
     padding: 5px;
-    -webkit-flex: 1 6 20%;
-    flex: 1 6 20%;
+    -webkit-flex: 1 6 40px;
+    flex: 1 6 40px;
     -webkit-order: 1;
     order: 1;
 }
 .row-list-notification > .row-list-notification-autor {
     margin: 4px;
     padding: 5px;
-    -webkit-flex: 3 1 60%;
-    flex: 3 1 60%;
+    -webkit-flex: 3 1 65%;
+    flex: 3 1 75%;
     -webkit-order: 2;
     order: 2;
 }
 .row-list-notification > .row-list-notification-options {
     margin: 4px;
     padding: 5px;
-    -webkit-flex: 1 6 20%;
-    flex: 1 6 20%;
+    -webkit-flex: 1 6 35%;
+    flex: 1 6 25%;
     -webkit-order: 3;
     order: 3;
 }
@@ -1105,6 +1108,7 @@ label {
     overflow: hidden;
     white-space:nowrap;
     text-overflow: ellipsis;
+    margin-bottom: 0;
 }
 .img-list-followers {
     margin-top: 4px;
