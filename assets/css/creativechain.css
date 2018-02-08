@@ -824,6 +824,12 @@ table.table-following-right .descriptionFollowing {
 .page-profile .profile .img-profile {
     margin:20px 0;
 }
+.img-profile > .img-profile-user {
+    margin:20px auto;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
 .img-profile {
     margin:20px 0;
 }
