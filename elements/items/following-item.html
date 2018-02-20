@@ -1,12 +1,14 @@
-<tr id="followed-" class="cursor">
+<tr v-bind:id="'followed-' + f.followed_address"
+    v-bind:onclick="'onLoadUser(\'' + f.followed_address + '\')'" class="cursor">
     <td rowspan="2">
-        <div id="followed-avatar-" class="img-circle-following avatare-1"></div></td>
+        <div v-bind:id="'followed-avatar-' + f.followed_address"
+             v-bind:style="{ background: 'url(\'' + resolveAvatar(f.avatarFile, f.followed_address) + '\') center center', 'background-size': 'cover' }" class="img-circle-following avatare-1"></div></td>
     <td>
-        <p id="followed-name-" class="titleFollowing"></p>
+        <p v-bind:id="'followed-name-' + f.followed_address" class="titleFollowing">{{ f.name }}</p>
     </td>
 </tr>
 <tr>
     <td>
-        <p id="followed-description-" class="descriptionFollowing"></p>
+        <p v-bind:id="'followed-description-' + f.followed_address" class="descriptionFollowing">{{ f.description || '-' }}</p>
     </td>
 </tr>

@@ -119,7 +119,7 @@
   "Start": "Start",
   "EncryptWalletAlert": "Please enter a password to encrypt your wallet.",
   "Backup": "Backup",
-  "CREA Address": "CREA Address",
+  "CreativecoinAddress": "CREA Address",
   "Username": "Username",
   "AddYourEmail": "Add your email",
   "AddYourWeb": "Add your web",
@@ -228,5 +228,7 @@
   "ChangingPassword": "Changing password...",
   "OldPassword": "Old password",
   "NewPassword": "New password",
-  "PublicationIncomplete": "Your publication is incomplete. Make sure it has a title, description and / or file."
+  "PublicationIncomplete": "Your publication is incomplete. Make sure it has a title, description and / or file.",
+  "YourComment": "Your comment",
+  "BlockchainCertificate": "Blockchain certificate"
 }

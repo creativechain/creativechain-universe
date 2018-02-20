@@ -78,6 +78,7 @@ function createWindow () {
         'minWidth': 800,
         'minHeight': 600,
         frame: false,
+        backgroundColor: '#fff'
     });
 
     //Uncommment for show default menu bar

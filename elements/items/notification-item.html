@@ -1,14 +1,19 @@
-<div class="row border-notifications">
-    <div class="col-md-2 col-sm-2">
-        <img id="follower-avatar-" src="./assets/img/profile1.jpg" alt="" class="img-responsive img-circle img-list-followers cursor">
+<div v-bind:id="'notification-' + n.id" class="row border-notifications row-list-notification">
+    <div class="row-list-notification-avatare cursor">
+        <div v-bind:id="'notification-avatar-' + n.id" class="img-circle-following img-center"
+             v-bind:style="{ 'background': 'url(\'' + resolveAvatar(n.data.avatarFile, n.data.address) + '\') center center / cover' }"
+             v-on:click="onLoadUser(n.author)"></div>
     </div>
-    <div class="col-md-7 col-sm-5 autor-notifications">
-        <p id="follower-name-" class="name cursor">Anonymous</p>
-        <p id="follower-description-" class="change-text" translate="yes">-</p>
+    <div class="row-list-notification-autor autor-notifications change-text">
+        <p v-bind:id="'notification-name-' + n.id" v-on:click="onLoadUser(n.author)" class="name cursor change-text">{{ n.data.name }}<span class="dateNotifications">{{ resolveDate(n.on_date) }}</span> </p>
+        <p v-bind:id="'notification-description-' + n.id" class="change-text" translate="yes">{{ n.description }}</p>
     </div>
-    <div class="col-md-3 col-sm-5">
-        <button id="follower-button-" class="btn btn-therciary btn-following" style="width: 100%;" translate="yes">
-            Send
+    <div class="row-list-notification-options hidden">
+        <button v-bind:id="'notification-button-' + n.id" class="btn btn-therciary btn-following"
+                v-bind:onmouseenter="'followButtonEnter(\'notification-button-' + n.id + '\', \'' + n.author + '\', ' + n.isFollowing + ')'"
+                v-bind:onmouseleave="'followButtonLeave(\'notification-button-' + n.id + '\', \'' + n.author + '\', ' + n.isFollowing + ')'"
+                style="width: 100%;" translate="yes">
+            Follow
         </button>
     </div>
 </div>

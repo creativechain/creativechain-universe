@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 text-right">
-        <button type="button" id="user-edit-button" class="btn btn-therciary edit-button-profile" onclick="return showProfileEditView()" translate="yes">
+        <button v-if="profile.isUser" type="button" id="user-edit-button" class="btn btn-therciary edit-button-profile" onclick="return showProfileEditView()" translate="yes">
             Edit profile
         </button>
-        <button type="button" class="btn btn-primary follow-button-profile" translate="yes">
+        <button v-else id="user-follow-button" type="button" class="btn btn-primary follow-button-profile" translate="yes">
             Follow
         </button>
     </div>
@@ -14,7 +14,9 @@
 
         <!-- AÑADIR IMAGEN USER -->
         <div class="row-list-notification-avatare img-profile">
-            <div id="user-avatar" class="img-profile-user img-center"></div>
+            <div id="user-avatar"
+                 v-bind:style="{ 'background': 'url(\'' + resolveAvatar(profile.avatarFile, profile.address) + '\') center center / cover' }"
+                 class="img-profile-user img-center"></div>
         </div>
         <!-- FIN AÑADIR IMAGEN USER -->
 
@@ -22,10 +24,10 @@
 <!--
         <img id="user-avatar" src="./assets/img/avatar/avatar1.png" alt="" class="img-profile img-circle" style="width: 76px;">
 -->
-        <p id="user-nick" translate="yes" class="name">Anonymous</p>
-        <p id="user-web" class="name-web"></p>
-        <p id="user-description" class="descriptionProfile"></p>
-        <p id="user-email" class="descriptionProfile">demo@demos.es</p>
+        <p id="user-nick" translate="yes" class="name">{{ profile.name || lang.Anonymous }}</p>
+        <p id="user-web" class="name-web">{{ profile.web || '-' }}</p>
+        <p id="user-description" class="descriptionProfile">{{ profile.description || '-' }}</p>
+        <p id="user-email" class="descriptionProfile">{{ profile.email }}</p>
     </div>
 </div>
 <div class="row stats-profile">
@@ -40,8 +42,8 @@
             </thead>
             <tbody>
             <tr>
-                <td><img id="user-buzz-level-icon" src="./assets/img/icon-1.png" alt=""><span id="user-buzz-level"></span></td>
-                <td><img src="./assets/img/icon-2.png" alt=""><span id="user-buzz"></span></td>
+                <td><img id="user-buzz-level-icon" v-bind:src="buzz.icon" alt=""><span id="user-buzz-level">{{ buzz.levelText }}</span></td>
+                <td><img src="./assets/img/icon-2.png" alt=""><span id="user-buzz">{{ buzz.rate + ' Buzz' }}</span></td>
             </tr>
 
             </tbody>
@@ -62,12 +64,12 @@
             <tr>
                 <td><img src="./assets/img/like0.png" alt=""></td>
                 <td translate="yes">Likes</td>
-                <td id="user-likes">0</td>
+                <td id="user-likes">{{ profile.likes }}</td>
             </tr>
             <tr>
                 <td><img src="./assets/img/comments.png" alt=""></td>
                 <td translate="yes">Comments</td>
-                <td id="user-comments">0</td>
+                <td id="user-comments">{{ profile.comments}}</td>
             </tr>
             <tr>
                 <td><img src="./assets/img/smartaction.png" alt=""></td>
@@ -77,7 +79,7 @@
             <tr>
                 <td><img src="./assets/img/followers-profile.png" alt=""></td>
                 <td translate="yes">Followers</td>
-                <td id="user-followers">0</td>
+                <td id="user-followers">{{ profile.followers }}</td>
             </tr>
             </tbody>
         </table>
@@ -90,8 +92,8 @@
 </div>
 <div class="row">
     <div class="col-md-12 title-profile">
-        <h3 translate="yes">CREA Address</h3>
-        <p id="user-address"></p>
+        <h3 translate="yes">CreativecoinAddress</h3>
+        <p id="user-address">{{ profile.address }}</p>
     </div>
 </div>
 <div class="row">
@@ -110,7 +112,7 @@
         <hr>
     </div>
 </div>
-<div id="user-donate-row" class="row">
+<div v-if="!profile.isUser" id="user-donate-row" class="row">
     <div class="col-md-12 text-center">
         <button id="user-donate-button" type="button" class="btn btn-primary hidden" translate="yes">
             Donate

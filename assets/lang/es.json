@@ -117,7 +117,7 @@
   "Start": "Comenzar",
   "EncryptWalletAlert": "Por favor, escribe una contraseña para cifrar tu billetera.",
   "Backup": "Copia de seguridad",
-  "CREA Address": "Dirección CREA",
+  "CreativecoinAddress": "Dirección CREA",
   "Username": "Nombre de usuario",
   "AddYourEmail": "Escribe tu email",
   "AddYourWeb": "Escribe tu web",
@@ -225,5 +225,7 @@
   "ChangingPassword": "Cambiando contraseña...",
   "OldPassword": "Contraseña actual",
   "NewPassword": "Nueva contraseña",
-  "PublicationIncomplete": "Tu publicación está incompleta. Asegúrate de que tenga título, descripcion y/o un archivo."
+  "PublicationIncomplete": "Tu publicación está incompleta. Asegúrate de que tenga título, descripcion y/o un archivo.",
+  "YourComment": "Tu comentario",
+  "BlockchainCertificate": "Certificado blockchain"
 }

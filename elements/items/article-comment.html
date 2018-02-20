@@ -2,15 +2,15 @@
     <hr>
 </div>
 <div class="row user-comment">
-    <div class="col-md-2 col-sm-2 cursor">
-        <img id="comment-author-avatar" src="./assets/img/img-profile.png" alt="" class="img-circle" style="width: 50px;">
+    <div class="col-md-2 col-sm-2 cursor" v-on:click="onLoadUser(c.author)">
+        <img v-bind:id="'comment-author-avatar-' + c.txid" v-bind:src="resolveAvatar(c.avatarFile, c.author)" alt="" class="img-circle" style="width: 50px;">
     </div>
-    <div class="col-md-10 col-sm-10">
-        <ul class="list-unstyled list-inline">
-            <li><p id="comment-author-name" class="titleSecundary cursor">Robert Blue</p></li>
-            <li><img id="comment-author-level-icon" src="./assets/img/modal/user-level.png" alt=""></li>
-            <li><span id="comment-date">3 days ago</span></li>
+    <div class="col-md-10 col-sm-10" >
+        <ul class="list-unstyled list-inline" v-on:click="onLoadUser(c.author)">
+            <li><p v-bind:id="'comment-author-name' + c.txid" class="titleSecundary cursor">{{ c.name }}</p></li>
+            <li><img v-bind:id="'comment-author-level-icon' + c.txid" v-bind:src="getBuzz(c.user_likes, c.user_comments, c.publications).icon" alt=""></li>
+            <li><span v-bind:id="'comment-date' + c.txid">{{ resolveDate(c.creation_date) }}</span></li>
         </ul>
-        <span id="comment-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
+        <span v-bind:id="'comment-text-' + c.txid">{{ c.comment }}</span>
     </div>
 </div>

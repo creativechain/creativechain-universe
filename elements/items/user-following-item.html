@@ -1,14 +1,19 @@
 <div class="row-list-notification">
     <div class="row-list-notification-avatare">
-        <div id="following-avatar-" class="img-circle-following img-center"></div>
+        <div v-bind:id="'following-avatar-' + f.followed_address"
+             v-bind:style="{ 'background': 'url(\'' + resolveAvatar(f.avatarFile, f.followed_address) + '\') center center / cover' }"
+             v-on:click="loadProfileData(f.followed_address, f.followed_address === userAddress)"
+             class="img-circle-following img-center cursor"></div>
     </div>
     <div class="row-list-notification-autor autor-notifications change-text">
-        <p id="following-name-" class="name cursor change-text">Anonymous</p>
-        <p id="following-description-" class="change-text" translate="yes">-</p>
+        <p v-bind:id="'following-name-' + f.followed_address"
+           v-on:click="loadProfileData(f.followed_address, f.followed_address === userAddress)"
+           class="name cursor change-text">{{ f.name || lang.Anonymous }}</p>
+        <p v-bind:id="'following-description-' + f.followed_address" class="change-text" translate="yes">{{ f.description || '-' }}</p>
     </div>
     <div class="row-list-notification-options">
-        <button id="following-button-" class="btn btn-therciary btn-following" style="width: 100%;" translate="yes">
-            Send
+        <button v-bind:id="'following-button-' + f.followed_address" class="btn btn-therciary btn-following" style="width: 100%;" translate="yes">
+            Follow
         </button>
     </div>
 </div>

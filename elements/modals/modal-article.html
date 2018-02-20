@@ -3,24 +3,39 @@
         <div class="modal-content">
             <div class="row">
                 <div class="col-md-9 col-sm-8 box-img">
-                    <img id="article-featured-image" src="./assets/img/article1.jpg" alt="" class="img-responsive" style="display: block; margin: auto">
-                    <video id="article-video" controls class="img-responsive hidden" style="margin: auto"></video>
-                    <audio id="article-audio" controls class="hidden" style="margin: auto"></audio>
+                    <template v-if="article.content_type.indexOf('video') > -1 && article.private_file">
+                        <video id="article-video" controls class="img-responsive"
+                               v-bind:poster="featuredImage.image"
+                               v-bind:style="{ 'margin': 'auto', 'display': 'block', 'background-color': featuredImage.color}">
+                            <source v-bind:src="article.private_file" v-bind:type="article.content_type">
+                        </video>
+                    </template>
+                    <template v-else-if="article.content_type.indexOf('audio') > -1 && article.private_file">
+                        <audio id="article-audio" controls style="margin: auto; display: block">
+                            <source v-bind:src="article.private_file" v-bind:type="article.content_type">
+                        </audio>
+                    </template>
+                    <template v-else>
+                        <img id="article-featured-image" v-bind:src="featuredImage.image" alt="" class="img-responsive"
+                             v-bind:style="{ 'display': 'block', 'margin': 'auto', 'background-color': featuredImage.color }">
+                    </template>
+
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12">
-                                    <p class="your-comment-title-post">Your comment</p>
+                                    <p class="your-comment-title-post" translate="yes">YourComment</p>
                                 </div>
                             </div>
                             <div class="box-comment">
                                 <div class="row" style="margin-top: 20px;">
                                     <div class="col-md-2 col-sm-2">
-                                        <img id="article-comment-avatar" src="./assets/img/img-profile.png" alt="" class="img-responsive img-circle" style="width: 50px;">
+                                        <img id="article-comment-avatar" v-bind:src="userAvatar" alt="" class="img-responsive img-circle" style="width: 50px;">
                                     </div>
                                     <div class="col-md-10 col-sm-10">
                                         <textarea name="" id="article-comment" rows="3" maxlength="233" style="width: 100%;"></textarea>
-                                        <button id="article-comment-button" type="button" class="btn btn-primary" translate="yes">
+                                        <button id="article-comment-button" type="button" class="btn btn-primary"
+                                                v-on:click="publishComment(article.address)" translate="yes">
                                             Comment
                                         </button>
                                     </div>
@@ -30,10 +45,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12">
-                                        <h4 id="article-comments" style="font-size: 14px;margin-bottom: 30px;">Comments (2)</h4>
+                                        <h4 id="article-comments" style="font-size: 14px;margin-bottom: 30px;">{{ article.comments + ' ' + lang.Comments }}</h4>
                                     </div>
                                 </div>
-                                <div id="article-comment-list">
+                                <div id="article-comment-list" >
+                                    <template v-for="c in comments" w3-include-html="./elements/items/article-comment.html">
+
+                                    </template>
                                 </div>
                             </div>
                             <div class="box-comment">
@@ -44,7 +62,7 @@
                                     <div class="col-md-10 col-sm-10 certificate">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6">
-                                                <h4>Blockchain Certificate</h4>
+                                                <h4 translate="yes">BlockchainCertificate</h4>
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <ul id="article-license-list" class="list-inline list-unstyled text-right icon-certificate-post">
@@ -60,19 +78,23 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <p class="text-licence">
-                                                    <span id="article-txid">TxID</span>
+                                                    <span id="article-txid">
+                                                        <a href="" v-on:click="openUrlInBrowser('https://chainz.cryptoid.info/crea/tx.dws?' + article.txid + '.htm')">{{ article.txid }}</a>
+                                                    </span>
                                                 </p>
                                                 <p class="text-licence">
                                                     <span translate="yes">License</span>:
-                                                    <span id="article-license">Creative Commons BY-SA</span>
+                                                    <span id="article-license">
+                                                        <a href="" v-on:click="openUrlInBrowser(license.link)">{{ license.name }}</a>
+                                                    </span>
                                                 </p>
                                                 <p class="text-licence grey-text">
                                                     <span translate="yes">Timestamp</span>:
-                                                    <span id="article-timestamp">22:08 hours 20.08.2017</span>
+                                                    <span id="article-timestamp">{{ resolveDate(article.creation_date, 'LLLL') }}</span>
                                                 </p>
                                                 <p class="text-licence grey-text">
-                                                    <span translate="yes">CREA Address</span>:
-                                                    <span id="article-address">ghjk765567jhvcvhjkiuytrtyu76fvbnjut</span>
+                                                    <span translate="yes">CreativecoinAddress</span>:
+                                                    <span id="article-address">{{ article.address}}</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -102,18 +124,31 @@
                     <section>
                         <div class="row">
                             <div class="col-md-4">
-                                <img id="article-author-avatar" src="./assets/img/img-profile.png" alt="" class="img-responsive img-circle cursor">
+                                <img id="article-author-avatar" v-bind:src="resolveAvatar(article.avatarFile, article.author)"
+                                     v-on:click="onLoadUser(article.author)" alt="" class="img-responsive img-circle cursor">
                             </div>
                             <div class="col-md-8 modal-article-author" style="padding-left: 0;">
-                                <p id="article-author-name" class="titleAutor cursor">Robert Blue</p>
-                                <span class="article-author-web" id="article-author-web">venenatis.com</span>
+                                <p id="article-author-name"
+                                   v-on:click="onLoadUser(article.author)"
+                                   class="titleAutor cursor">{{ article.name || lang.Anonymous }}</p>
+                                <span class="article-author-web" id="article-author-web">{{ article.web || article.user_description || '-' }}</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <ul class="list-unstyled">
-                                    <li><p><img id="article-author-level-icon" src="./assets/img/icon-1.png" alt="" style="width: 15px;"> <span id="article-author-level">Master</span></p></li>
-                                    <li><p><img src="./assets/img/icon-2.png" alt="" style="width: 15px;"> <span id="article-author-buzz">345 Buzz</span></p></li>
+                                    <li>
+                                        <p>
+                                            <img id="article-author-level-icon" v-bind:src="buzz.icon" alt="" style="width: 15px;">
+                                            <span id="article-author-level">{{ buzz.levelText }}</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <img src="./assets/img/icon-2.png" alt="" style="width: 15px;">
+                                            <span id="article-author-buzz">{{ buzz.rate + ' Buzz' }}</span>
+                                        </p>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -131,11 +166,11 @@
                     <section>
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 id="article-title">A peich ese pedazo de hasta luego Lucas benemerita53.</h5>
-                                <p id="article-description" class="descriptionModal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum ut turpis ut sagittis. Ut placerat et sem eu fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum ut turpis ut sagittis. Ut placerat et sem e 233.</p>
+                                <h5 id="article-title">{{ article.title }}</h5>
+                                <p id="article-description" class="descriptionModal">{{ article.description }}</p>
                                 <p>
                                     <br>
-                                    <span id="article-date"></span>
+                                    <span id="article-date">{{ resolveDate(article.creation_date, 'LLLL') }}</span>
                                 </p>
                             </div>
                         </div>
@@ -150,39 +185,53 @@
                     </section>
                     <section class="stats">
                         <ul class="list-unstyled">
-                            <li><p><img id="article-like" src="./assets/img/modal/icon-like.png" alt=""> <span id="article-likes">55 Likes</span></p></li>
                             <li>
-                                <p><img src="./assets/img/modal/icon-smart-action.png" alt=""> <span id="article-smart-actions">0 Smart Actions</span></p>
-<!--                                <p class="titleSponsor">Sponsor</p>
-                                <p class="titleDonation">Donate</p>-->
-
+                                <p>
+                                    <img id="article-like" src="./assets/img/modal/icon-like.png"
+                                        v-on:click="makeLike(article.address, article.user_liked)" alt="">
+                                    <span id="article-likes">{{ article.likes + ' ' + lang.Likes }}</span>
+                                </p>
                             </li>
+<!--                            <li>
+                                <p>
+                                    <img src="./assets/img/modal/icon-smart-action.png" alt="">
+                                    <span id="article-smart-actions">0 Smart Actions</span>
+                                </p>
+                                <p class="titleSponsor">Sponsor</p>
+                                <p class="titleDonation">Donate</p>
+
+                            </li>-->
                         </ul>
                     </section>
-                    <section id="article-download-info" class="downloadArticleModal">
+                    <section v-if="article.private_content" id="article-download-info" class="downloadArticleModal">
                         <div class="row">
                             <div class="col-md-12">
                                 <button id="article-download" type="button" class="btn btn-primary" translate="yes" onclick="makePayment()">
-                                    Download
+                                    <template v-if="article.private_file">
+                                        {{ lang.Save }}
+                                    </template>
+                                    <template v-else="article.private_content">
+                                        {{ lang.Download }}
+                                    </template>
                                 </button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="downloadTitle" translate="yes">Format</p>
-                                <span id="article-format" class="downloadDescription"></span>
+                                <span id="article-format" class="downloadDescription">{{ article.content_type }}</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="downloadTitle" translate="yes">Size</p>
-                                <span id="article-size" class="downloadDescription">2,5MB</span>
+                                <span id="article-size" class="downloadDescription">{{ size() }}</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="downloadTitle" translate="yes">Price</p>
-                                <span id="article-crea" class="downloadDescription">0.00000000 CREA</span>
+                                <span id="article-crea" class="downloadDescription">{{ article.priceString }}</span>
                             </div>
                         </div>
                     </section>
