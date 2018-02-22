@@ -230,5 +230,8 @@
   "NewPassword": "New password",
   "PublicationIncomplete": "Your publication is incomplete. Make sure it has a title, description and / or file.",
   "YourComment": "Your comment",
-  "BlockchainCertificate": "Blockchain certificate"
+  "BlockchainCertificate": "Blockchain certificate",
+  "NewUpdate": "New update available!",
+  "NewUpdateMessage": "A new version of the platform has been released:\n %s\nIt is highly recommended to update the platform as soon as possible.",
+  "GoToPublication": "Go to the publication"
 }
