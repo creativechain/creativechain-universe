@@ -77,7 +77,7 @@ function createWindow () {
         height: 1200,
         'minWidth': 800,
         'minHeight': 600,
-        frame: false,
+        frame: true,
         backgroundColor: '#fff'
     });
 
