@@ -110,9 +110,11 @@
         <div id="main-content" class="col-sm-12 col-md-9 col-lg-10">
             <div id="ui-posts"  class="row placeholders hidden" >
                 <!-- Home publications -->
-                <template v-for="m in publications" w3-include-html="./elements/items/content-item.html">
+                <div id="ui-posts-list">
+                    <template v-for="m in publications" w3-include-html="./elements/items/content-item.html">
 
-                </template>
+                    </template>
+                </div>
             </div>
 
             <div id="ui-wallet" w3-include-html="./elements/views/ui-wallet.html" class="tab-content hidden" >
