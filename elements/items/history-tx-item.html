@@ -1,0 +1,20 @@
+<tr>
+    <th>
+        <img v-bind:src="tx.icon" alt="">
+    </th>
+    <td>
+        <p>{{ resolveDate(tx.timereceived * 1000, 'LLLL') }}</p>
+    </td>
+    <td>
+        <p>{{ tx.category }}</p>
+    </td>
+    <td>
+        <p>
+            <img v-bind:src="tx.directionIcon" alt=""> {{ tx.address }}
+        </p>
+    </td>
+    <td>
+        <p v-if="!tx.amount.isNegative()">+ {{ tx.amount.toString() }}</p>
+        <p v-else style="color: #FF5766">- {{ tx.amount.toString() }}</p>
+    </td>
+</tr>

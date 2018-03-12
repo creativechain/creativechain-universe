@@ -231,5 +231,12 @@
   "NewUpdateMessage": "Se ha lanzado una nueva version de la plataforma: \n %s\nEs muy recomendable actualizar la plataforma cuanto antes.",
   "GoToPublication": "ir a la publicación",
   "NewEntry": "Nueva entrada",
-  "Delete": "Eliminar"
+  "Delete": "Eliminar",
+  "Sent": "Enviado",
+  "Received": "Recibido",
+  "ExportTransactions": "Exportar transacciones",
+  "Confirmed": "Confirmado",
+  "AmountInCrea": "Cantidad (CREA)",
+  "ID": "ID",
+  "ExportingTransactions": "Exportando transacciones..."
 }

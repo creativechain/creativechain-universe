@@ -234,5 +234,13 @@
   "NewUpdateMessage": "A new version of the platform has been released:\n %s\nIt is highly recommended to update the platform as soon as possible.",
   "GoToPublication": "Go to the publication",
   "NewEntry": "New",
-  "Delete": "Delete"
+  "Delete": "Delete",
+  "Sent": "Sent",
+  "Received": "Received",
+  "ExportTransactions": "Export transactions",
+  "Confirmed": "Confirmed",
+  "AmountInCrea": "Amount (CREA)",
+  "ID": "ID",
+  "ExportingTransactions": "Exporting transactions..."
+
 }
