@@ -59,7 +59,7 @@
                                                  class="img-responsive avatare-owner img-circle" style="width: 30px; height: 30px" alt="">
                                         </div>
                                         <div class="col-md-8 col-xs-8 box-title-owner">
-                                            <p v-bind:id="'content-item-author-' + m.address">{{ m.name }}</p>
+                                            <p v-bind:id="'content-item-author-' + m.address">{{ m.name || lang.Anonymous }}</p>
                                         </div>
                                         <div class="col-md-2 col-xs-2 box-level-owner">
                                             <img v-bind:id="'content-item-author-level-' + m.address"
@@ -84,13 +84,14 @@
                                             <div class="col-xs-12">
                                                 <img v-bind:id="'content-item-tooltip-avatar-' + m.address"
                                                      v-bind:src="resolveAvatar(m.avatarFile, m.author)"
+                                                     v-bind:onclick="'onLoadUser(\'' + m.author + '\')'"
                                                      class="img-circle-important cursor" alt="">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12 text-center">
                                                 <p class="titleTooltipUser">
-                                                    <strong v-bind:id="'content-item-tooltip-author-' + m.address" class="cursor">{{ m.name }}</strong></p>
+                                                    <strong v-bind:id="'content-item-tooltip-author-' + m.address" class="cursor">{{ m.name || lang.Anonymous }}</strong></p>
                                                 <p class="webTooltipUser" v-bind:id="'content-item-tooltip-web-' + m.address">
                                                     {{ m.web || '-' }}
                                                 </p>
