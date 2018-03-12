@@ -232,5 +232,7 @@
   "BlockchainCertificate": "Blockchain certificate",
   "NewUpdate": "New update available!",
   "NewUpdateMessage": "A new version of the platform has been released:\n %s\nIt is highly recommended to update the platform as soon as possible.",
-  "GoToPublication": "Go to the publication"
+  "GoToPublication": "Go to the publication",
+  "NewEntry": "New",
+  "Delete": "Delete"
 }

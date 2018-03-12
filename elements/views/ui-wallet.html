@@ -62,6 +62,9 @@
                         </thead>
                         <tbody id="tx-list">
 
+                        <template v-for="tx in transactions" w3-include-html="./elements/items/recent-tx-item.html">
+
+                        </template>
                         </tbody>
                     </table>
                 </div>
@@ -326,7 +329,7 @@
         <div class="row">
             <div class="col-md-12 text-right">
                 <button translate="yes" type="button" class="btn btn-secondary">
-                    New
+                    NewEntry
                 </button>
                 <button translate="yes" type="button" class="btn btn-therciary">
                     Delete
