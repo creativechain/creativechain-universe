@@ -241,6 +241,6 @@
   "Confirmed": "Confirmed",
   "AmountInCrea": "Amount (CREA)",
   "ID": "ID",
-  "ExportingTransactions": "Exporting transactions..."
-
+  "ExportingTransactions": "Exporting transactions...",
+  "ImmutableProject": "The content of your project is immutable. It can be re-edited but not deleted."
 }

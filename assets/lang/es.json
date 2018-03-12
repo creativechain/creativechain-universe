@@ -238,5 +238,7 @@
   "Confirmed": "Confirmado",
   "AmountInCrea": "Cantidad (CREA)",
   "ID": "ID",
-  "ExportingTransactions": "Exportando transacciones..."
+  "ExportingTransactions": "Exportando transacciones...",
+  "ImmutableProject": "El contenido de tu proyecto es inmutable. Puede ser re-editado pero no eliminado."
+
 }
