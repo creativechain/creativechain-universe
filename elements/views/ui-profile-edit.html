@@ -3,30 +3,33 @@
         <div class="card">
             <div class="row">
                 <div id="profile-crop" class="col-md-2">
-                    <img id="input-profile-image" src="./assets/img/avatar/avatar1.png" alt="" class="img-profile img-circle cursor" style="width: 76px;" onclick="loadProfileImage()">
+                    <img id="input-profile-image" v-bind:src="resolveAvatar(profile.avatarFile, profile.address)" alt="" class="img-profile img-circle cursor" style="width: 76px;" onclick="loadProfileImage()">
                 </div>
                 <div class="col-md-4 change-imatge">
-                    <p id="user-name" class="name cursor" translate="yes">Anonymous</p>
+                    <p id="user-name" class="name cursor" translate="yes">{{ profile.name || lang.Anonymous}}</p>
                     <p class="change-text cursor" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
                 </div>
             </div>
             <div class="form-group">
                 <label translate="yes">Username</label>
-                <input id="input-user-name" type="text" class="form-control" maxlength="21"
+                <input id="input-user-name" type="text" class="form-control" maxlength="21" v-bind:value="profile.name"
                        placeholder="WriteYourNickName" translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Description</label>
                 <input id="input-user-description" type="text" class="form-control" maxlength="144"
+                       v-bind:value="profile.description"
                        placeholder="WriteUserDescription" translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Email</label>
-                <input id="input-user-email" type="email" class="form-control" maxlength="55" placeholder="AddYourEmail" translate="yes">
+                <input id="input-user-email" type="email" class="form-control" maxlength="55" placeholder="AddYourEmail"
+                       v-bind:value="profile.email" translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Web</label>
-                <input id="input-user-web" type="text" class="form-control" maxlength="55" placeholder="AddYourWeb" translate="yes">
+                <input id="input-user-web" type="text" class="form-control" maxlength="55" placeholder="AddYourWeb"
+                       v-bind:value="profile.web" translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Tags</label>
