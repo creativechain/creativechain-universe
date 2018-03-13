@@ -261,6 +261,7 @@
   "Yes": "Yes",
   "OnlyNonProfitOrg": "Only<br>Non-profit<br>Organization",
   "ActionCommission": "This action has a commission of %s.",
-  "Register": "Register"
+  "Register": "Register",
+  "LoadUserFile": "If you are a user, load your user-file here! (.dat)"
 
 }

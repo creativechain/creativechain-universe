@@ -258,6 +258,7 @@
   "Yes": "Sí",
   "OnlyNonProfitOrg": "Solo<br>Organización sin<br>Ańimo de lucro",
   "ActionCommission": "Esta acción tiene una comisión de %s.",
-  "Register": "Registro"
+  "Register": "Registro",
+  "LoadUserFile": "¡Si eres un usuario, carga tu archivo de usuario aquí! (.dat)"
 
 }
