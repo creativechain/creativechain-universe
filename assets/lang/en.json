@@ -242,5 +242,22 @@
   "AmountInCrea": "Amount (CREA)",
   "ID": "ID",
   "ExportingTransactions": "Exporting transactions...",
-  "ImmutableProject": "The content of your project is immutable. It can be re-edited but not deleted."
+  "ImmutableProject": "The content of your project is immutable. It can be re-edited but not deleted.",
+  "Icon": "Icon",
+  "Acronym": "Acronym",
+  "AllowsRemixCulture": "Allows <br> Remix Culture",
+  "AllowsComercialUse": "Allows <br> Comercial Use",
+  "AllowsFreeCultureWorks": "Allows <br> Free Culture Works",
+  "MeetsOpenDefinition": "Meets 'Open definition'",
+  "LicenseCC0": "Freeing content globally without restrictions",
+  "LicenseBY": "Attribution alone",
+  "LicenseBYSA": "Attribution + ShareALike",
+  "LicenseBYNC": "Attribution + Noncommercial",
+  "LicenseBYND": "Attribution + NonDerivates",
+  "LicenseBYNCSA": "Attribution + Noncommercial + ShareALike",
+  "LicensePPBYNCSA": "Attribution + Noncommercial (only cooperatives)",
+  "LicenseBYNCND": "Attribution + Noncommercial + NonDerivates",
+  "Yes": "Yes",
+  "OnlyNonProfitOrg": "Only<br>Non-profit<br>Organization"
+
 }

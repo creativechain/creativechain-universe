@@ -239,6 +239,22 @@
   "AmountInCrea": "Cantidad (CREA)",
   "ID": "ID",
   "ExportingTransactions": "Exportando transacciones...",
-  "ImmutableProject": "El contenido de tu proyecto es inmutable. Puede ser re-editado pero no eliminado."
+  "ImmutableProject": "El contenido de tu proyecto es inmutable. Puede ser re-editado pero no eliminado.",
+  "Icon": "Icono",
+  "Acronym": "Acrónimo",
+  "AllowsRemixCulture": "Allows <br> Remix Culture",
+  "AllowsComercialUse": "Permite <br> Uso Comercial",
+  "AllowsFreeCultureWorks": "Permite <br> Free Culture Works",
+  "MeetsOpenDefinition": "Cumple con 'Definición abierta'",
+  "LicenseCC0": "Publicar contenido globalmente sin restricciones",
+  "LicenseBY": "Solo Atribución",
+  "LicenseBYSA": "Atribución + CompartirIgual",
+  "LicenseBYNC": "Atribución + NoComercial",
+  "LicenseBYND": "Atribución + NoDerivadas",
+  "LicenseBYNCSA": "Atribución + NoComercial + CompartirIgual",
+  "LicensePPBYNCSA": "Atribución + NoComercial (solo cooperativas)",
+  "LicenseBYNCND": "Atribución + NoComercial + NoDerivadas",
+  "Yes": "Sí",
+  "OnlyNonProfitOrg": "Solo<br>Organización sin<br>Ańimo de lucro"
 
 }
