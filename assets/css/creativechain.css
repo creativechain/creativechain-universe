@@ -626,6 +626,7 @@ table.table-following-right .descriptionFollowing {
 }
 .modal-article .box-img {
     padding: 0 0 0 15px;
+    border-right: solid 1px #DFDFDF;
 }
 .modal-article .box-img > img {
     padding: 10px;
@@ -636,7 +637,6 @@ table.table-following-right .descriptionFollowing {
 }
 .modal-article .box-comment-right {
     padding: 0 15px 0 0;
-    border-left: solid 1px #dfdfdf;
 }
 .modal-article section {
     border-bottom: 1px solid #dfdfdf;
@@ -1032,7 +1032,7 @@ label {
     width: 21px;
 }
 .modal-publish .form-options .table-license thead p {
-    font-size: 7px;
+    font-size: 12px;
 }
 .modal-publish .form-options .table-license>tbody>tr>td, .table-license>tbody>tr>th, .table-license>tfoot>tr>td, .table-license>tfoot>tr>th, .table-license>thead>tr>td, .table-license>thead>tr>th {
     padding: 8px;
@@ -1053,7 +1053,7 @@ label {
     color: #26EC7B;
 }
 .modal-publish .form-options .table-license p {
-    font-size: 10px;
+    font-size: 12px;
 }
 .modal-publish .public-project > button {
     margin-bottom: 40px;
@@ -1203,6 +1203,9 @@ label {
 }
 .slide-1 {
     background-image: url("../img/background-slide-1.png");
+}
+.button-file-dat {
+    margin: 0 auto;color: #95989A;
 }
 .slide-2 {
     background-image: url("../img/background-slide-2.png");
