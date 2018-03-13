@@ -176,6 +176,7 @@
   "LoadingResources": "Loading resources...",
   "Completed": "Completed!",
   "Cancel": "Cancel",
+  "Ok": "Ok",
   "InsertYourPassword": "Insert your password",
   "AddProjectPrice": "Add a price per download. Leave it empty for free download.",
   "InternetError": "It is possible that you are not connected to the Internet. Please, check your connection.",
@@ -258,6 +259,8 @@
   "LicensePPBYNCSA": "Attribution + Noncommercial (only cooperatives)",
   "LicenseBYNCND": "Attribution + Noncommercial + NonDerivates",
   "Yes": "Yes",
-  "OnlyNonProfitOrg": "Only<br>Non-profit<br>Organization"
+  "OnlyNonProfitOrg": "Only<br>Non-profit<br>Organization",
+  "ActionCommission": "This action has a commission of %s.",
+  "Register": "Register"
 
 }

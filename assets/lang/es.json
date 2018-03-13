@@ -173,6 +173,7 @@
   "LoadingResources": "Cargando recursos...",
   "Completed": "¡Completado!",
   "Cancel": "Cancelar",
+  "Ok": "Aceptar",
   "InsertYourPassword": "Escribe tu contraseña",
   "AddProjectPrice": "Agrega un precio por descarga. Déjalo vacío para descarga gratuita.",
   "InternetError": "Es posible que no estés conectado a Internet. Por favor, revisa tu conexión.",
@@ -255,6 +256,8 @@
   "LicensePPBYNCSA": "Atribución + NoComercial (solo cooperativas)",
   "LicenseBYNCND": "Atribución + NoComercial + NoDerivadas",
   "Yes": "Sí",
-  "OnlyNonProfitOrg": "Solo<br>Organización sin<br>Ańimo de lucro"
+  "OnlyNonProfitOrg": "Solo<br>Organización sin<br>Ańimo de lucro",
+  "ActionCommission": "Esta acción tiene una comisión de %s.",
+  "Register": "Registro"
 
 }
