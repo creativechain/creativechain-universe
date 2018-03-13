@@ -1204,6 +1204,9 @@ label {
 .slide-1 {
     background-image: url("../img/background-slide-1.png");
 }
+.button-file-dat {
+    margin: 0 auto;color: #95989A;
+}
 .slide-2 {
     background-image: url("../img/background-slide-2.png");
 }
