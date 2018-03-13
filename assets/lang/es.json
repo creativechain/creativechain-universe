@@ -240,7 +240,7 @@
   "AmountInCrea": "Cantidad (CREA)",
   "ID": "ID",
   "ExportingTransactions": "Exportando transacciones...",
-  "ImmutableProject": "El contenido de tu proyecto es inmutable. Puede ser re-editado pero no eliminado.",
+  "ImmutableProject": "El contenido de tu proyecto es inmutable. Puedes re-editarlo pero no eliminarlo.",
   "Icon": "Icono",
   "Acronym": "Acrónimo",
   "AllowsRemixCulture": "Permite Remix Culture",
