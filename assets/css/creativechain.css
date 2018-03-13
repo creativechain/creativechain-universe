@@ -1254,7 +1254,7 @@ label {
 .carousel {
     height: 650px;
     margin-bottom: 0;
-    top: -28px;
+    top: 0;
     width: 100%;
 }
 .carousel-control.left {
@@ -1278,8 +1278,18 @@ label {
 .page-slide {
     padding-bottom: 0;
     background-color: #FAFAFA;
+    padding-top: 0;
 
 }
+.description-file {
+    color: #95989A;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.button-upload-slide-1 {
+    margin-top: 4px;
+}
+
 .carousel-caption {
     top: 370px;
 }

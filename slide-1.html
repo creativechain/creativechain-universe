@@ -44,20 +44,6 @@
 
 <body class="page-slide">
 
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-slide">
-    <div style="-webkit-app-region: drag">
-        <div class="container-fluid">
-            <div>
-                <ul class="list-unstyled list-inline action-windows slide">
-                    <li><div onclick="closeApp()" class="navbar-close" style="-webkit-app-region: no-drag"></div></li>
-                    <li><div onclick="minimize()" class="navbar-miminizar" style="-webkit-app-region: no-drag"></div></li>
-                    <li><div onclick="maximize()" class="navbar-maximizar" style="-webkit-app-region: no-drag"></div></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -78,15 +64,19 @@
                 <div class="carousel-caption carousel-description text-center">
                     <p translate="yes">Welcome</p>
                     <p translate="yes" class="description-slide">WelcomeDescription</p>
+                    <p translate="yes" class="description-slide">If you are a user, download your user-file here! (file.dat)</p>
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
+                        <div class="col-md-4 col-md-offset-3 col-sm-5 col-sm-offset-2">
                             <div class="form-group">
-                                <label for="exampleInputFile" class="description-slide" translate="yes">If you are a user, download your user-file here! (file.dat)</label>
-                                <input class="button-file-dat" type="file" id="exampleInputFile">
+                                <input id="publish-content-file" type="text" class="form-control">
                             </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <button onclick="loadContentFile()" type="button" class="btn btn-primary button-upload button-upload-slide-1" translate="yes">SelectFile</button>
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>
