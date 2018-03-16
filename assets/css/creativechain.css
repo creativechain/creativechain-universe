@@ -983,6 +983,16 @@ table.table-following-right .descriptionFollowing {
 }
 
 /* MODAL PUBLISH */
+.button-tag-publish {
+    position: relative;
+    margin-top: 4px;
+    background-color: #3b3b3c;
+}
+.button-tag-publish > span {
+    position: absolute;
+    right: 5px;
+    top: 4px;
+}
 label {
     color: #3b3b3c;
     font-weight: normal;
