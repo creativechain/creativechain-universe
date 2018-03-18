@@ -262,6 +262,6 @@
   "OnlyNonProfitOrg": "Only<br>Non-profit<br>Organization",
   "ActionCommission": "This action has a commission of %s.",
   "Register": "Register",
-  "LoadUserFile": "If you are a user, load your user-file here! (.dat)"
-
+  "LoadUserFile": "If you are a user, load your user-file here! (.crea)",
+  "ContentNotEncrypted": "The content can not be encrypted."
 }
