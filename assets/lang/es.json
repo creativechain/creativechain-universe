@@ -259,6 +259,7 @@
   "OnlyNonProfitOrg": "Solo Organización sin Ańimo de lucro",
   "ActionCommission": "Esta acción tiene una comisión de %s.",
   "Register": "Registro",
-  "LoadUserFile": "¡Si eres un usuario, carga tu archivo de usuario aquí! (.dat)"
+  "LoadUserFile": "¡Si eres un usuario, carga tu archivo de usuario aquí! (.crea)",
+  "ContentNotEncrpyted": "No se puede encriptar el contenido."
 
 }
