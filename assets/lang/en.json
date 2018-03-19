@@ -231,7 +231,7 @@
   "PublicationIncomplete": "Your publication is incomplete. Make sure it has a title, description and / or file.",
   "YourComment": "Your comment",
   "BlockchainCertificate": "Blockchain certificate",
-  "NewUpdate": "New update available!",
+  "NewUpdate": "New update!",
   "NewUpdateMessage": "A new version of the platform has been released:<br /> %s<br />It is highly recommended to update the platform as soon as possible.",
   "GoToPublication": "Go to the publication",
   "NewEntry": "New",
@@ -266,5 +266,7 @@
   "ContentNotEncrypted": "The content can not be encrypted.",
   "SelectUserFile": "Select your user file",
   "FileLoadedCorrectly": "File %s loaded correctly!",
-  "UserFile": "User file"
+  "UserFile": "User file",
+  "UpdateLater": "Update later",
+  "UpdateNow": "Update now"
 }
