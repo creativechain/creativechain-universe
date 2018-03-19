@@ -260,6 +260,7 @@
   "ActionCommission": "Esta acción tiene una comisión de %s.",
   "Register": "Registro",
   "LoadUserFile": "¡Si eres un usuario, carga tu archivo de usuario aquí! (.crea)",
-  "ContentNotEncrpyted": "No se puede encriptar el contenido."
-
+  "ContentNotEncrpyted": "No se puede encriptar el contenido.",
+  "SelectUserFile": "Selecciona tu archivo de usuario",
+  "FileLoadedCorrectly": "¡Archivo %s cargado correctamente!"
 }

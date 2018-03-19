@@ -263,5 +263,7 @@
   "ActionCommission": "This action has a commission of %s.",
   "Register": "Register",
   "LoadUserFile": "If you are a user, load your user-file here! (.crea)",
-  "ContentNotEncrypted": "The content can not be encrypted."
+  "ContentNotEncrypted": "The content can not be encrypted.",
+  "SelectUserFile": "Select your user file",
+  "FileLoadedCorrectly": "File %s loaded correctly!"
 }
