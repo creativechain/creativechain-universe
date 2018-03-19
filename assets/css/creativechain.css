@@ -166,13 +166,13 @@ a:focus, a:hover {
     font-size: 19px;
     top:7px;
 }
-#navbar > ul.search > li:nth-child(1) img {
+#navbar > ul.search > li:nth-child(2) img {
     width: 10px;
     margin-top: 8px;
     margin-right: 10px;
     margin-left: 30px;
 }
-#navbar > ul.search > li:nth-child(2) img {
+#navbar > ul.search > li:nth-child(3) img {
     width: 10px;
     margin-top: 8px;
 }
