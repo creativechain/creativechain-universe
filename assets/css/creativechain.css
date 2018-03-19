@@ -3,6 +3,9 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #3B3B3C;
 }
+.strong {
+    font-weight: bold;
+}
 .submenu a.active {
     outline: 0;
     color: #222222 !important;
@@ -987,6 +990,10 @@ table.table-following-right .descriptionFollowing {
     position: relative;
     margin-top: 4px;
     background-color: #3b3b3c;
+    margin-left: 10px;
+}
+.m-bottom-5 {
+    margin-bottom: 5px !important;
 }
 .button-tag-publish > span {
     position: absolute;
