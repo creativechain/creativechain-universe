@@ -51,6 +51,7 @@
     "mime-types": "^2.1.17",
     "moment": "^2.19.4",
     "node-json-rpc": "0.0.1",
+    "open": "0.0.5",
     "os-locale": "^2.1.0",
     "path": "^0.12.7",
     "qrcode": "^0.9.0",
