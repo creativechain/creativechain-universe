@@ -259,8 +259,9 @@
   "OnlyNonProfitOrg": "Solo Organización sin Ańimo de lucro",
   "ActionCommission": "Esta acción tiene una comisión de %s.",
   "Register": "Registro",
-  "LoadUserFile": "¡Si eres un usuario, carga tu archivo de usuario aquí! (.crea)",
+  "LoadUserFile": "¡Si eres un usuario, carga tu archivo de usuario aquí! (wallet.dat)",
   "ContentNotEncrpyted": "No se puede encriptar el contenido.",
   "SelectUserFile": "Selecciona tu archivo de usuario",
-  "FileLoadedCorrectly": "¡Archivo %s cargado correctamente!"
+  "FileLoadedCorrectly": "¡Archivo %s cargado correctamente!",
+  "UserFile": "Archivo de usuario"
 }
