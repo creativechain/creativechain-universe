@@ -323,7 +323,7 @@
                             </thead>
                             <tbody>
                             <template v-for="e in entries">
-                                <tr  class="cursor">
+                                <tr v-on:click="selectEntry(e)" class="cursor">
                                     <td><p>{{ e.label || lang.WithoutLabel }}</p></td>
                                     <td><p>{{ e.address }}</p></td>
                                 </tr>
@@ -336,10 +336,10 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-right">
-                <button translate="yes" type="button" class="btn btn-secondary">
-                    NewEntry
+                <button :disabled="selectedEntry === null" v-on:click="prepareSend(selectedEntry.address, selectedEntry.label)" translate="yes" type="button" class="btn btn-secondary">
+                    SendCoins
                 </button>
-                <button translate="yes" type="button" class="btn btn-therciary">
+                <button :disabled="selectedEntry === null" v-on:click="deleteEntry(selectedEntry.address)" translate="yes" type="button" class="btn btn-therciary">
                     Delete
                 </button>
                 <button translate="yes" type="button" class="btn btn-therciary" onclick="exportAddressBook()">
