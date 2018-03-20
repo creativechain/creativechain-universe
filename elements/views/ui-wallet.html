@@ -309,7 +309,7 @@
         </div>
     </div>
 
-    <div class="card" style="padding: 20px;">
+    <div id="address-book" class="card" style="padding: 20px;">
         <div class="row">
             <div class="col-xs-12 col-sm-12">
                 <div class="card">
@@ -321,8 +321,13 @@
                                 <th translate="yes">Address</th>
                             </tr>
                             </thead>
-                            <tbody id="address-book-list">
-
+                            <tbody>
+                            <template v-for="e in entries">
+                                <tr onclick="prepareSend('${address}', '${label}')" class="cursor">
+                                    <td><p>{{ e.label || lang.WithoutLabel }}</p></td>
+                                    <td><p>{{ e.address }}</p></td>
+                                </tr>
+                            </template>
                             </tbody>
                         </table>
                     </div>
@@ -337,7 +342,7 @@
                 <button translate="yes" type="button" class="btn btn-therciary">
                     Delete
                 </button>
-                <button translate="yes" type="button" class="btn btn-therciary">
+                <button translate="yes" type="button" class="btn btn-therciary" onclick="exportAddressBook()">
                     Export
                 </button>
             </div>
