@@ -1,7 +1,16 @@
 <div class="row placeholders">
     <div class="col-md-12">
         <div class="card">
-            <div class="row">
+            <div class="row-list-edit">
+                <div class="row-list-edit-avatare">
+                    <div class="img-circle-profile img-center cursor avatare-1"></div>
+                </div>
+                <div class="row-list-edit-autor autor-edit change-text">
+                    <p id="user-name" class="name cursor" translate="yes">{{ profile.name || lang.Anonymous}}</p>
+                    <p class="change-text cursor" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
+                </div>
+            </div>
+            <!--<div class="row">
                 <div id="profile-crop" class="col-md-2">
                     <img id="input-profile-image" v-bind:src="resolveAvatar(profile.avatarFile, profile.address)" alt="" class="img-profile img-circle cursor" style="width: 76px;" onclick="loadProfileImage()">
                 </div>
@@ -9,7 +18,7 @@
                     <p id="user-name" class="name cursor" translate="yes">{{ profile.name || lang.Anonymous}}</p>
                     <p class="change-text cursor" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
                 </div>
-            </div>
+            </div>-->
             <div class="form-group">
                 <label translate="yes">Username</label>
                 <input id="input-user-name" type="text" class="form-control" maxlength="21" v-bind:value="profile.name"

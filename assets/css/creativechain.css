@@ -994,6 +994,42 @@ table.table-following-right .descriptionFollowing {
     margin-top: 10px;
     margin-bottom: 5px;
 }
+.row-list-edit {
+    min-height: 0;
+    margin: 0 0 30px;
+    padding: 0;
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+.row-list-edit > .row-list-edit-avatare {
+    margin: 4px;
+    padding: 5px;
+    -webkit-flex: 1 6 40px;
+    flex: 1 6 40px;
+    -webkit-order: 1;
+    order: 1;
+}
+.row-list-edit > .row-list-edit-autor {
+    margin: 4px;
+    padding: 5px;
+    -webkit-flex: 3 1 65%;
+    flex: 3 1 75%;
+    -webkit-order: 2;
+    order: 2;
+}
+.row-list-edit-avatare > .img-circle-profile {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+.img-circle-profile.avatare-1 {
+    background: url("./../img/background-slide-1.png") center center;
+    background-size: cover;
+}
+
 
 /* MODAL PUBLISH */
 .button-tag-publish {
