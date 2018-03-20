@@ -268,5 +268,17 @@
   "FileLoadedCorrectly": "File %s loaded correctly!",
   "UserFile": "User file",
   "UpdateLater": "Update later",
-  "UpdateNow": "Update now"
+  "UpdateNow": "Update now",
+  "ProfileUpdated": "Profile updated",
+  "YourProfileUpdated": "The profile has been updated!",
+
+
+
+
+
+
+
+
+
+  "258": "An attempt has been made to spend an entry that is already spent. It is possible that you have all your coins for confirmation. Please try again later."
 }

@@ -265,5 +265,17 @@
   "FileLoadedCorrectly": "¡Archivo %s cargado correctamente!",
   "UserFile": "Archivo de usuario",
   "UpdateLater": "Actualizar después",
-  "UpdateNow": "Actualizar ahora"
+  "UpdateNow": "Actualizar ahora",
+  "ProfileUpdated": "Perfile actualizado",
+  "YourProfileUpdated": "¡El perfil se ha actualizado!",
+
+
+
+
+
+
+
+
+
+  "258": "Se ha intentado gastar una entrada que ya está gastada. Es posible que tengas  todas tus monedas pedientes de confirmación. Por favor, inténtalo mas tarde."
 }
