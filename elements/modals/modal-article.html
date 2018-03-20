@@ -126,17 +126,16 @@
                             <div class="col-md-4">
                                 <tr>
                                     <td>
-                                        <div class="img-circle-comment avatare-1"></div>
-                                        <!--
-                                        <div v-bind:id="'followed-avatar-' + f.followed_address"
-                                             v-bind:style="{ background: 'url(\'' + resolveAvatar(f.avatarFile, f.followed_address) + '\') center center', 'background-size': 'cover' }"
-                                             class="img-circle-following avatare-1">
+                                        <!--<div class="img-circle-comment avatare-1"></div>-->
+                                        <div v-bind:id="'article-author-avatar'"
+                                             v-bind:style="{ background: 'url(\'' + resolveAvatar(article.avatarFile, article.author) + '\') center center', 'background-size': 'cover' }"
+                                             v-on:click="onLoadUser(article.author)"
+                                             class="img-circle-comment avatare-1 cursor">
                                         </div>
-                                        -->
                                     </td>
                                 </tr>
-                                <img id="article-author-avatar" v-bind:src="resolveAvatar(article.avatarFile, article.author)"
-                                     v-on:click="onLoadUser(article.author)" alt="" class="img-responsive img-circle cursor">
+                                <!--<img id="article-author-avatar" v-bind:src="resolveAvatar(article.avatarFile, article.author)"
+                                     v-on:click="onLoadUser(article.author)" alt="" class="img-responsive img-circle cursor">-->
                             </div>
                             <div class="col-md-8 modal-article-author" style="padding-left: 0;">
                                 <p id="article-author-name"
@@ -164,9 +163,30 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <button id="article-follow" type="button" class="btn btn-primary" translate="yes">
-                                    Follow
+                            <div v-if="article.author === userAddress"class="col-md-12">
+                                <button v-if="!article.following" v-bind:id="'article-follow-' + article.address"
+                                        v-on:click="'editArticle(\'' + article.address + '\')'"
+                                        type="button" class="btn btn-primary btn-follow"
+                                        translate="yes">
+                                    {{ lang.Edit }}
+                                </button>
+                            </div>
+                            <div v-else class="col-md-12">
+                                <button v-if="!article.following" v-bind:id="'article-follow-' + article.address"
+                                        onclick="performFollow()"
+                                        v-on:mouseenter="followButtonEnter('article-follow-' + article.address, article.author, article.following)"
+                                        v-on:mouseleave="followButtonLeave('article-follow-' + article.address, article.author, article.following)"
+                                        type="button" class="btn btn-primary btn-follow"
+                                        translate="yes">
+                                    {{ lang.Follow }}
+                                </button>
+                                <button v-else v-bind:id="'article-follow-' + article.address"
+                                        onclick="performFollow()"
+                                        v-on:mouseenter="followButtonEnter('article-follow-' + article.address, article.author, article.following)"
+                                        v-on:mouseleave="followButtonLeave('article-follow-' + article.address, article.author, article.following)"
+                                        type="button" class="btn btn-therciary btn-following"
+                                        translate="yes">
+                                    {{ lang.Following }}
                                 </button>
                             </div>
                         </div>
