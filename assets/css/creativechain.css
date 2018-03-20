@@ -788,7 +788,10 @@ table.table-following-right .descriptionFollowing {
 .page-wallet .tableRecentTransaccions img {
     width: 23px;
     margin-top: 5px;
-    margin-right: 5px;
+}
+.page-wallet .tableRecentTransaccions >tbody > tr > th {
+    text-align: center;
+    border-top: 1px solid #ddd;
 }
 .page-wallet .tableDetails p:nth-child(1) {
     margin-bottom: 0;
