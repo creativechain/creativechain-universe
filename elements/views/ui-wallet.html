@@ -323,7 +323,7 @@
                             </thead>
                             <tbody>
                             <template v-for="e in entries">
-                                <tr onclick="prepareSend('${address}', '${label}')" class="cursor">
+                                <tr  class="cursor">
                                     <td><p>{{ e.label || lang.WithoutLabel }}</p></td>
                                     <td><p>{{ e.address }}</p></td>
                                 </tr>
