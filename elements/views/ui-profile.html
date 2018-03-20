@@ -3,8 +3,17 @@
         <button v-if="profile.isUser" type="button" id="user-edit-button" class="btn btn-therciary edit-button-profile" onclick="return showProfileEditView()" translate="yes">
             EditProfile
         </button>
-        <button v-else id="user-follow-button" type="button" class="btn btn-primary follow-button-profile" translate="yes">
+        <button v-else-if="!profile.user_following" id="user-follow-button"
+                v-on:mouseenter="followButtonEnter('user-follow-button', profile.address, profile.user_following)"
+                v-on:mouseleave="followButtonLeave('user-follow-button', profile.address, profile.user_following)"
+                type="button" class="btn btn-primary follow-button-profile" translate="yes">
             Follow
+        </button>
+        <button v-else id="user-follow-button"
+                v-on:mouseenter="followButtonEnter('user-follow-button', profile.address, profile.user_following)"
+                v-on:mouseleave="followButtonLeave('user-follow-button', profile.address, profile.user_following)"
+                type="button" class="btn btn-therciary btn-following" translate="yes">
+            Following
         </button>
     </div>
 </div>
