@@ -5,7 +5,7 @@
                 <div class="row-list-edit-avatare">
                     <!--<div class="img-circle-profile img-center cursor avatare-1"></div>-->
                     <div v-bind:id="'input-profile-image'"
-                         v-bind:style="{ background: 'url(\'' + resolveAvatar(tempAvatar || profile.avatarFile, profile.address) + '\') center center', 'background-size': 'cover' }"
+                         v-bind:style="{ background: 'url(\'' + resolveAvatar(tempAvatar || profile.avatarFile, profile.address) + '\') center center / cover' }"
                          onclick="loadProfileImage()"
                          class="img-circle-profile img-center cursor avatare-1">
                     </div>

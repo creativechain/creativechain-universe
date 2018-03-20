@@ -75,17 +75,19 @@
                                         <div class="row">
                                             <div v-show="m.address !== userAddress" class="col-xs-8 col-xs-offset-4">
                                                 <button v-if="!m.following" v-bind:id="'content-item-tooltip-follow-' + m.address"
-                                                        onclick="performFollow()"
+                                                        onclick="performArticleFollow()"
                                                         v-on:mouseenter="followButtonEnter('content-item-tooltip-follow-' + m.address, m.author, m.following)"
                                                         v-on:mouseleave="followButtonLeave('content-item-tooltip-follow-' + m.address, m.author, m.following)"
+                                                        v-on:click="performFollow(m.author)"
                                                         type="button" class="btn btn-primary tooltipButton"
                                                         translate="yes">
                                                     {{ lang.Follow }}
                                                 </button>
                                                 <button v-else v-bind:id="'content-item-tooltip-follow-' + m.address"
-                                                        onclick="performFollow()"
+                                                        onclick="performArticleFollow()"
                                                         v-on:mouseenter="followButtonEnter('content-item-tooltip-follow-' + m.address, m.author, m.following)"
-                                                        v-on:mouseleave="followButtonLeave('content-item-tooltip-follow-' + m.address, m.author, m.following)"
+                                                        v-on:mouseleave="followButtonLeave('con/tent-item-tooltip-follow-' + m.address, m.author, m.following)"
+                                                        v-on:click="performFollow(m.author)"
                                                         type="button" class="btn btn-therciary btn-following tooltipButton"
                                                         translate="yes">
                                                     {{ lang.Following }}

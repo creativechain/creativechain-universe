@@ -7,7 +7,7 @@
             <td>
                 <!--<div class="img-circle-comment avatare-1"></div>-->
                 <div v-bind:id="'comment-author-avatar-' + c.txid"
-                     v-bind:style="{ background: 'url(\'' + resolveAvatar(c.avatarFile, c.author) + '\') center center', 'background-size': 'cover' }"
+                     v-bind:style="{ background: 'url(\'' + resolveAvatar(c.avatarFile, c.author) + '\') center center / cover' }"
                      v-on:click="onLoadUser(c.author)"
                      class="img-circle-comment avatare-1 cursor">
                 </div>
