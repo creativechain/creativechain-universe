@@ -124,6 +124,17 @@
                     <section>
                         <div class="row">
                             <div class="col-md-4">
+                                <tr>
+                                    <td>
+                                        <div class="img-circle-comment avatare-1"></div>
+                                        <!--
+                                        <div v-bind:id="'followed-avatar-' + f.followed_address"
+                                             v-bind:style="{ background: 'url(\'' + resolveAvatar(f.avatarFile, f.followed_address) + '\') center center', 'background-size': 'cover' }"
+                                             class="img-circle-following avatare-1">
+                                        </div>
+                                        -->
+                                    </td>
+                                </tr>
                                 <img id="article-author-avatar" v-bind:src="resolveAvatar(article.avatarFile, article.author)"
                                      v-on:click="onLoadUser(article.author)" alt="" class="img-responsive img-circle cursor">
                             </div>

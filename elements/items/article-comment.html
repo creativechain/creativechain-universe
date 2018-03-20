@@ -3,6 +3,16 @@
 </div>
 <div class="row user-comment">
     <div class="col-md-2 col-sm-2 cursor" v-on:click="onLoadUser(c.author)">
+        <tr>
+            <td>
+                <div class="img-circle-comment avatare-1"></div>
+                <!--<div v-bind:id="'followed-avatar-' + f.followed_address"
+                     v-bind:style="{ background: 'url(\'' + resolveAvatar(f.avatarFile, f.followed_address) + '\') center center', 'background-size': 'cover' }"
+                     class="img-circle-following avatare-1">
+                </div>-->
+            </td>
+
+        </tr>
         <img v-bind:id="'comment-author-avatar-' + c.txid" v-bind:src="resolveAvatar(c.avatarFile, c.author)" alt="" class="img-circle" style="width: 50px;">
     </div>
     <div class="col-md-10 col-sm-10" >
