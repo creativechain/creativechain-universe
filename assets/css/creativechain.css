@@ -720,6 +720,16 @@ table.table-following-right .descriptionFollowing {
     border-radius: 5px;
     margin: 20px 0;
 }
+.modal-article .img-circle-comment {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+.img-circle-comment.avatare-1 {
+    background: url("./../img/background-slide-1.png") center center;
+    background-size: cover;
+}
 .notifications .divider {
     height: 1px;
     margin: 0 0 9px;
