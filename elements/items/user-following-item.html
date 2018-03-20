@@ -12,8 +12,23 @@
         <p v-bind:id="'following-description-' + f.followed_address" class="change-text" translate="yes">{{ f.description || '-' }}</p>
     </div>
     <div class="row-list-notification-options">
-        <button v-bind:id="'following-button-' + f.followed_address" class="btn btn-therciary btn-following" style="width: 100%;" translate="yes">
-            Follow
+        <button v-if="!f.is_following" v-bind:id="'following-button-' + f.followed_address"
+                onclick="performArticleFollow()"
+                v-on:mouseenter="followButtonEnter('following-button-' + f.followed_address, f.followed_address, f.is_following)"
+                v-on:mouseleave="followButtonLeave('following-button-' + f.followed_address, f.followed_address, f.is_following)"
+                v-on:click="performFollow(f.followed_address)"
+                type="button" class="btn btn-primary btn-follow"
+                translate="yes">
+            {{ lang.Follow }}
+        </button>
+        <button v-else v-bind:id="'following-button-' + f.followed_address"
+                onclick="performArticleFollow()"
+                v-on:mouseenter="followButtonEnter('following-button-' + f.followed_address, f.followed_address, f.is_following)"
+                v-on:mouseleave="followButtonLeave('following-button-' + f.followed_address, f.followed_address, f.is_following)"
+                v-on:click="performFollow(f.followed_address)"
+                type="button" class="btn btn-therciary btn-following"
+                translate="yes">
+            {{ lang.Following }}
         </button>
     </div>
 </div>
