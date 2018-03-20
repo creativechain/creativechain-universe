@@ -12,24 +12,24 @@
             </div>
             <div class="form-group">
                 <label translate="yes">Username</label>
-                <input id="input-user-name" type="text" class="form-control" maxlength="21" v-bind:value="profile.name"
+                <input id="input-user-name" type="text" v-model="profile.name" class="form-control" maxlength="21"
                        placeholder="WriteYourNickName" translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Description</label>
-                <input id="input-user-description" type="text" class="form-control" maxlength="144"
-                       v-bind:value="profile.description"
+                <input id="input-user-description" type="text" v-model="profile.description" class="form-control" maxlength="144"
+
                        placeholder="WriteUserDescription" translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Email</label>
-                <input id="input-user-email" type="email" class="form-control" maxlength="55" placeholder="AddYourEmail"
-                       v-bind:value="profile.email" translate="yes">
+                <input id="input-user-email" type="email" v-model="profile.email" class="form-control" maxlength="55" placeholder="AddYourEmail"
+                       translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Web</label>
-                <input id="input-user-web" type="text" class="form-control" maxlength="55" placeholder="AddYourWeb"
-                       v-bind:value="profile.web" translate="yes">
+                <input id="input-user-web" type="text" v-model="profile.web" class="form-control" maxlength="55" placeholder="AddYourWeb"
+                       translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Tags</label>
