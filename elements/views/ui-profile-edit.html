@@ -33,8 +33,17 @@
             </div>
             <div class="form-group">
                 <label translate="yes">Tags</label>
-                <input type="text" translate="yes" placeholder="InsertUserTags" data-role="tagsinput" id="input-user-tags" data-options='{"maxTags": 8, "maxChars": 21}' onchange="onTagsChange()" class="form-control">
+                <input translate="yes" placeholder="InsertUserTags" v-model="tagsText" v-on:keydown="parseTags" id="input-user-tags" data-options='{"maxTags": 8, "maxChars": 21}' class="form-control">
             </div>
+            <div id="input-user-tags-list" class="form-group">
+                <template v-for="t in profile.tags">
+                    <button type="button" class="btn btn-primary button-tag-publish" translate="yes">
+                        {{ t }}
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true" v-on:click="removeTag(t)"></span>
+                    </button>
+                </template>
+            </div>
+
             <div class="row">
                 <div class="col-md-3">
                     <button onclick="register()" type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes">
