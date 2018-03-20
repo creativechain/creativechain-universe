@@ -784,6 +784,7 @@ table.table-following-right .descriptionFollowing {
 }
 .page-wallet .card-title {
     margin-bottom: .75rem;
+    margin-top: 30px;
 }
 .page-wallet .tableRecentTransaccions img {
     width: 23px;
