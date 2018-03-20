@@ -179,9 +179,13 @@
                     </div>
                     <div class="col-md-12">
                         <div id="notifications-list" class="card" style="padding: 10px 20px 20px 20px;">
-                            <template v-for="n in notifications" w3-include-html="./elements/items/notification-item.html">
+                            <span v-if="notifications.length === 0" translate="yes">NoNotifications</span>
+                            <div v-else>
+                                <template v-for="n in notifications" w3-include-html="./elements/items/notification-item.html">
 
-                            </template>
+                                </template>
+                            </div>
+
                         </div>
                     </div>
                 </div>
