@@ -3,7 +3,12 @@
         <div class="card">
             <div class="row-list-edit">
                 <div class="row-list-edit-avatare">
-                    <div class="img-circle-profile img-center cursor avatare-1"></div>
+                    <!--<div class="img-circle-profile img-center cursor avatare-1"></div>-->
+                    <div v-bind:id="'input-profile-image'"
+                         v-bind:style="{ background: 'url(\'' + resolveAvatar(tempAvatar || profile.avatarFile, profile.address) + '\') center center', 'background-size': 'cover' }"
+                         onclick="loadProfileImage()"
+                         class="img-circle-profile img-center cursor avatare-1">
+                    </div>
                 </div>
                 <div class="row-list-edit-autor autor-edit change-text">
                     <p id="user-name" class="name cursor" translate="yes">{{ profile.name || lang.Anonymous}}</p>
