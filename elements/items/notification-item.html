@@ -18,9 +18,9 @@
                 translate="yes">
             {{ lang.Follow }}
         </button>
-        <button v-else v-bind:id="'notification-button-' + n.id"
-                v-on:mouseenter="followButtonEnter('notification-button-' + n.id, n.author, n.isFollowing)"
-                v-on:mouseleave="followButtonLeave('notification-button-' + n.id, n.author, n.isFollowing)"
+        <button v-else v-bind:id="'notification-button-following-' + n.id"
+                v-on:mouseenter="followButtonEnter('notification-button-following-' + n.id, n.author, n.isFollowing)"
+                v-on:mouseleave="followButtonLeave('notification-button-following-' + n.id, n.author, n.isFollowing)"
                 v-on:click="performFollow(n.author)"
                 type="button" class="btn btn-therciary btn-following"
                 translate="yes">

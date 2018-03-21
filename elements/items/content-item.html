@@ -82,9 +82,9 @@
                                                         translate="yes">
                                                     {{ lang.Follow }}
                                                 </button>
-                                                <button v-else v-bind:id="'content-item-tooltip-follow-' + m.address"
-                                                        v-on:mouseenter="followButtonEnter('content-item-tooltip-follow-' + m.address, m.author, m.following)"
-                                                        v-on:mouseleave="followButtonLeave('content-item-tooltip-follow-' + m.address, m.author, m.following)"
+                                                <button v-else v-bind:id="'content-item-tooltip-following-' + m.address"
+                                                        v-on:mouseenter="followButtonEnter('content-item-tooltip-following-' + m.address, m.author, m.following)"
+                                                        v-on:mouseleave="followButtonLeave('content-item-tooltip-following-' + m.address, m.author, m.following)"
                                                         v-on:click="performFollow(m.author)"
                                                         type="button" class="btn btn-therciary btn-following tooltipButton"
                                                         translate="yes">
