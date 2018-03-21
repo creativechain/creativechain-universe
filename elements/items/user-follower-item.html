@@ -13,7 +13,6 @@
     </div>
     <div class="row-list-notification-options">
         <button v-if="!f.is_following" v-bind:id="'follower-button-' + f.follower_address"
-                onclick="performArticleFollow()"
                 v-on:mouseenter="followButtonEnter('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
                 v-on:mouseleave="followButtonLeave('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
                 v-on:click="performFollow(f.follower_address)"
@@ -22,7 +21,6 @@
             {{ lang.Follow }}
         </button>
         <button v-else v-bind:id="'follower-button-' + f.follower_address"
-                onclick="performArticleFollow()"
                 v-on:mouseenter="followButtonEnter('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
                 v-on:mouseleave="followButtonLeave('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
                 v-on:click="performFollow(f.follower_address)"
