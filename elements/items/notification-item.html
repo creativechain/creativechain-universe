@@ -8,7 +8,7 @@
         <p v-bind:id="'notification-name-' + n.id" v-on:click="onLoadUser(n.author)" class="name cursor change-text">{{ n.data.name }}<span class="dateNotifications">{{ resolveDate(n.on_date) }}</span> </p>
         <p v-bind:id="'notification-description-' + n.id" class="change-text" translate="yes">{{ n.description }}</p>
     </div>
-    <div class="row-list-notification-options hidden">
+    <div class="row-list-notification-options">
 
         <button v-if="!n.isFollowing" v-bind:id="'notification-button-' + n.id"
                 v-on:mouseenter="followButtonEnter('notification-button-' + n.id, n.author, n.isFollowing)"
