@@ -2,7 +2,7 @@
     v-bind:onclick="'onLoadUser(\'' + f.followed_address + '\')'" class="cursor">
     <td rowspan="2">
         <div v-bind:id="'followed-avatar-' + f.followed_address"
-             v-bind:style="{ 'background-image': 'url(\'' + resolveAvatar(f.avatarFile, f.followed_address) + '\') center center / cover' }" class="img-circle-following avatare-1"></div></td>
+             v-bind:style="{ 'background-image': 'url(\'' + f.avatarFile + '\') center center / cover' }" class="img-circle-following avatare-1"></div></td>
     <td>
         <p v-bind:id="'followed-name-' + f.followed_address" class="titleFollowing">{{ f.name }}</p>
     </td>
