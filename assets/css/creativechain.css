@@ -623,6 +623,7 @@ table.table-following-right .descriptionFollowing {
 .certificate .text-licence {
     margin: 0;
     font-size: 12px;
+    word-break: break-all;
 }
 .certificate span {
     color: #808080 !important;
