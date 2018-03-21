@@ -1,0 +1,32 @@
+<div class="row-list-notification">
+    <div class="row-list-notification-avatare">
+        <div v-bind:id="'following-avatar-' + f.followed_address"
+             v-bind:style="{ 'background': 'url(\'' + resolveAvatar(f.avatarFile, f.followed_address) + '\') center center / cover' }"
+             v-on:click="loadProfileData(f.followed_address, f.followed_address === userAddress)"
+             class="img-circle-following img-center cursor"></div>
+    </div>
+    <div class="row-list-notification-autor autor-notifications change-text">
+        <p v-bind:id="'following-name-' + f.followed_address"
+           v-on:click="loadProfileData(f.followed_address, f.followed_address === userAddress)"
+           class="name cursor change-text">{{ f.name || lang.Anonymous }}</p>
+        <p v-bind:id="'following-description-' + f.followed_address" class="change-text" translate="yes">{{ f.description || '-' }}</p>
+    </div>
+    <div class="row-list-notification-options">
+        <button v-if="!f.is_following" v-bind:id="'following-button-' + f.followed_address"
+                v-on:mouseenter="followButtonEnter('following-button-' + f.followed_address, f.followed_address, f.is_following)"
+                v-on:mouseleave="followButtonLeave('following-button-' + f.followed_address, f.followed_address, f.is_following)"
+                v-on:click="performFollow(f.followed_address)"
+                type="button" class="btn btn-primary btn-follow"
+                translate="yes">
+            {{ lang.Follow }}
+        </button>
+        <button v-else v-bind:id="'following-button-following-' + f.followed_address"
+                v-on:mouseenter="followButtonEnter('following-button-following-' + f.followed_address, f.followed_address, f.is_following)"
+                v-on:mouseleave="followButtonLeave('following-button-following-' + f.followed_address, f.followed_address, f.is_following)"
+                v-on:click="performFollow(f.followed_address)"
+                type="button" class="btn btn-therciary btn-following"
+                translate="yes">
+            {{ lang.Following }}
+        </button>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row-list-notification">
+    <div class="row-list-notification-avatare">
+        <div v-bind:id="'follower-avatar-' + f.follower_address" 
+             v-bind:style="{ 'background': 'url(\'' + resolveAvatar(f.avatarFile, f.follower_address) + '\') center center / cover' }"
+             v-on:click="loadProfileData(f.follower_address, f.follower_address === userAddress)"
+             class="img-circle-following img-center cursor"></div>
+    </div>
+    <div class="row-list-notification-autor autor-notifications change-text">
+        <p v-bind:id="'follower-name-' + f.follower_address" 
+           v-on:click="loadProfileData(f.follower_address, f.follower_address === userAddress)" 
+           class="name cursor change-text">{{ f.name || lang.Anonymous }}</p>
+        <p v-bind:id="'follower-description-' + f.follower_address" class="change-text" translate="yes">{{ f.description || '-' }}</p>
+    </div>
+    <div class="row-list-notification-options">
+        <template v-if="!f.is_following">
+            <button v-bind:id="'follower-button-' + f.follower_address"
+                    v-on:mouseenter="followButtonEnter('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
+                    v-on:mouseleave="followButtonLeave('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
+                    v-on:click="performFollow(f.follower_address)"
+                    type="button" class="btn btn-primary btn-follow"
+                    translate="yes">
+                {{ lang.Follow}}
+            </button>
+        </template>
+        <template v-else>
+            <button v-bind:id="'follower-button-following-' + f.follower_address"
+                    v-on:mouseenter="followButtonEnter('follower-button-following-' + f.follower_address, f.follower_address, f.is_following)"
+                    v-on:mouseleave="followButtonLeave('follower-button-following-' + f.follower_address, f.follower_address, f.is_following)"
+                    v-on:click="performFollow(f.follower_address)"
+                    type="button" class="btn btn-therciary btn-following"
+                    translate="yes">
+                {{ lang.Following}}
+            </button>
+        </template>
+
+    </div>
+</div>

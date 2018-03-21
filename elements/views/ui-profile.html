@@ -1,0 +1,140 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 text-right">
+        <button v-if="profile.isUser" type="button" id="user-edit-button" class="btn btn-therciary edit-button-profile" onclick="return showProfileEditView()" translate="yes">
+            EditProfile
+        </button>
+        <button v-else-if="!profile.user_following" id="user-follow-button"
+                v-on:mouseenter="followButtonEnter('user-follow-button', profile.address, profile.user_following)"
+                v-on:mouseleave="followButtonLeave('user-follow-button', profile.address, profile.user_following)"
+                v-on:click="performFollow(profile.address)"
+                type="button" class="btn btn-primary follow-button-profile" translate="yes">
+            Follow
+        </button>
+        <button v-else id="user-follow-button"
+                v-on:mouseenter="followButtonEnter('user-follow-button', profile.address, profile.user_following)"
+                v-on:mouseleave="followButtonLeave('user-follow-button', profile.address, profile.user_following)"
+                v-on:click="performFollow(profile.address)"
+                type="button" class="btn btn-therciary btn-following" translate="yes">
+            Following
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center">
+
+
+        <!-- AÑADIR IMAGEN USER -->
+        <div class="row-list-notification-avatare img-profile">
+            <div id="user-avatar"
+                 v-bind:style="{ 'background': 'url(\'' + resolveAvatar(profile.avatarFile, profile.address) + '\') center center / cover' }"
+                 class="img-profile-user img-center"></div>
+        </div>
+        <!-- FIN AÑADIR IMAGEN USER -->
+
+
+<!--
+        <img id="user-avatar" src="./assets/img/avatar/avatar1.png" alt="" class="img-profile img-circle" style="width: 76px;">
+-->
+        <p id="user-nick" translate="yes" class="name">{{ profile.name || lang.Anonymous }}</p>
+        <p id="user-web" class="name-web">{{ profile.web || '-' }}</p>
+        <p id="user-description" class="descriptionProfile">{{ profile.description || '-' }}</p>
+        <p id="user-email" class="descriptionProfile">{{ profile.email }}</p>
+    </div>
+</div>
+<div class="row stats-profile">
+    <div class="col-md-12">
+        <table class="table table-stats-profile-1">
+            <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><img id="user-buzz-level-icon" v-bind:src="buzz.icon" alt=""><span id="user-buzz-level">{{ buzz.levelText }}</span></td>
+                <td><img src="./assets/img/icon-2.png" alt=""><span id="user-buzz">{{ buzz.rate + ' Buzz' }}</span></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-stats-profile">
+            <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><img src="./assets/img/like0.png" alt=""></td>
+                <td translate="yes">Likes</td>
+                <td id="user-likes">{{ profile.likes }}</td>
+            </tr>
+            <tr>
+                <td><img src="./assets/img/comments.png" alt=""></td>
+                <td translate="yes">Comments</td>
+                <td id="user-comments">{{ profile.comments}}</td>
+            </tr>
+            <tr>
+                <td><img src="./assets/img/smartaction.png" alt=""></td>
+                <td translate="yes">Smarts Actions</td>
+                <td id="user-actions">0</td>
+            </tr>
+            <tr>
+                <td><img src="./assets/img/followers-profile.png" alt=""></td>
+                <td translate="yes">Followers</td>
+                <td id="user-followers">{{ profile.followers }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 title-profile">
+        <h3 translate="yes">CreativecoinAddress</h3>
+        <p id="user-address">{{ profile.address }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 title-profile">
+        <h3 translate="yes">Tags</h3>
+        <p id="user-tags">
+            <template v-for="t in profile.tags">
+                <span v-if="profile.tags.indexOf(t) < profile.tags.length - 1">
+                    <span v-on:click="search(t)" class="cursor" style="color: #0073ff;">{{ t }}</span>
+                    <span>, </span>
+                </span>
+                <span v-else v-on:click="search(t)" class="cursor" style="color: #0073ff;">{{ t }}</span>
+            </template>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+    </div>
+</div>
+<div v-if="!profile.isUser" id="user-donate-row" class="row">
+    <div class="col-md-12 text-center">
+        <button id="user-donate-button" type="button" class="btn btn-primary hidden" translate="yes">
+            Donate
+        </button>
+    </div>
+</div>

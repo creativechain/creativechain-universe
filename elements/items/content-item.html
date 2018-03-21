@@ -1,0 +1,144 @@
+<div v-bind:id="'content-item-' + m.address"
+     v-bind:onmouseenter="'prepareArticle(\'' + m.address + '\', \'' + userAddress + '\')'" class="col-xs-6 col-sm-4 col-md-4 col-lg-3 placeholder">
+    <div class="single-news one-item">
+        <article>
+            <div class="content-img state-video cursor" type="button" data-toggle="modal" data-target=".modal-article">
+                <div v-bind:style="{ 'background-image': 'url(\'' + getDefaultImageAndColor(m.content_type, m.featured_image).image + '\')',
+                     'background-color': getDefaultImageAndColor(m.content_type, m.featured_image).color }" class="img-post-preview size-img-preview"></div>
+            </div>
+            <div class="content boxContent">
+                <div class="titleBox">
+                    <span data-toggle="modal" data-target=".modal-article" class="cursor">{{ m.title }}</span>
+                </div>
+                <div class="descriptionContent">
+                    <p>{{ m.description }}</p>
+                </div>
+                <div class="row boxOptions">
+                    <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
+                        <p class="p-box-options">
+                            <img v-bind:id="'content-item-like' + m.address" src="./assets/img/like0.png" alt="" class="img-responsive cursor">
+                            <span class="span-box-content">{{ m.likes }}</span>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3 boxComments">
+                        <p class="p-box-options">
+                            <img src="./assets/img/comments.png" alt="" class="img-responsive">
+                            <span class="span-box-content">{{ m.comments }}</span>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3 boxSmartActions">
+                        <p class="p-box-options">
+                            <img src="./assets/img/smartaction.png" alt="" class="img-responsive">
+                            <span class="span-box-content">0</span>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3 boxLicence" style="">
+                        <p class="p-box-options">
+                            <img src="./assets/img/cc.png" alt="" class="img-responsive">
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                    </div>
+                </div>
+
+                <!--INICIO TOOLTIP-->
+
+                <div class="row boxOwner">
+                    <div class="col-md-12 tooltipAutor">
+                        <ul class="list-inline list-unstyled rowAutor">
+                            <li class="widthAutor">
+                                <div class="dropdown-toggle" data-toggle="dropdown">
+                                    <div class="row">
+                                        <div class="col-md-2 col-xs-2 icon-owner">
+                                            <img v-bind:src="resolveAvatar(m.avatarFile, m.author)"
+                                                 class="img-responsive avatare-owner img-circle" style="width: 30px; height: 30px" alt="">
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 box-title-owner">
+                                            <p>{{ m.name || lang.Anonymous }}</p>
+                                        </div>
+                                        <div class="col-md-2 col-xs-2 box-level-owner">
+                                            <img v-bind:src="getBuzz(m.user_likes, m.user_comments, m.publications).icon" alt="" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- TOOLTIP -->
+                                <ul class="dropdown-menu notifications list-inline list-unstyled">
+                                    <li>
+                                        <div class="romboTooltip"></div>
+                                        <div class="row">
+                                            <div v-show="m.author !== userAddress" class="col-xs-8 col-xs-offset-4">
+                                                <button v-if="!m.following" v-bind:id="'content-item-tooltip-follow-' + m.address"
+                                                        v-on:mouseenter="followButtonEnter('content-item-tooltip-follow-' + m.address, m.author, m.following)"
+                                                        v-on:mouseleave="followButtonLeave('content-item-tooltip-follow-' + m.address, m.author, m.following)"
+                                                        v-on:click="performFollow(m.author)"
+                                                        type="button" class="btn btn-primary tooltipButton"
+                                                        translate="yes">
+                                                    {{ lang.Follow }}
+                                                </button>
+                                                <button v-else v-bind:id="'content-item-tooltip-following-' + m.address"
+                                                        v-on:mouseenter="followButtonEnter('content-item-tooltip-following-' + m.address, m.author, m.following)"
+                                                        v-on:mouseleave="followButtonLeave('content-item-tooltip-following-' + m.address, m.author, m.following)"
+                                                        v-on:click="performFollow(m.author)"
+                                                        type="button" class="btn btn-therciary btn-following tooltipButton"
+                                                        translate="yes">
+                                                    {{ lang.Following }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <img v-bind:src="resolveAvatar(m.avatarFile, m.author)"
+                                                     v-bind:onclick="'onLoadUser(\'' + m.author + '\')'"
+                                                     class="img-circle-important cursor" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 text-center">
+                                                <p class="titleTooltipUser">
+                                                    <strong class="cursor">{{ m.name || lang.Anonymous }}</strong></p>
+                                                <p class="webTooltipUser">
+                                                    {{ m.web || '-' }}
+                                                </p>
+                                                <p class="descriptionTooltipUser">
+                                                    {{ m.description || '-'}}
+                                                    <br/><br/>
+                                                    <span>
+                                                        {{ m.email || '-' }}
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <table class="table tooltipStats">
+                                                    <thead>
+                                                    <tr>
+                                                        <th translate="yes">Likes</th>
+                                                        <th translate="yes">Followers</th>
+                                                        <th translate="yes">Following</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>{{ m.user_likes }}</td>
+                                                        <td>{{ m.user_followers }}</td>
+                                                        <td>{{ m.user_following }}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

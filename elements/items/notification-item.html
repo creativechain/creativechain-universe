@@ -1,0 +1,30 @@
+<div v-bind:id="'notification-' + n.id" class="row border-notifications row-list-notification">
+    <div class="row-list-notification-avatare cursor">
+        <div v-bind:id="'notification-avatar-' + n.id" class="img-circle-following img-center"
+             v-bind:style="{ 'background': 'url(\'' + resolveAvatar(n.data.avatarFile, n.data.address) + '\') center center / cover' }"
+             v-on:click="onLoadUser(n.author)"></div>
+    </div>
+    <div class="row-list-notification-autor autor-notifications change-text">
+        <p v-bind:id="'notification-name-' + n.id" v-on:click="onLoadUser(n.author)" class="name cursor change-text">{{ n.data.name }}<span class="dateNotifications">{{ resolveDate(n.on_date) }}</span> </p>
+        <p v-bind:id="'notification-description-' + n.id" class="change-text" translate="yes">{{ n.description }}</p>
+    </div>
+    <div class="row-list-notification-options">
+
+        <button v-if="!n.isFollowing" v-bind:id="'notification-button-' + n.id"
+                v-on:mouseenter="followButtonEnter('notification-button-' + n.id, n.author, n.isFollowing)"
+                v-on:mouseleave="followButtonLeave('notification-button-' + n.id, n.author, n.isFollowing)"
+                v-on:click="performFollow(n.author)"
+                type="button" class="btn btn-primary btn-follow"
+                translate="yes">
+            {{ lang.Follow }}
+        </button>
+        <button v-else v-bind:id="'notification-button-following-' + n.id"
+                v-on:mouseenter="followButtonEnter('notification-button-following-' + n.id, n.author, n.isFollowing)"
+                v-on:mouseleave="followButtonLeave('notification-button-following-' + n.id, n.author, n.isFollowing)"
+                v-on:click="performFollow(n.author)"
+                type="button" class="btn btn-therciary btn-following"
+                translate="yes">
+            {{ lang.Following }}
+        </button>
+    </div>
+</div>

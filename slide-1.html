@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Dashboard Creativechain</title>
+    <title>Creativechain</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -44,20 +44,6 @@
 
 <body class="page-slide">
 
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-slide">
-    <div style="-webkit-app-region: drag">
-        <div class="container-fluid">
-            <div>
-                <ul class="list-unstyled list-inline action-windows slide">
-                    <li><div onclick="closeApp()" class="navbar-close" style="-webkit-app-region: no-drag"></div></li>
-                    <li><div onclick="minimize()" class="navbar-miminizar" style="-webkit-app-region: no-drag"></div></li>
-                    <li><div onclick="maximize()" class="navbar-maximizar" style="-webkit-app-region: no-drag"></div></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -78,7 +64,20 @@
                 <div class="carousel-caption carousel-description text-center">
                     <p translate="yes">Welcome</p>
                     <p translate="yes" class="description-slide">WelcomeDescription</p>
+                    <p translate="yes" class="description-slide">LoadUserFile</p>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-3 col-sm-5 col-sm-offset-2">
+                            <div class="form-group">
+                                <input id="wallet-file" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <button onclick="loadWalletFile()" type="button" class="btn btn-primary button-upload button-upload-slide-1" translate="yes">SelectFile</button>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
         </div>
         <div id="slide-2" class="item">
@@ -132,14 +131,14 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="form-group">
-                                <input id="wallet-repeat-password" type="password" class="form-control" placeholder="Repeat password" translate="yes">
+                                <input id="wallet-repeat-password" type="password" class="form-control" placeholder="RepeatPassword" translate="yes">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
                             <button id="wallet-encrypt" onclick="encryptWallet()" type="button" class="btn btn-primary" translate="yes">
-                                Encrypt wallet
+                                EncryptWallet
                             </button>
                             <span id="wallet-encrypted" translate="yes" style="display: none; color: #26d87d;">WalletAlreadyEncrypted</span>
                         </div>
@@ -156,7 +155,7 @@
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
                             <button onclick="createBackup()" type="button" class="btn btn-primary" translate="yes">
-                                Save copy
+                                SaveCopy
                             </button>
                         </div>
                     </div>
@@ -171,21 +170,21 @@
                     <p translate="yes" class="description-slide">ObtainCreaDescription</p>
                     <p id="user-address" class="step-4-address-wallet"></p>
                     <div class="row step-4-category">
-                        <div class="col-md-3 col-sm-3 cursor">
+                        <div class="col-md-3 col-sm-3 cursor" onclick="return openUrlInBrowser('https://www.creativechain.org/mining-crea-with-keccak/')">
                             <img src="./assets/img/icon-mineria.svg" alt="">
-                            <p translate="yes"><a onclick="return openUrlInBrowser('https://www.creativechain.org/mining-crea-with-keccak/')" href="#" translate="yes">Mining</a></p>
+                            <p><a onclick="return false" href="#" translate="yes">Mining</a></p>
                         </div>
                         <div class="col-md-3 col-sm-3 cursor">
                             <img src="./assets/img/icon-comprar.svg" alt="">
                             <p translate="yes">Buy</p>
                         </div>
-                        <div class="col-md-3 col-sm-3 cursor">
+                        <div class="col-md-3 col-sm-3 cursor" onclick="return openUrlInBrowser('https://www.creativechain.org/exchange')">
                             <img src="./assets/img/icon-exchange.svg" alt="">
-                            <p translate="yes"><a onclick="return openUrlInBrowser('https://www.creativechain.org/exchange') "href="#">Exchange</a></p>
+                            <p><a onclick="return false" href="#">Exchange</a></p>
                         </div>
-                        <div class="col-md-3 col-sm-3 cursor">
+                        <div class="col-md-3 col-sm-3 cursor" onclick="return openUrlInBrowser('https://www.creativechain.org/promotions')">
                             <img src="./assets/img/icon-invitacion.svg" alt="" >
-                            <p ><a onclick="return openUrlInBrowser('https://www.creativechain.org/promotions')" href="#" translate="yes">Invite</a></p>
+                            <p ><a onclick="return false" href="#" translate="yes">Invite</a></p>
                         </div>
                     </div>
                 </div>
@@ -239,7 +238,7 @@
 </div>
 
 
-<div w3-include-html="./elements/dialog.html"></div>
+<div w3-include-html="./elements/modals/dialog.html"></div>
 <div id="loading" class="loading hidden"></div>
 
 <!-- Bootstrap core JavaScript

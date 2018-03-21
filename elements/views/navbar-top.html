@@ -11,22 +11,25 @@
     <div id="navbar" class="navbar-collapse collapse">
 
         <ul class="nav navbar-nav search">
-            <li><div onclick="closeApp()" class="action-windows navbar-close undraggable"></div></li>
-            <li><div onclick="minimize()" class="action-windows navbar-miminizar undraggable"></div></li>
-            <li><div onclick="maximize()" class="action-windows navbar-maximizar undraggable"></div></li>
-
-            <li><img onclick="backSearch()" class="undraggable" src="./assets/img/icon-left.png" alt=""></li>
-            <li><img onclick="nextSearch()" class="undraggable" src="./assets/img/icon-right.png" alt=""></li>
-            <li>
-                <a href="#">
-                    <div id="content-search-form" class="navbar-form navbar-right form-search-navbar">
-                        <input id="content-search" name="search" type="text" onkeyup="return onSearchKey(event)" class="form-control input-search undraggable" placeholder="Search..." translate="yes">
-                    </div>
-                </a>
-            </li>
             <li class="logo-right-navbar undraggable">
                 <a href="" onclick="return showLatestMedia()"><img src="./assets/img/icon-crea-price.png" alt="" class="logo-navbar-responsive" style="width: 32px;"></a>
             </li>
+            <li><img onclick="backSearch()" class="undraggable" src="./assets/img/icon-left.png" alt=""></li>
+            <li><img onclick="nextSearch()" class="undraggable" src="./assets/img/icon-right.png" alt=""></li>
+            <li>
+                <div id="content-search-form" class="navbar-form navbar-right form-search-navbar dropdown-toggle"
+                     data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <input id="content-search" name="search" type="text" onkeyup="return onSearchKey(event)" class="form-control input-search undraggable" placeholder="Search..." translate="yes">
+
+                    <ul id="user-search-list" class="dropdown-menu notifications" v-show="authors.length > 0"
+                        style="left: 0">
+                        <template v-for="user in authors" w3-include-html="./elements/items/user-search-item.html">
+
+                        </template>
+                    </ul>
+                </div>
+            </li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="" style="margin-top: 3px;">
@@ -36,17 +39,23 @@
                     </button>
                 </a>
             </li>
-            <li class="undraggable" style="height: 40px;">
+            <li id="ui-top-notifications" v-on:click="showUserNotifications()" class="undraggable" style="height: 40px;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">
                     <img src="./assets/img/icon-notification-navbar.png" alt="">
                 </a>
-                <div id="badge-notifications" class="circle-notification text-center hidden">
-                    <span id="notifications-num">0</span>
-
+                <div v-show="total > 0" id="badge-notifications" class="circle-notification text-center">
+                    <span id="notifications-num">{{ total }}</span>
                 </div>
-                <ul id="notif-top-list" class="dropdown-menu notifications">
+                <ul v-show="total > 0" id="notif-top-list" class="dropdown-menu notifications">
+                    <template v-for="n in notifications" w3-include-html="./elements/items/top-notification-item.html">
 
+                    </template>
+                    <li class="view-all cursor" onclick="return showUserNotifications()">
+                        <div class="view-all-notification text-center">
+                            <p><a href="" translate="yes">{{ lang.ViewAll }}</a></p>
+                        </div>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -70,7 +79,7 @@
                 <ul class="dropdown-menu menu-options">
                     <li><a href="#" onclick="return showSettingsView()" translate="yes">Settings</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#" translate="yes">CREA Updates</a></li>
+                    <li><a href="#" onclick="return showUpdateUser()" translate="yes">CREA Updates</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#" onclick="return showWalletBackupModal()" translate="yes">Wallet Backup</a></li>
                     <li role="separator" class="divider"></li>

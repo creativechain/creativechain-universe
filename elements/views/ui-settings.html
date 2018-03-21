@@ -1,0 +1,98 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="row-list-edit">
+            <div class="row-list-edit-avatare">
+                <!--<div class="img-circle-profile img-center cursor avatare-1"></div>-->
+                <div id="settings-user-avatar"
+                     class="img-circle-profile img-center cursor avatare-1">
+                </div>
+            </div>
+            <div class="row-list-edit-autor autor-edit change-text">
+                <p id="settings-user-name" class="name"></p>
+                <p id="settings-user-description" class="change-text" translate="yes"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">Language</label>
+                    <select id="settings-language" class="form-control">
+                        <option value="en" translate="yes">English</option>
+                        <option value="es" translate="yes">Español</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">ExchangeCoin</label>
+                    <select id="settings-exchange-coin" class="form-control">
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="mxn">MXN</option>
+                        <option value="btc">BTC</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">SessionExpireTime</label>
+                    <select id="settings-expire-time" class="form-control">
+                        <option value="600" translate="yes">-</option>
+                        <option value="600" translate="yes">TenMinutes</option>
+                        <option value="1200" translate="yes">TwentyMinutes</option>
+                        <option value="1800" translate="yes">ThirtyMinutes</option>
+                        <option value="3600" translate="yes">OneHour</option>
+                        <option value="7200" translate="yes">TwoHours</option>
+                        <option value="10800" translate="yes">ThreeHours</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label translate="yes">ActionAmount</label>
+                    <input id="settings-action-amount" type="number" class="form-control" placeholder="" translate="yes" step="0.00010000" min="0.0001">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">Password</label>
+                    <input id="settings-old-password" type="password" class="form-control" placeholder="OldPassword" translate="yes">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">NewPassword</label>
+                    <input id="settings-new-password" type="password" class="form-control" placeholder="NewPassword" translate="yes">
+                </div>
+            </div>
+        </div>
+
+        <div class="row hidden">
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label translate="yes">UserFile</label>
+                    <input id="wallet-file" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <label translate="yes"> </label>
+                <div class="form-group">
+                    <button onclick="loadWalletFile()" type="button" class="btn btn-primary button-upload button-upload-slide-1" translate="yes">SelectFile</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes" onclick="save()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

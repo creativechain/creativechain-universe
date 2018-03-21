@@ -77,7 +77,8 @@ function createWindow () {
         height: 1200,
         'minWidth': 800,
         'minHeight': 600,
-        frame: false,
+        frame: true,
+        backgroundColor: '#fff'
     });
 
     //Uncommment for show default menu bar
@@ -97,7 +98,7 @@ function createWindow () {
     }));
 
     // Open the DevTools.
-    //platformWindow.webContents.openDevTools();
+    platformWindow.webContents.openDevTools();
 
     ticker();
     // Emitted when the window is closed.

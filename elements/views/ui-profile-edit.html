@@ -1,0 +1,70 @@
+<div class="row placeholders">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row-list-edit">
+                <div class="row-list-edit-avatare">
+                    <!--<div class="img-circle-profile img-center cursor avatare-1"></div>-->
+                    <div v-bind:id="'input-profile-image'"
+                         v-bind:style="{ background: 'url(\'' + resolveAvatar(tempAvatar || profile.avatarFile, profile.address) + '\') center center / cover' }"
+                         onclick="loadProfileImage()"
+                         class="img-circle-profile img-center cursor avatare-1">
+                    </div>
+                </div>
+                <div class="row-list-edit-autor autor-edit change-text">
+                    <p id="user-name" class="name cursor" translate="yes">{{ profile.name || lang.Anonymous}}</p>
+                    <p class="change-text cursor" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div id="profile-crop" class="col-md-2">
+                    <img id="input-profile-image" v-bind:src="resolveAvatar(profile.avatarFile, profile.address)" alt="" class="img-profile img-circle cursor" style="width: 76px;" onclick="loadProfileImage()">
+                </div>
+                <div class="col-md-4 change-imatge">
+                    <p id="user-name" class="name cursor" translate="yes">{{ profile.name || lang.Anonymous}}</p>
+                    <p class="change-text cursor" translate="yes" onclick="loadProfileImage()">ChangeProfileImage</p>
+                </div>
+            </div>-->
+            <div class="form-group">
+                <label translate="yes">Username</label>
+                <input id="input-user-name" type="text" v-model="profile.name" class="form-control" maxlength="21"
+                       placeholder="WriteYourNickName" translate="yes">
+            </div>
+            <div class="form-group">
+                <label translate="yes">Description</label>
+                <input id="input-user-description" type="text" v-model="profile.description" class="form-control" maxlength="144"
+
+                       placeholder="WriteUserDescription" translate="yes">
+            </div>
+            <div class="form-group">
+                <label translate="yes">Email</label>
+                <input id="input-user-email" type="email" v-model="profile.email" class="form-control" maxlength="55" placeholder="AddYourEmail"
+                       translate="yes">
+            </div>
+            <div class="form-group">
+                <label translate="yes">Web</label>
+                <input id="input-user-web" type="text" v-model="profile.web" class="form-control" maxlength="55" placeholder="AddYourWeb"
+                       translate="yes">
+            </div>
+            <div class="form-group">
+                <label translate="yes">Tags</label>
+                <input translate="yes" placeholder="InsertUserTags" v-model="tagsText" v-on:keyup="parseTags" id="input-user-tags" data-options='{"maxTags": 8, "maxChars": 21}' class="form-control">
+            </div>
+            <div id="input-user-tags-list" class="form-group">
+                <template v-for="t in profile.tags">
+                    <button type="button" class="btn btn-primary button-tag-publish" translate="yes">
+                        {{ t }}
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true" v-on:click="removeTag(t)"></span>
+                    </button>
+                </template>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <button onclick="register()" type="button" class="btn btn-primary send-edit-profile" style="width: 100%;" translate="yes">
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

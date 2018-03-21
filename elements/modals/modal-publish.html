@@ -30,7 +30,7 @@
                                     </button>
                                     <ul class="list-inline list-unstyled">
                                         <li><span class="icon-plus">+</span></li>
-                                        <li><p translate="yes">Drag your featured image</p></li>
+                                        <li><p translate="yes">DragFeaturedImage</p></li>
                                     </ul>
                                     <p translate="yes">or</p>
                                     <button onclick="loadFeaturedImages()" type="button" class="btn btn-primary" translate="yes" data-target=".modal-publish">
@@ -57,15 +57,32 @@
                         </div>
                         <div class="form-group">
                             <label translate="yes">Description</label>
-                            <input id="publish-description" type="text" maxlength="233" class="form-control" placeholder="TypeDescription" translate="yes">
+                            <textarea id="publish-description" maxlength="233" class="form-control" rows="3" placeholder="TypeDescription" translate="yes"></textarea>
                         </div>
-                        <div class="form-group">
+<!--                        <div class="form-group">
                             <label translate="yes" style="display: block">TypeTags</label>
                             <input type="text" translate="yes" placeholder="TypeTags" data-role="tagsinput" id="publish-tags" data-options='{"maxTags": 5, "maxChars": 21}' onchange="onTagsChange()" class="form-control">
+                        </div>-->
+
+                        <!-- NEW TAGS -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label translate="yes" style="display: block">TypeTags</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" translate="yes" placeholder="TypeTags" id="publish-tags" data-options='{"maxTags": 5, "maxChars": 21}' tags-view tag-list="publish-tags-list" class="form-control">
+                                </div>
+                            </div>
+                            <div id="publish-tags-list" class="col-sm-8">
+
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <p class="publish-title" translate="yes">Smart Actions</p>
@@ -77,7 +94,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label translate="yes">DownloadFile</label>
+                                    <label translate="yes">PublishDownloadableContent</label>
                                     <input id="publish-content-file" type="text" class="form-control">
                                 </div>
                             </div>
@@ -115,10 +132,10 @@
                                     <th><p translate="yes">Icon</p></th>
                                     <th><p translate="yes">Description</p></th>
                                     <th><p translate="yes">Acronym</p></th>
-                                    <th><p translate="yes">Allows<br> Remix Culture</p></th>
-                                    <th><p translate="yes">Allows<br> Commercial Use</p></th>
-                                    <th><p translate="yes">Allows<br> Free Culture Works</p></th>
-                                    <th><p translate="yes">Meets<br> 'Open Definition'</p></th>
+                                    <th><p translate="yes">AllowsRemixCulture</p></th>
+                                    <th><p translate="yes">AllowsCommercialUse</p></th>
+                                    <th><p translate="yes">AllowsFreeCultureWorks</p></th>
+                                    <th><p translate="yes">MeetsOpenDefinition</p></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -129,7 +146,7 @@
                                     </label>
                                 </td>
                                 <td><img src="./assets/img/cc-icons/zero.svg" alt=""></td>
-                                <td><p translate="yes">Freeing content globally without restrictions</p></td>
+                                <td><p translate="yes" class="cursor" onclick="return openUrlInBrowser('https://creativecommons.org/publicdomain/zero/1.0/')">LicenseCC0</p></td>
                                 <td><p>CCO</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
@@ -145,7 +162,7 @@
                                 <td>
                                     <img src="./assets/img/cc-icons/cc.svg" alt="">
                                     <img src="./assets/img/cc-icons/by.svg" alt=""></td>
-                                <td><p translate="yes">Attribution alone</p></td>
+                                <td><p translate="yes" class="cursor" onclick="return openUrlInBrowser('https://creativecommons.org/licenses/by/4.0/')">LicenseBY</p></td>
                                 <td><p>BY</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
@@ -163,7 +180,7 @@
                                     <img src="./assets/img/cc-icons/by.svg" alt="">
                                     <img src="./assets/img/cc-icons/sa.svg" alt="">
                                 </td>
-                                <td><p translate="yes">Attribution + ShareAlike</p></td>
+                                <td><p translate="yes" class="cursor" onclick="return openUrlInBrowser('https://creativecommons.org/licenses/by-sa/4.0/')">LicenseBYSA</p></td>
                                 <td><p>BY - SA</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
@@ -181,7 +198,7 @@
                                     <img src="./assets/img/cc-icons/by.svg" alt="">
                                     <img src="./assets/img/cc-icons/nc.svg" alt="">
                                 </td>
-                                <td><p translate="yes">Attribution + Noncommercial</p></td>
+                                <td><p translate="yes" class="cursor" onclick="return openUrlInBrowser('https://creativecommons.org/licenses/by-nc/4.0/')">LicenseBYNC</p></td>
                                 <td><p>BY - NC</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
                                 <td><p class="text-no" translate="yes">No</p></td>
@@ -199,7 +216,7 @@
                                     <img src="./assets/img/cc-icons/by.svg" alt="">
                                     <img src="./assets/img/cc-icons/nd.svg" alt="">
                                 </td>
-                                <td><p translate="yes">Attribution + NoDerivatives</p></td>
+                                <td><p translate="yes" class="cursor" onclick="return openUrlInBrowser('https://creativecommons.org/licenses/by-nd/4.0/')">LicenseBYND</p></td>
                                 <td><p>BY - ND</p></td>
                                 <td><p class="text-no" translate="yes">No</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
@@ -218,7 +235,7 @@
                                     <img src="./assets/img/cc-icons/nc.svg" alt="">
                                     <img src="./assets/img/cc-icons/sa.svg" alt="">
                                 </td>
-                                <td><p translate="yes">Attribution + Noncommercial + ShareAlike</p></td>
+                                <td><p translate="yes" class="cursor" onclick="return openUrlInBrowser('https://creativecommons.org/licenses/by-nc-sa/4.0/')">LicenseBYNCSA</p></td>
                                 <td><p>BY - NC - SA</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
                                 <td><p class="text-no" translate="yes">No</p></td>
@@ -238,10 +255,10 @@
                                     <img src="./assets/img/cc-icons/nc.svg" alt="">
                                     <img src="./assets/img/cc-icons/sa.svg" alt="">
                                 </td>
-                                <td><p translate="yes">Attribution + Noncommercial (only cooperatives)</p></td>
+                                <td><p translate="yes" class="cursor" onclick="return openUrlInBrowser('http://p2pfoundation.net/Peer_Production_License')">LicensePPBYNCSA</p></td>
                                 <td><p>PP - BY - NC - SA</p></td>
                                 <td><p class="text-yes" translate="yes">Yes</p></td>
-                                <td><p class="text-only" translate="yes">Only<br>Non-profit<br>Organization</p></td>
+                                <td><p class="text-only" translate="yes">OnlyNonProfitOrg</p></td>
                                 <td><p class="text-no" translate="yes">No</p></td>
                                 <td><p class="text-no" translate="yes">No</p></td>
                             </tr>
@@ -256,7 +273,7 @@
                                     <img src="./assets/img/cc-icons/by.svg" alt="">
                                     <img src="./assets/img/cc-icons/nd.svg" alt="">
                                 </td>
-                                <td><p translate="yes">Attribution + Noncommercial + NoDerivatives</p></td>
+                                <td><p translate="yes" class="cursor" onclick="return openUrlInBrowser('https://creativecommons.org/licenses/by-nc-nd/4.0/')">LicenseBYNCND</p></td>
                                 <td><p>BY - NC - ND</p></td>
                                 <td><p class="text-no" translate="yes">No</p></td>
                                 <td><p class="text-no" translate="yes">No</p></td>
@@ -271,7 +288,8 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-center public-project">
-                    <h4 translate="yes">You are about to publish your project. Dale!</h4>
+                    <h4 translate="yes" class="m-bottom-5 grey-text strong">PublishProjectGo</h4>
+                    <p translate="yes" class="grey-text">ImmutableProject</p>
                     <button onclick="publishContent()" type="button" class="btn btn-primary button-upload" translate="yes" data-toggle="modal" data-target=".modal-publish">
                         Publish
                     </button>
