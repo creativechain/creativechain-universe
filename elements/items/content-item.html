@@ -16,7 +16,7 @@
                 <div class="row boxOptions">
                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
                         <p class="p-box-options">
-                            <img src="./assets/img/like0.png" alt="" class="img-responsive cursor">
+                            <img v-bind:id="'content-item-like' + m.address" src="./assets/img/like0.png" alt="" class="img-responsive cursor">
                             <span class="span-box-content">{{ m.likes }}</span>
                         </p>
                     </div>
