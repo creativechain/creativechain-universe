@@ -3,38 +3,37 @@
     <div class="single-news one-item">
         <article>
             <div class="content-img state-video cursor" type="button" data-toggle="modal" data-target=".modal-article">
-                <div v-bind:id="'content-item-image-' + m.address"
-                     v-bind:style="{ 'background-image': 'url(\'' + getDefaultImageAndColor(m.content_type, m.featured_image).image + '\')',
+                <div v-bind:style="{ 'background-image': 'url(\'' + getDefaultImageAndColor(m.content_type, m.featured_image).image + '\')',
                      'background-color': getDefaultImageAndColor(m.content_type, m.featured_image).color }" class="img-post-preview size-img-preview"></div>
             </div>
             <div class="content boxContent">
                 <div class="titleBox">
-                    <span v-bind:id="'content-item-title-' + m.address" data-toggle="modal" data-target=".modal-article" class="cursor">{{ m.title }}</span>
+                    <span data-toggle="modal" data-target=".modal-article" class="cursor">{{ m.title }}</span>
                 </div>
-                <div v-bind:id="'content-item-description-' + m.address" class="descriptionContent">
+                <div class="descriptionContent">
                     <p>{{ m.description }}</p>
                 </div>
                 <div class="row boxOptions">
                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
                         <p class="p-box-options">
-                            <img v-bind:id="'content-item-like-' + m.address" src="./assets/img/like0.png" alt="" class="img-responsive cursor">
-                            <span v-bind:id="'content-item-like-count-' + m.address" class="span-box-content">{{ m.likes }}</span>
+                            <img src="./assets/img/like0.png" alt="" class="img-responsive cursor">
+                            <span class="span-box-content">{{ m.likes }}</span>
                         </p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3 boxComments">
                         <p class="p-box-options">
                             <img src="./assets/img/comments.png" alt="" class="img-responsive">
-                            <span v-bind:id="'content-item-comments-' + m.address" class="span-box-content">{{ m.comments }}</span>
+                            <span class="span-box-content">{{ m.comments }}</span>
                         </p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3 boxSmartActions">
                         <p class="p-box-options">
                             <img src="./assets/img/smartaction.png" alt="" class="img-responsive">
-                            <span v-bind:id="'content-item-smart-' + m.address" class="span-box-content">0</span>
+                            <span class="span-box-content">0</span>
                         </p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3 boxLicence" style="">
-                        <p v-bind:id="'content-item-license-' + m.address" class="p-box-options">
+                        <p class="p-box-options">
                             <img src="./assets/img/cc.png" alt="" class="img-responsive">
                         </p>
                     </div>
@@ -54,16 +53,14 @@
                                 <div class="dropdown-toggle" data-toggle="dropdown">
                                     <div class="row">
                                         <div class="col-md-2 col-xs-2 icon-owner">
-                                            <img v-bind:id="'content-item-author-avatar-' + m.address"
-                                                 v-bind:src="resolveAvatar(m.avatarFile, m.author)"
+                                            <img v-bind:src="resolveAvatar(m.avatarFile, m.author)"
                                                  class="img-responsive avatare-owner img-circle" style="width: 30px; height: 30px" alt="">
                                         </div>
                                         <div class="col-md-8 col-xs-8 box-title-owner">
-                                            <p v-bind:id="'content-item-author-' + m.address">{{ m.name || lang.Anonymous }}</p>
+                                            <p>{{ m.name || lang.Anonymous }}</p>
                                         </div>
                                         <div class="col-md-2 col-xs-2 box-level-owner">
-                                            <img v-bind:id="'content-item-author-level-' + m.address"
-                                                 v-bind:src="getBuzz(m.user_likes, m.user_comments, m.publications).icon" alt="" class="img-responsive">
+                                            <img v-bind:src="getBuzz(m.user_likes, m.user_comments, m.publications).icon" alt="" class="img-responsive">
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +70,7 @@
                                     <li>
                                         <div class="romboTooltip"></div>
                                         <div class="row">
-                                            <div v-show="m.address !== userAddress" class="col-xs-8 col-xs-offset-4">
+                                            <div v-show="m.author !== userAddress" class="col-xs-8 col-xs-offset-4">
                                                 <button v-if="!m.following" v-bind:id="'content-item-tooltip-follow-' + m.address"
                                                         v-on:mouseenter="followButtonEnter('content-item-tooltip-follow-' + m.address, m.author, m.following)"
                                                         v-on:mouseleave="followButtonLeave('content-item-tooltip-follow-' + m.address, m.author, m.following)"
@@ -94,8 +91,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <img v-bind:id="'content-item-tooltip-avatar-' + m.address"
-                                                     v-bind:src="resolveAvatar(m.avatarFile, m.author)"
+                                                <img v-bind:src="resolveAvatar(m.avatarFile, m.author)"
                                                      v-bind:onclick="'onLoadUser(\'' + m.author + '\')'"
                                                      class="img-circle-important cursor" alt="">
                                             </div>
@@ -103,14 +99,14 @@
                                         <div class="row">
                                             <div class="col-xs-12 text-center">
                                                 <p class="titleTooltipUser">
-                                                    <strong v-bind:id="'content-item-tooltip-author-' + m.address" class="cursor">{{ m.name || lang.Anonymous }}</strong></p>
-                                                <p class="webTooltipUser" v-bind:id="'content-item-tooltip-web-' + m.address">
+                                                    <strong class="cursor">{{ m.name || lang.Anonymous }}</strong></p>
+                                                <p class="webTooltipUser">
                                                     {{ m.web || '-' }}
                                                 </p>
-                                                <p class="descriptionTooltipUser" v-bind:id="'content-item-tooltip-description-' + m.address">
+                                                <p class="descriptionTooltipUser">
                                                     {{ m.description || '-'}}
                                                     <br/><br/>
-                                                    <span v-bind:id="'content-item-tooltip-email' + m.address">
+                                                    <span>
                                                         {{ m.email || '-' }}
                                                     </span>
                                                 </p>
@@ -128,9 +124,9 @@
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td v-bind:id="'content-item-tooltip-likes-' + m.address">{{ m.user_likes }}</td>
-                                                        <td v-bind:id="'content-item-tooltip-followers-' + m.address">{{ m.user_followers }}</td>
-                                                        <td v-bind:id="'content-item-tooltip-following-' + m.address">{{ m.user_following }}</td>
+                                                        <td>{{ m.user_likes }}</td>
+                                                        <td>{{ m.user_followers }}</td>
+                                                        <td>{{ m.user_following }}</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
