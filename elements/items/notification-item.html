@@ -9,11 +9,22 @@
         <p v-bind:id="'notification-description-' + n.id" class="change-text" translate="yes">{{ n.description }}</p>
     </div>
     <div class="row-list-notification-options hidden">
-        <button v-bind:id="'notification-button-' + n.id" class="btn btn-therciary btn-following"
-                v-bind:onmouseenter="'followButtonEnter(\'notification-button-' + n.id + '\', \'' + n.author + '\', ' + n.isFollowing + ')'"
-                v-bind:onmouseleave="'followButtonLeave(\'notification-button-' + n.id + '\', \'' + n.author + '\', ' + n.isFollowing + ')'"
-                style="width: 100%;" translate="yes">
-            Follow
+
+        <button v-if="!n.isFollowing" v-bind:id="'notification-button-' + n.id"
+                v-on:mouseenter="followButtonEnter('notification-button-' + n.id, n.author, n.isFollowing)"
+                v-on:mouseleave="followButtonLeave('notification-button-' + n.id, n.author, n.isFollowing)"
+                v-on:click="performFollow(n.author)"
+                type="button" class="btn btn-primary btn-follow"
+                translate="yes">
+            {{ lang.Follow }}
+        </button>
+        <button v-else v-bind:id="'notification-button-following-' + n.id"
+                v-on:mouseenter="followButtonEnter('notification-button-following-' + n.id, n.author, n.isFollowing)"
+                v-on:mouseleave="followButtonLeave('notification-button-following-' + n.id, n.author, n.isFollowing)"
+                v-on:click="performFollow(n.author)"
+                type="button" class="btn btn-therciary btn-following"
+                translate="yes">
+            {{ lang.Following }}
         </button>
     </div>
 </div>

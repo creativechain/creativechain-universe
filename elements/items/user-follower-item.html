@@ -13,22 +13,20 @@
     </div>
     <div class="row-list-notification-options">
         <button v-if="!f.is_following" v-bind:id="'follower-button-' + f.follower_address"
-                onclick="performArticleFollow()"
                 v-on:mouseenter="followButtonEnter('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
                 v-on:mouseleave="followButtonLeave('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
                 v-on:click="performFollow(f.follower_address)"
                 type="button" class="btn btn-primary btn-follow"
                 translate="yes">
-            {{ lang.Follow }}
+            {{ lang.Follow}}
         </button>
-        <button v-else v-bind:id="'follower-button-' + f.follower_address"
-                onclick="performArticleFollow()"
-                v-on:mouseenter="followButtonEnter('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
-                v-on:mouseleave="followButtonLeave('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
+        <button v-else v-bind:id="'follower-button-following-' + f.follower_address"
+                v-on:mouseenter="followButtonEnter('follower-button-following-' + f.follower_address, f.follower_address, f.is_following)"
+                v-on:mouseleave="followButtonLeave('follower-button-following-' + f.follower_address, f.follower_address, f.is_following)"
                 v-on:click="performFollow(f.follower_address)"
                 type="button" class="btn btn-therciary btn-following"
                 translate="yes">
-            {{ lang.Following }}
+            {{ lang.Following}}
         </button>
     </div>
 </div>
