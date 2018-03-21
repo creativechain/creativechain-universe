@@ -86,6 +86,7 @@
       "!database/index.db-journal",
       "extra/dbmigrations/",
       "extra/credentials.json",
+      "extra/credentials_prod.json",
       "extra/index.db.sql"
     ],
     "mac": {
