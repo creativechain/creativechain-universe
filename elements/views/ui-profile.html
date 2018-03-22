@@ -29,12 +29,7 @@
                  v-bind:style="{ 'background': 'url(\'' + resolveAvatar(profile.avatarFile, profile.address) + '\') center center / cover' }"
                  class="img-profile-user img-center"></div>
         </div>
-        <!-- FIN AÑADIR IMAGEN USER -->
 
-
-<!--
-        <img id="user-avatar" src="./assets/img/avatar/avatar1.png" alt="" class="img-profile img-circle" style="width: 76px;">
--->
         <p id="user-nick" translate="yes" class="name">{{ profile.name || lang.Anonymous }}</p>
         <p id="user-web" class="name-web">{{ profile.web || '-' }}</p>
         <p id="user-description" class="descriptionProfile">{{ profile.description || '-' }}</p>

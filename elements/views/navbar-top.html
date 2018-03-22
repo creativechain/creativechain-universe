@@ -60,8 +60,23 @@
             </li>
             <li>
                 <a class="undraggable" onclick="return showProfile()" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img id="user-top-avatar" class="img-circle" src="./assets/img/avatar/avatar1.png" alt="" style="width: 32px;">
+
+                    <div class="">
+                        <div class="row-list-edit-avatare" style="display: flex;">
+                            <div id="settings-user-avatar"
+                                 class="image-profile-navbar-top img-circle cursor avatare-1">
+                            </div>
+                            <span id="user-top-name" class="nameUser" translate="yes" style="margin-top: 8px;">Anonymous</span>
+                        </div>
+                    </div>
+
+<!--
+                    <img id="user-top-avatar" class="img-circle image-profile-navbar-top" src="./assets/img/avatar/avatar1.png" alt="">
+-->
+
+<!--
                     <span id="user-top-name" class="nameUser" translate="yes">Anonymous</span>
+-->
                 </a>
             </li>
             <li class="amount-navbar undraggable cursor"><a href="" onclick="return showWalletView()"><p id="top-balance">0.00000000 CREA</p></a></li>

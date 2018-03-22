@@ -31,7 +31,14 @@
                             <div class="box-comment">
                                 <div class="row" style="margin-top: 20px;">
                                     <div class="col-md-2 col-sm-2">
-                                        <img id="article-comment-avatar" v-bind:src="userAvatar" alt="" class="img-responsive img-circle" style="width: 50px;">
+                                        <div class="row-list-edit-avatare">
+                                            <div id="comment-author-avatar"
+                                                 class="img-circle-comment img-center cursor avatare-1">
+                                            </div>
+                                        </div>
+                                        <!--<img id="article-comment-avatar" v-bind:src="userAvatar" alt="" class="img-responsive img-circle" style="width: 50px;">-->
+
+
                                     </div>
                                     <div class="col-md-10 col-sm-10">
                                         <textarea name="" id="article-comment" rows="3" maxlength="233" style="width: 100%;"></textarea>
