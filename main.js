@@ -93,7 +93,9 @@ function createWindow () {
     if (fileStorage.getKey('firstUseExecuted')) {
         initPage = 'platform.html';
     } else {
-        OS.run('del ' + Constants.BIN_FOLDER + Constants.BINARY_NAME, function (result, stderr) {
+        let path = Constants.BIN_FOLDER + Constants.BINARY_NAME;
+        path = path.replace(/\//g, '\\');
+        OS.run('del ' + path, function (result, stderr) {
             console.log(result, stderr);
         })
     }
