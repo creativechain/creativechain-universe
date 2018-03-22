@@ -274,6 +274,9 @@
   "NoNotifications": "No notifications",
   "SendCoins": "Send coins",
   "NoContentFollows": "There is no content. Discover and follow more people.",
+  "ReportContent": "Report content",
+  "BlockAllUserPosts": "Block all posts by this user",
+  "CreatingWallet": "Creating wallet...",
 
 
 

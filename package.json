@@ -86,6 +86,7 @@
       "!database/index.db-journal",
       "extra/dbmigrations/",
       "extra/credentials.json",
+      "extra/credentials_prod.json",
       "extra/index.db.sql"
     ],
     "mac": {
@@ -103,7 +104,7 @@
       "synopsis": "A blockchain project for the registration, authentication and distribution of digital free culture.",
       "category": "Utility",
       "executableName": "creativechain",
-      "target": "tar.gz"
+      "target": "deb"
     }
   }
 }
