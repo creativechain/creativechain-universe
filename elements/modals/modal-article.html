@@ -101,15 +101,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="box-comment box-alert-post">
+                            <div v-if="userAddress !== article.author" class="box-comment box-alert-post">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12">
                                         <ul class="list-inline list-unstyled">
-                                            <li id="article-block" class="cursor">
+                                            <li v-on:click="blockContent(article.address)" class="cursor">
                                                 <img src="./assets/img/alert.jpg" alt="">
                                                 <p translate="yes">ReportContent</p>
                                             </li>
-                                            <li id="article-block-user" class="cursor">
+                                            <li v-on:click="blockContent(article.author)" class="cursor">
                                                 <img src="./assets/img/icon-block.jpg" alt="">
                                                 <p translate="yes">BlockAllUserPosts</p>
                                             </li>
