@@ -161,6 +161,17 @@ a:focus, a:hover {
     text-decoration: none;
 }
 /* Navbar */
+.img-circle-notification {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.img-circle-notification.avatare-1 {
+    background: url("./../img/background-slide-1.png") center center;
+    background-size: cover;
+}
+
+
 .row-list-edit-avatare > .image-profile-navbar-top {
     width: 34px;
     height: 34px;
@@ -354,7 +365,7 @@ a {
 /* BOX */
 .img-circle-box {
     width: 45px;
-    height: 45gipx;
+    height: 45px;
     margin: 15px auto;
 }
 .img-circle-box.avatare-1 {

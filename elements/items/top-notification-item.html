@@ -1,7 +1,13 @@
 <li class="cursor" onclick="return showNotificationsView()">
     <div class="list-notifications">
         <div class="notification-profile">
-            <img class="img-circle" v-bind:id="'notif-profile-avatar-' + n.id" v-bind:src="resolveAvatar(n.data.avatarFile, n.data.author)" alt="">
+            <div class="row-list-edit-avatare">
+                <div id="comment-author-avatar"
+                     class="img-circle-notification img-circle-important cursor avatare-1">
+                </div>
+            </div>
+
+            <!--<img class="img-circle" v-bind:id="'notif-profile-avatar-' + n.id" v-bind:src="resolveAvatar(n.data.avatarFile, n.data.author)" alt="">-->
         </div>
         <div class="description-notification">
             <p v-bind:id="'notif-profile-name-' + n.id">{{ n.data.name || lang.Anonymous }}<span v-bind:id="'notif-date-' + n.id">{{ resolveDate(n.on_date) }}</span></p>
