@@ -17,7 +17,12 @@
                 <div class="row boxOptions">
                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
                         <p class="p-box-options">
-                            <img v-bind:id="'user-content-item-like-' + m.address" src="./assets/img/like0.png" alt="" class="img-responsive cursor">
+                            <img v-bind:id="'user-content-item-like-' + m.address"
+                                 src="./assets/img/like0.png"
+                                 v-on:click="makeLike(m.address, m.user_liked)"
+                                 v-on:mouseenter="likeEnter('user-content-item-like-' + m.address, m.user_liked)"
+                                 v-on:mouseleave="likeLeave('user-content-item-like-' + m.address, m.user_liked)"
+                                 alt="" class="img-responsive cursor">
                             <span class="span-box-content">{{ m.likes }}</span>
                         </p>
                     </div>
@@ -106,7 +111,7 @@
                                                     {{ m.web || '-' }}
                                                 </p>
                                                 <p class="descriptionTooltipUser">
-                                                    {{ m.description || '-'}}
+                                                    {{ m.user_description || '-'}}
                                                     <br/><br/>
                                                     <span>
                                                         {{ m.email || '-' }}
