@@ -218,8 +218,12 @@
                         <ul class="list-unstyled">
                             <li>
                                 <p>
-                                    <img id="article-like" src="./assets/img/modal/icon-like.png"
-                                        v-on:click="makeLike(article.address, article.user_liked)" alt="">
+                                    <img id="article-like"
+                                         v-bind:src="getLikeIcon(article.user_liked)"
+                                         v-on:click="makeLike(article.address, article.user_liked)"
+                                         v-on:mouseenter="likeEnter('article-like', article.user_liked)"
+                                         v-on:mouseleave="likeLeave('article-like', article.user_liked)"
+                                         alt="">
                                     <span id="article-likes">{{ article.likes + ' ' + lang.Likes }}</span>
                                 </p>
                             </li>
