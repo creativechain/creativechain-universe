@@ -59,8 +59,8 @@
                                     <div class="row">
                                         <div class="col-md-2 col-xs-2 icon-owner">
                                             <div class="row-list-edit-avatare">
-                                                <div id="comment-author-avatar"
-                                                     class="img-circle-comment img-responsive avatare-owner img-circle cursor avatare-1" style="width: 30px; height: 30px">
+                                                <div v-bind:style="{ background: 'url(\'' + resolveAvatar(m.avatarFile, m.author) + '\') center center / cover', width: '30px', height: '30px' }"
+                                                     class="img-circle-comment img-responsive avatare-owner img-circle cursor avatare-1" >
                                                 </div>
                                             </div>
 
@@ -106,7 +106,8 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="row-list-edit-avatare">
-                                                    <div id="comment-author-avatar"
+                                                    <div v-bind:style="{ background: 'url(\'' + resolveAvatar(m.avatarFile, m.author) + '\') center center / cover' }"
+                                                         v-bind:onclick="'onLoadUser(\'' + m.author + '\')'"
                                                          class="img-circle-box img-circle-important cursor avatare-1">
                                                     </div>
                                                 </div>
