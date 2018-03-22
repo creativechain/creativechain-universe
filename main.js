@@ -92,12 +92,6 @@ function createWindow () {
     let initPage = 'slide-1.html';
     if (fileStorage.getKey('firstUseExecuted')) {
         initPage = 'platform.html';
-    } else {
-        let path = Constants.BIN_FOLDER + Constants.BINARY_NAME;
-        path = path.replace(/\//g, '\\');
-        OS.run('del ' + path, function (result, stderr) {
-            console.log(result, stderr);
-        })
     }
 
     platformWindow.loadURL(url.format({
