@@ -352,6 +352,16 @@ a {
     background-size: cover;
 }
 /* BOX */
+.img-circle-box {
+    width: 45px;
+    height: 45gipx;
+    margin: 15px auto;
+}
+.img-circle-box.avatare-1 {
+    background: url("./../img/background-slide-1.png") center center;
+    background-size: cover;
+}
+
 .img-post-preview {
     background-image: url("./../img/background-slide-1.png");
 }
