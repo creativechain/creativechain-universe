@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 text-right">
+    <div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-2 text-center">
         <button v-if="profile.isUser" type="button" id="user-edit-button" class="btn btn-therciary edit-button-profile" onclick="return showProfileEditView()" translate="yes">
             EditProfile
         </button>
@@ -14,7 +14,7 @@
                 v-on:mouseenter="followButtonEnter('user-follow-button', profile.address, profile.user_following)"
                 v-on:mouseleave="followButtonLeave('user-follow-button', profile.address, profile.user_following)"
                 v-on:click="performFollow(profile.address)"
-                type="button" class="btn btn-therciary btn-following" translate="yes">
+                type="button" class="btn btn-therciary btn-following btn-follow-profile" translate="yes">
             Following
         </button>
     </div>
