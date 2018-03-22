@@ -1037,6 +1037,10 @@ table.table-following-right .descriptionFollowing {
 
 
 /* MODAL PUBLISH */
+.modal-publish .text-info-modal-publish {
+    color: #0569ef;
+    font-size: 12px;
+}
 .button-tag-publish {
     position: relative;
     margin-top: 4px;
