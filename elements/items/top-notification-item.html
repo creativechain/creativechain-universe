@@ -2,7 +2,8 @@
     <div class="list-notifications">
         <div class="notification-profile">
             <div class="row-list-edit-avatare">
-                <div id="comment-author-avatar"
+                <div v-bind:id="'notif-profile-avatar-' + n.id"
+                     vibind:style="{ background: 'url(\'' + resolveAvatar(n.data.avatarFile, n.data.author) + '\') center center / cover' }"
                      class="img-circle-notification img-circle-important cursor avatare-1">
                 </div>
             </div>

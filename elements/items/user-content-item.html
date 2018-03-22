@@ -60,7 +60,7 @@
                                     <div class="row">
                                         <div class="col-md-2 col-xs-2 icon-owner">
                                             <div class="row-list-edit-avatare">
-                                                <div id="comment-author-avatar"
+                                                <div v-bind:style="{ background: 'url(\'' + resolveAvatar(m.avatarFile, m.author) + '\') center center / cover' }"
                                                      class="img-circle-comment img-responsive avatare-owner img-circle cursor avatare-1" style="width: 30px; height: 30px">
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="row-list-edit-avatare">
-                                                    <div id="comment-author-avatar"
+                                                    <div v-bind:style="{ background: 'url(\'' + resolveAvatar(m.avatarFile, m.author) + '\') center center / cover' }"
                                                          class="img-circle-box img-circle-important cursor avatare-1">
                                                     </div>
                                                 </div>
