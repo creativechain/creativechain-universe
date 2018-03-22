@@ -78,7 +78,10 @@ function createWindow () {
         'minWidth': 800,
         'minHeight': 600,
         frame: true,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        'web-preferences': {
+            'enable-drag-out': false
+        }
     });
 
     //Uncommment for show default menu bar
