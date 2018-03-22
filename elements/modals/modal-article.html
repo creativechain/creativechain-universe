@@ -150,14 +150,14 @@
                                 <ul class="list-unstyled">
                                     <li>
                                         <p>
-                                            <img id="article-author-level-icon" v-bind:src="buzz.icon" alt="" style="width: 15px;">
-                                            <span id="article-author-level">{{ buzz.levelText }}</span>
+                                            <img id="article-author-level-icon" v-bind:src="getBuzz().icon" alt="" style="width: 15px;">
+                                            <span id="article-author-level">{{ getBuzz().levelText }}</span>
                                         </p>
                                     </li>
                                     <li>
                                         <p>
                                             <img src="./assets/img/icon-2.png" alt="" style="width: 15px;">
-                                            <span id="article-author-buzz">{{ buzz.rate + ' Buzz' }}</span>
+                                            <span id="article-author-buzz">{{ getBuzz().rate + ' Buzz' }}</span>
                                         </p>
                                     </li>
                                 </ul>
