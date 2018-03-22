@@ -98,7 +98,8 @@
   "LoadFile": "Load file",
   "ImagesFiles": "Images files",
   "Anonymous": "Anonymous",
-  "MaximumFileSize": "Maximum size 100mb",
+  "MaximumPrivateSize": "Maximum size 200mb",
+  "MaximumPublicSize": "Maximum size 5mb",
   "DragFeaturedImage": "Drag your featured image",
   "Title": "Title",
   "Description": "Description",
@@ -277,7 +278,7 @@
   "ReportContent": "Report content",
   "BlockAllUserPosts": "Block all posts by this user",
   "CreatingWallet": "Creating wallet...",
-  "PreviewImageIsAccessible": "Remember that the preview image is accessible to all users.",
+  "PreviewImageIsAccessible": "Remember that the featured image is accessible to all users.",
 
 
 
