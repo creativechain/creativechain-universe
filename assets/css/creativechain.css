@@ -161,6 +161,10 @@ a:focus, a:hover {
     text-decoration: none;
 }
 /* Navbar */
+.row-list-edit-avatare > .image-profile-navbar-top {
+    width: 34px;
+    height: 34px;
+}
 .menu-options li > a  {
     font-size: 12px;
     color: #959595;
@@ -1023,7 +1027,19 @@ table.table-following-right .descriptionFollowing {
     flex: 3 1 75%;
     -webkit-order: 2;
     order: 2;
+    line-height: 10px;
 }
+.row-list-edit-avatare > .img-circle-profile-publish {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+.img-circle-profile-publish.avatare-1 {
+    background: url("./../img/background-slide-1.png") center center;
+    background-size: cover;
+}
+
 .row-list-edit-avatare > .img-circle-profile {
     width: 60px;
     height: 60px;
@@ -1037,7 +1053,13 @@ table.table-following-right .descriptionFollowing {
 
 
 /* MODAL PUBLISH */
-
+.row-list-edit-avatare > .img-circle-profile-publish {
+    width: 80px;
+    height: 80px;
+}
+.m-top-30 {
+    margin-top: 30px;
+}
 .button-tag-publish {
     position: relative;
     margin-top: 4px;
