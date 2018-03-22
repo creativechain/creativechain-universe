@@ -1206,6 +1206,9 @@ label {
     margin-top: 13px;
     margin-bottom: 5px;
 }
+.btn-follow-profile {
+    padding: 2px 10px;
+}
 .border-notifications img {
     width: 46px;
     height: 46px;
