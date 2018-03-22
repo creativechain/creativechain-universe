@@ -86,7 +86,6 @@
                                         <div class="row">
                                             <div v-show="m.author !== userAddress" class="col-xs-8 col-xs-offset-4">
                                                 <button v-if="!m.following" v-bind:id="'user-content-item-tooltip-follow-' + m.address"
-                                                        onclick="performArticleFollow()"
                                                         v-on:mouseenter="followButtonEnter('user-content-item-tooltip-follow-' + m.address, m.author, m.following)"
                                                         v-on:mouseleave="followButtonLeave('user-content-item-tooltip-follow-' + m.address, m.author, m.following)"
                                                         v-on:click="performFollow(m.author)"
@@ -95,7 +94,6 @@
                                                     {{ lang.Follow }}
                                                 </button>
                                                 <button v-else v-bind:id="'user-content-item-tooltip-following-' + m.address"
-                                                        onclick="performArticleFollow()"
                                                         v-on:mouseenter="followButtonEnter('user-content-item-tooltip-following-' + m.address, m.author, m.following)"
                                                         v-on:mouseleave="followButtonLeave('user-content-item-tooltip-following-' + m.address, m.author, m.following)"
                                                         v-on:click="performFollow(m.author)"

@@ -173,7 +173,7 @@
                         </div>
                         <div class="row">
                             <div v-if="article.author === userAddress"class="col-md-12">
-                                <button v-if="!article.following" v-bind:id="'article-follow-' + article.address"
+                                <button v-if="article.author === userAddress" v-bind:id="'article-follow-' + article.address"
                                         v-on:click="prepareArticleEdition(article.address)"
                                         type="button" class="btn btn-primary btn-follow"
                                         translate="yes">
