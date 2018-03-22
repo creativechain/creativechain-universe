@@ -16,7 +16,8 @@
                 <div class="row boxOptions">
                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
                         <p class="p-box-options">
-                            <img v-bind:id="'content-item-like-' + m.address" src="./assets/img/like0.png"
+                            <img v-bind:id="'content-item-like-' + m.address"
+                                 v-bind:src="getLikeIcon(m.user_liked)"
                                  v-on:click="makeLike(m.address, m.user_liked)"
                                  v-on:mouseenter="likeEnter('content-item-like-' + m.address, m.user_liked)"
                                  v-on:mouseleave="likeLeave('content-item-like-' + m.address, m.user_liked)"

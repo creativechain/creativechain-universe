@@ -18,7 +18,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-3 boxLike">
                         <p class="p-box-options">
                             <img v-bind:id="'user-content-item-like-' + m.address"
-                                 src="./assets/img/like0.png"
+                                 v-bind:src="getLikeIcon(m.user_liked)"
                                  v-on:click="makeLike(m.address, m.user_liked)"
                                  v-on:mouseenter="likeEnter('user-content-item-like-' + m.address, m.user_liked)"
                                  v-on:mouseleave="likeLeave('user-content-item-like-' + m.address, m.user_liked)"
@@ -63,7 +63,7 @@
                                                  class="img-responsive avatare-owner img-circle" style="width: 30px; height: 30px" alt="">
                                         </div>
                                         <div class="col-md-8 col-xs-8 box-title-owner">
-                                            <p>{{ m.name }}</p>
+                                            <p>{{ m.name || lang.Anonymous }}</p>
                                         </div>
                                         <div class="col-md-2 col-xs-2 box-level-owner">
                                             <img v-bind:src="getBuzz(m.user_likes, m.user_comments, m.publications).icon" alt="" class="img-responsive">
