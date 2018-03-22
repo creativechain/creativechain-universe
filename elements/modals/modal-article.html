@@ -17,6 +17,7 @@
                     </template>
                     <template v-else>
                         <img id="article-featured-image" v-bind:src="featuredImage.image" alt="" class="img-responsive"
+                             ondragstart="return false"
                              v-bind:style="{ 'display': 'block', 'margin': 'auto', 'background-color': featuredImage.color }">
                     </template>
 
