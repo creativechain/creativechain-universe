@@ -59,8 +59,16 @@
                                 <div class="dropdown-toggle" data-toggle="dropdown">
                                     <div class="row">
                                         <div class="col-md-2 col-xs-2 icon-owner">
+                                            <div class="row-list-edit-avatare">
+                                                <div id="comment-author-avatar"
+                                                     class="img-circle-comment img-responsive avatare-owner img-circle cursor avatare-1" style="width: 30px; height: 30px">
+                                                </div>
+                                            </div>
+
+                                            <!--
                                             <img v-bind:src="resolveAvatar(m.avatarFile, m.author)"
                                                  class="img-responsive avatare-owner img-circle" style="width: 30px; height: 30px" alt="">
+                                            -->
                                         </div>
                                         <div class="col-md-8 col-xs-8 box-title-owner">
                                             <p>{{ m.name || lang.Anonymous }}</p>
@@ -99,8 +107,15 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12">
+                                                <div class="row-list-edit-avatare">
+                                                    <div id="comment-author-avatar"
+                                                         class="img-circle-box img-circle-important cursor avatare-1">
+                                                    </div>
+                                                </div>
+                                                <!--
                                                 <img v-bind:src="resolveAvatar(m.avatarFile, m.author)"
                                                      class="img-circle-important cursor" alt="">
+                                                -->
                                             </div>
                                         </div>
                                         <div class="row">
