@@ -30,6 +30,29 @@
                 </div>
             </li>
 
+            <li class="undraggable" style="height: 40px;">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    <i class="glyphicon glyphicon-option-vertical button-menu" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu menu-options">
+                    <li class="cursor" v-on:click="loadProfileData(user.address, (user.address === userAddress))"
+                        style="color: #9d9d9d">
+                        <div class="row-list-notification">
+                            <div class="row-list-notification-avatare">
+                                <div v-bind:id="'user-search-avatar-' + user.address"
+                                     v-bind:style="{ background: 'url(\'' + resolveAvatar(user.avatarFile, user.address) + '\') center center / cover' }" class="img-circle-following img-center avatare-1"></div>
+                            </div>
+                            <div class="row-list-notification-autor autor-notifications change-text">
+                                <p v-bind:id="'user-search-name-' + user.address" class="name cursor change-text">{{ user.name || lang.Anonymous }}</p>
+                                <p v-bind:id="'user-search-description-' + user.address" class="change-text" translate="yes">{{ user.description || '-'}}</p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="" style="margin-top: 3px;">
