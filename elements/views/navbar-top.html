@@ -19,37 +19,14 @@
             <li>
                 <div id="content-search-form" class="navbar-form navbar-right form-search-navbar dropdown-toggle"
                      data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <input id="content-search" name="search" type="text" onkeyup="return onSearchKey(event)" class="form-control input-search undraggable" placeholder="Search..." translate="yes">
+                    <input id="content-search" name="search" type="text" onkeyup="return onSearchKey(event)" class="form-control input-search undraggable" placeholder="SearchTagOrUser" translate="yes">
 
-                    <ul id="user-search-list" class="dropdown-menu notifications" v-show="authors.length > 0"
-                        style="left: 0">
-                        <template v-for="user in authors" w3-include-html="./elements/items/user-search-item.html">
-
-                        </template>
-                    </ul>
                 </div>
-            </li>
+                <ul id="user-search-list" class="dropdown-menu menu-options hidden" v-show="authors.length > 0"
+                    style="left: 0">
+                    <template v-for="user in authors" w3-include-html="./elements/items/user-search-item.html">
 
-            <li class="undraggable" style="height: 40px;">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">
-                    <i class="glyphicon glyphicon-option-vertical button-menu" aria-hidden="true"></i>
-                </a>
-                <ul class="dropdown-menu menu-options">
-                    <li class="cursor" v-on:click="loadProfileData(user.address, (user.address === userAddress))"
-                        style="color: #9d9d9d">
-                        <div class="row-list-notification">
-                            <div class="row-list-notification-avatare">
-                                <div v-bind:id="'user-search-avatar-' + user.address"
-                                     v-bind:style="{ background: 'url(\'' + resolveAvatar(user.avatarFile, user.address) + '\') center center / cover' }" class="img-circle-following img-center avatare-1"></div>
-                            </div>
-                            <div class="row-list-notification-autor autor-notifications change-text">
-                                <p v-bind:id="'user-search-name-' + user.address" class="name cursor change-text">{{ user.name || lang.Anonymous }}</p>
-                                <p v-bind:id="'user-search-description-' + user.address" class="change-text" translate="yes">{{ user.description || '-'}}</p>
-                            </div>
-                        </div>
-                    </li>
-
+                    </template>
                 </ul>
             </li>
 
