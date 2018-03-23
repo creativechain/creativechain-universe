@@ -12,7 +12,7 @@
         <p v-bind:id="'follower-description-' + f.follower_address" class="change-text" translate="yes">{{ f.description || '-' }}</p>
     </div>
     <div class="row-list-notification-options">
-        <template v-if="!f.is_following">
+        <template v-if="!f.is_following && f.follower_address !== userAddress">
             <button v-bind:id="'follower-button-' + f.follower_address"
                     v-on:mouseenter="followButtonEnter('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
                     v-on:mouseleave="followButtonLeave('follower-button-' + f.follower_address, f.follower_address, f.is_following)"
@@ -22,7 +22,7 @@
                 {{ lang.Follow}}
             </button>
         </template>
-        <template v-else>
+        <template v-else-if="f.follower_address !== userAddress">
             <button v-bind:id="'follower-button-following-' + f.follower_address"
                     v-on:mouseenter="followButtonEnter('follower-button-following-' + f.follower_address, f.follower_address, f.is_following)"
                     v-on:mouseleave="followButtonLeave('follower-button-following-' + f.follower_address, f.follower_address, f.is_following)"
