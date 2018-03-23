@@ -188,12 +188,19 @@
             <p translate="yes">Following</p>
 
             <span id="ui-no-follow" class="hidden" translate="yes">NoFollowAnyone</span>
-            <table id="following-list" v-show="follows.length > 0" class="table-following-right">
+            <div class="row">
+                <div class="col-md-12" id="following-list" v-show="follows.length > 0">
+                        <template v-for="f in follows" w3-include-html="./elements/items/following-item.html">
+
+                        </template>
+                </div>
+            </div>
+            <!--<table id="following-list" v-show="follows.length > 0" class="table-following-right">
 
                 <template v-for="f in follows" w3-include-html="./elements/items/following-item.html">
 
                 </template>
-            </table>
+            </table>-->
         </div>
     </div>
 </div>
