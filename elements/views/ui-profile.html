@@ -10,9 +10,9 @@
                 type="button" class="btn btn-primary follow-button-profile" translate="yes">
             Follow
         </button>
-        <button v-else id="user-follow-button"
-                v-on:mouseenter="followButtonEnter('user-follow-button', profile.address, profile.user_following)"
-                v-on:mouseleave="followButtonLeave('user-follow-button', profile.address, profile.user_following)"
+        <button v-else id="user-follow-button-following"
+                v-on:mouseenter="followButtonEnter('user-follow-button-following', profile.address, profile.user_following)"
+                v-on:mouseleave="followButtonLeave('user-follow-button-following', profile.address, profile.user_following)"
                 v-on:click="performFollow(profile.address)"
                 type="button" class="btn btn-therciary btn-following btn-follow-profile" translate="yes">
             Following
