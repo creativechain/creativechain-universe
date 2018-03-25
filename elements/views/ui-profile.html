@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-2 text-center">
-        <button v-if="profile.isUser" type="button" id="user-edit-button" class="btn btn-therciary edit-button-profile" onclick="return showProfileEditView()" translate="yes">
+        <button v-if="profile.address === userAddress" type="button" id="user-edit-button" class="btn btn-therciary edit-button-profile" onclick="return showProfileEditView()" translate="yes">
             EditProfile
         </button>
         <button v-else-if="!profile.user_following" id="user-follow-button"
