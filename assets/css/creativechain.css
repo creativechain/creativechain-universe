@@ -114,8 +114,8 @@ hr {
 }
 .btn-primary {
     color: #fff;
-    background-color: #0569ef;
-    border-color: #0569ef;
+    background-color: #0073ff;
+    border-color: #0073ff;
 }
 .btn-secondary {
     color: #3B3B3C;
@@ -211,7 +211,7 @@ a:focus, a:hover {
     height: 24px;
 }
 .circle-notification {
-    background-color: #0052dd;
+    background-color: #0073ff;
     border-radius: 10px;
     width: 20px;
     color: white;
@@ -279,7 +279,7 @@ ul.notifications .list-notifications > .thumbnail-notification > img {
     opacity: 0.3;
 }
 .navBar-left li.active-li {
-    border-left: solid 5px #0052dd;
+    border-left: solid 5px #0073ff;
     border-bottom: solid 1px #808080;
 }
 .navBar-left li {
@@ -727,13 +727,13 @@ table.table-following-right tr:nth-child(odd) > td:nth-child(2) {
 }
 .modal-article section.stats p.titleSponsor {
     font-weight: 600;
-    color: #0569ef;
+    color: #0073ff;
     margin-top: 20px;
     margin-left: 20px;
 }
 .modal-article section.stats p.titleDonation {
     font-weight: 600;
-    color: #0569ef;
+    color: #0073ff;
     margin-left: 20px;
 }
 .modal-article section.stats button {
@@ -866,7 +866,7 @@ table.table-following-right tr:nth-child(odd) > td:nth-child(2) {
     margin-bottom: 0;
 }
 .page-wallet #send .titleAmount {
-    color: #1d74ff;
+    color: #0073ff;
 }
 .page-wallet #send .totalAmount {
     font-size: 22px;
@@ -1453,7 +1453,7 @@ label {
 }
 p.step-4-address-wallet {
     font-size: 16px;
-    color: #0569EF;
+    color: #0073ff;
 }
 .progress {
     height: 20px;
@@ -1601,6 +1601,29 @@ p.step-4-address-wallet {
 }
 .descriptionTooltipUser {
     font-size: 10px;color: #808080;
+}
+.row-alert-footer {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    bottom: -10px;
+    text-align: center;
+    color: white;
+}
+.container-alert-footer {
+    background-color: #0073ff;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 30px;
+    border-radius: 8px;
+}
+.close-alert-footer {
+    position: absolute;
+    right: -20px;
+    top: -40px;
+}
+.container-close-footer {
+    position: relative
 }
 @media only screen and (max-width: 1000px) {
     .amount-navbar {
