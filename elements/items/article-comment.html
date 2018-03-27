@@ -34,7 +34,7 @@
     <div class="col-md-10 col-sm-10" >
         <ul class="list-unstyled list-inline" v-on:click="onLoadUser(c.author)">
             <li><p v-bind:id="'comment-author-name' + c.txid" class="titleSecundary cursor">{{ c.name }}</p></li>
-            <li><img v-bind:id="'comment-author-level-icon' + c.txid" v-bind:src="getBuzz(c.user_likes, c.user_comments, c.publications).icon" alt=""></li>
+            <li><img v-bind:id="'comment-author-level-icon' + c.txid" v-bind:src="getBuzz(c.user_creation_date, c.user_likes, c.user_comments, c.publications).icon" alt=""></li>
             <li><span v-bind:id="'comment-date' + c.txid">{{ resolveDate(c.creation_date) }}</span></li>
         </ul>
         <span v-bind:id="'comment-text-' + c.txid">{{ c.comment }}</span>
