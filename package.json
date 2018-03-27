@@ -45,6 +45,7 @@
     "drag-drop": "^2.13.2",
     "electron-dl": "^1.10.0",
     "electron-is-dev": "^0.3.0",
+    "electron-windows-notifications": "^2.0.1",
     "file-size": "^1.0.0",
     "ipfs": "creativechain/js-ipfs",
     "lzma": "^2.3.2",
