@@ -1609,6 +1609,12 @@ p.step-4-address-wallet {
     bottom: -10px;
     text-align: center;
     color: white;
+    -webkit-transition: width 2s; /* Safari */
+    transition: width 2s;
+    height: 0;
+}
+.efect-alert-footer {
+    height: 70px !important;
 }
 .container-alert-footer {
     background-color: #0073ff;
