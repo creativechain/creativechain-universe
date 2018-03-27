@@ -74,7 +74,7 @@
                                             <p>{{ m.name || lang.Anonymous }}</p>
                                         </div>
                                         <div class="col-md-2 col-xs-2 box-level-owner">
-                                            <img v-bind:src="getBuzz(m.user_likes, m.user_comments, m.publications, m.user_followers).icon" alt="" class="img-responsive">
+                                            <img v-bind:src="getBuzz(m.user_creation_date, m.user_likes, m.user_comments, m.publications, m.user_followers).icon" alt="" class="img-responsive">
                                         </div>
                                     </div>
                                 </div>
