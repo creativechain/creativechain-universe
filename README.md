@@ -26,7 +26,7 @@ try install electron so use `sudo npm install -g electron --unsafe-perm=true --a
 
 * Uses [electron-packager](https://github.com/electron-userland/electron-packager) to compile
 
-## License
+## Software License
 
 ```
     GNU GPLv3
@@ -43,4 +43,26 @@ try install electron so use `sudo npm install -g electron --unsafe-perm=true --a
 
     You should have received a copy of the GNU General Public License
     along with Creativechain.  If not, see <http://www.gnu.org/licenses/gpl.html>.
+```
+
+## [Graphic Content License](https://creativecommons.org/licenses/by-sa/4.0/)
+
+```
+Creative Commmons License BY-SA
+
+Your are free to:
+
+    - Copy and redistribute the material in any medium or format.
+    - Remix, transform, and build upon the material for any purpose, even commercially. 
+    
+Under the follwing terms:
+
+    1 - Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+    You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+     
+    2 - ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under 
+    the same license as the original. 
+    
+    No additional restrictions — You may not apply legal terms or technological measures that legally restrict others 
+    from doing anything the license permits. 
 ```
