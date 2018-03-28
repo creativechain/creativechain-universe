@@ -107,6 +107,8 @@
   "SelectFile": "Select file",
   "Price": "Price",
   "License": "License",
+  "SoftwareLicense": "Software License",
+  "GraphicLicense": "Graphic License",
   "PublishProjectGo": "You are about to publish your project. Let's go!",
   "TransactionSend": "Relayed transaction",
   "TxSendMessage": "You are going to send %s.\n%s will be added as fee of transaction.\nTotal %s.\nDo you want to send this transaction?",

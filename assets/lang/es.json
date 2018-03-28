@@ -105,6 +105,8 @@
   "SelectFile": "Seleccionar archivo",
   "Price": "Precio",
   "License": "Licencia",
+  "SoftwareLicense": "Licencia de Software",
+  "GraphicLicense": "Licencia de Gráficos",
   "PublishProjectGo": "Estás a punto de publicar tu proyecto. Dále!",
   "TransactionSend": "Transacción retransmitida",
   "TxSendMessage": "Vas a enviar %s.\nSe añadirán %s como comisión de la transaccion.\nTotal %s.\nDeseas enviar esta transacción?",
