@@ -48,7 +48,7 @@ try install electron so use `sudo npm install -g electron --unsafe-perm=true --a
 ## [Graphic Content License](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ```
-Creative Commmons License BY-SA 4.0
+Creative Commons License BY-SA 4.0
 
 Your are free to:
 
