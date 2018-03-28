@@ -26,7 +26,9 @@ try install electron so use `sudo npm install -g electron --unsafe-perm=true --a
 
 * Uses [electron-packager](https://github.com/electron-userland/electron-packager) to compile
 
-## Software License
+## Licenses
+
+#### Software License
 
 ```
     GNU GPLv3
@@ -45,7 +47,7 @@ try install electron so use `sudo npm install -g electron --unsafe-perm=true --a
     along with Creativechain.  If not, see <http://www.gnu.org/licenses/gpl.html>.
 ```
 
-## [Graphic Content License](https://creativecommons.org/licenses/by-sa/4.0/)
+#### [Graphic Content License](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ```
 Creative Commons License BY-SA 4.0
