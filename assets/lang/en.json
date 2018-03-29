@@ -265,7 +265,7 @@
   "OnlyNonProfitOrg": "Only<br>Non-profit<br>Organization",
   "ActionCommission": "This action has a commission of %s.",
   "Register": "Register",
-  "LoadUserFile": "If you are a user, load your user-file here! (wallet.dat)",
+  "LoadUserFile": "If you had previously created a user, enter your backup (wallet.dat) to recover your profile and continue forward.",
   "ContentNotEncrypted": "The content can not be encrypted.",
   "SelectUserFile": "Select your user file",
   "FileLoadedCorrectly": "File %s loaded correctly!",
