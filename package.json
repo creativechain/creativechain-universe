@@ -1,6 +1,6 @@
 {
   "name": "creativechain-platform",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Creativechain is a blockchain project for the registration, authentication and distribution of digital free culture.",
   "main": "main.js",
   "scripts": {
