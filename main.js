@@ -41,7 +41,7 @@ global.ticker = {};
 
 function ticker() {
     console.log('Getting ticker...');
-    let settings = FileStorage.load(Constants.APP_CONF_FILE));
+    let settings = FileStorage.load(Constants.APP_CONF_FILE);
     let fiat = (settings.getKey('exchange-coin') || 'usd').toUpperCase();
     let url = Constants.TICKER_URL + fiat;
     let responseVar = 'price_' + fiat.toLowerCase();
