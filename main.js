@@ -14,18 +14,18 @@ global.appPath = __dirname;
 
 const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
 
-let fileStorage = FileStorage.load();
+let fileStorage = FileStorage.load(Constants.APP_CONF_FILE);
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let platformWindow;
 
 locale().then(lang => {
-    let settings = FileStorage.load();
+    let settings = FileStorage.load(Constants.APP_CONF_FILE);
     let content = null;
     lang = settings.getKey('language') || lang.slice(0, 2).toLowerCase();
     let langFile = Constants.LANG_FOLDER + lang + '.json';
     console.log(lang, langFile);
-    if (File.exist(langFile)) {0
+    if (File.exist(langFile)) {
         content = File.read(langFile);
     } else {
         content = File.read(Constants.LANG_FOLDER  + 'en.json');
