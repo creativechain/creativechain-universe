@@ -5,8 +5,8 @@
              v-on:click="onLoadUser(n.author)"></div>
     </div>
     <div class="row-list-notification-autor autor-notifications change-text">
-        <p v-bind:id="'notification-name-' + n.id" v-on:click="onLoadUser(n.author)" class="name cursor change-text">{{ n.data.name }}<span class="dateNotifications">{{ resolveDate(n.on_date) }}</span> </p>
-        <p v-bind:id="'notification-description-' + n.id" class="change-text" translate="yes">{{ n.description }}</p>
+        <p v-bind:id="'notification-name-' + n.id" v-on:click="onLoadUser(n.author)" class="name cursor change-text">{{ n.data.name || lang.Anonymous}}<span class="dateNotifications">{{ resolveDate(n.on_date) }}</span> </p>
+        <p v-bind:id="'notification-description-' + n.id" class="change-text" translate="yes">{{ n.description || '-' }}</p>
     </div>
     <div class="row-list-notification-options">
 
