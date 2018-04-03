@@ -14,7 +14,7 @@
             <p v-bind:id="'notif-profile-name-' + n.id">{{ n.data.name || lang.Anonymous }}<span v-bind:id="'notif-date-' + n.id">{{ resolveDate(n.on_date) }}</span></p>
             <p>
                 <img v-bind:id="'notif-icon-' + n.id" v-bind:src="n.icon" alt="">
-                <span v-bind:id="'notif-description-' + n.id">{{ n.description }}</span>
+                <span v-bind:id="'notif-description-' + n.id">{{ n.description || '-' }}</span>
             </p>
         </div>
     </div>
