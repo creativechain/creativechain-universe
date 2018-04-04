@@ -17,7 +17,16 @@ const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./li
 let fileStorage = FileStorage.load(Constants.APP_CONF_FILE);
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
+
+/**
+ * @type {BrowserWindow}
+ */
 let platformWindow;
+
+ipcMain.on('closedAllClients', function () {
+    console.log('All clients are closed');
+    platformWindow.destroy();
+});
 
 locale().then(lang => {
     let settings = FileStorage.load(Constants.APP_CONF_FILE);
