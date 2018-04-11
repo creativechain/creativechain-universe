@@ -1,6 +1,7 @@
 {
   "name": "creativechain-platform",
   "version": "1.0.3",
+  "buildVersion": "d6aed32",
   "description": "Creativechain is a blockchain project for the registration, authentication and distribution of digital free culture.",
   "main": "main.js",
   "scripts": {
@@ -8,9 +9,7 @@
     "start": "electron . --allow-file-access-from-files",
     "postinstall": "install-app-deps",
     "postinstall-win": "cd node_modules/sqlite3 && npm install nan && npm run prepublishOnly && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.8-win32-x64 && node-gyp rebuild --target=1.8.1 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.8-win32-x64",
-    "build-linux": "build -l --x64",
-    "build-win": "build -w --x64",
-    "build-mac": "build -m --x64"
+    "compile": "node build/compile.js"
   },
   "repository": {
     "type": "git",
@@ -31,7 +30,7 @@
     "name": "The Creativechain Developers",
     "email": "info@creativechain.org"
   },
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/creativechain/creativechain-universe/issues"
   },
@@ -64,47 +63,7 @@
   },
   "devDependencies": {
     "electron": "1.8.2",
-    "electron-builder": "^17.10.0"
-  },
-  "build": {
-    "appId": "net.creativechain.platform",
-    "productName": "Creativechain",
-    "directories": {
-      "app": "./"
-    },
-    "files": [
-      "**/*",
-      "!bin",
-      "!build",
-      "!build.js",
-      "!dist",
-      "!resources",
-      "!app.conf",
-      "!session.crea",
-      "!trantor.dat",
-      "!database/index.db",
-      "!database/index.db-journal",
-      "extra/dbmigrations/",
-      "extra/credentials.json",
-      "extra/credentials_prod.json",
-      "extra/index.db.sql"
-    ],
-    "mac": {
-      "category": "public.app-category.entertainment",
-      "icon": "build/mac/icon/icon.icns",
-      "type": "distribution",
-      "target": "dmg"
-    },
-    "win": {
-      "icon": "build/win/icon/icon.ico",
-      "target": "nsis"
-    },
-    "linux": {
-      "icon": "build/linux/icon/",
-      "synopsis": "A blockchain project for the registration, authentication and distribution of digital free culture.",
-      "category": "Utility",
-      "executableName": "creativechain",
-      "target": "deb"
-    }
+    "electron-builder": "^20.8.1",
+    "nodegit": "^0.22.0"
   }
 }
