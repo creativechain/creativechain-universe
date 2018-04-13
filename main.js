@@ -1,7 +1,6 @@
 const electron = require('electron');
 const {dialog, ipcMain, remote} = require('electron');
 
-require('electron-dl')();
 const path = require('path');
 const url = require('url');
 const request = require('request');
