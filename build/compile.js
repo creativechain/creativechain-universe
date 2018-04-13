@@ -49,6 +49,9 @@ function build(config, platform, callback) {
         if (callback) {
             callback();
         }
+
+        cleanBuildVersion();
+
     }).catch(function (err) {
         console.error('Compilation error', err);
     })
@@ -118,6 +121,20 @@ function compile() {
        }
 }
 
+function setBuildVersion() {
+    packageJson.buildVersion = COMMIT;
+    writePackage();
+}
+
+function cleanBuildVersion() {
+    packageJson.buildVersion = "";
+    writePackage();
+}
+
+function writePackage() {
+    File.write(PROJECT_DIR + 'package.json', JSON.stringify(packageJson, null, 2));
+}
+
 git.Repository.open(PROJECT_DIR)
     .then(function (repository) {
         repository.getHeadCommit()
@@ -152,9 +169,7 @@ git.Repository.open(PROJECT_DIR)
                                                     COMMIT = COMMIT.substring(0, 7);
                                                 }
 
-                                                packageJson.buildVersion = COMMIT;
-                                                //console.log(packageJson);
-                                                File.write(PROJECT_DIR + 'package.json', JSON.stringify(packageJson, null, 2));
+                                                setBuildVersion();
                                                 compile();
                                         });
                                     })
