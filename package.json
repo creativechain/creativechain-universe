@@ -42,13 +42,13 @@
     "buffer-reverse": "^1.0.1",
     "coinselect": "git://github.com/creativechain/coinselect.git",
     "csv-writer": "^1.0.0",
-    "drag-drop": "^2.13.2",
+    "drag-drop": "^2.14.0",
     "electron-is-dev": "^0.3.0",
     "file-size": "^1.0.0",
     "ipfs": "^0.28.2",
     "lzma": "^2.3.2",
     "mime-types": "^2.1.17",
-    "moment": "^2.19.4",
+    "moment": "^2.22.0",
     "open": "0.0.5",
     "os-locale": "^2.1.0",
     "path": "^0.12.7",
@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "electron": "1.8.2",
-    "electron-builder": "^20.8.1",
+    "electron-builder": "^20.8.2",
     "nodegit": "^0.22.0"
   }
 }

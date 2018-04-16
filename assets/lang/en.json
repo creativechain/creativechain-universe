@@ -284,6 +284,9 @@
   "InvalidAddress": "Invalid address",
   "Stopping": "Stopping...",
   "PleaseWait": "Please, wait...",
+  "Edition": "Edition",
+  "Publication": "Publication",
+  "PublishContent": "This content will cost you %s euros. Do you want to publish it anyway?",
 
 
 
