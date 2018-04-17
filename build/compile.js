@@ -54,6 +54,7 @@ function build(config, platform, callback) {
 
     }).catch(function (err) {
         console.error('Compilation error', err);
+        cleanBuildVersion();
     })
 }
 
