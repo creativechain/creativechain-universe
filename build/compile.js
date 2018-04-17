@@ -72,7 +72,6 @@ function compileMac() {
 }
 
 function compileWin() {
-    console.log('Compiling', tag, COMMIT, 'for Windows');
     let config = getBuildConfig();
     config.win = {
         artifactName: "Creativechain-" + tag + "-" + COMMIT + "-win.exe",
