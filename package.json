@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron . --allow-file-access-from-files",
+    "postinstall": "install-app-deps",
     "compile": "node build/compile.js"
   },
   "repository": {
