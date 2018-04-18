@@ -1,4 +1,6 @@
-let {OS, File} = require('../lib/trantor');
+let os = require('os');
+let fs = require('fs');
+
 let git = require('nodegit');
 let packageJson = require('../package.json');
 let semver = require('semver');
@@ -39,6 +41,31 @@ function getBuildConfig() {
     };
 }
 
+/**
+ *
+ * @param {string} platform
+ * @param {string} ext
+ * @return {string}
+ */
+function getArtifactName(platform, ext) {
+    let artifact = "Creativechain-" + tag;
+
+    if (COMMIT && COMMIT.length > 0) {
+        artifact += '-' + COMMIT;
+    }
+
+    artifact += '-' + platform;
+    artifact += '.' + ext;
+
+    return artifact;
+}
+
+/**
+ *
+ * @param {string} config
+ * @param {string} platform
+ * @param {function} callback
+ */
 function build(config, platform, callback) {
     console.log('Compiling', tag, COMMIT, 'for', platform);
     builder.build({
@@ -61,7 +88,7 @@ function compileMac() {
 
     let config = getBuildConfig();
     config.mac = {
-        artifactName: "Creativechain-" + tag + "-" + COMMIT + "-osx.dmg",
+        artifactName: getArtifactName('osx', 'dmg'),
         category: "public.app-category.entertainment",
         icon: PROJECT_DIR + "build/mac/icon/icon.icns",
         type: "distribution",
@@ -74,7 +101,7 @@ function compileMac() {
 function compileWin() {
     let config = getBuildConfig();
     config.win = {
-        artifactName: "Creativechain-" + tag + "-" + COMMIT + "-win.exe",
+        artifactName: getArtifactName('win', 'exe'),
         icon: PROJECT_DIR + "build/win/icon/icon.ico",
         target: "nsis"
     };
@@ -89,9 +116,10 @@ function compileLinux(generic = false) {
     }
 
     let config = getBuildConfig();
-    //config.artifactName = 'Creativechain-' + tag + '-' + COMMIT + '-linux' + (generic ? '-generic-' : '') + '.' + target,
+    let platform = generic ? 'linux-generic' : 'linux';
+
     config.linux = {
-        artifactName: 'Creativechain-' + tag + '-' + COMMIT + '-linux' + (generic ? '-generic-' : '') + '.' + target,
+        artifactName: getArtifactName(platform, target),
         synopsis: "A blockchain project for the registration, authentication and distribution of digital free culture.",
         category: "Utility",
         executableName: "creativechain",
@@ -109,11 +137,11 @@ function compileLinux(generic = false) {
 }
 
 function compile() {
-       if (OS.isMac()) {
+       if (os.platform().toLowerCase().includes('darwin')) {
            compileMac();
-       } else if (OS.isWindows()) {
+       } else if (os.platform().toLowerCase().includes('win32')) {
            compileWin();
-       } else if (OS.isLinux()) {
+       } else if (os.platform().toLowerCase().includes('linux')) {
            compileLinux()
        } else {
            throw "Platform not valid to compile!";
@@ -121,7 +149,7 @@ function compile() {
 }
 
 function setBuildVersion() {
-    packageJson.buildVersion = COMMIT;
+    packageJson.buildVersion = COMMIT ? COMMIT : '';
     writePackage();
 }
 
@@ -131,7 +159,7 @@ function cleanBuildVersion() {
 }
 
 function writePackage() {
-    File.write(PROJECT_DIR + 'package.json', JSON.stringify(packageJson, null, 2));
+    fs.writeFileSync(PROJECT_DIR + 'package.json', JSON.stringify(packageJson, null, 2));
 }
 
 git.Repository.open(PROJECT_DIR)
@@ -163,14 +191,14 @@ git.Repository.open(PROJECT_DIR)
                                         git.Commit.lookup(repository, ref2.id())
                                             .then(function (commit) {
                                                 if (commit.sha() === COMMIT) {
-                                                    COMMIT = '';
+                                                    COMMIT = null;
                                                 } else {
                                                     COMMIT = COMMIT.substring(0, 7);
                                                 }
 
                                                 setBuildVersion();
                                                 compile();
-                                        });
+                                            });
                                     })
                             });
                     })
