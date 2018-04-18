@@ -172,32 +172,34 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div v-if="article.author === userAddress" class="col-md-12">
-                                <button v-bind:id="'article-follow-' + article.address"
-                                        v-on:click="prepareArticleEdition(article.address)"
-                                        type="button" class="btn btn-primary btn-follow"
-                                        translate="yes">
-                                    {{ lang.Edit }}
-                                </button>
-                            </div>
-                            <div v-else class="col-md-12">
-                                <button v-if="!article.following" v-bind:id="'article-follow-' + article.address"
-                                        v-on:mouseenter="followButtonEnter('article-follow-' + article.address, article.author, article.following)"
-                                        v-on:mouseleave="followButtonLeave('article-follow-' + article.address, article.author, article.following)"
-                                        v-on:click="performFollow(article.author)"
-                                        type="button" class="btn btn-primary btn-follow"
-                                        translate="yes">
-                                    {{ lang.Follow }}
-                                </button>
-                                <button v-else v-bind:id="'article-follow-' + article.address"
-                                        v-on:mouseenter="followButtonEnter('article-follow-' + article.address, article.author, article.following)"
-                                        v-on:mouseleave="followButtonLeave('article-follow-' + article.address, article.author, article.following)"
-                                        v-on:click="performFollow(article.author)"
-                                        type="button" class="btn btn-therciary btn-following"
-                                        translate="yes">
-                                    {{ lang.Following }}
-                                </button>
-                            </div>
+                            <template>
+                                <div v-if="article.author === userAddress" class="col-md-12">
+                                    <button id="article-edit-button"
+                                            v-on:click="prepareArticleEdition(article.address)"
+                                            type="button" class="btn btn-primary btn-follow"
+                                            translate="yes">
+                                        {{ lang.Edit }}
+                                    </button>
+                                </div>
+                                <div v-else class="col-md-12">
+                                    <button v-if="!article.following" id="article-follow-button"
+                                            v-on:mouseenter="followButtonEnter('article-follow-button', article.author, article.following)"
+                                            v-on:mouseleave="followButtonLeave('article-follow-button', article.author, article.following)"
+                                            v-on:click="performFollow(article.author)"
+                                            type="button" class="btn btn-primary btn-follow"
+                                            translate="yes">
+                                        {{ lang.Follow }}
+                                    </button>
+                                    <button v-else id="article-follow-following-button"
+                                            v-on:mouseenter="followButtonEnter('article-follow-following-button', article.author, article.following)"
+                                            v-on:mouseleave="followButtonLeave('article-follow-following-button', article.author, article.following)"
+                                            v-on:click="performFollow(article.author)"
+                                            type="button" class="btn btn-therciary btn-following"
+                                            translate="yes">
+                                        {{ lang.Following }}
+                                    </button>
+                                </div>
+                            </template>
                         </div>
                         <div class="row">
 
