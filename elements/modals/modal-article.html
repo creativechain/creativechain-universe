@@ -11,6 +11,9 @@
                         </video>
                     </template>
                     <template v-else-if="article.content_type.indexOf('audio') > -1 && article.private_file">
+                        <img id="article-featured-image" v-bind:src="featuredImage.image" alt="" class="img-responsive"
+                             ondragstart="return false"
+                             v-bind:style="{ 'display': 'block', 'margin': 'auto', 'background-color': featuredImage.color }">
                         <audio id="article-audio" controls style="margin: auto; display: block">
                             <source v-bind:src="article.private_file" v-bind:type="article.content_type">
                         </audio>
