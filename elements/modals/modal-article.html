@@ -119,7 +119,7 @@
                                         <ul class="list-inline list-unstyled">
                                             <li v-on:click="blockContent(article.address)" class="cursor">
                                                 <img src="./assets/img/alert.jpg" alt="">
-                                                <p translate="yes">ReportContent</p>
+                                                <p translate="yes">{{ '(' + article.blocks + ') ' + lang.ReportContent }}</p>
                                             </li>
                                             <li v-on:click="blockContent(article.author)" class="cursor">
                                                 <img src="./assets/img/icon-block.jpg" alt="">
