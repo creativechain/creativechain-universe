@@ -1,5 +1,5 @@
 const electron = require('electron');
-const {dialog, ipcMain, remote} = require('electron');
+const {dialog, ipcMain, remote, BrowserWindow} = electron;
 
 const path = require('path');
 const url = require('url');
@@ -7,7 +7,6 @@ const request = require('request');
 const locale = require('os-locale');
 const isDev = require('electron-is-dev');
 const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
 
 global.appPath = __dirname;
 
