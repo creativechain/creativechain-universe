@@ -1,5 +1,5 @@
 const electron = require('electron');
-const {dialog, ipcMain, remote} = require('electron');
+const {dialog, ipcMain, remote, BrowserWindow} = electron;
 
 const path = require('path');
 const url = require('url');
@@ -7,13 +7,15 @@ const request = require('request');
 const locale = require('os-locale');
 const isDev = require('electron-is-dev');
 const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
 
 global.appPath = __dirname;
 
-const {Coin, File, OS, Constants, FileStorage, Network, Trantor} = require('./lib/trantor');
+const {File, FileStorage, OS, Monetary, Constants} = require('creativechain-platform-core');
+const {Coin} = Monetary;
 
-let fileStorage = FileStorage.load(Constants.APP_CONF_FILE);
+let constants = isDev ? Constants.TestnetConstants : Constants.MainnetConstants;
+
+let fileStorage = FileStorage.load(constants.APP_CONF_FILE);
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 
@@ -28,15 +30,16 @@ ipcMain.on('closedAllClients', function () {
 });
 
 locale().then(lang => {
-    let settings = FileStorage.load(Constants.APP_CONF_FILE);
+    let settings = FileStorage.load(constants.APP_CONF_FILE);
+    let langDir = constants.ASAR_DIR + '/assets/lang/';
     let content = null;
     lang = settings.getKey('language') || lang.slice(0, 2).toLowerCase();
-    let langFile = Constants.LANG_FOLDER + lang + '.json';
+    let langFile = langDir + lang + '.json';
     console.log(lang, langFile);
     if (File.exist(langFile)) {
         content = File.read(langFile);
     } else {
-        content = File.read(Constants.LANG_FOLDER  + 'en.json');
+        content = File.read(langDir + 'en.json');
     }
 
     //console.log(content)
@@ -49,9 +52,9 @@ global.ticker = {};
 
 function ticker() {
     console.log('Getting ticker...');
-    let settings = FileStorage.load(Constants.APP_CONF_FILE);
+    let settings = FileStorage.load(constants.APP_CONF_FILE);
     let fiat = (settings.getKey('exchange-coin') || 'usd').toUpperCase();
-    let url = Constants.TICKER_URL + fiat;
+    let url = 'https://api.coinmarketcap.com/v1/ticker/creativecoin/?convert=' + fiat;
     let responseVar = 'price_' + fiat.toLowerCase();
     request(url, function (error, response, body) {
         if (error) {
@@ -108,8 +111,11 @@ function createWindow () {
         slashes: true
     }));
 
+    let pjson = require('./package.json');
     // Open the DevTools.
-    //platformWindow.webContents.openDevTools();
+    if (isDev || pjson.buildVersion) {
+        platformWindow.webContents.openDevTools();
+    }
 
     ticker();
     // Emitted when the window is closed.
