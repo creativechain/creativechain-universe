@@ -49,7 +49,7 @@
     "path": "^0.12.7",
     "qrcode": "^0.9.0",
     "semver": "^5.5.0",
-    "trantor-js": "^0.3.4"
+    "trantor-js": "^0.3.6"
   },
   "devDependencies": {
     "electron": "1.8.2",
