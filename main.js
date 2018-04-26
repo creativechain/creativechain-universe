@@ -112,8 +112,11 @@ function createWindow () {
         slashes: true
     }));
 
+    let pjson = require('./package.json');
     // Open the DevTools.
-    platformWindow.webContents.openDevTools();
+    if (isDev || pjson.buildVersion) {
+        platformWindow.webContents.openDevTools();
+    }
 
     ticker();
     // Emitted when the window is closed.
