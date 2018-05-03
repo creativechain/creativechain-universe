@@ -60,33 +60,5 @@
     "electron": "1.8.2",
     "electron-builder": "^17.10.0",
     "nodegit": "^0.22.0"
-  },
-  "build": {
-    "appId": "net.creativechain.platform",
-    "productName": "Creativechain",
-    "directories": {
-      "app": "./"
-    },
-    "files": [
-      "**/*",
-      "!bin",
-      "!build",
-      "!build.js",
-      "!dist",
-      "!resources",
-      "!app.conf",
-      "!session.crea",
-      "!trantor.dat",
-      "!database/index.db",
-      "!database/index.db-journal",
-      "extra/dbmigrations/",
-      "extra/credentials.json",
-      "extra/credentials_prod.json",
-      "extra/index.db.sql"
-    ],
-    "win": {
-      "icon": "build/win/icon/icon.ico",
-      "target": "nsis"
-    }
   }
 }
