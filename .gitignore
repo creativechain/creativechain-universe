@@ -14,3 +14,4 @@ trantor.dat
 index.db-journal
 extra/credentials.json
 extra/credentials_prod.json
+package-lock.json
