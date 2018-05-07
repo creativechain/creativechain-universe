@@ -118,6 +118,11 @@ function createWindow () {
     }
 
     ticker();
+    platformWindow.on('close', function (e) {
+        console.log('Handled close event!');
+        e.preventDefault();
+        e.sender.send('stop-clients');
+    });
     // Emitted when the window is closed.
     platformWindow.on('closed', () => {
         // Dereference the window object, usually you would store windows
