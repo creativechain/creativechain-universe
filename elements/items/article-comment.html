@@ -2,7 +2,7 @@
     <hr>
 </div>
 <div class="row user-comment">
-    <div class="col-md-2 col-sm-2 cursor" v-on:click="onLoadUser(c.author)">
+    <div class="col-md-2 col-sm-2">
         <div class="">
             <div class="row-list-edit-avatare">
                 <div v-bind:id="'comment-author-avatar-' + c.txid"
@@ -10,25 +10,8 @@
                      v-on:click="onLoadUser(c.author)"
                      class="img-circle-comment img-center cursor avatare-1">
                 </div>
-<!--
-                <div id="comment-author-avatar"
-                     class="img-circle-comment img-center cursor avatare-1">
-                </div>-->
             </div>
         </div>
-
-        <!--
-        <tr>
-            <td>
-                <div v-bind:id="'comment-author-avatar-' + c.txid"
-                     v-bind:style="{ background: 'url(\'' + resolveAvatar(c.avatarFile, c.author) + '\') center center / cover' }"
-                     v-on:click="onLoadUser(c.author)"
-                     class="img-circle-comment avatare-1 cursor">
-                </div>
-            </td>
-
-        </tr>
-        -->
 
     </div>
     <div class="col-md-10 col-sm-10" >
