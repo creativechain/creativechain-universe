@@ -10,21 +10,31 @@
     </div>
     <div class="row-list-notification-options">
 
-        <button v-if="!n.isFollowing" v-bind:id="'notification-button-' + n.id"
-                v-on:mouseenter="followButtonEnter('notification-button-' + n.id, n.author, n.isFollowing)"
-                v-on:mouseleave="followButtonLeave('notification-button-' + n.id, n.author, n.isFollowing)"
-                v-on:click="performFollow(n.author)"
-                type="button" class="btn btn-primary btn-follow"
-                translate="yes">
-            {{ lang.Follow }}
-        </button>
-        <button v-else v-bind:id="'notification-button-following-' + n.id"
-                v-on:mouseenter="followButtonEnter('notification-button-following-' + n.id, n.author, n.isFollowing)"
-                v-on:mouseleave="followButtonLeave('notification-button-following-' + n.id, n.author, n.isFollowing)"
-                v-on:click="performFollow(n.author)"
-                type="button" class="btn btn-therciary btn-following"
-                translate="yes">
-            {{ lang.Following }}
-        </button>
+        <template v-if="n.type === 3 || n.type === 4 || n.type === 16">
+            <div class="row-list-notification-options">
+                <div class="img-circle-following img-center cursor"
+                     v-on:click="showArticle(n.resource)"
+                     v-bind:style="{ 'background': 'url(\'' + n.mediaIcon.image + '\') center center / cover', 'width': '115px', 'border-radius': '5px', 'background-color': n.mediaIcon.color}"></div>
+            </div>
+        </template>
+        <template v-else>
+            <button v-if="!n.isFollowing" v-bind:id="'notification-button-' + n.id"
+                    v-on:mouseenter="followButtonEnter('notification-button-' + n.id, n.author, n.isFollowing)"
+                    v-on:mouseleave="followButtonLeave('notification-button-' + n.id, n.author, n.isFollowing)"
+                    v-on:click="performFollow(n.author)"
+                    type="button" class="btn btn-primary btn-follow"
+                    translate="yes">
+                {{ lang.Follow }}
+            </button>
+            <button v-else v-bind:id="'notification-button-following-' + n.id"
+                    v-on:mouseenter="followButtonEnter('notification-button-following-' + n.id, n.author, n.isFollowing)"
+                    v-on:mouseleave="followButtonLeave('notification-button-following-' + n.id, n.author, n.isFollowing)"
+                    v-on:click="performFollow(n.author)"
+                    type="button" class="btn btn-therciary btn-following"
+                    translate="yes">
+                {{ lang.Following }}
+            </button>
+        </template>
+
     </div>
 </div>

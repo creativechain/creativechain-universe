@@ -123,7 +123,10 @@
                                         <div class="row">
                                             <div class="col-xs-12 text-center">
                                                 <p class="titleTooltipUser">
-                                                    <strong class="cursor">{{ m.name || lang.Anonymous }}</strong></p>
+                                                    <strong class="cursor" v-bind:onclick="'onLoadUser(\'' + m.author + '\')'">
+                                                        {{ m.name || lang.Anonymous }}
+                                                    </strong>
+                                                </p>
                                                 <p class="webTooltipUser">
                                                     {{ m.web || '-' }}
                                                 </p>
