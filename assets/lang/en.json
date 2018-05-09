@@ -288,6 +288,9 @@
   "Edition": "Edition",
   "Publication": "Publication",
   "PublishContent": "This content will cost you %s. Do you want to publish it anyway?",
+  "Reports": "Reports",
+  "HidePublicationsWithReports" : "Hide publications automatically with a report number greater than",
+
 
 
 

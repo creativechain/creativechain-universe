@@ -286,7 +286,8 @@
   "Edition": "Edición",
   "Publication": "Publicación",
   "PublishContent": "Este contenido te costará %s. ¿Quieres publicarlo de todas formas?",
-
+  "Reports": "Reportes",
+  "HidePublicationsWithReports" : "Ocultar publicaciones automáticamente con un número reportes superior a",
 
 
 
