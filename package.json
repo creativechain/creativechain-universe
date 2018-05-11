@@ -46,6 +46,7 @@
     "level-js": "github:timkuijsten/level.js#idbunwrapper",
     "mime-types": "^2.1.17",
     "moment": "^2.22.1",
+    "mousetrap": "^1.6.1",
     "multiplex": "github:dignifiedquire/multiplex",
     "open": "0.0.5",
     "os-locale": "^2.1.0",
