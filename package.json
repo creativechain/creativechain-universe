@@ -53,7 +53,7 @@
     "path": "^0.12.7",
     "qrcode": "^0.9.0",
     "semver": "^5.5.0",
-    "trantor-js": "^0.3.6",
+    "trantor-js": "^0.4.4",
     "webcrypto-shim": "github:dignifiedquire/webcrypto-shim#master",
     "webrtcsupport": "github:ipfs/webrtcsupport"
   },

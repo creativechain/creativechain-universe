@@ -1,0 +1,38 @@
+<div class="row-list-notification">
+    <template v-if="f.isUser">
+        <div class="row-list-notification-avatare">
+            <div v-bind:style="{ 'background': 'url(\'' + f.avatarFile + '\') center center / cover', 'width': '115px', 'border-radius': '5px' }"
+                 v-on:click="loadProfileData(f.followed_address, f.followed_address === userAddress)"
+                 class="img-circle-following img-center cursor"></div>
+        </div>
+
+        <div class="row-list-notification-autor autor-notifications change-text">
+            <p v-on:click="loadProfileData(f.followed_address, f.followed_address === userAddress)"
+               class="name cursor change-text">{{ f.data.name || lang.Anonymous }}</p>
+            <p v-on:click="loadProfileData(f.followed_address, f.followed_address === userAddress)"
+               class="change-text" translate="yes">{{ f.data.description || '-' }}</p>
+        </div>
+    </template>
+
+    <template v-else>
+        <div class="row-list-notification-avatare">
+            <div v-bind:style="{ 'background': 'url(\'' + f.mediaIcon.image + '\') center center / cover', 'width': '115px', 'border-radius': '5px', 'background-color': f.mediaIcon.color}"
+                 v-on:click="showArticle(f.followed_address)"
+                 class="img-circle-following img-center cursor"></div>
+        </div>
+
+        <div class="row-list-notification-autor autor-notifications change-text">
+            <p v-on:click="showArticle(f.followed_address)"
+               class="name cursor change-text">{{ f.data.title || '-' }}</p>
+            <p v-on:click="showArticle(f.followed_address)"
+               class="change-text" translate="yes">{{ f.data.description || '-' }}</p>
+        </div>
+    </template>
+    <div class="row-list-notification-options">
+        <button v-on:click="unblockContent(f.followed_address)"
+                type="button" class="btn btn-primary btn-follow"
+                translate="yes">
+            {{ lang.Unlock}}
+        </button>
+    </div>
+</div>
