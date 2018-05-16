@@ -82,6 +82,7 @@
                     <li><a id="ui-profile-filter-followers" href="" onclick="return showProfileView('#ui-profile-followers', '#ui-profile-filter-followers')" translate="yes">Followers</a></li>
                     <li><a id="ui-profile-filter-followings" href="" onclick="return showProfileView('#ui-profile-followings', '#ui-profile-filter-followings')" translate="yes">Following</a></li>
                     <li><a id="ui-profile-filter-notifications" href="" onclick="return showNotificationsView()" translate="yes">Notifications</a> </li>
+                    <li><a id="ui-profile-filter-blockeds" href="" onclick="return showBlockedsView()" translate="yes">Blockeds</a> </li>
                 </ul>
             </div>
         </div>
@@ -178,6 +179,25 @@
                 </div>
             </div>
 
+            <div id="ui-user-blockeds" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3 hidden">
+                <div class="row placeholders">
+                    <div class="col-md-12">
+                        <p translate="yes">Blockeds</p>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="blockeds-list" class="card" style="padding: 10px 20px 20px 20px;">
+                            <span v-if="blockeds.length === 0" translate="yes">NoBlockeds</span>
+                            <div v-else>
+                                <template v-for="f in blockeds" w3-include-html="./elements/items/blocked-item.html">
+
+                                </template>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="ui-profile-edit" w3-include-html="./elements/views/ui-profile-edit.html" class="col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-3 hidden" >
 
             </div>
@@ -250,6 +270,7 @@
 <script language="javascript" src="lib/translation.js" type="text/javascript"></script>
 <script language="javascript" src="lib/top-menu.js" type="text/javascript"></script>
 <script language="javascript" src="lib/notifications.js" type="text/javascript"></script>
+<script language="javascript" src="lib/blockeds.js" type="text/javascript"></script>
 <script language="javascript" src="lib/publication.js" type="text/javascript"></script>
 <script language="javascript" src="lib/platform.js" type="text/javascript"></script>
 <script language="javascript" src="lib/wallet.js" type="text/javascript"></script>

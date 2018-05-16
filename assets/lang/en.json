@@ -44,6 +44,7 @@
   "EditProfile": "EditProfile",
   "Likes": "Likes",
   "Comments": "Comments",
+  "Publications": "Publications",
   "MainCreativecoinAddress": "Main Creativecoin address",
   "Tags": "Tags",
   "Donate": "Donate",
@@ -290,6 +291,11 @@
   "PublishContent": "This content will cost you %s. Do you want to publish it anyway?",
   "Reports": "Reports",
   "HidePublicationsWithReports" : "Hide publications automatically with a report number greater than",
+  "Unlock": "Unlock",
+  "Blockeds": "Blockeds",
+  "NoBlockeds": "You have no users or blocked posts.",
+  "UnlockedContent": "Unlocked content",
+  "LoadingContent": "Loading content...",
 
 
 

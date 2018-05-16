@@ -44,6 +44,7 @@
   "EditProfile": "Editar perfil",
   "Likes": "Me gusta",
   "Comments": "Comentarios",
+  "Publications": "Publicaciones",
   "MainCreativecoinAddress": "Dirección Creativecoin Principal",
   "Tags": "Etiquetas",
   "Donate": "Donar",
@@ -288,6 +289,11 @@
   "PublishContent": "Este contenido te costará %s. ¿Quieres publicarlo de todas formas?",
   "Reports": "Reportes",
   "HidePublicationsWithReports" : "Ocultar publicaciones automáticamente con un número reportes superior a",
+  "Unlock": "Desbloquear",
+  "Blockeds": "Bloqueados",
+  "NoBlockeds": "No tienes usuarios ni publicaciones bloqueadas.",
+  "UnlockedContent": "Contenido desbloqueado",
+  "LoadingContent": "Cargando contenido...",
 
 
 
