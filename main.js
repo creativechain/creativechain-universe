@@ -13,7 +13,7 @@ global.appPath = __dirname;
 const {File, FileStorage, OS, Monetary, Constants} = require('creativechain-platform-core');
 const {Coin} = Monetary;
 
-let constants = isDev ? Constants.TestnetConstants : Constants.MainnetConstants;
+let constants = Constants.MainnetConstants;
 
 let fileStorage = FileStorage.load(constants.APP_CONF_FILE);
 // Keep a global reference of the window object, if you don't, the window will
