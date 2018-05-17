@@ -114,7 +114,7 @@ function createWindow () {
     let pjson = require('./package.json');
     // Open the DevTools.
     if (isDev || pjson.buildVersion) {
-        platformWindow.webContents.openDevTools();
+        //platformWindow.webContents.openDevTools();
     }
 
     ticker();
