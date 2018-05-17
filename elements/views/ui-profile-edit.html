@@ -26,28 +26,28 @@
             </div>-->
             <div class="form-group">
                 <label translate="yes">Username</label>
-                <input id="input-user-name" type="text" v-model="profile.name" class="form-control" maxlength="21"
+                <input id="input-user-name" type="text" v-model="profile.name" class="form-control mousetrap" maxlength="21"
                        placeholder="WriteYourNickName" translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Description</label>
-                <input id="input-user-description" type="text" v-model="profile.description" class="form-control" maxlength="144"
+                <input id="input-user-description" type="text" v-model="profile.description" class="form-control mousetrap" maxlength="144"
 
                        placeholder="WriteUserDescription" translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Email</label>
-                <input id="input-user-email" type="email" v-model="profile.email" class="form-control" maxlength="55" placeholder="AddYourEmail"
+                <input id="input-user-email" type="email" v-model="profile.email" class="form-control mousetrap" maxlength="55" placeholder="AddYourEmail"
                        translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Web</label>
-                <input id="input-user-web" type="text" v-model="profile.web" class="form-control" maxlength="55" placeholder="AddYourWeb"
+                <input id="input-user-web" type="text" v-model="profile.web" class="form-control mousetrap" maxlength="55" placeholder="AddYourWeb"
                        translate="yes">
             </div>
             <div class="form-group">
                 <label translate="yes">Tags</label>
-                <input translate="yes" placeholder="InsertUserTags" v-model="tagsText" v-on:keyup="parseTags" id="input-user-tags" data-options='{"maxTags": 8, "maxChars": 21}' class="form-control">
+                <input translate="yes" placeholder="InsertUserTags" v-model="tagsText" v-on:keyup="parseTags" id="input-user-tags" data-options='{"maxTags": 8, "maxChars": 21}' class="form-control mousetrap">
             </div>
             <div id="input-user-tags-list" class="form-group">
                 <template v-for="t in profile.tags">
