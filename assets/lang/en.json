@@ -119,7 +119,7 @@
   "Information": "Information",
   "TypeTitle": "Type a title",
   "TypeDescription": "Type a description",
-  "TypeTags": "Type the project related tags (max. 5 Tags)",
+  "TypeTags": "Type the project related tags (max. 8 Tags)",
   "Start": "Start",
   "EncryptWalletAlert": "Please enter a password to encrypt your wallet.",
   "Backup": "Backup",
