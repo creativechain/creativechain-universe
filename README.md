@@ -9,22 +9,18 @@
 * `nvm install v8.9.0` - Use node v8.9.0 to compile.
 * `sudo npm install -g electron` - Install electron globally so you can use it from command-line. If you have an issue when you
 try install electron so use `sudo npm install -g electron --unsafe-perm=true --allow-root`.
-* `npm install` - You may need to remove npm_modules folder first.
+* `./update.sh` or `update.bat` - Install app dependencies.
 
 
 ###### Launch app DEV
 * Launch dev app:  `<app_path>$ electron .`
-* More documentation of electron [here](https://github.com/electron/electron)
+* More documentation of electron [here](https://github.com/electron/electron).
 
 ###### Compile app
-* Linux:
-    `npm run build-linux`.
-* Windows:
-    `npm run build-win`.
-* Mac OS X:
-    `npm run build-mac`.
 
-* Uses [electron-packager](https://github.com/electron-userland/electron-packager) to compile
+`npm run compile`.
+
+* Uses [electron-builder](https://github.com/electron-userland/electron-builder) to compile.
 
 ## Licenses
 

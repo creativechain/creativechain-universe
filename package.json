@@ -8,8 +8,7 @@
     "test": "node build/test.js",
     "start": "electron . --allow-file-access-from-files",
     "postinstall": "install-app-deps",
-    "compile": "node build/compile.js",
-    "build-win": "build -w --x64"
+    "compile": "node build/compile.js"
   },
   "repository": {
     "type": "git",
