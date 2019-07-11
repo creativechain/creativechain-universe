@@ -2,6 +2,9 @@
 
 ## UNIVERSE
 
+### DISCONTINUED
+This project is discontinued. See [Creary Project](https://www.github.com/creativechain/crea2-web)
+
 #### Dev
 
 ###### Install
